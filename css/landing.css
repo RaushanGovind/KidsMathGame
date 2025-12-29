@@ -1,0 +1,223 @@
+/* =========================================================
+   LANDING PAGE STYLES
+========================================================= */
+
+.landing-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    overflow: hidden;
+}
+
+.landing-content {
+    text-align: center;
+    color: white;
+    animation: fadeInUp 1s ease-out;
+}
+
+.landing-title {
+    font-size: 72px;
+    font-weight: bold;
+    margin: 0 0 20px 0;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(45deg, #FFD700, #FFA500, #FFD700);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 3s infinite;
+}
+
+.landing-subtitle {
+    font-size: 28px;
+    margin: 0 0 50px 0;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.landing-icons {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+
+.math-icon {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 20px 30px;
+    font-size: 48px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    animation: float 3s ease-in-out infinite;
+}
+
+.math-icon:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.math-icon:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.math-icon:nth-child(3) {
+    animation-delay: 1s;
+}
+
+.math-icon:nth-child(4) {
+    animation-delay: 1.5s;
+}
+
+.start-button {
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    color: #333;
+    font-size: 28px;
+    font-weight: bold;
+    padding: 20px 60px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(255, 165, 0, 0.4);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.start-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 32px rgba(255, 165, 0, 0.6);
+    background: linear-gradient(135deg, #FFA500, #FFD700);
+}
+
+.start-button:active {
+    transform: translateY(-2px);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shimmer {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Decorative elements */
+.landing-page::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: moveBackground 20s linear infinite;
+    pointer-events: none;
+    /* Don't block clicks! */
+}
+
+.landing-content {
+    position: relative;
+    z-index: 10;
+    /* Above background */
+}
+
+.start-button {
+    position: relative;
+    z-index: 100;
+    /* Highest - ensure it's clickable */
+    cursor: pointer;
+}
+
+@keyframes moveBackground {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(50px, 50px);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .landing-title {
+        font-size: 48px;
+    }
+
+    .landing-subtitle {
+        font-size: 20px;
+    }
+
+    .start-button {
+        font-size: 20px;
+        padding: 15px 40px;
+    }
+
+    .math-icon {
+        font-size: 36px;
+        padding: 15px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .landing-title {
+        font-size: 36px;
+    }
+
+    .landing-subtitle {
+        font-size: 18px;
+        padding: 0 20px;
+    }
+
+    .start-button {
+        font-size: 18px;
+        padding: 12px 30px;
+    }
+
+    .landing-icons {
+        gap: 15px;
+    }
+
+    .math-icon {
+        font-size: 28px;
+        padding: 10px 15px;
+    }
+}

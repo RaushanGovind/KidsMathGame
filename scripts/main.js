@@ -72,13 +72,62 @@ window.onload = function () {
         console.error("✗ setupMenuControls() failed:", e);
     }
 
-    try {
-        // Initialize addition mode on startup (sets up handlers and opens popup)
-        switchToAddition();
-        console.log("✓ switchToAddition() completed");
-    } catch (e) {
-        console.error("✗ switchToAddition() failed:", e);
+    // Setup landing page start button
+    const startButton = document.getElementById("startButton");
+    console.log("Looking for start button...", startButton);
+
+    if (startButton) {
+        startButton.addEventListener("click", function () {
+            console.log("👆 Button click detected!");
+            window.hideLandingPage();
+        });
+
+        // Also make it work with onclick
+        startButton.onclick = function () {
+            console.log("👆 Button onclick triggered!");
+            window.hideLandingPage();
+        };
+
+        console.log("✓ Start button event listeners attached");
+    } else {
+        console.error("❌ Start button not found!");
     }
 
+    // Don't auto-start - show landing page first
+    // User clicks "Start Learning" button to begin
+    console.log("=== Landing Page Displayed ===");
     console.log("=== App Initialization Completed ===");
+};
+
+/**
+ * Hide landing page and start the game
+ */
+window.hideLandingPage = function () {
+    console.log("🚀 Start button clicked!");
+
+    const landing = document.getElementById("landingPage");
+
+    if (!landing) {
+        console.error("❌ Landing page element not found!");
+        return;
+    }
+
+    console.log("✅ Landing page found, starting fade out...");
+
+    // Fade out animation
+    landing.style.opacity = "0";
+    landing.style.transition = "opacity 0.5s ease";
+
+    setTimeout(() => {
+        landing.style.display = "none";
+        console.log("✅ Landing page hidden");
+
+        // Show menu popup so user can choose which mode to practice
+        try {
+            openMenuPopup();
+            console.log("✓ Menu popup opened");
+        } catch (e) {
+            console.error("✗ openMenuPopup() failed:", e);
+        }
+    }, 500);
 };
