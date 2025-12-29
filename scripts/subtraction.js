@@ -20,19 +20,40 @@ function setupSubPopupControls() {
 
   document.getElementById("subCancel").onclick = closeSubPopup;
 
-  document.getElementById("subBorrowMode").onchange = e =>
+  document.getElementById("subBorrowMode").onchange = e => {
     subSettings.borrow = e.target.value;
-
-  document.getElementById("subDigitCount").onchange = e =>
-    subSettings.digits = Number(e.target.value);
-
-  document.getElementById("subRowCount").onchange = e =>
-    subSettings.rows = Number(e.target.value);
-
-  document.getElementById("subApply").onclick = () => {
-    closeSubPopup();
-    generateSubQuestion();
+    console.log("Borrow mode changed to:", subSettings.borrow);
   };
+
+  // Handle quick selection buttons
+  const quickSelectBtns = document.querySelectorAll(".sub-select-btn");
+
+  quickSelectBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      // Remove selected class from all buttons
+      quickSelectBtns.forEach(b => b.classList.remove("selected"));
+
+      // Add selected class to clicked button
+      btn.classList.add("selected");
+
+      // Get digits from data attribute
+      const digits = parseInt(btn.dataset.digits);
+
+      // Read borrow mode from dropdown at this moment
+      const borrowDropdown = document.getElementById("subBorrowMode");
+      subSettings.borrow = borrowDropdown.value;
+
+      // Update settings (rows always 2 for subtraction)
+      subSettings.digits = digits;
+      subSettings.rows = 2;  // Always 2 for subtraction!
+
+      console.log("Generating subtraction with settings:", subSettings);
+
+      // Close popup and generate new question
+      closeSubPopup();
+      generateSubQuestion();
+    });
+  });
 }
 
 
@@ -69,6 +90,7 @@ function renderSubColumns() {
 
   const len = subSettings.digits;
 
+  // Show leading zero on second row (with minus sign) for alignment
   const d1 = splitDigitsAligned(subNum1, len);
   const d2 = splitDigitsAligned(subNum2, len);
 
@@ -78,13 +100,15 @@ function renderSubColumns() {
     col.className = "col";
 
     // leftmost column → show minus sign
-    const bottom = (i === 0)
-      ? `-${d2[i]}`
-      : d2[i];
+    const prefix = (i === 0) ? "-" : "";
 
-    // Only show borrow box if borrow mode is enabled
-    const borrowBox = subSettings.borrow === "yes"
-      ? `<input class="carry-input" maxlength="1">`
+    // Show second number with leading zeros for alignment (like addition)
+    const bottomDigit = d2[i] || "0";  // Show "0" even if it's leading
+
+    // Only show borrow box if borrow mode enabled AND not rightmost column
+    const isOnesColumn = (i === len - 1);
+    const borrowBox = (subSettings.borrow === "yes" && !isOnesColumn)
+      ? `<input class="carry-input" maxlength="1" inputmode="numeric" pattern="[0-9]*">`
       : `<div class="carry-placeholder"></div>`;
 
     col.innerHTML = `
@@ -95,17 +119,19 @@ function renderSubColumns() {
       <div class="num1">${d1[i]}</div>
 
       <!-- Bottom number with - on first column -->
-      <div class="num2">${bottom}</div>
-
-      <!-- Horizontal line before answer -->
-      <div class="answer-line"></div>
+      <div class="num2">${prefix}${bottomDigit}</div>
 
       <!-- Answer digit -->
-      <input class="answer-input" maxlength="1" data-pos="${i}">
+      <input class="answer-input" maxlength="1" data-pos="${i}" inputmode="numeric" pattern="[0-9]*">
     `;
 
     colBox.appendChild(col);
   }
+
+  // Add single continuous line above all answer boxes
+  const lineDiv = document.createElement("div");
+  lineDiv.className = "continuous-answer-line";
+  colBox.appendChild(lineDiv);
 }
 
 

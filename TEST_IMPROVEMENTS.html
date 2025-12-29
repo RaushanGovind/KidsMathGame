@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Addition Improvements - Test Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .test-section {
+            background: white;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #34495e;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            padding: 12px;
+            margin: 8px 0;
+            background: #ecf0f1;
+            border-left: 4px solid #3498db;
+            border-radius: 5px;
+        }
+
+        .feature-list li:before {
+            content: "✓ ";
+            color: #27ae60;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .color-demo {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .color-bubble {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin: 0 auto;
+            border: 3px solid;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .color-bubble:hover {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .color-label {
+            text-align: center;
+            margin-top: 8px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .btn-demo {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .demo-btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            color: white;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .demo-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .toggle-btn {
+            background: linear-gradient(135deg, #2196F3, #0b7dda);
+        }
+
+        .reset-btn {
+            background: linear-gradient(135deg, #FF6B6B, #EE5A6F);
+        }
+
+        .quick-btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .status-box {
+            background: linear-gradient(135deg, #FFD93D, #FFC107);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🎉 Addition Section Improvements - Test Demo</h1>
+
+    <div class="test-section">
+        <h2>✅ Features Implemented</h2>
+        <ul class="feature-list">
+            <li>Rainbow-colored bubbles with 10 unique gradient colors</li>
+            <li>Reset Bubbles button to clear all selections</li>
+            <li>Quick selection buttons (1×2, 2×2, 3×2, 2×3, 3×3, 1×3)</li>
+            <li>Simplified popup with only Carry Mode selector</li>
+            <li>Bouncing animation when bubbles are selected</li>
+            <li>Hover effects with scale and rotation</li>
+            <li>Responsive design for all screen sizes</li>
+            <li>Vibrant gradient backgrounds and shadows</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h2>🌈 Rainbow Color Palette (10 Colors)</h2>
+        <div class="color-demo">
+            <div>
+                <div class="color-bubble"
+                    style="background: linear-gradient(135deg, #FF6B6B, #EE5A6F); border-color: #FF4757;"></div>
+                <div class="color-label">Red</div>
+            </div>
+            <div>
+                <div class="color-bubble"
+                    style="background: linear-gradient(135deg, #FFA07A, #FF7F50); border-color: #FF6347;"></div>
+                <div class="color-label">Orange</div>
+            </div>
+            <div>
+                <div class="color-bubble"
+                    style="background: linear-gradient(135deg, #FFD93D, #FFC107); border-color: #FFB300;"></div>
+                <div class="color-label">Yellow</div>
+            </div>
+            <div>
+                <div class="color-bubble"
+                    style="background: linear-gradient(135deg, #6BCF7F, #4CAF50); border-color: #45a049;"></div>
+                <div class="color-label">Green</div>
+            </div>
+            <div>
+                <div class="color-bubble"
+                    style="background: linear-gradient(135deg, #4ECDC4, #3BB5AC); border-color: #2FA39A;"></div>
+                <div class="color-label">Cyan</div>
+            </div>
+            <div>
+                <div class="color-bubble"
+                    style="background: linear-gradient(135deg, #5DADE2, #3498DB); border-color: #2E86C1;"></div>
+                <div class="color-label">Blue</div>
+            </div>
+            <div>
+                <div class="color-bubble"
+                    style="background: linear-gradient(135deg, #A29BFE, #6C5CE7); border-color: #5F4FCE;"></div>
+                <div class="color-label">Purple</div>
+            </div>
+            <div>
+                <div class="color-bubble"
+                    style="background: linear-gradient(135deg, #E17FFF, #C56CF0); border-color: #B24FD8;"></div>
+                <div class="color-label">Violet</div>
+            </div>
+            <div>
+                <div class="color-bubble"
+                    style="background: linear-gradient(135deg, #FF85C0, #FF6BA9); border-color: #FF4D94;"></div>
+                <div class="color-label">Pink</div>
+            </div>
+            <div>
+                <div class="color-bubble"
+                    style="background: linear-gradient(135deg, #FF9999, #FF7777); border-color: #FF5555;"></div>
+                <div class="color-label">Rose</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>🎮 Button Styles Demo</h2>
+        <div class="btn-demo">
+            <button class="demo-btn toggle-btn">Hide Bubbles</button>
+            <button class="demo-btn reset-btn">Reset Bubbles</button>
+            <button class="demo-btn quick-btn">1 × 2</button>
+            <button class="demo-btn quick-btn">2 × 2</button>
+            <button class="demo-btn quick-btn">3 × 2</button>
+            <button class="demo-btn quick-btn">2 × 3</button>
+            <button class="demo-btn quick-btn">3 × 3</button>
+        </div>
+
+        <div class="status-box">
+            Selected Bubbles: 0
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>📋 Testing Checklist</h2>
+        <ul class="feature-list">
+            <li>Open index.html in your browser</li>
+            <li>Click on bubbles to see rainbow colors</li>
+            <li>Verify each bubble gets a different color</li>
+            <li>Click "Reset Bubbles" to clear all selections</li>
+            <li>Click "☰ Menu" then "➕ Addition"</li>
+            <li>Verify quick selection buttons are visible</li>
+            <li>Click a button (e.g., "2 × 2") and see it turn green</li>
+            <li>Verify the game starts with correct settings</li>
+            <li>Test on mobile/tablet (resize browser window)</li>
+            <li>Verify hover effects work on all buttons</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h2>🎯 Quick Start Guide</h2>
+        <ol style="padding-left: 20px; line-height: 2;">
+            <li><strong>Open the Game:</strong> Double-click on <code>index.html</code></li>
+            <li><strong>Use Bubble Matrix:</strong> Click bubbles to select (watch colorful animations!)</li>
+            <li><strong>Reset Bubbles:</strong> Click the red "Reset Bubbles" button</li>
+            <li><strong>Choose Addition Type:</strong> Click Menu → Addition → Select a button (e.g., "2 × 2")</li>
+            <li><strong>Practice Math:</strong> Solve the problems and check your answers!</li>
+        </ol>
+    </div>
+
+</body>
+
+</html>

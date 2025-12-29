@@ -4,7 +4,6 @@
 
 let num1, num2;
 let additionRows = []; // Store all numbers for multi-row addition
-const maxDigits = 3;   // fixed 3-column layout (Hundreds Tens Ones)
 
 // Bubble matrix state
 let bubbleMatrixVisible = true;
@@ -17,16 +16,17 @@ const BUBBLE_COLS = 10;
  * Convert number into equal-length digit array
  * while keeping alignment correct
  */
-function splitDigits(n, length) {
+function splitDigits(n, length, hideLeadingZero = true) {
 
     // pad with zeros to preserve column width
     const digits = String(n).padStart(length, "0").split("");
 
-    // hide ONLY the first leading zero visually
+    // hide ONLY the first leading zero visually (unless hideLeadingZero is false)
     return digits.map((d, i) =>
-        (i === 0 && d === "0") ? "" : d
+        (i === 0 && d === "0" && hideLeadingZero) ? "" : d
     );
 }
+
 
 
 
@@ -38,21 +38,33 @@ function renderAdditionColumns() {
     const container = document.getElementById("additionColumns");
     container.innerHTML = "";
 
-    // always show 3 columns (Units / Tens / Hundreds)
-    const len = maxDigits;
+    // Calculate the sum to determine how many columns we need
+    const sum = additionRows.reduce((acc, num) => acc + num, 0);
+    const sumDigits = String(sum).length;
+
+    // Use the maximum of: input digits OR sum digits (to handle carry overflow)
+    const len = Math.max(additionSettings.digits, sumDigits);
+
+    console.log(`Rendering ${len} columns (input digits: ${additionSettings.digits}, sum: ${sum}, sum digits: ${sumDigits})`);
 
     // Get all numbers to display based on row count
     const rowCount = additionSettings.rows;
-    const allDigits = additionRows.map(num => splitDigits(num, len));
+    // For all rows except the last, hide leading zeros
+    // For the last row (with + sign), show leading zeros for alignment
+    const allDigits = additionRows.map((num, idx) =>
+        splitDigits(num, len, idx !== rowCount - 1)  // Don't hide zero on last row
+    );
 
     for (let i = 0; i < len; i++) {
 
         const col = document.createElement("div");
         col.className = "col";
 
-        // Only show carry box if carry mode is enabled
-        const carryBox = additionSettings.carry === "yes"
-            ? `<input class="carry-input" maxlength="1">`
+        // Only show carry box if carry mode is enabled AND not the rightmost column (ones place)
+        // Rightmost column is at index (len - 1), we don't show carry there
+        const isOnesColumn = (i === len - 1);
+        const carryBox = (additionSettings.carry === "yes" && !isOnesColumn)
+            ? `<input class="carry-input" maxlength="1" inputmode="numeric" pattern="[0-9]*">`
             : `<div class="carry-placeholder"></div>`;
 
         // Build all number rows
@@ -70,15 +82,17 @@ function renderAdditionColumns() {
         <!-- Number rows -->
         ${numberRows}
 
-        <!-- Horizontal line before answer -->
-        <div class="answer-line"></div>
-
         <!-- Answer digit -->
-        <input class="answer-input" maxlength="1" data-pos="${i}">
+        <input class="answer-input" maxlength="1" data-pos="${i}" inputmode="numeric" pattern="[0-9]*">
     `;
 
         container.appendChild(col);
     }
+
+    // Add single continuous line above all answer boxes
+    const lineDiv = document.createElement("div");
+    lineDiv.className = "continuous-answer-line";
+    container.appendChild(lineDiv);
 }
 
 
@@ -87,6 +101,8 @@ function renderAdditionColumns() {
  * Generates random numbers & draws board
  */
 function generateAdditionQuestion() {
+
+    console.log("🎲 Generating question with carry mode:", additionSettings.carry);
 
     const d = additionSettings.digits;
     const r = additionSettings.rows;
@@ -102,6 +118,8 @@ function generateAdditionQuestion() {
         );
     }
 
+    console.log("Initial random numbers:", nums);
+
     // store first 2 as num1 + num2 for now (UI expectation)
     num1 = nums[0];
     num2 = nums[1];
@@ -110,45 +128,79 @@ function generateAdditionQuestion() {
     additionRows = nums;
 
     if (additionSettings.carry === "no") {
+        console.log("⚠️ Forcing NO CARRY...");
         nums = forceNoCarry(nums, d);
         num1 = nums[0];
         num2 = nums[1];
         additionRows = nums;
+        console.log("✅ No-carry numbers:", nums);
+    } else {
+        console.log("✅ Allowing carry (numbers unchanged)");
     }
 
     renderAdditionColumns();
     showMessage("");
 }
 
+
 function forceNoCarry(nums, digits) {
+    console.log("🔧 forceNoCarry called with:", nums, "digits:", digits);
 
     let arr = [...nums];
-    let maxPlace = digits - 1;
+    let maxAttempts = 100;
+    let attempts = 0;
 
-    // Convert all numbers to digit arrays
-    let digitArrays = arr.map(num =>
-        String(num).padStart(digits, "0").split("").map(Number)
-    );
+    // Keep trying until we get numbers without carry
+    while (attempts < maxAttempts) {
+        attempts++;
 
-    // Check each column position from right to left
-    for (let i = maxPlace; i >= 0; i--) {
-        let columnSum = 0;
+        // Convert all numbers to digit arrays
+        let digitArrays = arr.map(num =>
+            String(num).padStart(digits, "0").split("").map(Number)
+        );
 
-        // Sum all digits in this column
-        for (let rowIdx = 0; rowIdx < digitArrays.length; rowIdx++) {
-            columnSum += digitArrays[rowIdx][i];
+        let needsAdjustment = false;
+
+        // Check each column position from right to left
+        for (let colIdx = digits - 1; colIdx >= 0; colIdx--) {
+            let columnSum = 0;
+
+            // Sum all digits in this column
+            for (let rowIdx = 0; rowIdx < digitArrays.length; rowIdx++) {
+                columnSum += digitArrays[rowIdx][colIdx];
+            }
+
+            console.log(`  Column ${colIdx}: sum = ${columnSum}`);
+
+            // If there's a carry, adjust numbers
+            if (columnSum > 9) {
+                needsAdjustment = true;
+                let excess = columnSum - 9;
+
+                // Try to reduce from different rows
+                for (let rowIdx = digitArrays.length - 1; rowIdx >= 0 && excess > 0; rowIdx--) {
+                    let currentDigit = digitArrays[rowIdx][colIdx];
+                    let reduction = Math.min(currentDigit, excess);
+                    digitArrays[rowIdx][colIdx] -= reduction;
+                    excess -= reduction;
+                }
+            }
         }
 
-        // If there's a carry, adjust the last number's digit
-        if (columnSum > 9) {
-            let excess = columnSum - 9;
-            digitArrays[digitArrays.length - 1][i] = Math.max(0, digitArrays[digitArrays.length - 1][i] - excess);
+        // Convert back to numbers
+        arr = digitArrays.map(digits => Number(digits.join("")));
+
+        // If no adjustment needed, we're done!
+        if (!needsAdjustment) {
+            console.log("✅ Successfully created no-carry numbers:", arr);
+            return arr;
         }
     }
 
-    // Convert digit arrays back to numbers
-    return digitArrays.map(digits => Number(digits.join("")));
+    console.warn("⚠️ Max attempts reached, returning best effort:", arr);
+    return arr;
 }
+
 
 
 
@@ -213,20 +265,43 @@ function setupAdditionModeControls() {
 
     document.getElementById("addCancel").onclick = closeAddPopup;
 
-    document.getElementById("addCarryMode").onchange = e =>
+    document.getElementById("addCarryMode").onchange = e => {
         additionSettings.carry = e.target.value;
-
-    document.getElementById("addDigitCount").onchange = e =>
-        additionSettings.digits = Number(e.target.value);
-
-    document.getElementById("addRowCount").onchange = e =>
-        additionSettings.rows = Number(e.target.value);
-
-    document.getElementById("addApply").onclick = () => {
-        closeAddPopup();
-        generateAdditionQuestion();
+        console.log("Carry mode changed to:", additionSettings.carry);
     };
+
+    // Handle quick selection buttons
+    const quickSelectBtns = document.querySelectorAll(".quick-select-btn");
+
+    quickSelectBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+            // Remove selected class from all buttons
+            quickSelectBtns.forEach(b => b.classList.remove("selected"));
+
+            // Add selected class to clicked button
+            btn.classList.add("selected");
+
+            // Get digits and rows from data attributes
+            const digits = parseInt(btn.dataset.digits);
+            const rows = parseInt(btn.dataset.rows);
+
+            // IMPORTANT: Read carry mode from dropdown at this moment
+            const carryDropdown = document.getElementById("addCarryMode");
+            additionSettings.carry = carryDropdown.value;
+
+            // Update settings
+            additionSettings.digits = digits;
+            additionSettings.rows = rows;
+
+            console.log("Generating question with settings:", additionSettings);
+
+            // Close popup and generate new question
+            closeAddPopup();
+            generateAdditionQuestion();
+        });
+    });
 }
+
 
 /* =========================================================
    BUBBLE MATRIX FUNCTIONS
@@ -257,17 +332,30 @@ function generateBubbleMatrix() {
 }
 
 /**
- * Toggle bubble selection
+ * Toggle bubble selection with 3 states:
+ * 1st click: selected (colored)
+ * 2nd click: crossed (X mark)
+ * 3rd click: clear (back to normal)
  */
 function toggleBubble(bubble) {
     const id = bubble.dataset.id;
 
-    if (selectedBubbles.has(id)) {
-        selectedBubbles.delete(id);
-        bubble.classList.remove("bubble-selected");
-    } else {
-        selectedBubbles.add(id);
+    // Check current state
+    if (!bubble.classList.contains("bubble-selected") && !bubble.classList.contains("bubble-crossed")) {
+        // State 1: Normal → Selected (colored)
         bubble.classList.add("bubble-selected");
+        selectedBubbles.add(id);
+    } else if (bubble.classList.contains("bubble-selected")) {
+        // State 2: Selected → Crossed (X)
+        bubble.classList.remove("bubble-selected");
+        bubble.classList.add("bubble-crossed");
+        selectedBubbles.delete(id);
+        // Create X mark
+        bubble.innerHTML = '<span class="bubble-x">✕</span>';
+    } else if (bubble.classList.contains("bubble-crossed")) {
+        // State 3: Crossed → Clear (back to normal)
+        bubble.classList.remove("bubble-crossed");
+        bubble.innerHTML = '';  // Remove X mark
     }
 
     updateBubbleCounter();
@@ -309,7 +397,11 @@ function toggleBubbleMatrix() {
 function resetBubbleMatrix() {
     selectedBubbles.clear();
     const bubbles = document.querySelectorAll(".bubble");
-    bubbles.forEach(bubble => bubble.classList.remove("bubble-selected"));
+    bubbles.forEach(bubble => {
+        bubble.classList.remove("bubble-selected");
+        bubble.classList.remove("bubble-crossed");
+        bubble.innerHTML = '';  // Remove any X marks
+    });
     updateBubbleCounter();
 }
 
@@ -320,8 +412,23 @@ function initBubbleMatrix() {
     generateBubbleMatrix();
 
     const toggleBtn = document.getElementById("toggleBubbles");
+    const matrix = document.getElementById("bubbleMatrix");
+
+    // Hide bubble matrix on page load
+    if (matrix) {
+        matrix.style.display = "none";
+        bubbleMatrixVisible = false;
+    }
+
+    // Update button text
     if (toggleBtn) {
+        toggleBtn.textContent = "Show Bubbles";
         toggleBtn.onclick = toggleBubbleMatrix;
+    }
+
+    const resetBtn = document.getElementById("resetBubbles");
+    if (resetBtn) {
+        resetBtn.onclick = resetBubbleMatrix;
     }
 }
 

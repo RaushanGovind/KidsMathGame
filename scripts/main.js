@@ -73,11 +73,11 @@ window.onload = function () {
     }
 
     try {
-        // Show addition popup on startup
-        openAddPopup();
-        console.log("✓ openAddPopup() completed");
+        // Initialize addition mode on startup (sets up handlers and opens popup)
+        switchToAddition();
+        console.log("✓ switchToAddition() completed");
     } catch (e) {
-        console.error("✗ openAddPopup() failed:", e);
+        console.error("✗ switchToAddition() failed:", e);
     }
 
     console.log("=== App Initialization Completed ===");
