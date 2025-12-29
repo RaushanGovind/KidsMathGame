@@ -1,0 +1,63 @@
+/* -----------------------------------------
+   SIDEBAR DESIGN
+----------------------------------------- */
+
+.sidebar {
+    width: 260px;
+    padding: 20px;
+    background: #eef5ff;
+    height: 100vh;
+    box-shadow: 3px 0 10px rgba(0,0,0,0.1);
+
+    /* only ONE transition — smooth slide */
+    transition: transform 0.35s ease;
+}
+
+/* Slide sidebar left — content does NOT move */
+.sidebar-collapsed {
+    transform: translateX(-260px);
+}
+
+.sidebar h2 {
+    margin-bottom: 20px;
+}
+
+
+/* -----------------------------------------
+   SIDEBAR BUTTONS
+----------------------------------------- */
+
+.nav-btn,
+.settings-btn {
+    width: 100%;
+    padding: 12px;
+    margin: 6px 0;
+    border-radius: 10px;
+    background: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.nav-btn:hover {
+    background: #dfe8ff;
+}
+
+.active {
+    background: #a4c8ff;
+}
+
+
+/* -----------------------------------------
+   TOGGLE BUTTON
+----------------------------------------- */
+
+#toggleSidebarBtn {
+    padding: 8px 14px;
+    font-size: 15px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    background: #3b82f6;
+    color: white;
+    margin-bottom: 10px;
+}

@@ -1,0 +1,95 @@
+/* MAIN CONTENT AREA */
+.content {
+    padding: 80px 30px 30px 30px;
+    /* Added top padding to avoid menu button overlap */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Center content horizontally */
+    justify-content: flex-start;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.game-box {
+    background: var(--panel-color);
+    padding: 20px;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 600px;
+    /* Maximum width for larger screens */
+    box-sizing: border-box;
+}
+
+/* expands content when sidebar hidden */
+.content-expanded {
+    transition: margin-left 0.35s ease;
+}
+
+/* when sidebar collapsed — expand content */
+.content-expanded {
+    margin-left: 0;
+    width: 100%;
+}
+
+/* Popup Overlay */
+.popup {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .45);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.popup-box {
+    background: white;
+    padding: 18px;
+    border-radius: 12px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.popup-box select {
+    padding: 4px 6px;
+    border-radius: 6px;
+}
+
+.popup-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+============================================ */
+
+/* Tablets */
+@media (max-width: 768px) {
+    .popup-box {
+        width: 90%;
+        max-width: 400px;
+    }
+
+    .menu-popup-box {
+        min-width: 90%;
+        max-width: 450px;
+    }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+    .popup-box {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .menu-popup-box {
+        min-width: 95%;
+    }
+}

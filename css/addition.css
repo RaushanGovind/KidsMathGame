@@ -1,0 +1,603 @@
+/* COLUMN ADDITION (WITH CARRY BOXES) */
+
+.addition-box {
+    margin-top: 10px;
+    font-family: "Courier New", monospace;
+    font-weight: bold;
+    font-size: 26px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* Center vertically */
+    position: relative;
+    min-height: 400px;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* column container */
+.columns {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 8px;
+    /* Increased gap between columns to prevent overlap */
+    flex-wrap: nowrap;
+    /* Keep columns in one line */
+}
+
+/* fixed column width */
+.col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50px;
+    /* Increased from 44px to accommodate answer boxes with borders */
+}
+
+/* carry box */
+.carry-input {
+    width: 40px;
+    height: 26px;
+    font-size: 18px;
+    text-align: center;
+    border: 2px dashed #777;
+    border-radius: 6px;
+}
+
+/* placeholder when carry is disabled */
+.carry-placeholder {
+    display: none;
+}
+
+/* digit rows */
+.num1,
+.num2,
+.num3,
+.num4 {
+    width: 40px;
+    height: 30px;
+    text-align: right;
+    font-size: 28px;
+    line-height: 1.1;
+}
+
+/* horizontal line before answer in each column */
+.answer-line {
+    width: 100%;
+    height: 3px;
+    background-color: #000;
+    margin: 4px 0;
+}
+
+/* horizontal line above answer boxes - spans all columns */
+.total-line {
+    border-bottom: 3px solid #000;
+    width: 100%;
+    margin: 8px 0 8px 0;
+}
+
+/* answer row layout */
+.answer-row {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 6px;
+}
+
+/* answer box */
+.answer-input {
+    width: 40px;
+    height: 32px;
+    font-size: 22px;
+    text-align: center;
+    border-radius: 6px;
+    border: 2px solid #333;
+}
+
+
+.mode-panel {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.mode-panel select {
+    padding: 4px 6px;
+    border-radius: 6px;
+}
+
+/* Button positioning */
+.btn-top-right {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 12px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+}
+
+.btn-bottom-right {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    padding: 8px 16px;
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn-top-right:hover {
+    background-color: #45a049;
+}
+
+.btn-bottom-right:hover {
+    background-color: #0b7dda;
+}
+
+/* Table Practice Styles */
+.table-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    max-width: 400px;
+}
+
+.table-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.table-question {
+    min-width: 120px;
+    text-align: right;
+}
+
+.table-answer {
+    width: 80px;
+    height: 40px;
+    font-size: 20px;
+    text-align: center;
+    border: 2px solid #333;
+    border-radius: 6px;
+    padding: 5px;
+}
+
+.table-answer:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+/* Menu Button */
+.menu-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 12px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+}
+
+.menu-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Menu Popup Box */
+.menu-popup-box {
+    min-width: 400px;
+    max-width: 500px;
+    position: relative;
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #666;
+    line-height: 1;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+}
+
+.close-btn:hover {
+    color: #000;
+}
+
+/* Menu Options Container */
+.menu-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+/* Menu Option Buttons */
+.menu-option-btn {
+    padding: 15px 20px;
+    background-color: #f8f9fa;
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.3s;
+}
+
+.menu-option-btn:hover {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+    transform: translateX(5px);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN FOR MOBILE & TABLETS
+============================================ */
+
+/* Tablets and smaller screens */
+@media (max-width: 768px) {
+    .content {
+        padding: 70px 15px 15px 15px;
+    }
+
+    .game-box {
+        max-width: 100%;
+        padding: 15px;
+    }
+
+    .addition-box {
+        font-size: 22px;
+        padding: 15px;
+        min-height: 350px;
+    }
+
+    .btn-top-right {
+        top: 15px;
+        right: 15px;
+        padding: 10px 16px;
+        font-size: 14px;
+    }
+
+    .menu-btn {
+        top: 15px;
+        left: 15px;
+        padding: 10px 16px;
+        font-size: 16px;
+    }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+    .content {
+        padding: 60px 10px 10px 10px;
+    }
+
+    .addition-box {
+        font-size: 20px;
+        padding: 10px;
+        min-height: 300px;
+    }
+
+    .col {
+        width: 45px;
+    }
+
+    .columns {
+        gap: 6px;
+    }
+
+    .num1,
+    .num2,
+    .num3,
+    .num4 {
+        font-size: 24px;
+    }
+
+    .answer-input {
+        width: 38px;
+        height: 30px;
+        font-size: 20px;
+    }
+
+    .btn-top-right {
+        top: 10px;
+        right: 10px;
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+
+    .menu-btn {
+        top: 10px;
+        left: 10px;
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+}
+
+/* ============================================
+   MULTIPLICATION LAYOUT STYLES
+============================================ */
+
+.mult-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    font-family: "Courier New", monospace;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.mult-problem {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.mult-row {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    justify-content: flex-end;
+    min-height: 30px;
+}
+
+.mult-digit {
+    width: 32px;
+    text-align: center;
+    font-size: 24px;
+}
+
+.mult-sign {
+    width: 24px;
+    text-align: center;
+    font-size: 24px;
+    margin-right: 4px;
+}
+
+.mult-line {
+    width: 100%;
+    min-width: 120px;
+    height: 2px;
+    background-color: #000;
+    margin: 4px 0;
+}
+
+.mult-partial-row,
+.mult-final-row {
+    display: flex;
+    justify-content: flex-end;
+    margin: 3px 0;
+}
+
+.mult-input-row {
+    display: flex;
+    gap: 3px;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.mult-input {
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+    text-align: center;
+    border-radius: 4px;
+    border: 2px solid #333;
+    font-family: "Courier New", monospace;
+    font-weight: bold;
+    padding: 0;
+    margin: 0;
+}
+
+.mult-input:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+.mult-shifted .mult-input-row {
+    margin-right: 0;
+}
+
+.mult-placeholder {
+    width: 32px;
+    text-align: center;
+    font-size: 18px;
+    color: #666;
+    font-family: "Courier New", monospace;
+    font-weight: bold;
+}
+
+.mult-final-row {
+    margin-top: 5px;
+}
+
+/* Responsive styles for multiplication */
+@media (max-width: 480px) {
+    .mult-wrapper {
+        font-size: 20px;
+    }
+
+    .mult-digit,
+    .mult-sign {
+        font-size: 20px;
+        width: 28px;
+    }
+
+    .mult-input {
+        width: 28px;
+        height: 28px;
+        font-size: 16px;
+    }
+
+    .mult-placeholder {
+        width: 28px;
+        font-size: 16px;
+    }
+
+    .mult-input-row {
+        gap: 2px;
+    }
+}
+
+/* ============================================
+   BUBBLE MATRIX STYLES
+============================================ */
+
+.bubble-section {
+    width: 100%;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bubble-controls {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.bubble-toggle-btn {
+    padding: 6px 12px;
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.bubble-toggle-btn:hover {
+    background-color: #0b7dda;
+}
+
+.bubble-counter {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    padding: 6px 12px;
+    background-color: #f0f0f0;
+    border-radius: 6px;
+}
+
+.bubble-matrix {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 6px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    max-width: 400px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.bubble {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+    border: 2px solid #bbb;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.bubble:hover {
+    transform: scale(1.1);
+    border-color: #888;
+}
+
+.bubble-selected {
+    background-color: #4CAF50;
+    border-color: #45a049;
+    box-shadow: 0 0 8px rgba(76, 175, 80, 0.6);
+}
+
+.bubble-selected:hover {
+    background-color: #45a049;
+}
+
+/* Responsive bubble matrix */
+@media (max-width: 768px) {
+    .bubble-matrix {
+        gap: 5px;
+        padding: 12px;
+        max-width: 350px;
+    }
+
+    .bubble {
+        width: 26px;
+        height: 26px;
+    }
+}
+
+@media (max-width: 480px) {
+    .bubble-section {
+        margin-bottom: 15px;
+    }
+
+    .bubble-controls {
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .bubble-toggle-btn {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+
+    .bubble-counter {
+        font-size: 14px;
+        padding: 5px 10px;
+    }
+
+    .bubble-matrix {
+        gap: 4px;
+        padding: 10px;
+        max-width: 300px;
+    }
+
+    .bubble {
+        width: 22px;
+        height: 22px;
+    }
+}
