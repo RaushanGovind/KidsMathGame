@@ -11,7 +11,13 @@ function switchToAddition() {
     closeMenuPopup();
 
     // Show addition UI
-    document.querySelector(".game-box h2").textContent = "➕ Addition (Column Method)";
+    const title = document.getElementById("mainTitle");
+    if (title) {
+        title.textContent = "➕ Addition (Column Method)";
+        title.style.display = "block";
+    }
+    const actionButtons = document.getElementById("mainActionButtons");
+    if (actionButtons) actionButtons.style.display = "flex";
     document.querySelector(".mode-panel").style.display = "none";
 
     // Reset button text
@@ -45,6 +51,10 @@ function switchToAddition() {
     // Open popup for addition settings
     openAddPopup();
 
+    if (window.cleanupComparisonUI) window.cleanupComparisonUI();
+    if (window.cleanupDivisionUI) window.cleanupDivisionUI();
+    if (window.cleanupTimeUI) window.cleanupTimeUI();
+    if (window.cleanupFractionsUI) window.cleanupFractionsUI();
     showMessage("");
 }
 
@@ -55,7 +65,13 @@ function switchToSubtraction() {
     closeMenuPopup();
 
     // Show subtraction UI
-    document.querySelector(".game-box h2").textContent = "➖ Subtraction (Column Method)";
+    const title = document.getElementById("mainTitle");
+    if (title) {
+        title.textContent = "➖ Subtraction (Column Method)";
+        title.style.display = "block";
+    }
+    const actionButtons = document.getElementById("mainActionButtons");
+    if (actionButtons) actionButtons.style.display = "flex";
     document.querySelector(".mode-panel").style.display = "none";
 
     // Reset button text
@@ -89,6 +105,10 @@ function switchToSubtraction() {
     // Open popup for subtraction settings
     openSubPopup();
 
+    if (window.cleanupComparisonUI) window.cleanupComparisonUI();
+    if (window.cleanupDivisionUI) window.cleanupDivisionUI();
+    if (window.cleanupTimeUI) window.cleanupTimeUI();
+    if (window.cleanupFractionsUI) window.cleanupFractionsUI();
     showMessage("");
 }
 
@@ -99,7 +119,13 @@ function switchToMultiplication() {
     closeMenuPopup();
 
     // Show multiplication UI
-    document.querySelector(".game-box h2").textContent = "✖️ Multiplication (Column Method)";
+    const title = document.getElementById("mainTitle");
+    if (title) {
+        title.textContent = "✖️ Multiplication (Column Method)";
+        title.style.display = "block";
+    }
+    const actionButtons = document.getElementById("mainActionButtons");
+    if (actionButtons) actionButtons.style.display = "flex";
     document.querySelector(".mode-panel").style.display = "none";
 
     // Reset button text
@@ -128,6 +154,10 @@ function switchToMultiplication() {
     // Open popup for multiplication settings
     openMultPopup();
 
+    if (window.cleanupComparisonUI) window.cleanupComparisonUI();
+    if (window.cleanupDivisionUI) window.cleanupDivisionUI();
+    if (window.cleanupTimeUI) window.cleanupTimeUI();
+    if (window.cleanupFractionsUI) window.cleanupFractionsUI();
     showMessage("");
 }
 
@@ -138,7 +168,13 @@ function switchToTablePractice() {
     closeMenuPopup();
 
     // Show table practice UI
-    document.querySelector(".game-box h2").textContent = "📊 Table Practice";
+    const title = document.getElementById("mainTitle");
+    if (title) {
+        title.textContent = "📊 Table Practice";
+        title.style.display = "block";
+    }
+    const actionButtons = document.getElementById("mainActionButtons");
+    if (actionButtons) actionButtons.style.display = "flex";
     document.querySelector(".mode-panel").style.display = "none";
 
     // Update button handlers - Check becomes Check All, Next becomes Reset
@@ -169,6 +205,10 @@ function switchToTablePractice() {
     // Open popup for table selection
     openTablePopup();
 
+    if (window.cleanupComparisonUI) window.cleanupComparisonUI();
+    if (window.cleanupDivisionUI) window.cleanupDivisionUI();
+    if (window.cleanupTimeUI) window.cleanupTimeUI();
+    if (window.cleanupFractionsUI) window.cleanupFractionsUI();
     showMessage("");
 }
 
@@ -195,8 +235,104 @@ function setupNavButtons() {
             } else if (btn.textContent.includes("Table Practice")) {
                 switchToTablePractice();
             } else if (btn.textContent.includes("Division")) {
-                showMessage("🚧 Division mode coming soon!");
+                switchToDivision();
+            } else if (btn.textContent.includes("Time Reading")) {
+                switchToTime();
+            } else if (btn.textContent.includes("Fractions")) {
+                switchToFractions();
+            } else if (btn.textContent.includes("Comparison")) {
+                switchToComparison();
             }
         };
     });
+}
+
+function switchToComparison() {
+    currentMode = "comparison";
+    closeMenuPopup();
+
+    // Hide title for cleaner look in special modules
+    const title = document.getElementById("mainTitle");
+    if (title) title.style.display = "none";
+
+    // Hide default game actions (Next/Check) as Comparison has its own
+    const actionButtons = document.getElementById("mainActionButtons");
+    if (actionButtons) actionButtons.style.display = "none";
+
+    // Initialize module
+    if (window.switchToComparison) {
+        window.switchToComparison();
+    }
+
+    showMessage("");
+}
+
+function switchToDivision() {
+    currentMode = "division";
+    closeMenuPopup();
+
+    // Hide title for cleaner look
+    const title = document.getElementById("mainTitle");
+    if (title) title.style.display = "none";
+
+    // Hide default game actions (Next/Check) as Division has its own
+    const actionButtons = document.getElementById("mainActionButtons");
+    if (actionButtons) actionButtons.style.display = "none";
+
+    // Initialize module
+    if (window.switchToDivision) {
+        window.switchToDivision();
+    }
+
+    if (window.cleanupComparisonUI) window.cleanupComparisonUI();
+    if (window.cleanupTimeUI) window.cleanupTimeUI();
+
+    showMessage("");
+}
+
+function switchToTime() {
+    currentMode = "time";
+    closeMenuPopup();
+
+    // Hide title as requested
+    const title = document.getElementById("mainTitle");
+    if (title) title.style.display = "none";
+
+    // Hide default game actions (Next/Check)
+    const actionButtons = document.getElementById("mainActionButtons");
+    if (actionButtons) actionButtons.style.display = "none";
+
+    // Initialize module
+    if (window.switchToTime) {
+        window.switchToTime();
+    }
+
+    if (window.cleanupComparisonUI) window.cleanupComparisonUI();
+    if (window.cleanupDivisionUI) window.cleanupDivisionUI();
+
+    showMessage("");
+}
+
+function switchToFractions() {
+    currentMode = "fractions";
+    closeMenuPopup();
+
+    // Hide title
+    const title = document.getElementById("mainTitle");
+    if (title) title.style.display = "none";
+
+    // Hide default game actions (Next/Check)
+    const actionButtons = document.getElementById("mainActionButtons");
+    if (actionButtons) actionButtons.style.display = "none";
+
+    // Initialize module
+    if (window.switchToFractions) {
+        window.switchToFractions();
+    }
+
+    if (window.cleanupComparisonUI) window.cleanupComparisonUI();
+    if (window.cleanupDivisionUI) window.cleanupDivisionUI();
+    if (window.cleanupTimeUI) window.cleanupTimeUI();
+
+    showMessage("");
 }

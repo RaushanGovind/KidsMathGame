@@ -61,8 +61,14 @@ function setupMenuControls() {
                 switchToMultiplication();
             } else if (mode === "table") {
                 switchToTablePractice();
+            } else if (mode === "comparison") {
+                switchToComparison();
+            } else if (mode === "time") {
+                switchToTime();
+            } else if (mode === "fractions") {
+                switchToFractions();
             } else if (mode === "division") {
-                showMessage("🚧 Division mode coming soon!");
+                switchToDivision();
             }
         };
     });

@@ -1,0 +1,182 @@
+/* =========================================================
+   LONG DIVISION - BOX STYLE
+========================================================= */
+
+.division-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 10px auto;
+    padding: 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.division-container {
+    background: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    display: inline-block;
+}
+
+/* Format: Divisor ) Dividend ( Quotient */
+.div-header-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    font-weight: 800;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.div-symbol {
+    color: #FF6B6B;
+    font-size: 40px;
+}
+
+.div-input-box {
+    width: 45px;
+    height: 50px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    background: #f9f9f9;
+    color: #444;
+}
+
+.div-input-box.active {
+    border-color: #6C5CE7;
+    background: #fff;
+    box-shadow: 0 0 8px rgba(108, 92, 231, 0.2);
+}
+
+.div-input-box.correct {
+    background: #d4edda;
+    border-color: #28a745;
+}
+
+/* Work Area / Subtraction Rows */
+.div-work-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Center work under the header row */
+    margin-top: 10px;
+}
+
+.div-step-row {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 5px;
+    min-height: 55px;
+    position: relative;
+    padding-right: 120px;
+    /* Counter-balance the quotient on the right for centering */
+}
+
+.div-line {
+    width: 60%;
+    /* Only line as wide as the numbers of the dividend area */
+    height: 3px;
+    background: #333;
+    margin: 5px 0 10px 0;
+    margin-right: 120px;
+    /* Keep alignment */
+}
+
+/* Character for 'bringing down' */
+.bring-down-anim {
+    color: #FF6B6B;
+    font-weight: bold;
+    font-size: 28px;
+    position: absolute;
+    top: -20px;
+}
+
+
+/* Guidance & Hints */
+.division-guidance {
+    margin-top: 25px;
+    padding: 20px;
+    background: #fdfdfd;
+    border-radius: 15px;
+    border: 1px solid #eee;
+    text-align: center;
+    max-width: 500px;
+}
+
+.guidance-msg {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.guidance-hint {
+    font-size: 15px;
+    color: #888;
+    font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .div-header-row {
+        font-size: 28px;
+        gap: 10px;
+    }
+
+    .div-input-box {
+        width: 40px;
+        height: 45px;
+        font-size: 22px;
+    }
+
+    .div-step-row {
+        padding-right: 100px;
+    }
+
+    .div-line {
+        margin-right: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    .division-container {
+        padding: 15px;
+    }
+
+    .div-header-row {
+        font-size: 22px;
+        gap: 5px;
+        flex-wrap: wrap;
+    }
+
+    .div-input-box {
+        width: 32px;
+        height: 38px;
+        font-size: 18px;
+    }
+
+    .div-step-row {
+        padding-right: 60px;
+        min-height: 45px;
+        gap: 3px;
+    }
+
+    .div-line {
+        margin-right: 60px;
+    }
+
+    .guidance-msg {
+        font-size: 16px;
+    }
+
+    .div-work-area {
+        transform: scale(0.9);
+        transform-origin: top center;
+    }
+}

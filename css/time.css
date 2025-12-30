@@ -1,0 +1,354 @@
+/* =========================================================
+   TIME READING - PREMIUM ANALOG CLOCK
+========================================================= */
+
+.time-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 10px auto;
+    padding: 30px;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #E0C3FC 0%, #8EC5FC 100%);
+    border-radius: 40px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+}
+
+.learning-badge {
+    background: #FF6B6B;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: 800;
+    font-size: 14px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(255, 107, 107, 0.3);
+}
+
+/* Analog Clock Container */
+.clock-container {
+    position: relative;
+    width: 320px;
+    height: 320px;
+    background: #ffffff;
+    /* Fancy multi-layered bezel */
+    border: 12px solid #6C5CE7;
+    outline: 8px solid rgba(108, 92, 231, 0.1);
+    border-radius: 50%;
+    box-shadow:
+        0 25px 50px rgba(0, 0, 0, 0.1),
+        inset 0 10px 20px rgba(0, 0, 0, 0.05),
+        inset 0 -5px 15px rgba(108, 92, 231, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 35px;
+    background: radial-gradient(circle at 30% 30%, #ffffff 0%, #f9f9f9 100%);
+}
+
+.clock-face {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* Tick Marks */
+.tick {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.tick::after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 10px;
+    background: #ccc;
+    border-radius: 2px;
+}
+
+.tick.five-min::after {
+    width: 4px;
+    height: 18px;
+    background: #6C5CE7;
+    opacity: 0.6;
+}
+
+/* Numbers */
+.clock-number {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-size: 32px;
+    font-weight: 800;
+    color: #2D3436;
+    padding-top: 30px;
+    box-sizing: border-box;
+}
+
+/* Hands */
+.hand {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform-origin: bottom center;
+    border-radius: 12px;
+    z-index: 5;
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1.1);
+}
+
+.hour-hand {
+    width: 12px;
+    height: 85px;
+    background: linear-gradient(to top, #FF6B6B, #FF8E8E);
+    margin-left: -6px;
+    box-shadow: 2px 2px 8px rgba(255, 107, 107, 0.3);
+}
+
+.minute-hand {
+    width: 8px;
+    height: 125px;
+    background: linear-gradient(to top, #4ECDC4, #55E2D9);
+    margin-left: -4px;
+    box-shadow: 2px 2px 10px rgba(78, 205, 196, 0.3);
+}
+
+.hand-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 24px;
+    height: 24px;
+    background: #2D3436;
+    border: 5px solid #fff;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Digital UI Card - Glassmorphism */
+.time-ui-card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 25px 50px;
+    border-radius: 30px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    margin-bottom: 10px;
+}
+
+.digital-time {
+    font-size: 56px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    background: linear-gradient(135deg, #6C5CE7, #A29BFE);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 5px;
+}
+
+.time-label {
+    font-size: 20px;
+    font-weight: 800;
+    color: #636E72;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.time-bg-shape {
+    position: absolute;
+    z-index: -1;
+    opacity: 0.3;
+}
+
+
+/* Controls */
+.time-controls {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.time-btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 15px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.time-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.time-btn.active {
+    background: #6C5CE7;
+    color: white;
+}
+
+/* Question Mode Choices */
+.time-choices-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.choice-btn {
+    background: white;
+    border: 3px solid #f0f0f0;
+    padding: 15px;
+    border-radius: 15px;
+    font-size: 20px;
+    font-weight: 800;
+    color: #444;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.choice-btn:hover {
+    border-color: #6C5CE7;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.choice-btn.correct {
+    background: #4ECDC4;
+    color: white;
+    border-color: #45b7af;
+}
+
+.choice-btn.wrong {
+    background: #FF6B6B;
+    color: white;
+    border-color: #ee5253;
+}
+
+@keyframes bouncePop {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.correct-anim {
+    animation: bouncePop 0.5s ease;
+}
+
+/* Digital UI Card visibility controls */
+.time-ui-card.hidden {
+    visibility: hidden;
+    opacity: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .clock-container {
+        width: 280px;
+        height: 280px;
+    }
+
+    .hour-hand {
+        height: 70px;
+    }
+
+    .minute-hand {
+        height: 110px;
+    }
+
+    .digital-time {
+        font-size: 40px;
+    }
+
+    .choice-btn {
+        padding: 12px;
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .time-wrapper {
+        padding: 15px;
+        border-radius: 20px;
+    }
+
+    .clock-container {
+        width: 220px;
+        height: 220px;
+        border-width: 10px;
+        margin-bottom: 20px;
+    }
+
+    .hour-hand {
+        height: 50px;
+        width: 8px;
+    }
+
+    .minute-hand {
+        height: 85px;
+        width: 5px;
+    }
+
+    .clock-number {
+        font-size: 20px;
+        padding-top: 15px;
+    }
+
+    .digital-time {
+        font-size: 32px;
+    }
+
+    .time-label {
+        font-size: 14px;
+    }
+
+    .choice-btn {
+        padding: 10px;
+        font-size: 16px;
+        border-width: 2px;
+    }
+
+    .time-choices-grid {
+        gap: 10px;
+    }
+
+    .clock-mascot {
+        display: none;
+    }
+}
+
+@media (max-width: 360px) {
+    .clock-container {
+        width: 190px;
+        height: 190px;
+    }
+
+    .choice-btn {
+        padding: 8px;
+        font-size: 14px;
+    }
+}

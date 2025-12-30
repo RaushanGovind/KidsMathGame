@@ -1,0 +1,196 @@
+/* =========================================================
+   FRACTIONS LEARNING - PREMIUM STYLES
+========================================================= */
+
+.fractions-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 10px auto;
+    padding: 30px;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    border-radius: 40px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+}
+
+.fraction-badge {
+    background: #FF9F43;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: 800;
+    font-size: 14px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 10px rgba(255, 159, 67, 0.3);
+}
+
+/* Main Fraction Display */
+.fraction-main-display {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.fraction-visual-container {
+    position: relative;
+    width: 280px;
+    height: 280px;
+    background: white;
+    border-radius: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+}
+
+/* SVG Shape Styles */
+.fraction-svg {
+    width: 220px;
+    height: 220px;
+}
+
+.fraction-part {
+    fill: #f0f0f0;
+    stroke: #fff;
+    stroke-width: 3;
+    transition: fill 0.3s ease;
+}
+
+.fraction-part.shaded {
+    fill: #FF6B6B;
+}
+
+.fraction-part.pizza {
+    fill: #FFD93D;
+    /* Dough color */
+}
+
+.fraction-part.pizza.shaded {
+    fill: #FF6B6B;
+    /* Salami color */
+}
+
+/* Fraction Labels (The 1/2 Text) */
+.fraction-card {
+    background: white;
+    padding: 25px 40px;
+    border-radius: 30px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 3px solid #6C5CE7;
+    min-width: 200px;
+}
+
+.fraction-number {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 60px;
+    font-weight: 900;
+    color: #6C5CE7;
+}
+
+.fraction-line {
+    width: 80px;
+    height: 6px;
+    background: #6C5CE7;
+    margin: 5px 0;
+    border-radius: 3px;
+}
+
+.fraction-meaning {
+    margin-top: 15px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #555;
+    line-height: 1.4;
+}
+
+/* Sidebar Previews */
+.fraction-previews {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.preview-tile {
+    background: white;
+    padding: 10px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 3px solid transparent;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.preview-tile:hover {
+    transform: translateY(-5px);
+    border-color: #6C5CE7;
+}
+
+.preview-tile.active {
+    background: #6C5CE7;
+    color: white;
+}
+
+.preview-visual {
+    width: 60px;
+    height: 60px;
+}
+
+/* Question Grid */
+.fraction-choices {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 30px;
+}
+
+/* Controls */
+.fraction-controls {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+/* Mascot space */
+.fraction-mascot {
+    font-size: 80px;
+    position: absolute;
+    right: -60px;
+    bottom: -20px;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .fraction-main-display {
+        gap: 20px;
+    }
+
+    .fraction-visual-container {
+        width: 220px;
+        height: 220px;
+    }
+
+    .fraction-svg {
+        width: 180px;
+        height: 180px;
+    }
+
+    .fraction-mascot {
+        display: none;
+    }
+}

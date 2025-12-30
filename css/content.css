@@ -1,28 +1,26 @@
 /* MAIN CONTENT AREA */
 .content {
-    padding: 80px 30px 30px 30px;
-    /* Added top padding to avoid menu button overlap */
+    padding: 100px 20px 40px 20px;
     flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* Center content horizontally */
     justify-content: flex-start;
     width: 100%;
     box-sizing: border-box;
-    overflow-y: auto;
+    position: relative;
     overflow-x: hidden;
-    height: 100vh;
 }
 
 .game-box {
     background: var(--panel-color);
-    padding: 20px;
-    border-radius: 15px;
+    padding: 25px;
+    border-radius: 25px;
     width: 100%;
-    max-width: 600px;
-    /* Maximum width for larger screens */
+    max-width: 900px;
+    /* Increased for better desktop/tablet feel */
     box-sizing: border-box;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
 /* expands content when sidebar hidden */
@@ -43,8 +41,12 @@
     background: rgba(0, 0, 0, .45);
     display: none;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    /* Changed to flex-start to respect top margins */
     z-index: 2000;
+    overflow-y: auto;
+    /* Enable scrolling for tall menus */
+    padding-bottom: 30px;
 }
 
 .popup-box {

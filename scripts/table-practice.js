@@ -51,7 +51,7 @@ function renderTablePractice() {
                 <span class="num-chocolate">${i}</span>
                 <span class="operator">=</span>
             </span>
-            <input class="table-answer-input" inputmode="numeric" pattern="[0-9]*" maxlength="3" data-answer="${tableNum * i}" placeholder="?">
+            <input class="table-answer-input" inputmode="numeric" pattern="[0-9]*" maxlength="3" data-answer="${tableNum * i}">
         `;
 
         practiceContainer.appendChild(row);
