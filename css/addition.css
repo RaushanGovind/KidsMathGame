@@ -64,7 +64,7 @@
     width: 40px;
     height: 30px;
     text-align: right;
-    font-size: 28px;
+    font-size: var(--question-font-size, 28px);
     line-height: 1.1;
     margin-bottom: 8px;
     /* Add space between last number row and horizontal line */
@@ -135,6 +135,19 @@
     gap: 15px;
     margin-top: 20px;
     padding: 0 10px;
+    flex-direction: row;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Ensure Next button stays on the left */
+#nextBtn {
+    order: 1;
+}
+
+/* Ensure Check button stays on the right */
+#checkBtn {
+    order: 2;
 }
 
 /* Action buttons */
@@ -192,7 +205,7 @@
     display: flex;
     align-items: center;
     gap: 15px;
-    font-size: 24px;
+    font-size: var(--question-font-size, 24px);
     font-weight: bold;
 }
 
@@ -239,11 +252,63 @@
     background-color: #0056b3;
 }
 
+/* Settings Button (Top Right) */
+.settings-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: auto;
+    padding: 12px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+    transition: all 0.3s ease;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    line-height: 1;
+}
+
+.settings-btn:hover {
+    background: linear-gradient(135deg, #764ba2, #f093fb);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 18px rgba(102, 126, 234, 0.6);
+}
+
 /* Menu Popup Box */
 .menu-popup-box {
-    min-width: 400px;
-    max-width: 500px;
+    min-width: 450px;
+    max-width: 550px;
     position: relative;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    border: 4px solid #fff;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+}
+
+.menu-popup-box h3 {
+    color: white;
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 25px;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+    animation: titleBounce 0.6s ease;
+}
+
+@keyframes titleBounce {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
 }
 
 /* Close Button */
@@ -251,19 +316,24 @@
     position: absolute;
     top: 15px;
     right: 15px;
-    background: none;
-    border: none;
-    font-size: 28px;
+    background: white;
+    border: 2px solid #ff6b6b;
+    border-radius: 50%;
+    font-size: 24px;
     cursor: pointer;
-    color: #666;
+    color: #ff6b6b;
     line-height: 1;
     padding: 0;
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
 }
 
 .close-btn:hover {
-    color: #000;
+    background: #ff6b6b;
+    color: white;
+    transform: rotate(90deg) scale(1.1);
 }
 
 /* Menu Options Container */
@@ -274,24 +344,114 @@
     margin-top: 10px;
 }
 
-/* Menu Option Buttons */
+/* Menu Option Buttons - Each with unique color */
 .menu-option-btn {
-    padding: 15px 20px;
-    background-color: #f8f9fa;
-    border: 2px solid #dee2e6;
-    border-radius: 8px;
-    font-size: 18px;
+    padding: 18px 25px;
+    border: none;
+    border-radius: 15px;
+    font-size: 20px;
     font-weight: bold;
     cursor: pointer;
     text-align: left;
-    transition: all 0.3s;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
 }
 
-.menu-option-btn:hover {
-    background-color: var(--primary-color);
-    color: white;
-    border-color: var(--primary-color);
-    transform: translateX(5px);
+/* Addition button - Green */
+.menu-option-btn[data-mode="addition"] {
+    background: linear-gradient(135deg, #6BCF7F, #4CAF50);
+    border: 3px solid #45a049;
+}
+
+.menu-option-btn[data-mode="addition"]:hover {
+    background: linear-gradient(135deg, #7FDB93, #5FBF6D);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(76, 175, 80, 0.4);
+}
+
+/* Subtraction button - Orange */
+.menu-option-btn[data-mode="subtraction"] {
+    background: linear-gradient(135deg, #FFA07A, #FF7F50);
+    border: 3px solid #FF6347;
+}
+
+.menu-option-btn[data-mode="subtraction"]:hover {
+    background: linear-gradient(135deg, #FFB48E, #FF8F64);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(255, 127, 80, 0.4);
+}
+
+/* Multiplication button - Blue */
+.menu-option-btn[data-mode="multiplication"] {
+    background: linear-gradient(135deg, #5DADE2, #3498DB);
+    border: 3px solid #2E86C1;
+}
+
+.menu-option-btn[data-mode="multiplication"]:hover {
+    background: linear-gradient(135deg, #71BEF0, #48A8E5);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(52, 152, 219, 0.4);
+}
+
+/* Table Practice button - Purple */
+.menu-option-btn[data-mode="table"] {
+    background: linear-gradient(135deg, #A29BFE, #6C5CE7);
+    border: 3px solid #5F4FCE;
+}
+
+.menu-option-btn[data-mode="table"]:hover {
+    background: linear-gradient(135deg, #B6AFFE, #7C6CF7);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(108, 92, 231, 0.4);
+}
+
+/* Division button - Pink */
+.menu-option-btn[data-mode="division"] {
+    background: linear-gradient(135deg, #FF85C0, #FF6BA9);
+    border: 3px solid #FF4D94;
+}
+
+.menu-option-btn[data-mode="division"]:hover {
+    background: linear-gradient(135deg, #FF99CD, #FF7FB3);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(255, 107, 169, 0.4);
+}
+
+/* Settings button - Yellow */
+#menuSettingsBtn {
+    background: linear-gradient(135deg, #FFD93D, #FFC107) !important;
+    border: 3px solid #FFB300 !important;
+    color: #333 !important;
+    margin-top: 10px;
+}
+
+#menuSettingsBtn:hover {
+    background: linear-gradient(135deg, #FFE051, #FFD11B) !important;
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(255, 193, 7, 0.4);
+}
+
+/* Ripple effect on click */
+.menu-option-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    transform: translate(-50%, -50%);
+    transition: width 0.4s, height 0.4s;
+}
+
+.menu-option-btn:active::before {
+    width: 300px;
+    height: 300px;
 }
 
 /* ============================================
@@ -316,13 +476,13 @@
     }
 
     .button-row {
-        flex-direction: column;
+        flex-direction: row;
         gap: 10px;
         margin-top: 15px;
     }
 
     .btn-action {
-        width: 100%;
+        width: auto;
         padding: 10px 20px;
         font-size: 14px;
     }
@@ -369,13 +529,13 @@
     }
 
     .button-row {
-        flex-direction: column;
+        flex-direction: row;
         gap: 8px;
         margin-top: 12px;
     }
 
     .btn-action {
-        width: 100%;
+        width: auto;
         padding: 8px 16px;
         font-size: 13px;
     }
@@ -419,13 +579,13 @@
 .mult-digit {
     width: 32px;
     text-align: center;
-    font-size: 24px;
+    font-size: var(--question-font-size, 24px);
 }
 
 .mult-sign {
     width: 24px;
     text-align: center;
-    font-size: 24px;
+    font-size: var(--question-font-size, 24px);
     margin-right: 4px;
 }
 
@@ -481,6 +641,7 @@
     color: #666;
     font-family: "Courier New", monospace;
     font-weight: bold;
+    visibility: hidden;
 }
 
 .mult-final-row {
@@ -848,5 +1009,871 @@
 
     .selection-hint {
         font-size: 12px;
+    }
+}
+
+/* ============================================
+   TOGGLE BUTTONS FOR CARRY/BORROW MODE
+============================================ */
+
+.mode-selection-section {
+    margin: 20px 0;
+    padding: 20px;
+    background: linear-gradient(135deg, #f5f7fa, #e8ecf1);
+    border-radius: 15px;
+    border: 2px solid #dbe4ee;
+}
+
+.mode-selection-section h4 {
+    margin: 0 0 15px 0;
+    color: #333;
+    font-size: 20px;
+    text-align: center;
+}
+
+.toggle-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.toggle-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 20px 15px;
+    border: 3px solid transparent;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    background: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.toggle-btn .toggle-icon {
+    font-size: 42px;
+    transition: transform 0.3s ease;
+}
+
+.toggle-btn .toggle-text {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.toggle-btn .toggle-label {
+    font-size: 13px;
+    color: #666;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 12px;
+    background: #f0f0f0;
+}
+
+/* Easy mode (Without Carry/Borrow) - Green */
+.toggle-btn[data-carry="no"],
+.toggle-btn[data-borrow="no"] {
+    border-color: #6BCF7F;
+}
+
+.toggle-btn[data-carry="no"]:hover,
+.toggle-btn[data-borrow="no"]:hover {
+    background: linear-gradient(135deg, #E8F5E9, #C8E6C9);
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 8px 20px rgba(107, 207, 127, 0.3);
+}
+
+.toggle-btn[data-carry="no"].active,
+.toggle-btn[data-borrow="no"].active {
+    background: linear-gradient(135deg, #6BCF7F, #4CAF50);
+    border-color: #45a049;
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+}
+
+.toggle-btn[data-carry="no"].active .toggle-text,
+.toggle-btn[data-borrow="no"].active .toggle-text {
+    color: white;
+}
+
+.toggle-btn[data-carry="no"].active .toggle-label,
+.toggle-btn[data-borrow="no"].active .toggle-label {
+    background: rgba(255, 255, 255, 0.9);
+    color: #4CAF50;
+}
+
+/* Challenge mode (With Carry/Borrow) - Orange */
+.toggle-btn[data-carry="yes"],
+.toggle-btn[data-borrow="yes"] {
+    border-color: #FFA07A;
+}
+
+.toggle-btn[data-carry="yes"]:hover,
+.toggle-btn[data-borrow="yes"]:hover {
+    background: linear-gradient(135deg, #FFF5EE, #FFE4CC);
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 8px 20px rgba(255, 160, 122, 0.3);
+}
+
+.toggle-btn[data-carry="yes"].active,
+.toggle-btn[data-borrow="yes"].active {
+    background: linear-gradient(135deg, #FFA07A, #FF7F50);
+    border-color: #FF6347;
+    box-shadow: 0 6px 20px rgba(255, 127, 80, 0.4);
+}
+
+.toggle-btn[data-carry="yes"].active .toggle-text,
+.toggle-btn[data-borrow="yes"].active .toggle-text {
+    color: white;
+}
+
+.toggle-btn[data-carry="yes"].active .toggle-label,
+.toggle-btn[data-borrow="yes"].active .toggle-label {
+    background: rgba(255, 255, 255, 0.9);
+    color: #FF7F50;
+}
+
+/* Emoji bounce on active */
+.toggle-btn.active .toggle-icon {
+    animation: iconBounce 0.5s ease;
+}
+
+@keyframes iconBounce {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+/* Responsive toggles */
+@media (max-width: 480px) {
+    .toggle-buttons {
+        gap: 10px;
+    }
+
+    .toggle-btn {
+        padding: 15px 10px;
+    }
+
+    .toggle-btn .toggle-icon {
+        font-size: 36px;
+    }
+
+    .toggle-btn .toggle-text {
+        font-size: 14px;
+    }
+
+    .toggle-btn .toggle-label {
+        font-size: 11px;
+    }
+}
+
+/* ============================================
+   TABLE PRACTICE STYLES
+============================================ */
+
+.table-popup-box {
+    min-width: 500px;
+    max-width: 600px;
+}
+
+.table-hint {
+    text-align: center;
+    color: #666;
+    font-size: 16px;
+    margin: 10px 0 20px 0;
+}
+
+/* Table Number Grid Selector (1-20) */
+.table-grid-selector {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    padding: 20px;
+    background: linear-gradient(135deg, #F0F8FF, #E6F3FF);
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.table-num-btn {
+    padding: 18px;
+    font-size: 24px;
+    font-weight: bold;
+    border: 3px solid transparent;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Rainbow colors for table number buttons */
+.table-num-btn:nth-child(5n+1) {
+    background: linear-gradient(135deg, #FF6B6B, #EE5A6F);
+    border-color: #FF4757;
+}
+
+.table-num-btn:nth-child(5n+2) {
+    background: linear-gradient(135deg, #FFA07A, #FF7F50);
+    border-color: #FF6347;
+}
+
+.table-num-btn:nth-child(5n+3) {
+    background: linear-gradient(135deg, #FFD93D, #FFC107);
+    border-color: #FFB300;
+    color: #333;
+}
+
+.table-num-btn:nth-child(5n+4) {
+    background: linear-gradient(135deg, #6BCF7F, #4CAF50);
+    border-color: #45a049;
+}
+
+.table-num-btn:nth-child(5n+5) {
+    background: linear-gradient(135deg, #5DADE2, #3498DB);
+    border-color: #2E86C1;
+}
+
+/* Additional colors for 11-20 */
+.table-num-btn:nth-child(n+11):nth-child(5n+1) {
+    background: linear-gradient(135deg, #A29BFE, #6C5CE7);
+    border-color: #5F4FCE;
+}
+
+.table-num-btn:nth-child(n+11):nth-child(5n+2) {
+    background: linear-gradient(135deg, #E17FFF, #C56CF0);
+    border-color: #B24FD8;
+}
+
+.table-num-btn:nth-child(n+11):nth-child(5n+3) {
+    background: linear-gradient(135deg, #FF85C0, #FF6BA9);
+    border-color: #FF4D94;
+}
+
+.table-num-btn:nth-child(n+11):nth-child(5n+4) {
+    background: linear-gradient(135deg, #4ECDC4, #3BB5AC);
+    border-color: #2FA39A;
+}
+
+.table-num-btn:nth-child(n+11):nth-child(5n+5) {
+    background: linear-gradient(135deg, #FF9999, #FF7777);
+    border-color: #FF5555;
+}
+
+.table-num-btn:hover {
+    transform: scale(1.15) rotate(5deg);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+    z-index: 10;
+}
+
+.table-num-btn:active {
+    transform: scale(1.05);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Practice Zone Styles */
+.table-practice-container {
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+.table-title {
+    text-align: center;
+    font-size: 26px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.table-number-highlight {
+    color: #4CAF50;
+    font-size: 30px;
+    text-shadow: 2px 2px 4px rgba(76, 175, 80, 0.3);
+}
+
+.table-reference-section {
+    background: linear-gradient(135deg, #E8F5E9, #C8E6C9);
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    border: 3px solid #4CAF50;
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2);
+}
+
+.reference-header {
+    text-align: center;
+    color: #2E7D32;
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.table-display-grid {
+    display: grid;
+    gap: 10px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.table-display-row {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 15px;
+    background: white;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.table-display-row:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.table-num {
+    color: #2E7D32;
+    min-width: 30px;
+    text-align: center;
+}
+
+.table-mult {
+    color: #1976D2;
+    font-size: 22px;
+}
+
+.table-equals {
+    color: #F57C00;
+    font-size: 22px;
+}
+
+.table-result {
+    color: #C62828;
+    min-width: 40px;
+    text-align: center;
+    font-size: 22px;
+}
+
+.practice-section-header {
+    text-align: center;
+    font-size: 26px;
+    margin: 30px 0 20px 0;
+    color: #1976D2;
+}
+
+.table-practice-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.table-practice-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* Rainbow colors for each row - 10 different vibrant gradients */
+.table-practice-row:nth-child(1) {
+    background: linear-gradient(135deg, #FFE5E5, #FFCCCC);
+    border-color: #FF6B6B;
+}
+
+.table-practice-row:nth-child(2) {
+    background: linear-gradient(135deg, #FFEEE0, #FFDDB3);
+    border-color: #FFA07A;
+}
+
+.table-practice-row:nth-child(3) {
+    background: linear-gradient(135deg, #FFF9E0, #FFF3B3);
+    border-color: #FFD93D;
+}
+
+.table-practice-row:nth-child(4) {
+    background: linear-gradient(135deg, #E8F5E9, #C8E6C9);
+    border-color: #6BCF7F;
+}
+
+.table-practice-row:nth-child(5) {
+    background: linear-gradient(135deg, #E0F7F4, #B3EBE4);
+    border-color: #4ECDC4;
+}
+
+.table-practice-row:nth-child(6) {
+    background: linear-gradient(135deg, #E3F2FD, #BBDEFB);
+    border-color: #5DADE2;
+}
+
+.table-practice-row:nth-child(7) {
+    background: linear-gradient(135deg, #F3E5F5, #E1BEE7);
+    border-color: #A29BFE;
+}
+
+.table-practice-row:nth-child(8) {
+    background: linear-gradient(135deg, #FCE4EC, #F8BBD0);
+    border-color: #E17FFF;
+}
+
+.table-practice-row:nth-child(9) {
+    background: linear-gradient(135deg, #FFF0F5, #FFE0EB);
+    border-color: #FF85C0;
+}
+
+.table-practice-row:nth-child(10) {
+    background: linear-gradient(135deg, #FFF5F5, #FFE0E0);
+    border-color: #FF9999;
+}
+
+.table-practice-row:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    border-width: 3px;
+}
+
+.practice-question {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    min-width: 120px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Colorful style for each number in the question */
+.practice-question .num-chocolate {
+    display: inline-block;
+    padding: 8px 12px;
+    background: linear-gradient(145deg, #667eea, #764ba2);
+    border-radius: 10px;
+    box-shadow:
+        0 4px 8px rgba(0, 0, 0, 0.3),
+        inset 0 1px 2px rgba(255, 255, 255, 0.3),
+        inset 0 -2px 3px rgba(0, 0, 0, 0.2);
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    min-width: 40px;
+    text-align: center;
+    border: 2px solid #5568d3;
+    font-size: 22px;
+}
+
+/* Operator styling */
+.practice-question .operator {
+    color: #333;
+    font-size: 26px;
+    margin: 0 2px;
+    font-weight: 900;
+}
+
+.table-answer-input {
+    width: 85px;
+    height: 50px;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    border: 3px solid #667eea;
+    border-radius: 12px;
+    background: linear-gradient(145deg, #4ECDC4, #3BB5AC);
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.25),
+        inset 0 2px 3px rgba(255, 255, 255, 0.2),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.table-answer-input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 28px;
+}
+
+.table-answer-input:focus {
+    outline: none;
+    border-color: #FFD700;
+    background: linear-gradient(145deg, #5DADE2, #3498DB);
+    box-shadow:
+        0 0 15px rgba(255, 215, 0, 0.6),
+        0 4px 15px rgba(0, 0, 0, 0.3),
+        inset 0 2px 3px rgba(255, 255, 255, 0.25);
+    transform: scale(1.08);
+}
+
+.table-practice-row.correct {
+    background: linear-gradient(135deg, #C8E6C9, #A5D6A7);
+    border-color: #4CAF50;
+    animation: correctAnswer 0.5s ease;
+}
+
+.table-practice-row.incorrect {
+    background: linear-gradient(135deg, #FFCDD2, #EF9A9A);
+    border-color: #F44336;
+    animation: shake 0.5s ease;
+}
+
+@keyframes correctAnswer {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px);
+    }
+
+    75% {
+        transform: translateX(5px);
+    }
+}
+
+/* Responsive table practice styles */
+@media (max-width: 768px) {
+    .table-popup-box {
+        min-width: 90%;
+    }
+
+    .table-grid-selector {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        padding: 15px;
+    }
+
+    .table-num-btn {
+        padding: 15px;
+        font-size: 20px;
+    }
+
+    .table-practice-list {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .table-title {
+        font-size: 26px;
+    }
+
+    .table-number-highlight {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .table-grid-selector {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 8px;
+        padding: 12px;
+    }
+
+    .table-num-btn {
+        padding: 12px;
+        font-size: 18px;
+    }
+
+    .table-practice-row {
+        padding: 12px;
+    }
+
+    .practice-question {
+        font-size: 18px;
+        min-width: 100px;
+    }
+
+    .table-answer-input {
+        width: 60px;
+        height: 35px;
+        font-size: 18px;
+    }
+
+    .table-title {
+        font-size: 22px;
+    }
+
+    .table-number-highlight {
+        font-size: 26px;
+    }
+
+    .reference-header,
+    .practice-section-header {
+        font-size: 20px;
+    }
+}
+
+/* ============================================
+   CUSTOM NUMBER PAD STYLES
+============================================ */
+
+.number-pad {
+    width: 100%;
+    max-width: 450px;
+    margin: 20px auto;
+    padding: 12px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    border: 3px solid #4a5bb5;
+    transition: all 0.3s ease;
+}
+
+.number-pad.hidden {
+    display: none;
+}
+
+.number-pad-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.number-pad-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    flex: 1;
+}
+
+.toggle-numpad-btn {
+    padding: 6px 12px;
+    background: white;
+    color: #667eea;
+    border: 2px solid white;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.toggle-numpad-btn:hover {
+    background: #667eea;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Show Number Pad Button */
+.show-numpad-btn {
+    display: block;
+    margin: 20px auto;
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: 3px solid #4a5bb5;
+    border-radius: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.show-numpad-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+.show-numpad-btn.hidden {
+    display: none;
+}
+
+.number-pad-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+.num-btn {
+    padding: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    box-shadow:
+        0 4px 10px rgba(0, 0, 0, 0.25),
+        inset 0 2px 3px rgba(255, 255, 255, 0.3);
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Rainbow colors for number buttons */
+.num-btn[data-value="1"] {
+    background: linear-gradient(135deg, #FF6B6B, #EE5A6F);
+}
+
+.num-btn[data-value="2"] {
+    background: linear-gradient(135deg, #FFA07A, #FF7F50);
+}
+
+.num-btn[data-value="3"] {
+    background: linear-gradient(135deg, #FFD93D, #FFC107);
+}
+
+.num-btn[data-value="4"] {
+    background: linear-gradient(135deg, #6BCF7F, #4CAF50);
+}
+
+.num-btn[data-value="5"] {
+    background: linear-gradient(135deg, #4ECDC4, #3BB5AC);
+}
+
+.num-btn[data-value="6"] {
+    background: linear-gradient(135deg, #5DADE2, #3498DB);
+}
+
+.num-btn[data-value="7"] {
+    background: linear-gradient(135deg, #A29BFE, #6C5CE7);
+}
+
+.num-btn[data-value="8"] {
+    background: linear-gradient(135deg, #E17FFF, #C56CF0);
+}
+
+.num-btn[data-value="9"] {
+    background: linear-gradient(135deg, #FF85C0, #FF6BA9);
+}
+
+.num-btn-zero {
+    background: linear-gradient(135deg, #667eea, #764ba2) !important;
+    grid-column: 1 / 2;
+}
+
+.num-btn-special {
+    background: linear-gradient(135deg, #F44336, #D32F2F) !important;
+    font-size: 15px !important;
+    padding: 12px !important;
+}
+
+.num-btn[data-action="clear"] {
+    background: linear-gradient(135deg, #FF5722, #E64A19) !important;
+}
+
+.num-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow:
+        0 6px 15px rgba(0, 0, 0, 0.35),
+        inset 0 2px 3px rgba(255, 255, 255, 0.4);
+}
+
+.num-btn:active {
+    transform: translateY(0) scale(0.98);
+    box-shadow:
+        0 2px 5px rgba(0, 0, 0, 0.2),
+        inset 0 2px 3px rgba(0, 0, 0, 0.2);
+    animation: buttonPress 0.1s ease;
+}
+
+@keyframes buttonPress {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(0.95);
+    }
+
+    100% {
+        transform: scale(0.98);
+    }
+}
+
+/* Ripple effect on click */
+.num-btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    transform: translate(-50%, -50%);
+    transition: width 0.3s, height 0.3s;
+}
+
+.num-btn:active::after {
+    width: 100px;
+    height: 100px;
+}
+
+/* Responsive number pad */
+@media (max-width: 768px) {
+    .number-pad {
+        max-width: 450px;
+        padding: 18px;
+    }
+
+    .num-btn {
+        padding: 18px;
+        font-size: 26px;
+    }
+
+    .number-pad-grid {
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .number-pad {
+        max-width: 100%;
+        padding: 15px;
+        margin: 20px auto;
+    }
+
+    .number-pad-title {
+        font-size: 18px;
+    }
+
+    .number-pad-grid {
+        gap: 8px;
+    }
+
+    .num-btn {
+        padding: 15px;
+        font-size: 22px;
+    }
+
+    .num-btn-special {
+        font-size: 15px !important;
+        padding: 12px !important;
     }
 }

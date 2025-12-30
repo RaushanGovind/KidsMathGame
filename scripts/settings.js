@@ -2,21 +2,37 @@
    SETTINGS PANEL & THEME CONTROLS
 ========================================================= */
 
+/**
+ * Open settings panel
+ */
+function openSettingsPanel() {
+    const settingsPanel = document.getElementById("settingsPanel");
+    if (settingsPanel) {
+        settingsPanel.style.right = "0px";
+    }
+}
+
+/**
+ * Close settings panel
+ */
+function closeSettingsPanel() {
+    const settingsPanel = document.getElementById("settingsPanel");
+    if (settingsPanel) {
+        settingsPanel.style.right = "-350px";
+    }
+}
+
 function setupSettingsPanel() {
 
     const settingsPanel = document.getElementById("settingsPanel");
-    const openBtn = document.getElementById("settingsBtn");
     const closeBtn = document.getElementById("closeSettings");
 
-    // Open settings panel
-    openBtn.addEventListener("click", () => {
-        settingsPanel.style.right = "0px";
-    });
-
     // Close settings panel
-    closeBtn.addEventListener("click", () => {
-        settingsPanel.style.right = "-320px";
-    });
+    if (closeBtn) {
+        closeBtn.addEventListener("click", () => {
+            settingsPanel.style.right = "-350px";
+        });
+    }
 }
 
 
@@ -46,18 +62,31 @@ function setupThemeControl() {
 
 function setupFontControls() {
 
-    // Font family
+    // Font family - apply only to question area elements
     document.getElementById("fontSelect").onchange = function () {
-        document.body.style.fontFamily = this.value;
+        const questionElements = document.querySelectorAll(
+            '.num1, .num2, .answer-input, .carry-input, ' +
+            '.mult-digit, .mult-input, .mult-sign, ' +
+            '.practice-question, .table-answer-input, ' +
+            '.num-chocolate, .operator'
+        );
+        questionElements.forEach(el => {
+            el.style.fontFamily = this.value;
+        });
     };
 
-    // Font size
-    document.getElementById("fontSizeInput").oninput = function () {
-        document.body.style.fontSize = this.value + "px";
-    };
+    // Font size - apply only to question area elements with live value display
+    const fontSizeInput = document.getElementById("fontSizeInput");
+    const fontSizeValue = document.getElementById("fontSizeValue");
 
-    // Font color
-    document.getElementById("fontColorInput").oninput = function () {
-        document.body.style.color = this.value;
+    fontSizeInput.oninput = function () {
+        // Update displayed value
+        if (fontSizeValue) {
+            fontSizeValue.textContent = this.value;
+        }
+
+        // Apply global CSS variable for question font size
+        // This persists even when new questions are generated
+        document.documentElement.style.setProperty('--question-font-size', this.value + 'px');
     };
 }

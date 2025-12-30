@@ -22,6 +22,17 @@ function switchToAddition() {
     document.getElementById("checkBtn").onclick = checkAdditionAnswer;
     document.getElementById("nextBtn").onclick = nextAdditionQuestion;
 
+    // Show bubble section for addition
+    const bubbleSection = document.querySelector(".bubble-section");
+    if (bubbleSection) {
+        bubbleSection.style.display = "block";
+    }
+
+    // Initialize addition bubble matrix (2 states)
+    if (typeof initBubbleMatrix === 'function') {
+        initBubbleMatrix();
+    }
+
     // Close any open popups first, then open addition popup
     closeAddPopup();
     closeSubPopup();
@@ -55,6 +66,17 @@ function switchToSubtraction() {
     document.getElementById("checkBtn").onclick = checkSubAnswer;
     document.getElementById("nextBtn").onclick = generateSubQuestion;
 
+    // Show bubble section for subtraction
+    const bubbleSection = document.querySelector(".bubble-section");
+    if (bubbleSection) {
+        bubbleSection.style.display = "block";
+    }
+
+    // Initialize subtraction bubble matrix (3 states)
+    if (typeof initSubBubbleMatrix === 'function') {
+        initSubBubbleMatrix();
+    }
+
     // Close any open popups first, then open subtraction popup
     closeAddPopup();
     closeSubPopup();
@@ -87,6 +109,12 @@ function switchToMultiplication() {
     // Update button handlers
     document.getElementById("checkBtn").onclick = checkMultiplicationAnswer;
     document.getElementById("nextBtn").onclick = nextMultiplicationQuestion;
+
+    // Hide bubble section for multiplication
+    const bubbleSection = document.querySelector(".bubble-section");
+    if (bubbleSection) {
+        bubbleSection.style.display = "none";
+    }
 
     // Close any open popups first, then open multiplication popup
     closeAddPopup();
@@ -122,6 +150,12 @@ function switchToTablePractice() {
 
     nextBtn.textContent = "Reset";
     nextBtn.onclick = resetTablePractice;
+
+    // Hide bubble section for table practice
+    const bubbleSection = document.querySelector(".bubble-section");
+    if (bubbleSection) {
+        bubbleSection.style.display = "none";
+    }
 
     // Close any open popups first, then open table popup
     closeAddPopup();

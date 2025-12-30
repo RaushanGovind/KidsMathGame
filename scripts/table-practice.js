@@ -1,5 +1,5 @@
 /* =========================================================
-   TABLE PRACTICE MODE - Multiplication Tables
+   TABLE PRACTICE MODE
 ========================================================= */
 
 let tableSettings = {
@@ -18,7 +18,7 @@ function closeTablePopup() {
 }
 
 /**
- * Render table practice with reference table AND practice questions
+ * Render table practice with practice questions only
  */
 function renderTablePractice() {
     const container = document.getElementById("additionColumns");
@@ -33,42 +33,8 @@ function renderTablePractice() {
     // Title section
     const title = document.createElement("h2");
     title.className = "table-title";
-    title.innerHTML = `🎯 Multiplication Table of <span class="table-number-highlight">${tableNum}</span>`;
+    title.innerHTML = `🎯 Table Practice: <span class="table-number-highlight">${tableNum}</span>`;
     mainContainer.appendChild(title);
-
-    // Colorful reference table (with answers)
-    const referenceSection = document.createElement("div");
-    referenceSection.className = "table-reference-section";
-
-    const refHeader = document.createElement("h3");
-    refHeader.className = "reference-header";
-    refHeader.textContent = "📖 Reference Table";
-    referenceSection.appendChild(refHeader);
-
-    const tableDisplay = document.createElement("div");
-    tableDisplay.className = "table-display-grid";
-
-    for (let i = 1; i <= 10; i++) {
-        const row = document.createElement("div");
-        row.className = "table-display-row";
-        row.innerHTML = `
-            <span class="table-num">${tableNum}</span>
-            <span class="table-mult">×</span>
-            <span class="table-num">${i}</span>
-            <span class="table-equals">=</span>
-            <span class="table-result">${tableNum * i}</span>
-        `;
-        tableDisplay.appendChild(row);
-    }
-
-    referenceSection.appendChild(tableDisplay);
-    mainContainer.appendChild(referenceSection);
-
-    // Practice section header
-    const practiceHeader = document.createElement("h3");
-    practiceHeader.className = "practice-section-header";
-    practiceHeader.textContent = "✏️ Practice Zone - Fill in the answers:";
-    mainContainer.appendChild(practiceHeader);
 
     // Practice questions - simple list format
     const practiceContainer = document.createElement("div");
@@ -79,7 +45,12 @@ function renderTablePractice() {
         row.className = "table-practice-row";
 
         row.innerHTML = `
-            <span class="practice-question">${tableNum} × ${i} =</span>
+            <span class="practice-question">
+                <span class="num-chocolate">${tableNum}</span>
+                <span class="operator">×</span>
+                <span class="num-chocolate">${i}</span>
+                <span class="operator">=</span>
+            </span>
             <input class="table-answer-input" inputmode="numeric" pattern="[0-9]*" maxlength="3" data-answer="${tableNum * i}" placeholder="?">
         `;
 
@@ -164,7 +135,13 @@ function checkTableAnswers() {
         }
     });
 
-    showMessage(`✅ ${correct} out of ${total} correct!`);
+    if (correct === total) {
+        showResultFeedback(true);
+        showMessage("🎉 Perfect! All answers correct!");
+    } else {
+        showResultFeedback(false);
+        showMessage(`✅ ${correct} out of ${total} correct! Keep practicing!`);
+    }
 }
 
 /**
@@ -174,6 +151,8 @@ function resetTablePractice() {
     const inputs = document.querySelectorAll(".table-answer-input");
     inputs.forEach(input => {
         input.value = "";
+        // Restore chocolate background
+        input.style.background = "";
         input.style.backgroundColor = "";
         input.style.borderColor = "";
         const row = input.closest(".table-practice-row");

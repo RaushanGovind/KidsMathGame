@@ -88,6 +88,8 @@ window.onload = function () {
             window.hideLandingPage();
         };
 
+
+
         console.log("✓ Start button event listeners attached");
     } else {
         console.error("❌ Start button not found!");

@@ -222,16 +222,21 @@ function getUserAnswer() {
  * Check Answer (column style)
  */
 function checkAdditionAnswer() {
+    // Hide bubble matrix first
+    const matrix = document.getElementById("bubbleMatrix");
+    const toggleBtn = document.getElementById("toggleBubbles");
+
+    if (matrix && toggleBtn) {
+        matrix.style.display = "none";
+        toggleBtn.textContent = "Show Bubbles";
+        bubbleMatrixVisible = false;
+    }
 
     // Sum all numbers in the additionRows array
     const correct = additionRows.reduce((sum, num) => sum + num, 0);
     const user = getUserAnswer();
 
-    if (user === correct) {
-        showMessage("🎉 Correct! Well done!");
-    } else {
-        showMessage(`❌ Try again — Correct answer = ${correct}`);
-    }
+    showResultFeedback(user === correct);
 }
 
 
@@ -265,10 +270,19 @@ function setupAdditionModeControls() {
 
     document.getElementById("addCancel").onclick = closeAddPopup;
 
-    document.getElementById("addCarryMode").onchange = e => {
-        additionSettings.carry = e.target.value;
-        console.log("Carry mode changed to:", additionSettings.carry);
-    };
+    // Handle toggle buttons for carry mode
+    const toggleBtns = document.querySelectorAll('#addPopup .toggle-btn');
+    toggleBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active from all toggle buttons
+            toggleBtns.forEach(b => b.classList.remove('active'));
+            // Add active to clicked button
+            btn.classList.add('active');
+            // Update carry mode
+            additionSettings.carry = btn.dataset.carry;
+            console.log("Carry mode changed to:", additionSettings.carry);
+        });
+    });
 
     // Handle quick selection buttons
     const quickSelectBtns = document.querySelectorAll(".quick-select-btn");
@@ -285,10 +299,7 @@ function setupAdditionModeControls() {
             const digits = parseInt(btn.dataset.digits);
             const rows = parseInt(btn.dataset.rows);
 
-            // IMPORTANT: Read carry mode from dropdown at this moment
-            const carryDropdown = document.getElementById("addCarryMode");
-            additionSettings.carry = carryDropdown.value;
-
+            // Carry mode is already set by toggle buttons above
             // Update settings
             additionSettings.digits = digits;
             additionSettings.rows = rows;
@@ -332,30 +343,22 @@ function generateBubbleMatrix() {
 }
 
 /**
- * Toggle bubble selection with 3 states:
+ * Toggle bubble selection with 2 states (Addition mode):
  * 1st click: selected (colored)
- * 2nd click: crossed (X mark)
- * 3rd click: clear (back to normal)
+ * 2nd click: clear (back to normal)
  */
 function toggleBubble(bubble) {
     const id = bubble.dataset.id;
 
     // Check current state
-    if (!bubble.classList.contains("bubble-selected") && !bubble.classList.contains("bubble-crossed")) {
+    if (!bubble.classList.contains("bubble-selected")) {
         // State 1: Normal → Selected (colored)
         bubble.classList.add("bubble-selected");
         selectedBubbles.add(id);
-    } else if (bubble.classList.contains("bubble-selected")) {
-        // State 2: Selected → Crossed (X)
+    } else {
+        // State 2: Selected → Clear (back to normal)
         bubble.classList.remove("bubble-selected");
-        bubble.classList.add("bubble-crossed");
         selectedBubbles.delete(id);
-        // Create X mark
-        bubble.innerHTML = '<span class="bubble-x">✕</span>';
-    } else if (bubble.classList.contains("bubble-crossed")) {
-        // State 3: Crossed → Clear (back to normal)
-        bubble.classList.remove("bubble-crossed");
-        bubble.innerHTML = '';  // Remove X mark
     }
 
     updateBubbleCounter();

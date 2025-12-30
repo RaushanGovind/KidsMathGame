@@ -20,10 +20,19 @@ function setupSubPopupControls() {
 
   document.getElementById("subCancel").onclick = closeSubPopup;
 
-  document.getElementById("subBorrowMode").onchange = e => {
-    subSettings.borrow = e.target.value;
-    console.log("Borrow mode changed to:", subSettings.borrow);
-  };
+  // Handle toggle buttons for borrow mode
+  const toggleBtns = document.querySelectorAll('#subPopup .toggle-btn');
+  toggleBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Remove active from all toggle buttons
+      toggleBtns.forEach(b => b.classList.remove('active'));
+      // Add active to clicked button
+      btn.classList.add('active');
+      // Update borrow mode
+      subSettings.borrow = btn.dataset.borrow;
+      console.log("Borrow mode changed to:", subSettings.borrow);
+    });
+  });
 
   // Handle quick selection buttons
   const quickSelectBtns = document.querySelectorAll(".sub-select-btn");
@@ -39,10 +48,7 @@ function setupSubPopupControls() {
       // Get digits from data attribute
       const digits = parseInt(btn.dataset.digits);
 
-      // Read borrow mode from dropdown at this moment
-      const borrowDropdown = document.getElementById("subBorrowMode");
-      subSettings.borrow = borrowDropdown.value;
-
+      // Borrow mode is already set by toggle buttons above
       // Update settings (rows always 2 for subtraction)
       subSettings.digits = digits;
       subSettings.rows = 2;  // Always 2 for subtraction!
@@ -165,11 +171,153 @@ function getSubUserAnswer() {
 }
 
 function checkSubAnswer() {
+  // Hide bubble matrix first
+  const matrix = document.getElementById("bubbleMatrix");
+  const toggleBtn = document.getElementById("toggleBubbles");
+
+  if (matrix && toggleBtn) {
+    matrix.style.display = "none";
+    toggleBtn.textContent = "Show Bubbles";
+    subBubbleMatrixVisible = false;
+  }
 
   const correct = subNum1 - subNum2;
   const user = getSubUserAnswer();
 
-  alert(user === correct ?
-    "🎉 Correct!" :
-    "❌ Try again — Answer = " + correct);
+  showResultFeedback(user === correct);
+}
+
+/* =========================================================
+   BUBBLE MATRIX FUNCTIONS FOR SUBTRACTION
+========================================================= */
+
+// Bubble matrix state for subtraction
+let subBubbleMatrixVisible = true;
+let subSelectedBubbles = new Set();
+const SUB_BUBBLE_ROWS = 10;
+const SUB_BUBBLE_COLS = 10;
+
+/**
+ * Generate bubble matrix for subtraction
+ */
+function generateSubBubbleMatrix() {
+  const container = document.getElementById("bubbleMatrix");
+  if (!container) return;
+
+  container.innerHTML = "";
+  subSelectedBubbles.clear();
+  updateSubBubbleCounter();
+
+  for (let row = 0; row < SUB_BUBBLE_ROWS; row++) {
+    for (let col = 0; col < SUB_BUBBLE_COLS; col++) {
+      const bubble = document.createElement("div");
+      bubble.className = "bubble";
+      bubble.dataset.id = `${row}-${col}`;
+
+      bubble.onclick = () => toggleSubBubble(bubble);
+
+      container.appendChild(bubble);
+    }
+  }
+}
+
+/**
+ * Toggle bubble selection with 3 states (Subtraction mode):
+ * 1st click: selected (colored)
+ * 2nd click: crossed (X mark)
+ * 3rd click: clear (back to normal)
+ */
+function toggleSubBubble(bubble) {
+  const id = bubble.dataset.id;
+
+  // Check current state
+  if (!bubble.classList.contains("bubble-selected") && !bubble.classList.contains("bubble-crossed")) {
+    // State 1: Normal → Selected (colored)
+    bubble.classList.add("bubble-selected");
+    subSelectedBubbles.add(id);
+  } else if (bubble.classList.contains("bubble-selected")) {
+    // State 2: Selected → Crossed (X)
+    bubble.classList.remove("bubble-selected");
+    bubble.classList.add("bubble-crossed");
+    subSelectedBubbles.delete(id);
+    // Create X mark
+    bubble.innerHTML = '<span class="bubble-x">✕</span>';
+  } else if (bubble.classList.contains("bubble-crossed")) {
+    // State 3: Crossed → Clear (back to normal)
+    bubble.classList.remove("bubble-crossed");
+    bubble.innerHTML = '';  // Remove X mark
+  }
+
+  updateSubBubbleCounter();
+}
+
+/**
+ * Update bubble counter display for subtraction
+ */
+function updateSubBubbleCounter() {
+  const counter = document.getElementById("bubbleCounter");
+  if (counter) {
+    counter.textContent = `Selected: ${subSelectedBubbles.size}`;
+  }
+}
+
+/**
+ * Toggle bubble matrix visibility for subtraction
+ */
+function toggleSubBubbleMatrix() {
+  const matrix = document.getElementById("bubbleMatrix");
+  const toggleBtn = document.getElementById("toggleBubbles");
+
+  if (!matrix || !toggleBtn) return;
+
+  subBubbleMatrixVisible = !subBubbleMatrixVisible;
+
+  if (subBubbleMatrixVisible) {
+    matrix.style.display = "grid";
+    toggleBtn.textContent = "Hide Bubbles";
+  } else {
+    matrix.style.display = "none";
+    toggleBtn.textContent = "Show Bubbles";
+  }
+}
+
+/**
+ * Reset bubble matrix for subtraction
+ */
+function resetSubBubbleMatrix() {
+  subSelectedBubbles.clear();
+  const bubbles = document.querySelectorAll(".bubble");
+  bubbles.forEach(bubble => {
+    bubble.classList.remove("bubble-selected");
+    bubble.classList.remove("bubble-crossed");
+    bubble.innerHTML = '';  // Remove any X marks
+  });
+  updateSubBubbleCounter();
+}
+
+/**
+ * Initialize bubble matrix on page load for subtraction
+ */
+function initSubBubbleMatrix() {
+  generateSubBubbleMatrix();
+
+  const toggleBtn = document.getElementById("toggleBubbles");
+  const resetBtn = document.getElementById("resetBubbles");
+  const matrix = document.getElementById("bubbleMatrix");
+
+  // Hide bubble matrix on page load
+  if (matrix) {
+    matrix.style.display = "none";
+    subBubbleMatrixVisible = false;
+  }
+
+  // Update button text
+  if (toggleBtn) {
+    toggleBtn.textContent = "Show Bubbles";
+    toggleBtn.onclick = toggleSubBubbleMatrix;
+  }
+
+  if (resetBtn) {
+    resetBtn.onclick = resetSubBubbleMatrix;
+  }
 }
