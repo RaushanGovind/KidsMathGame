@@ -8,13 +8,31 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    /* Center vertically */
+    justify-content: flex-start;
+    /* Align to top to allow scrolling */
     position: relative;
+    height: 70vh;
+    /* Request: Box area 70% (approx) */
     min-height: 400px;
-    padding: 20px;
+    padding: 10px;
+    /* Reduced padding */
     width: 100%;
     box-sizing: border-box;
+    overflow: hidden;
+    /* Prevent box itself from scrolling, let wrapper scroll */
+}
+
+.scroll-wrapper {
+    flex: 1;
+    /* Take up all remaining space */
+    width: 100%;
+    overflow-y: auto;
+    /* Scroll ONLY inside this box */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+    /* Space for scrolling */
 }
 
 /* column container */
@@ -1637,14 +1655,18 @@
 
 .number-pad {
     width: 100%;
-    max-width: 450px;
-    margin: 20px auto;
-    padding: 12px;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    border-radius: 15px;
-    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
-    border: 3px solid #4a5bb5;
+    max-width: 150px;
+    /* Micro size */
+    margin: 2px auto 0 auto;
+    padding: 2px;
+    background: rgba(102, 126, 234, 0.9);
+    /* More transparent background */
+    border-radius: 6px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    border: 1px solid #4a5bb5;
     transition: all 0.3s ease;
+    flex-shrink: 0;
+    z-index: 100;
 }
 
 .number-pad.hidden {
@@ -1652,32 +1674,31 @@
 }
 
 .number-pad-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-    margin-bottom: 10px;
+    display: none !important;
+    /* HIde header completely to save space */
 }
 
 .number-pad-title {
-    font-size: 18px;
+    font-size: 14px;
+    /* Reduced title size */
     font-weight: bold;
     color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
     flex: 1;
 }
 
 .toggle-numpad-btn {
-    padding: 6px 12px;
+    padding: 2px 6px;
+    /* Tiny toggle button */
     background: white;
     color: #667eea;
-    border: 2px solid white;
-    border-radius: 8px;
-    font-size: 14px;
+    border: 1px solid white;
+    border-radius: 6px;
+    font-size: 11px;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 .toggle-numpad-btn:hover {
@@ -1714,16 +1735,22 @@
 
 .number-pad-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 Columns for shorter height */
+    gap: 2px;
+    /* Micro gap */
+    /* Reduced gap */
 }
 
 .num-btn {
-    padding: 15px;
-    font-size: 24px;
+    padding: 4px 0;
+    /* Vertical padding only, 0 horizontal */
+    /* Further reduced */
+    font-size: 14px;
+    /* Further reduced */
     font-weight: bold;
     border: none;
-    border-radius: 10px;
+    border-radius: 4px;
     cursor: pointer;
     transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     box-shadow:
@@ -1774,13 +1801,14 @@
 
 .num-btn-zero {
     background: linear-gradient(135deg, #667eea, #764ba2) !important;
-    grid-column: 1 / 2;
+    grid-column: auto;
+    /* Let it flow naturally in 4-col grid */
 }
 
 .num-btn-special {
     background: linear-gradient(135deg, #F44336, #D32F2F) !important;
-    font-size: 15px !important;
-    padding: 12px !important;
+    font-size: 11px !important;
+    padding: 4px !important;
 }
 
 .num-btn[data-action="clear"] {
