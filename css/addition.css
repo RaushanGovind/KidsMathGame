@@ -1655,18 +1655,18 @@
 
 .number-pad {
     width: 100%;
-    max-width: 150px;
-    /* Micro size */
-    margin: 2px auto 0 auto;
+    max-width: 140px;
+    /* Reduced further */
+    margin: 5px auto 0 auto;
     padding: 2px;
-    background: rgba(102, 126, 234, 0.9);
-    /* More transparent background */
-    border-radius: 6px;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-    border: 1px solid #4a5bb5;
+    background: transparent;
+    /* Remove heavy background */
+    border: none;
+    border-radius: 8px;
+    box-shadow: none;
     transition: all 0.3s ease;
     flex-shrink: 0;
-    z-index: 100;
+    z-index: 10;
 }
 
 .number-pad.hidden {
@@ -1674,8 +1674,8 @@
 }
 
 .number-pad-header {
-    display: none !important;
-    /* HIde header completely to save space */
+    display: none;
+    /* Hide header to save vertical space */
 }
 
 .number-pad-title {
@@ -1726,7 +1726,7 @@
 
 .show-numpad-btn:hover {
     transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+    box-shadow: 0 6px 20px (102, 126, 234, 0.6);
 }
 
 .show-numpad-btn.hidden {
@@ -1738,28 +1738,32 @@
     grid-template-columns: repeat(4, 1fr);
     /* 4 Columns for shorter height */
     gap: 2px;
-    /* Micro gap */
+    /* Minimal gap */
     /* Reduced gap */
 }
 
 .num-btn {
-    padding: 4px 0;
-    /* Vertical padding only, 0 horizontal */
-    /* Further reduced */
+    padding: 0;
+    /* No padding */
+    height: 28px;
+    /* Fixed small height */
     font-size: 14px;
-    /* Further reduced */
+    /* Slightly larger for readability */
     font-weight: bold;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    box-shadow:
-        0 4px 10px rgba(0, 0, 0, 0.25),
-        inset 0 2px 3px rgba(255, 255, 255, 0.3);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     color: white;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    text-shadow: none;
     position: relative;
     overflow: hidden;
+
+    /* Perfect Center Alignment */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Rainbow colors for number buttons */
@@ -1807,8 +1811,8 @@
 
 .num-btn-special {
     background: linear-gradient(135deg, #F44336, #D32F2F) !important;
-    font-size: 11px !important;
-    padding: 4px !important;
+    font-size: 10px !important;
+    padding: 2px !important;
 }
 
 .num-btn[data-action="clear"] {
