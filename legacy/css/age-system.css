@@ -1,0 +1,128 @@
+/* =========================================
+   AGE SELECTION SCREEN
+========================================= */
+
+.age-overlay {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    z-index: 11000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.age-card-container {
+    background: white;
+    padding: 30px;
+    border-radius: 30px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-width: 900px;
+    width: 100%;
+    text-align: center;
+    animation: slideUp 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.age-title {
+    font-size: 32px;
+    color: #444;
+    margin-bottom: 10px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.age-subtitle {
+    color: #888;
+    margin-bottom: 30px;
+    font-size: 18px;
+}
+
+.age-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+}
+
+.age-card {
+    background: #f8f9fa;
+    border: 3px solid transparent;
+    border-radius: 20px;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.age-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    background: white;
+    border-color: #764ba2;
+}
+
+.age-card.selected {
+    border-color: #4CAF50;
+    background: #e8f5e9;
+    transform: scale(1.05);
+}
+
+.age-icon {
+    font-size: 40px;
+    margin-bottom: 5px;
+}
+
+.age-label {
+    font-weight: bold;
+    font-size: 18px;
+    color: #333;
+}
+
+.age-desc {
+    font-size: 12px;
+    color: #666;
+}
+
+.start-journey-btn {
+    margin-top: 30px;
+    padding: 15px 40px;
+    font-size: 20px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+}
+
+.start-journey-btn:hover {
+    transform: scale(1.05);
+    background: #45a049;
+}
+
+/* Animations */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Lock Badge for Gamification later */
+.lock-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 14px;
+    color: #ccc;
+}

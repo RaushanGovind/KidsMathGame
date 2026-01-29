@@ -1,0 +1,416 @@
+/* =========================================
+   PRE-SCHOOL MODE (Age 4-5)
+   Visual Counting, Patterns, Sequencing
+========================================= */
+
+.preschool-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+    font-family: 'Poppins', 'Comic Sans MS', sans-serif;
+}
+
+.preschool-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.preschool-title {
+    font-size: 32px;
+    color: #4ECDC4;
+    text-shadow: 2px 2px 0px #fff;
+    margin: 0;
+}
+
+/* --- Menu Buttons --- */
+.preschool-menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.preschool-btn {
+    background: white;
+    border: 3px solid #eee;
+    border-radius: 15px;
+    padding: 15px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 5px 0 #ddd;
+    color: #555;
+    font-weight: bold;
+}
+
+.preschool-btn:hover {
+    transform: translateY(-2px);
+    border-color: #4ECDC4;
+}
+
+.preschool-btn:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px 0 #ddd;
+}
+
+.preschool-btn.active {
+    background: #e0f7fa;
+    border-color: #00bcd4;
+    box-shadow: 0 5px 0 #0097a7;
+    color: #006064;
+}
+
+.p-icon {
+    font-size: 36px;
+}
+
+/* --- Game Canvas --- */
+.preschool-canvas {
+    background: white;
+    border-radius: 25px;
+    padding: 30px;
+    min-height: 450px;
+    width: 100%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.p-instruction {
+    font-size: 24px;
+    color: #444;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* --- Game 1: Bead Counting --- */
+.bead-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 30px;
+    min-height: 100px;
+}
+
+.bead {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #ff9a9e, #ff6b6b);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.bead:active {
+    transform: scale(0.9);
+}
+
+.bead.counted {
+    background: radial-gradient(circle at 30% 30%, #a8e6cf, #4caf50);
+}
+
+.bead-target-display {
+    font-size: 60px;
+    font-weight: bold;
+    color: #333;
+    padding: 10px 30px;
+    background: #f0f0f0;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+/* --- Game 2: Patterns --- */
+.pattern-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 40px;
+    align-items: center;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.pattern-item {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+    /* Larger */
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.1);
+    background: white;
+    border: 1px solid #eee;
+}
+
+.pattern-slot {
+    width: 60px;
+    height: 60px;
+    border: 3px dashed #ccc;
+    border-radius: 10px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+}
+
+.pattern-options {
+    display: flex;
+    gap: 20px;
+}
+
+.pattern-option {
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.pattern-option:hover {
+    transform: scale(1.1);
+}
+
+/* --- Game 3: Missing Number --- */
+.missing-num-container {
+    display: flex;
+    gap: 15px;
+    font-size: 40px;
+    font-weight: bold;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.num-card {
+    width: 70px;
+    height: 90px;
+    background: #FFD700;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    box-shadow: 0 5px 0 #DAA520;
+}
+
+.num-card.missing {
+    background: #eee;
+    color: transparent;
+    border: 3px dashed #bbb;
+    box-shadow: none;
+}
+
+.choices-container {
+    display: flex;
+    gap: 20px;
+}
+
+.choice-chip {
+    padding: 15px 30px;
+    font-size: 28px;
+    background: white;
+    border: 2px solid #ddd;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.choice-chip:hover {
+    border-color: #4ECDC4;
+    background: #e0f2f1;
+}
+
+/* --- Game 4: Sequencing (Small to Big) --- */
+.sequence-container {
+    display: flex;
+    gap: 20px;
+    align-items: flex-end;
+    height: 250px;
+    margin-bottom: 30px;
+}
+
+.seq-visual-item {
+    width: 80px;
+    height: 100px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+    user-select: none;
+}
+
+.seq-visual-item:hover {
+    transform: scale(1.1);
+}
+
+.seq-visual-item.selected {
+    filter: drop-shadow(0 0 10px #4CAF50);
+}
+
+
+/* --- Game 6: Sorting Fun --- */
+.sorting-game-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.sorting-baskets {
+    display: flex;
+    gap: 50px;
+}
+
+.sorting-bin {
+    width: 150px;
+    height: 120px;
+    border-radius: 15px 15px 5px 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: bold;
+    background-color: #eee;
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 0 rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.sorting-bin:active {
+    transform: translateY(5px);
+}
+
+.sorting-item {
+    animation: dropIn 0.5s ease-out;
+}
+
+/* --- Game 7: Heavy vs Light --- */
+.scale-container {
+    display: flex;
+    gap: 80px;
+    align-items: center;
+    height: 200px;
+    position: relative;
+    border-bottom: 4px solid #555;
+    /* Floor */
+}
+
+/* Pivot point visualization */
+.scale-container::after {
+    content: '▲';
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 40px;
+    color: #555;
+}
+
+.scale-plate {
+    width: 100px;
+    height: 100px;
+    border: 2px solid #555;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
+    background: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.5s;
+    position: relative;
+}
+
+/* Physics positions */
+.scale-heavy {
+    transform: translateY(30px);
+}
+
+.scale-light {
+    transform: translateY(-30px);
+}
+
+.scale-plate:hover {
+    border-color: #2196F3;
+    background: #E3F2FD;
+}
+
+
+.shake {
+    animation: shake 0.5s;
+}
+
+/* Animations */
+@keyframes shake {
+    0% {
+        transform: translate(1px, 1px) rotate(0deg);
+    }
+
+    10% {
+        transform: translate(-1px, -2px) rotate(-1deg);
+    }
+
+    20% {
+        transform: translate(-3px, 0px) rotate(1deg);
+    }
+
+    30% {
+        transform: translate(3px, 2px) rotate(0deg);
+    }
+
+    40% {
+        transform: translate(1px, -1px) rotate(1deg);
+    }
+
+    50% {
+        transform: translate(-1px, 2px) rotate(-1deg);
+    }
+
+    60% {
+        transform: translate(-3px, 1px) rotate(0deg);
+    }
+
+    70% {
+        transform: translate(3px, 1px) rotate(-1deg);
+    }
+
+    80% {
+        transform: translate(-1px, -1px) rotate(1deg);
+    }
+
+    90% {
+        transform: translate(1px, 2px) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(1px, -2px) rotate(-1deg);
+    }
+}
+
+@keyframes dropIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

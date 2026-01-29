@@ -1,0 +1,39 @@
+<div id="subPopup" class="popup">
+    <div class="popup-box">
+        <button class="popup-close-btn" onclick="closeSubPopup()">✕</button>
+
+        <h3>➖ Subtraction Options</h3>
+
+        <!-- Borrow Mode Selection with Toggle Buttons -->
+        <div class="mode-selection-section">
+            <h4>🎯 Choose Difficulty:</h4>
+            <div class="toggle-buttons">
+                <button class="toggle-btn active" data-borrow="no" id="subNoBorrow">
+                    <span class="toggle-icon">😊</span>
+                    <span class="toggle-text">Without Borrow</span>
+                    <span class="toggle-label">Easy</span>
+                </button>
+                <button class="toggle-btn" data-borrow="yes" id="subWithBorrow">
+                    <span class="toggle-icon">🎓</span>
+                    <span class="toggle-text">With Borrow</span>
+                    <span class="toggle-label">Challenge</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="quick-selection-section">
+            <h4>Quick Selection:</h4>
+            <div class="quick-selection-grid">
+                <button class="quick-select-btn sub-select-btn" data-digits="1">1 Digit</button>
+                <button class="quick-select-btn sub-select-btn" data-digits="2">2 Digits</button>
+                <button class="quick-select-btn sub-select-btn" data-digits="3">3 Digits</button>
+            </div>
+            <p class="selection-hint">Subtraction is always 2 numbers</p>
+        </div>
+
+        <div class="popup-actions">
+            <button id="subCancel">Cancel</button>
+        </div>
+
+    </div>
+</div>

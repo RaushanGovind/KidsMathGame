@@ -1,0 +1,366 @@
+/* =========================================
+   SCHOOL MODE (Age 6-7)
+   Adventures, Logic, Story
+========================================= */
+
+.school-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+    font-family: 'Poppins', sans-serif;
+}
+
+.school-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.school-title {
+    font-size: 32px;
+    color: #5C6BC0;
+    text-shadow: 2px 2px 0px #fff;
+    margin: 0;
+}
+
+/* --- Menu Buttons --- */
+.school-menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 15px;
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.school-btn {
+    background: white;
+    border: 3px solid #E8EAF6;
+    border-radius: 12px;
+    padding: 15px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 0 #C5CAE9;
+    color: #3949AB;
+    font-weight: bold;
+}
+
+.school-btn:hover {
+    transform: translateY(-2px);
+    border-color: #5C6BC0;
+}
+
+.school-btn:active {
+    transform: translateY(4px);
+    box-shadow: 0 1px 0 #C5CAE9;
+}
+
+.school-btn.active {
+    background: #E8EAF6;
+    border-color: #3F51B5;
+    box-shadow: 0 4px 0 #303F9F;
+    color: #1A237E;
+}
+
+.s-icon {
+    font-size: 32px;
+}
+
+/* --- Game Canvas --- */
+.school-canvas {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    min-height: 450px;
+    width: 100%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.s-instruction {
+    font-size: 24px;
+    color: #444;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* --- Game 1: Place Value --- */
+.pv-game-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+}
+
+.pv-display {
+    font-size: 30px;
+    font-weight: bold;
+    color: #555;
+    padding: 10px 20px;
+    background: #f0f0f0;
+    border-radius: 10px;
+}
+
+.pv-blocks-area {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 5px;
+    min-height: 200px;
+    width: 100%;
+    background: #fff9c4;
+    /* Light yellow mat */
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
+.block-ten {
+    width: 20px;
+    height: 100px;
+    background: linear-gradient(#42A5F5, #1E88E5);
+    border: 1px solid #1565C0;
+    border-radius: 4px;
+    margin: 2px;
+}
+
+.block-one {
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(#EF5350, #E53935);
+    border: 1px solid #C62828;
+    border-radius: 4px;
+    margin: 2px;
+}
+
+.pv-controls {
+    display: flex;
+    gap: 20px;
+}
+
+.pv-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    background: #333;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 4px 0 #000;
+}
+
+.pv-btn:active {
+    transform: translateY(4px);
+    box-shadow: none;
+}
+
+.pv-btn.reset {
+    background: #FF9800;
+    box-shadow: 0 4px 0 #F57C00;
+}
+
+.block-ten-icon {
+    width: 10px;
+    height: 30px;
+    background: #42A5F5;
+}
+
+.block-one-icon {
+    width: 10px;
+    height: 10px;
+    background: #EF5350;
+}
+
+
+/* --- Game 2: Number Bonds (Ten Frame) --- */
+.bond-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.ten-frame {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 5px;
+    background: #333;
+    padding: 10px;
+    border-radius: 10px;
+    width: 320px;
+    height: 140px;
+}
+
+.frame-dot {
+    background: #555;
+    /* Empty slot */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin: auto;
+    transition: background 0.3s;
+}
+
+.frame-dot.filled {
+    background: #FFD700;
+}
+
+.bond-equation {
+    font-size: 40px;
+    font-weight: bold;
+    color: #333;
+}
+
+.bond-options {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.bond-opt-btn {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 3px solid #ddd;
+    background: white;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 0 #ccc;
+    transition: transform 0.1s;
+}
+
+.bond-opt-btn:active {
+    transform: translateY(4px);
+    box-shadow: none;
+}
+
+
+/* --- Game 3: Shop --- */
+.shop-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.shop-item {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    min-width: 150px;
+    border: 2px solid #ddd;
+}
+
+.shop-wallet {
+    font-size: 24px;
+    padding: 10px;
+    background: #eee;
+    border-radius: 8px;
+    width: 100%;
+    text-align: center;
+}
+
+.shop-coins {
+    display: flex;
+    gap: 20px;
+}
+
+.coin {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    transition: transform 0.1s;
+    user-select: none;
+}
+
+.coin:active {
+    transform: scale(0.95);
+}
+
+.coin-10 {
+    background: #FFD54F;
+    color: #F57F17;
+}
+
+/* Gold */
+.coin-5 {
+    background: #E0E0E0;
+    color: #616161;
+}
+
+/* Silver */
+.coin-1 {
+    background: #A1887F;
+    color: #3E2723;
+}
+
+/* Bronze */
+
+.shop-reset {
+    background: #FF5252;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+
+/* --- Game 4: Story Scene --- */
+.story-scene {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    min-height: 200px;
+    align-items: center;
+}
+
+.story-item {
+    font-size: 60px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.story-item.gone {
+    transform: translate(50px, -200px) rotate(45deg);
+    opacity: 0;
+}
+
+.story-hint {
+    font-style: italic;
+    color: #666;
+    margin-bottom: 10px;
+}

@@ -1,0 +1,270 @@
+/* =========================================
+   TODDLER MODE (Age 2-3) - PLAYGROUND
+   Ball Pit, Sandpit, Counting
+========================================= */
+
+.toddler-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: 'Comic Sans MS', 'Itim', cursive;
+    /* Playful font */
+}
+
+.toddler-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.toddler-title {
+    font-size: 36px;
+    color: #FF5252;
+    text-shadow: 2px 2px 0px #fff;
+    margin: 0;
+}
+
+/* --- Menu Buttons --- */
+.toddler-menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.toddler-btn {
+    background: white;
+    border: 3px solid #FFD740;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.2s;
+    min-width: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    box-shadow: 0 5px 0 #FFAB00;
+    color: #555;
+    font-weight: bold;
+}
+
+.toddler-btn:hover {
+    transform: translateY(-2px);
+    background: #FFFDE7;
+}
+
+.toddler-btn:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px 0 #FFAB00;
+}
+
+.toddler-btn.active {
+    background: #FFEB3B;
+    border-color: #FBC02D;
+    color: #E65100;
+}
+
+.t-icon {
+    font-size: 32px;
+}
+
+/* --- Game Canvas --- */
+.toddler-canvas {
+    background: white;
+    border-radius: 25px;
+    padding: 20px;
+    min-height: 400px;
+    width: 100%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.t-instruction {
+    font-size: 28px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px;
+    animation: bounceText 2s infinite;
+}
+
+@keyframes bounceText {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* --- Game 1: Ball Pit --- */
+.ball-pit-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+    background: #E3F2FD;
+    border-radius: 20px;
+    border: 4px dashed #90CAF9;
+}
+
+.pit-ball {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: inset -5px -5px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+/* --- Game 2: Sandpit --- */
+.sand-container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    background: #FFECB3;
+    border: 8px solid #FBC02D;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.buried-item {
+    font-size: 100px;
+    opacity: 0.5;
+    transition: all 0.5s;
+}
+
+.buried-item.found {
+    opacity: 1;
+    transform: scale(1.2);
+    animation: spin 1s;
+}
+
+.sand-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.sand-patch {
+    background: #FDD835;
+    border: 1px dotted #FBC02D;
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M5 21v-5l9-9 3 3-9 9H5z" fill="%23795548"/></svg>'), auto;
+    /* Simple shovel cursor hint? */
+    transition: opacity 0.3s;
+}
+
+.sand-patch:hover {
+    background: #FFEB3B;
+}
+
+/* --- Game 3: Music Jungle --- */
+.dance-stage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+}
+
+.dance-animal {
+    font-size: 120px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    user-select: none;
+}
+
+.dance-animal:active {
+    transform: scale(0.9);
+}
+
+.dance-animal.dancing {
+    animation: danceMove 1s infinite alternate;
+}
+
+.sound-text {
+    font-size: 40px;
+    color: #E91E63;
+    font-weight: bold;
+    margin-top: 20px;
+    animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes danceMove {
+    0% {
+        transform: rotate(-10deg) translateY(0);
+    }
+
+    100% {
+        transform: rotate(10deg) translateY(-20px);
+    }
+}
+
+@keyframes popIn {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg) scale(1.2);
+    }
+}
+
+/* --- Game 4: Counting --- */
+.counting-stage {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.count-object {
+    font-size: 80px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.count-object:hover {
+    transform: scale(1.1);
+}
+
+.count-object.clicked {
+    opacity: 0.5;
+    filter: grayscale(100%);
+    transform: scale(0.9);
+}
+
+.shake {
+    animation: shake 0.5s;
+}

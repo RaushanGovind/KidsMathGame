@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700;900&display=swap');
+
+:root {
+  --font-family: 'Fredoka', sans-serif;
+
+  /* Palette 🎨 - Reimagined for Premium Feel */
+  --color-sky-blue: #3498DB;
+  --color-sky-light: #F0F7FF;
+  --color-sun-yellow: #F1C40F;
+  --color-sun-orange: #E67E22;
+  --color-mint-green: #27AE60;
+  --color-candy-pink: #E74C3C;
+  --color-soft-white: #FFFFFF;
+  --color-text-dark: #2C3E50;
+  --color-primary-btn: #F1C40F;
+  --color-primary-shadow: #D4AC0D;
+
+  /* Gradients */
+  --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+
+  /* Panel Styles */
+  --panel-bg: rgba(255, 255, 255, 0.95);
+  --panel-border: 2px solid rgba(255, 255, 255, 0.5);
+  --panel-radius: 40px;
+  --panel-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: var(--font-family);
+  background: var(--bg-gradient);
+  color: var(--color-text-dark);
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  background-attachment: fixed;
+}
+
+/* Glass Panel Optimizations */
+.glass-panel {
+  background: var(--panel-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: var(--panel-border);
+  border-radius: var(--panel-radius);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  /* Lighter shadow */
+}
+
+/* Typography Enhancements */
+h1,
+h2,
+h3 {
+  font-weight: 900;
+  letter-spacing: -0.5px;
+}
+
+/* Premium Button Architecture */
+button {
+  font-family: var(--font-family);
+  cursor: pointer;
+  border: none;
+  border-radius: 20px;
+  padding: 15px 30px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+/* Input Styles */
+input[type="text"],
+input[type="number"] {
+  font-family: var(--font-family);
+  font-weight: 900;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  border-color: var(--color-sky-blue);
+  box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.2);
+}
+
+/* Animations */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+.float-anim {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #bdc3c7;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #95a5a6;
+}

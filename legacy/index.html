@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <!-- This makes layout adjust for mobile screens -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Kids Math Learning App</title>
+
+  <!-- Link CSS file -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/sidebar.css">
+  <link rel="stylesheet" href="css/content.css">
+  <link rel="stylesheet" href="css/settings.css">
+  <link rel="stylesheet" href="css/addition.css">
+  <link rel="stylesheet" href="css/landing.css">
+  <link rel="stylesheet" href="css/comparison.css">
+  <link rel="stylesheet" href="css/division.css">
+  <link rel="stylesheet" href="css/time.css">
+  <link rel="stylesheet" href="css/fractions.css">
+  <link rel="stylesheet" href="css/age-system.css">
+  <link rel="stylesheet" href="css/toddler.css">
+  <link rel="stylesheet" href="css/preschool.css">
+  <link rel="stylesheet" href="css/school.css">
+  <link rel="stylesheet" href="css/school.css">
+  <link rel="stylesheet" href="css/concept.css">
+  <link rel="stylesheet" href="css/preteen.css">
+  <link rel="stylesheet" href="css/table-reading.css">
+
+</head>
+
+<body>
+
+  <!-- ============= LANDING PAGE ============= -->
+  <!-- ============= LANDING PAGE ============= -->
+  <div id="landingPagePlaceholder"></div>
+
+  <!-- ============= SIDEBAR NAVIGATION ============= -->
+  <!-- Menu Button (replaces sidebar toggle) -->
+  <button id="menuBtn" class="menu-btn" onclick="openMenuPopup()">☰ Menu</button>
+
+  <!-- Settings Button (top right corner) -->
+  <button id="settingsBtn" class="settings-btn" onclick="openSettingsPanel()">⚙</button>
+
+  <!-- MENU POPUP -->
+  <div id="menuPopupPlaceholder"></div>
+
+  <!-- ============= MAIN CONTENT AREA ============= -->
+  <div class="content">
+
+    <!-- Addition Practice Section -->
+    <div class="game-box">
+
+      <h2 id="mainTitle">➕ Addition (Column Method)</h2>
+
+      <!-- Mode panel hidden - now using popup instead -->
+      <div class="mode-panel" style="display: none;">
+
+        <label>
+          Carry:
+          <select id="carryMode">
+            <option value="no" selected>Without Carry (Default)</option>
+            <option value="yes">With Carry</option>
+          </select>
+        </label>
+
+        <label>
+          Digits:
+          <select id="digitCount">
+            <option value="2" selected>2 Digits (Default)</option>
+            <option value="1">1 Digit</option>
+            <option value="3">3 Digits</option>
+          </select>
+        </label>
+
+        <label>
+          Rows:
+          <select id="rowCount">
+            <option value="2" selected>2 Numbers (Default)</option>
+            <option value="3">3 Numbers</option>
+            <option value="4">4 Numbers</option>
+          </select>
+        </label>
+
+      </div>
+
+
+      <!-- SCHOOL STYLE COLUMN ADDITION -->
+      <div class="addition-box">
+
+        <!-- CORE ADDITION CONTENT -->
+        <div id="additionAreaPlaceholder"></div>
+
+        <!-- NEW: Comparison & Place Value Area -->
+        <div id="comparisonAreaPlaceholder"></div>
+
+        <!-- NEW: Long Division Area -->
+        <div id="divisionAreaPlaceholder"></div>
+
+        <!-- NEW: Time Reading Area -->
+        <div id="timeAreaPlaceholder"></div>
+
+        <!-- NEW: Fractions Learning Area -->
+        <div id="fractionsAreaPlaceholder"></div>
+
+        <!-- NEW: Toddler Playground (Age 2-3) -->
+        <div id="toddlerAreaPlaceholder"></div>
+
+        <!-- NEW: Preschool Playground (Age 4-5) -->
+        <div id="preschoolAreaPlaceholder"></div>
+
+        <!-- NEW: School Adventures (Age 6-7) -->
+        <div id="schoolAreaPlaceholder"></div>
+
+        <!-- NEW: Concept Quester (Age 8-9) -->
+        <div id="conceptAreaPlaceholder"></div>
+
+        <!-- NEW: Logic & Life (Age 10-12) -->
+        <div id="preteenAreaPlaceholder"></div>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+  </div>
+
+
+
+  <!-- ============= SETTINGS PANEL ============= -->
+  <!-- ============= SETTINGS PANEL ============= -->
+  <div id="settingsPanelPlaceholder"></div>
+
+  <!-- ADDITION MODE POPUP -->
+  <div id="addPopupPlaceholder"></div>
+
+  <!-- SUBTRACTION MODE POPUP -->
+  <div id="subPopupPlaceholder"></div>
+
+  <!-- MULTIPLICATION MODE POPUP -->
+  <div id="multPopupPlaceholder"></div>
+
+  <!-- TABLE PRACTICE MODE POPUP -->
+  <div id="tablePopupPlaceholder"></div>
+
+  <!-- FRACTION MODE POPUP -->
+  <div id="fractPopupPlaceholder"></div>
+
+
+  <!-- Link JavaScript -->
+  <script src="scripts/component-loader.js"></script>
+  <script src="scripts/age-manager.js"></script>
+  <script src="scripts/toddler.js"></script>
+  <script src="scripts/preschool.js"></script>
+  <script src="scripts/school.js"></script>
+  <script src="scripts/concept.js"></script>
+  <script src="scripts/preteen.js"></script>
+  <script src="scripts/addition.js"></script>
+  <script src="scripts/subtraction.js"></script>
+  <script src="scripts/multiplication.js"></script>
+  <script src="scripts/table-practice.js"></script>
+  <script src="scripts/menu.js"></script>
+  <script src="scripts/navigation.js"></script>
+  <script src="scripts/settings.js"></script>
+  <script src="scripts/ui.js"></script>
+  <script src="scripts/sidebar.js"></script>
+  <script src="scripts/main.js"></script>
+  <script src="scripts/comparison.js"></script>
+  <script src="scripts/division.js"></script>
+  <script src="scripts/time.js"></script>
+  <script src="scripts/fractions.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<div id="settingsPanel" class="settings-panel">
+    <h2>⚙ Settings</h2>
+
+    <!-- Theme Selector -->
+    <label>Theme</label>
+    <select id="themeSelect">
+        <option value="light">Light Mode</option>
+        <option value="dark">Dark Mode</option>
+    </select>
+
+    <!-- Question Font Family -->
+    <label>Question Font Style</label>
+    <select id="fontSelect">
+        <option value="Poppins">Poppins</option>
+        <option value="Comic Sans MS">Comic Sans (Kids Style)</option>
+        <option value="Arial">Arial</option>
+        <option value="Georgia">Georgia</option>
+        <option value="Verdana">Verdana</option>
+    </select>
+
+    <!-- Question Font Size -->
+    <label>Question Font Size: <span id="fontSizeValue">24</span>px</label>
+    <input id="fontSizeInput" type="range" min="18" max="36" value="24">
+
+    <!-- Default Age Group -->
+    <label>Default Age Group</label>
+    <select id="ageGroupSelect">
+        <option value="" disabled>Select Age Group</option>
+        <option value="toddler">Toddler (2-3)</option>
+        <option value="preschool">Preschool (4-5)</option>
+        <option value="school">Early School (6-7)</option>
+        <option value="concept">Concept (8-9)</option>
+        <option value="preteen">Pre-Teen (10-12)</option>
+    </select>
+
+    <!-- Sound Control -->
+    <div style="display: flex; justify-content: space-between; align-items: center; margin: 15px 0;">
+        <label style="margin: 0;">Sound Effects</label>
+        <label class="switch">
+            <input type="checkbox" id="soundToggle" checked>
+            <span class="slider round"></span>
+        </label>
+    </div>
+
+    <!-- Close Button -->
+    <button id="closeSettings">Close</button>
+</div>

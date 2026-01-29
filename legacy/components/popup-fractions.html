@@ -1,0 +1,40 @@
+<div id="fractPopup" class="popup">
+    <div class="popup-box">
+        <button class="popup-close-btn" onclick="closeFractPopup()">✕</button>
+
+        <h3>🍕 Fraction Options</h3>
+
+        <div class="mode-selection-section">
+            <h4>🎯 Choose Activity:</h4>
+            <div class="quick-selection-grid" style="grid-template-columns: 1fr 1fr;">
+                <button class="quick-select-btn fract-mode-btn selected" data-mode="learn">
+                    📖 Learn Mode
+                </button>
+                <button class="quick-select-btn fract-mode-btn" data-mode="question">
+                    ❓ Question Mode
+                </button>
+            </div>
+        </div>
+
+        <div class="quick-selection-section">
+            <h4>🎨 Choose Shape:</h4>
+            <div class="quick-selection-grid" style="grid-template-columns: 1fr 1fr 1fr;">
+                <button class="quick-select-btn fract-shape-btn selected" data-shape="circle">
+                    ⚪ Circle
+                </button>
+                <button class="quick-select-btn fract-shape-btn" data-shape="pizza">
+                    🍕 Pizza
+                </button>
+                <button class="quick-select-btn fract-shape-btn" data-shape="rectangle">
+                    🍫 Bar
+                </button>
+            </div>
+        </div>
+
+        <div class="popup-actions">
+            <button id="fractCancel">Cancel</button>
+            <button id="fractStart" style="background:var(--button-color); color:white;">Start</button>
+        </div>
+
+    </div>
+</div>

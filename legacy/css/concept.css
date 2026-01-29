@@ -1,0 +1,258 @@
+/* =========================================
+   CONCEPT MODE (Age 8-9)
+   Deep understanding, visual tools
+========================================= */
+
+.concept-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+    font-family: 'Poppins', sans-serif;
+}
+
+.concept-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.concept-title {
+    font-size: 32px;
+    color: #00897B;
+    text-shadow: 2px 2px 0px #fff;
+    margin: 0;
+}
+
+/* --- Menu Buttons --- */
+.concept-menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.concept-btn {
+    background: white;
+    border: 3px solid #B2DFDB;
+    border-radius: 12px;
+    padding: 15px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 0 #80CBC4;
+    color: #00695C;
+    font-weight: bold;
+}
+
+.concept-btn:hover {
+    transform: translateY(-2px);
+    border-color: #26A69A;
+}
+
+.concept-btn.active {
+    background: #E0F2F1;
+    border-color: #009688;
+    box-shadow: 0 4px 0 #00796B;
+    color: #004D40;
+}
+
+.c-icon {
+    font-size: 32px;
+}
+
+/* --- Canvas --- */
+.concept-canvas {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    min-height: 450px;
+    width: 100%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.c-instruction {
+    font-size: 24px;
+    color: #444;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* --- Game 1: Arrays --- */
+.array-game-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.array-grid-container {
+    display: grid;
+    gap: 5px;
+    background: #f0f0f0;
+    padding: 10px;
+    border-radius: 10px;
+    min-width: 200px;
+    min-height: 200px;
+    justify-content: center;
+    align-content: center;
+}
+
+.array-dot {
+    width: 30px;
+    height: 30px;
+    background: #00897B;
+    border-radius: 50%;
+    box-shadow: inset 2px 2px 5px rgba(255, 255, 255, 0.3);
+}
+
+.array-equation {
+    font-size: 30px;
+    font-weight: bold;
+    color: #333;
+}
+
+.array-ctrl-btn {
+    padding: 5px 10px;
+    margin: 5px;
+    background: #eee;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.array-ctrl-btn:hover {
+    background: #ddd;
+}
+
+.concept-action-btn {
+    padding: 12px 30px;
+    background: #009688;
+    color: white;
+    font-size: 20px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 150, 136, 0.3);
+    margin-top: 20px;
+}
+
+.concept-action-btn:disabled {
+    background: #ccc;
+    box-shadow: none;
+    cursor: not-allowed;
+}
+
+/* --- Game 2: Fractions --- */
+.pizza-container {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.pizza-box {
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.pizza-box:hover {
+    transform: scale(1.1);
+}
+
+.visual-pizza {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 4px solid #D84315;
+    background: #FFE0B2;
+}
+
+/* --- Game 3: Ruler --- */
+.measure-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.measure-object {
+    height: 40px;
+    background: #FFB74D;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    border-radius: 5px;
+    position: relative;
+    z-index: 2;
+    margin-left: 20px;
+    /* Align with ruler 0 */
+}
+
+.visual-ruler {
+    width: 500px;
+    /* 12.5 cm approx scale */
+    height: 40px;
+    background: repeating-linear-gradient(90deg,
+            #333,
+            #333 2px,
+            transparent 2px,
+            transparent 40px);
+    border-top: 2px solid #333;
+    position: relative;
+    margin-top: 5px;
+}
+
+.visual-ruler::after {
+    content: '0   1   2   3   4   5   6   7   8   9   10  11  12';
+    font-family: monospace;
+    font-size: 16px;
+    letter-spacing: 23px;
+    /* visual hacking for scale spacing */
+    position: absolute;
+    top: 15px;
+    left: -5px;
+}
+
+.measure-slider {
+    width: 300px;
+}
+
+/* --- Game 4: Geometry --- */
+.geo-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.geo-card {
+    width: 150px;
+    height: 150px;
+    border: 2px solid #ddd;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    cursor: pointer;
+    background: white;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+}
+
+.geo-card:hover {
+    border-color: #009688;
+}

@@ -1,0 +1,240 @@
+/* ============================================
+   COLORFUL SETTINGS PANEL FOR KIDS
+============================================ */
+
+.settings-panel {
+    position: fixed;
+    right: -350px;
+    top: 0;
+    width: 320px;
+    height: 100%;
+    padding: 0;
+    background: linear-gradient(180deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    transition: right 0.4s ease;
+    z-index: 1000;
+    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.3);
+    overflow-y: auto;
+}
+
+.settings-panel h2 {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 25px 20px;
+    margin: 0;
+    font-size: 28px;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    border-bottom: 3px solid rgba(255, 255, 255, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.settings-panel label {
+    display: block;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 25px 20px 10px 20px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    border-left: 4px solid #FFD93D;
+}
+
+/* Colorful Select Dropdowns */
+.settings-panel select {
+    width: calc(100% - 40px);
+    margin: 0 20px 10px 20px;
+    padding: 12px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    border: 3px solid #FFD93D;
+    border-radius: 10px;
+    background: white;
+    color: #667eea;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.settings-panel select:hover {
+    border-color: #FFC107;
+    transform: scale(1.02);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.settings-panel select:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 15px rgba(76, 175, 80, 0.5);
+}
+
+/* Colorful Range Slider */
+.settings-panel input[type="range"] {
+    width: calc(100% - 40px);
+    margin: 0 20px 15px 20px;
+    height: 8px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.3);
+    outline: none;
+    cursor: pointer;
+}
+
+.settings-panel input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #FFD93D, #FFC107);
+    cursor: pointer;
+    border: 3px solid white;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s ease;
+}
+
+.settings-panel input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 4px 12px rgba(255, 193, 7, 0.6);
+}
+
+.settings-panel input[type="range"]::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #FFD93D, #FFC107);
+    cursor: pointer;
+    border: 3px solid white;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s ease;
+}
+
+.settings-panel input[type="range"]::-moz-range-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 4px 12px rgba(255, 193, 7, 0.6);
+}
+
+/* Font Size Value Display */
+#fontSizeValue {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.9);
+    color: #667eea;
+    padding: 4px 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 18px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Close Button */
+.settings-panel button {
+    margin: 30px 20px 30px 20px;
+    width: calc(100% - 40px);
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    background: linear-gradient(135deg, #FF6B6B, #EE5A6F);
+    color: white;
+    border: 3px solid #FF4757;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.settings-panel button:hover {
+    background: linear-gradient(135deg, #EE5A6F, #D4495C);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+}
+
+.settings-panel button:active {
+    transform: translateY(0) scale(0.98);
+}
+
+/* Scrollbar Styling */
+.settings-panel::-webkit-scrollbar {
+    width: 8px;
+}
+
+.settings-panel::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.settings-panel::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+}
+
+.settings-panel::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/* Toggle Switch Styles */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    margin-right: 20px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+    border: 3px solid white;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+input:checked+.slider {
+    background-color: #FFD93D;
+    /* Kids Yellow */
+    border-color: #FFC107;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #FFD93D;
+}
+
+input:checked+.slider:before {
+    transform: translateX(26px);
+    background-color: #fff;
+}
+
+/* Add a little emoji to the slider */
+input:checked+.slider:after {
+    content: "🔊";
+    position: absolute;
+    left: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
