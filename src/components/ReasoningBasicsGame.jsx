@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { playSound as playAppSound } from '../utils/sounds';
+import { speak } from '../utils/speech';
 
 function ReasoningBasicsGame({ onBack }) {
     const [gameData, setGameData] = useState(null);
@@ -29,14 +30,6 @@ function ReasoningBasicsGame({ onBack }) {
                 setLoading(false);
             });
     }, []);
-
-    const speak = (text) => {
-        window.speechSynthesis.cancel();
-        const utterance = new SpeechSynthesisUtterance(text);
-        utterance.rate = 0.9;
-        utterance.pitch = 1.1;
-        window.speechSynthesis.speak(utterance);
-    };
 
     const handleQuizAnswer = (option) => {
         const correct = gameData.quiz[quizIndex].answer;

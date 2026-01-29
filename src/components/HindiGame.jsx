@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { speak } from '../utils/speech';
 
 function HindiGame({ gameType, onBack }) {
     const [gameData, setGameData] = useState(null);
@@ -24,20 +25,10 @@ function HindiGame({ gameType, onBack }) {
             });
     }, [gameType]);
 
-    const playSound = (text) => {
-        // Fallback for English logic, ideally Hindi would need specific audio files or Google TTS for Hindi
-        // For now, attempting basic TTS which might support Hindi if installed on OS
-        window.speechSynthesis.cancel();
-        const utterance = new SpeechSynthesisUtterance(text);
-        utterance.lang = 'hi-IN'; // Attempt Hindi
-        utterance.rate = 0.8;
-        window.speechSynthesis.speak(utterance);
-    };
-
     const handleItemClick = (item) => {
         setSelectedItem(item);
         const speechText = item.word ? `${item.letter} से ${item.word}` : item.text;
-        playSound(speechText || item.letter || item.text);
+        speak(speechText || item.letter || item.text, 'hi-IN', 0.8);
     };
 
     if (loading) return <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2rem' }}>नमस्ते... (Loading...)</div>;
@@ -103,9 +94,8 @@ function HindiGame({ gameType, onBack }) {
                         {item.icon && <span style={{ fontSize: '2rem', marginTop: '5px' }}>{item.icon}</span>}
                     </motion.button>
                 )) : (
-                    // If content is categorized (e.g. Swar / Vyanjan), flatten or show sections
-                    // Simplification: We'll assume the backend sends a flat list for now or we just map specific keys
-                    Object.keys(content).flatMap(key => content[key]).map((item, index) => (
+                    {/* Simplify: Flatten items if categorized, else use direct array */ }
+                {(Array.isArray(content) ? content : [...(content.swar || []), ...(content.vyanjan || [])]).map((item, index) => (
                         <motion.button
                             key={index}
                             initial={{ opacity: 0, scale: 0.5 }}

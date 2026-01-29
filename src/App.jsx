@@ -184,8 +184,6 @@ function App() {
         return <AdverbsGame onBack={() => setCurrentMode('english-menu')} />;
       case 'adjectives':
         return <AdjectivesGame onBack={() => setCurrentMode('english-menu')} />;
-      case 'prepositions':
-        return <PrepositionsGame onBack={() => setCurrentMode('english-menu')} />;
       case 'yesnoquestions':
         return <YesNoQuestionsGame onBack={() => setCurrentMode('english-menu')} />;
       case 'sentencebuilder':

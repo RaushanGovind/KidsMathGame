@@ -1,14 +1,11 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { playSound } from '../utils/sounds';
-
-const LEVELS = {
-    easy: ['cat', 'dog', 'sun', 'box', 'hat', 'run', 'pen', 'cup'],
-    medium: ['apple', 'happy', 'green', 'tiger', 'sunny', 'pizza', 'robot', 'cloud'],
-    hard: ['elephant', 'butterfly', 'dinosaur', 'rainbow', 'adventure', 'chocolate', 'computer']
-};
+import { speak } from '../utils/speech';
 
 function SpellingGame({ onBack }) {
+    const [gameData, setGameData] = useState(null);
+    const [loading, setLoading] = useState(true);
     const [difficulty, setDifficulty] = useState('easy');
     const [currentWord, setCurrentWord] = useState('');
     const [userInput, setUserInput] = useState('');
@@ -16,23 +13,32 @@ function SpellingGame({ onBack }) {
     const [score, setScore] = useState(0);
 
     useEffect(() => {
-        newWord();
-    }, [difficulty]);
+        fetch('http://localhost:8000/api/content/spelling')
+            .then(res => res.json())
+            .then(data => {
+                setGameData(data);
+                setLoading(false);
+            })
+            .catch(err => {
+                console.error("Failed to load spelling content", err);
+                setLoading(false);
+            });
+    }, []);
+
+    useEffect(() => {
+        if (gameData) {
+            newWord();
+        }
+    }, [difficulty, gameData]);
 
     const newWord = () => {
-        const words = LEVELS[difficulty];
+        if (!gameData) return;
+        const words = gameData.levels[difficulty];
         const randomWord = words[Math.floor(Math.random() * words.length)];
         setCurrentWord(randomWord);
         setUserInput('');
         setFeedback(null);
-        setTimeout(() => speakWord(randomWord), 500);
-    };
-
-    const speakWord = (word) => {
-        const utterance = new SpeechSynthesisUtterance(word);
-        utterance.rate = 0.8; // Slightly slower for kids
-        utterance.pitch = 1.2; // Slightly higher pitch
-        window.speechSynthesis.speak(utterance);
+        setTimeout(() => speak(randomWord), 500);
     };
 
     const handleSubmit = (e) => {
@@ -41,11 +47,11 @@ function SpellingGame({ onBack }) {
             playSound('correct');
             setFeedback('correct');
             setScore(s => s + 10);
-            speakWord("Correct! " + currentWord);
+            speak("Correct! " + currentWord);
         } else {
             playSound('wrong');
             setFeedback('incorrect');
-            speakWord("Try again");
+            speak("Try again");
         }
     };
 
@@ -53,6 +59,10 @@ function SpellingGame({ onBack }) {
         setUserInput(e.target.value);
         if (feedback) setFeedback(null);
     };
+
+    if (loading) return <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2rem' }}>Loading Spelling Game...</div>;
+
+    if (!gameData) return <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>Error loading data.</div>;
 
     return (
         <div className="game-container" style={{
@@ -101,7 +111,7 @@ function SpellingGame({ onBack }) {
 
                 {/* Controls */}
                 <div style={{ marginBottom: '30px', display: 'flex', justifyContent: 'center', gap: '10px' }}>
-                    {Object.keys(LEVELS).map(level => (
+                    {Object.keys(gameData.levels).map(level => (
                         <button
                             key={level}
                             onClick={() => setDifficulty(level)}
@@ -125,7 +135,7 @@ function SpellingGame({ onBack }) {
                 <motion.button
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
-                    onClick={() => speakWord(currentWord)}
+                    onClick={() => speak(currentWord)}
                     style={{
                         background: '#3498DB',
                         width: '100px',

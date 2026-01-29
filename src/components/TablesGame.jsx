@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { playSound } from '../utils/sounds';
+import { speak } from '../utils/speech';
 
 function TablesGame({ onBack }) {
     const [selectedNum, setSelectedNum] = useState(2);
@@ -13,8 +14,11 @@ function TablesGame({ onBack }) {
         if (mode === 'practice' && !revealed[multiplier]) {
             playSound('correct');
             setRevealed(prev => ({ ...prev, [multiplier]: true }));
+            speak(`${selectedNum} times ${multiplier} equals ${selectedNum * multiplier}`, 'en-US', 1.1);
         }
     };
+
+    // Local speak removed, imported from utils
 
     const handleMultiplierInput = (multiplier, val) => {
         if (mode === 'test') {
@@ -170,8 +174,10 @@ function TablesGame({ onBack }) {
                                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                                     padding: '15px 30px', background: '#F8FAFC', borderRadius: '25px',
                                     border: '2px solid #EDF2F7', transition: 'all 0.2s',
-                                    boxShadow: (mode === 'practice' && isRevealed) ? 'none' : '0 4px 6px rgba(0,0,0,0.02)'
+                                    boxShadow: (mode === 'practice' && isRevealed) ? 'none' : '0 4px 6px rgba(0,0,0,0.02)',
+                                    cursor: 'pointer'
                                 }}
+                                onClick={() => speak(`${selectedNum} times ${multiplier} equals ${result}`, 'en-US', 1.1)}
                             >
                                 <div style={{ display: 'flex', alignItems: 'center', gap: '20px', fontSize: '2.5rem', fontWeight: '1000', color: '#334155' }}>
                                     <span style={{ minWidth: '80px', textAlign: 'center' }}>{selectedNum}</span>
@@ -183,7 +189,10 @@ function TablesGame({ onBack }) {
                                         <motion.div
                                             whileHover={{ scale: isRevealed ? 1 : 1.05 }}
                                             whileTap={{ scale: isRevealed ? 1 : 0.95 }}
-                                            onClick={() => toggleReveal(multiplier)}
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                toggleReveal(multiplier);
+                                            }}
                                             style={{
                                                 width: '150px', height: '100%', display: 'flex',
                                                 alignItems: 'center', justifyContent: 'center',

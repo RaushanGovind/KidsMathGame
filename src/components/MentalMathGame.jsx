@@ -1,8 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { playSound as playAppSound } from '../utils/sounds';
-
-
+import { speak } from '../utils/speech';
 
 function MentalMathGame({ onBack }) {
     const [gameData, setGameData] = useState(null);
@@ -31,12 +30,6 @@ function MentalMathGame({ onBack }) {
             });
     }, []);
 
-    const speak = (text) => {
-        window.speechSynthesis.cancel();
-        const utterance = new SpeechSynthesisUtterance(text);
-        utterance.rate = 1.0;
-        window.speechSynthesis.speak(utterance);
-    };
 
     const handleLevelChange = (newLevel) => {
         setLevel(newLevel);

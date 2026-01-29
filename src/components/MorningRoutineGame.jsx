@@ -1,228 +1,30 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-
-const ROUTINE_SECTIONS = [
-    {
-        id: 'wake',
-        title: 'Waking Up',
-        icon: '🌅',
-        phrases: [
-            'I wake up early.',
-            'I wake up at 6 o’clock.',
-            'I get out of bed.',
-            'I make my bed.',
-            'I stretch my body.'
-        ]
-    },
-    {
-        id: 'bathroom',
-        title: 'Bathroom',
-        icon: '🪥',
-        phrases: [
-            'I go to the bathroom.',
-            'I brush my teeth.',
-            'I wash my face.',
-            'I take a bath.',
-            'I comb my hair.'
-        ]
-    },
-    {
-        id: 'ready',
-        title: 'Getting Ready',
-        icon: '👕',
-        phrases: [
-            'I wear my clothes.',
-            'I put on my school uniform.',
-            'I tie my shoes.',
-            'I get ready for school.'
-        ]
-    },
-    {
-        id: 'breakfast',
-        title: 'Breakfast',
-        icon: '🍳',
-        phrases: [
-            'I eat my breakfast.',
-            'I drink milk.',
-            'I eat fruits.',
-            'Breakfast gives me energy.'
-        ]
-    },
-    {
-        id: 'leaving',
-        title: 'Leaving Home',
-        icon: '🎒',
-        phrases: [
-            'I pack my school bag.',
-            'I check my homework.',
-            'I say goodbye to my parents.',
-            'I leave for school.'
-        ]
-    },
-    {
-        id: 'habits',
-        title: 'Good Habits',
-        icon: '😊',
-        phrases: [
-            'I wake up early every day.',
-            'I keep myself clean.',
-            'I eat healthy food.',
-            'I am ready for the day!'
-        ]
-    }
-];
-
-const MORNING_STORIES = [
-    {
-        title: "Early Bird (Riya)",
-        icon: "🌞",
-        text: "Riya wakes up at six in the morning. She stretches her arms and gets out of bed. She brushes her teeth and washes her face. After taking a bath, she wears her school uniform. She eats breakfast with her family. Then she packs her bag and goes to school with a smile."
-    },
-    {
-        title: "Healthy Start (Arjun)",
-        icon: "🌤️",
-        text: "Arjun wakes up early every day. He makes his bed and drinks a glass of water. He brushes his teeth and takes a shower. His mother gives him eggs and toast for breakfast. He checks his homework and wears his shoes. He is ready for school on time."
-    },
-    {
-        title: "Happy Morning (Meena)",
-        icon: "🌈",
-        text: "Meena wakes up when the sun rises. She folds her blanket and cleans her room. She brushes her teeth and combs her hair. After breakfast, she helps her mother for a few minutes. Then she gets ready and leaves for school happily."
-    },
-    {
-        title: "Busy Morning (Rahul)",
-        icon: "🚌",
-        text: "Rahul wakes up early but moves a little slow. His mother calls him to get ready. He brushes his teeth, washes his face, and takes a quick bath. He eats breakfast and drinks milk. He packs his bag quickly and runs to catch the school bus."
-    },
-    {
-        title: "Good Habits (Anaya)",
-        icon: "🌻",
-        text: "Anaya wakes up early every morning. She thanks God for a new day. She brushes her teeth and takes a bath. She wears neat clothes and eats healthy food. She packs her school bag and leaves home with a happy heart."
-    }
-];
-
-const MORNING_DIALOGUES = [
-    {
-        title: "Morning at Home",
-        icon: "🌅",
-        lines: [
-            { speaker: "Mother", text: "Good morning!" },
-            { speaker: "Child", text: "Good morning, Mom." },
-            { speaker: "Mother", text: "Did you sleep well?" },
-            { speaker: "Child", text: "Yes, I did." },
-            { speaker: "Mother", text: "Go brush your teeth." },
-            { speaker: "Child", text: "Okay, Mom!" }
-        ]
-    },
-    {
-        title: "Getting Ready",
-        icon: "🪥",
-        lines: [
-            { speaker: "Father", text: "Are you ready for school?" },
-            { speaker: "Child", text: "Not yet." },
-            { speaker: "Father", text: "What are you doing?" },
-            { speaker: "Child", text: "I am combing my hair." },
-            { speaker: "Father", text: "Good! Hurry up." },
-            { speaker: "Child", text: "Yes, Dad." }
-        ]
-    },
-    {
-        title: "Breakfast Time",
-        icon: "🍳",
-        lines: [
-            { speaker: "Mother", text: "Come and eat breakfast." },
-            { speaker: "Child", text: "What is for breakfast?" },
-            { speaker: "Mother", text: "Milk and bread." },
-            { speaker: "Child", text: "Yum! I like it." },
-            { speaker: "Mother", text: "Eat well and be strong." },
-            { speaker: "Child", text: "Okay, Mom!" }
-        ]
-    },
-    {
-        title: "Before Leaving",
-        icon: "🎒",
-        lines: [
-            { speaker: "Mother", text: "Did you pack your school bag?" },
-            { speaker: "Child", text: "Yes, I packed it." },
-            { speaker: "Mother", text: "Did you keep your homework?" },
-            { speaker: "Child", text: "Oh! I will check now." },
-            { speaker: "Mother", text: "Good job." },
-            { speaker: "Child", text: "I am ready now!" }
-        ]
-    },
-    {
-        title: "Leaving for School",
-        icon: "🚌",
-        lines: [
-            { speaker: "Father", text: "The school bus is coming." },
-            { speaker: "Child", text: "I am coming!" },
-            { speaker: "Mother", text: "Take care." },
-            { speaker: "Child", text: "Bye, Mom and Dad." },
-            { speaker: "Parents", text: "Bye! Have a nice day!" }
-        ]
-    },
-    {
-        title: "Polite Manners",
-        icon: "😊",
-        lines: [
-            { speaker: "Guest", text: "Good morning!" },
-            { speaker: "Child", text: "Good morning, uncle." },
-            { speaker: "Guest", text: "How are you?" },
-            { speaker: "Child", text: "I am fine. Thank you." },
-            { speaker: "Guest", text: "That’s good." },
-            { speaker: "Child", text: "Please come in." }
-        ]
-    }
-];
-
-const PRACTICE_LINES = {
-    simple: [
-        "I wake up early in the morning.",
-        "I get out of bed with a smile.",
-        "I brush my teeth every day.",
-        "I wash my face with clean water.",
-        "I take a bath and feel fresh.",
-        "I wear neat and clean clothes.",
-        "I comb my hair carefully.",
-        "I eat a healthy breakfast.",
-        "I drink a glass of milk.",
-        "I pack my school bag.",
-        "I check my homework before leaving.",
-        "I say goodbye to my parents.",
-        "I go to school happily."
-    ],
-    longer: [
-        "I wake up early and start my day with a smile.",
-        "After brushing my teeth, I wash my face.",
-        "I take a bath and wear my school uniform.",
-        "My breakfast gives me energy for the day.",
-        "I pack my bag and get ready for school.",
-        "I always try to be on time.",
-        "I feel happy when I am ready for school."
-    ],
-    expressive: [
-        { text: "I am ready for a new day!", icon: "😊" },
-        { text: "Good morning, everyone!", icon: "😄" },
-        { text: "Today will be a great day!", icon: "💪" },
-        { text: "I am excited to go to school!", icon: "🎒" }
-    ]
-};
+import { speak } from '../utils/speech';
 
 function MorningRoutineGame({ onBack }) {
+    const [gameData, setGameData] = useState(null);
+    const [loading, setLoading] = useState(true);
     const [activeSection, setActiveSection] = useState(0);
     const [mode, setMode] = useState('steps'); // 'steps' | 'story' | 'practice' | 'dialogue'
     const [storyIndex, setStoryIndex] = useState(0);
     const [dialogueIndex, setDialogueIndex] = useState(0);
 
-    const speak = (text) => {
-        window.speechSynthesis.cancel();
-        const utterance = new SpeechSynthesisUtterance(text);
-        utterance.rate = 0.9;
-        utterance.pitch = 1.1;
-        window.speechSynthesis.speak(utterance);
-    };
+    useEffect(() => {
+        fetch('http://localhost:8000/api/content/morning_routine')
+            .then(res => res.json())
+            .then(data => {
+                setGameData(data);
+                setLoading(false);
+            })
+            .catch(err => {
+                console.error("Failed to load morning routine content", err);
+                setLoading(false);
+            });
+    }, []);
 
     const nextStory = () => {
-        if (storyIndex < MORNING_STORIES.length - 1) setStoryIndex(i => i + 1);
+        if (gameData && storyIndex < gameData.stories.length - 1) setStoryIndex(i => i + 1);
     };
 
     const prevStory = () => {
@@ -230,13 +32,18 @@ function MorningRoutineGame({ onBack }) {
     };
 
     const nextDialogue = () => {
-        if (dialogueIndex < MORNING_DIALOGUES.length - 1) setDialogueIndex(i => i + 1);
+        if (gameData && dialogueIndex < gameData.dialogues.length - 1) setDialogueIndex(i => i + 1);
     };
 
     const prevDialogue = () => {
         if (dialogueIndex > 0) setDialogueIndex(i => i - 1);
     };
 
+    if (loading) return <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2rem' }}>Loading Morning Routine...</div>;
+
+    if (!gameData) return <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>No content found.</div>;
+
+    const { sections, stories, dialogues, practice_lines } = gameData;
 
     return (
         <div className="game-container" style={{
@@ -262,11 +69,11 @@ function MorningRoutineGame({ onBack }) {
             </div>
 
 
-            {mode === 'steps' && (
+            {mode === 'steps' && sections && (
                 <div style={{ display: 'flex', width: '100%', maxWidth: '1200px', gap: '20px', flexWrap: 'wrap', justifyContent: 'center' }}>
                     {/* Navigation Sidebar/Top Bar */}
                     <div style={{ display: 'flex', gap: '10px', overflowX: 'auto', padding: '10px', width: '100%', paddingBottom: '20px', justifyContent: 'center' }}>
-                        {ROUTINE_SECTIONS.map((section, idx) => (
+                        {sections.map((section, idx) => (
                             <motion.button
                                 key={section.id}
                                 whileHover={{ scale: 1.05 }}
@@ -312,13 +119,13 @@ function MorningRoutineGame({ onBack }) {
                     >
                         <div style={{ textAlign: 'center', marginBottom: '30px' }}>
                             <h2 style={{ fontSize: '2.5rem', color: '#E67E22', margin: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '15px' }}>
-                                {ROUTINE_SECTIONS[activeSection].icon} {ROUTINE_SECTIONS[activeSection].title}
+                                {sections[activeSection].icon} {sections[activeSection].title}
                             </h2>
                             <p style={{ color: '#95A5A6', fontSize: '1.2rem', marginTop: '10px' }}>Tap a phrase to hear it!</p>
                         </div>
 
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-                            {ROUTINE_SECTIONS[activeSection].phrases.map((phrase, idx) => (
+                            {sections[activeSection].phrases.map((phrase, idx) => (
                                 <motion.button
                                     key={idx}
                                     whileHover={{ scale: 1.02, x: 10 }}
@@ -349,14 +156,14 @@ function MorningRoutineGame({ onBack }) {
                 </div>
             )}
 
-            {mode === 'practice' && (
+            {mode === 'practice' && practice_lines && (
                 <div style={{ width: '100%', maxWidth: '1000px', display: 'flex', flexDirection: 'column', gap: '30px' }}>
 
                     {/* Simple Lines */}
                     <div style={{ background: 'white', padding: '30px', borderRadius: '30px', boxShadow: '0 10px 20px rgba(0,0,0,0.05)' }}>
                         <h3 style={{ fontSize: '1.8rem', color: '#27AE60', marginBottom: '20px', borderBottom: '2px solid #EAFAF1', paddingBottom: '10px' }}>🌅 Read Aloud</h3>
                         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '15px' }}>
-                            {PRACTICE_LINES.simple.map((line, i) => (
+                            {practice_lines.simple.map((line, i) => (
                                 <motion.button key={i} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} onClick={() => speak(line)}
                                     style={{ padding: '15px', borderRadius: '15px', border: '2px solid #EAFAF1', background: 'white', color: '#2C3E50', fontSize: '1.1rem', textAlign: 'left', cursor: 'pointer', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                                     {line} <span style={{ opacity: 0.3 }}>🔊</span>
@@ -369,7 +176,7 @@ function MorningRoutineGame({ onBack }) {
                     <div style={{ background: 'white', padding: '30px', borderRadius: '30px', boxShadow: '0 10px 20px rgba(0,0,0,0.05)' }}>
                         <h3 style={{ fontSize: '1.8rem', color: '#2980B9', marginBottom: '20px', borderBottom: '2px solid #EBF5FB', paddingBottom: '10px' }}>🎯 Longer Sentences</h3>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-                            {PRACTICE_LINES.longer.map((line, i) => (
+                            {practice_lines.longer.map((line, i) => (
                                 <motion.button key={i} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} onClick={() => speak(line)}
                                     style={{ padding: '20px', borderRadius: '15px', border: 'left', borderLeft: '5px solid #2980B9', background: '#F4F6F7', color: '#2C3E50', fontSize: '1.2rem', textAlign: 'left', cursor: 'pointer' }}>
                                     {line}
@@ -382,7 +189,7 @@ function MorningRoutineGame({ onBack }) {
                     <div style={{ background: 'white', padding: '30px', borderRadius: '30px', boxShadow: '0 10px 20px rgba(0,0,0,0.05)' }}>
                         <h3 style={{ fontSize: '1.8rem', color: '#8E44AD', marginBottom: '20px', borderBottom: '2px solid #F4ECF7', paddingBottom: '10px' }}>🗣️ Say with Feeling!</h3>
                         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px', justifyContent: 'center' }}>
-                            {PRACTICE_LINES.expressive.map((item, i) => (
+                            {practice_lines.expressive.map((item, i) => (
                                 <motion.button key={i} whileHover={{ scale: 1.1, rotate: [-1, 1, -1, 1, 0] }} whileTap={{ scale: 0.9 }} onClick={() => speak(item.text)}
                                     style={{ padding: '20px 30px', borderRadius: '50px', border: 'none', background: '#9B59B6', color: 'white', fontSize: '1.4rem', fontWeight: 'bold', cursor: 'pointer', boxShadow: '0 5px 0 #71368A' }}>
                                     {item.icon} {item.text}
@@ -393,7 +200,7 @@ function MorningRoutineGame({ onBack }) {
                 </div>
             )}
 
-            {mode === 'story' && (
+            {mode === 'story' && stories && (
                 <div style={{ width: '100%', maxWidth: '800px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
 
                     <motion.div
@@ -404,20 +211,20 @@ function MorningRoutineGame({ onBack }) {
                         style={{ background: 'white', padding: '40px', borderRadius: '30px', boxShadow: '0 10px 30px rgba(0,0,0,0.1)', width: '100%' }}
                     >
                         <h2 style={{ fontSize: '2.5rem', color: '#D35400', textAlign: 'center', marginBottom: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '15px' }}>
-                            {MORNING_STORIES[storyIndex].icon} {MORNING_STORIES[storyIndex].title}
+                            {stories[storyIndex].icon} {stories[storyIndex].title}
                         </h2>
 
                         <div style={{ fontSize: '1.4rem', color: '#95A5A6', textAlign: 'center', marginBottom: '30px', fontWeight: 'bold' }}>
-                            Story {storyIndex + 1} of {MORNING_STORIES.length}
+                            Story {storyIndex + 1} of {stories.length}
                         </div>
 
                         <p style={{ fontSize: '1.6rem', lineHeight: '1.8', color: '#2C3E50', textAlign: 'justify', marginBottom: '30px' }}>
-                            {MORNING_STORIES[storyIndex].text}
+                            {stories[storyIndex].text}
                         </p>
 
                         <div style={{ display: 'flex', justifyContent: 'center' }}>
                             <button
-                                onClick={() => speak(MORNING_STORIES[storyIndex].text)}
+                                onClick={() => speak(stories[storyIndex].text)}
                                 style={{
                                     padding: '15px 40px',
                                     background: '#E67E22',
@@ -440,13 +247,13 @@ function MorningRoutineGame({ onBack }) {
 
                     <div style={{ display: 'flex', gap: '20px', marginTop: '30px' }}>
                         <button onClick={prevStory} disabled={storyIndex === 0} style={{ padding: '15px 30px', borderRadius: '50px', border: 'none', background: storyIndex === 0 ? '#E5E7E9' : '#F39C12', color: storyIndex === 0 ? '#BDC3C7' : 'white', fontSize: '1.5rem', fontWeight: 'bold', cursor: storyIndex === 0 ? 'default' : 'pointer' }}>⬅ Prev</button>
-                        <button onClick={nextStory} disabled={storyIndex === MORNING_STORIES.length - 1} style={{ padding: '15px 30px', borderRadius: '50px', border: 'none', background: storyIndex === MORNING_STORIES.length - 1 ? '#E5E7E9' : '#F39C12', color: storyIndex === MORNING_STORIES.length - 1 ? '#BDC3C7' : 'white', fontSize: '1.5rem', fontWeight: 'bold', cursor: storyIndex === MORNING_STORIES.length - 1 ? 'default' : 'pointer' }}>Next ➡</button>
+                        <button onClick={nextStory} disabled={storyIndex === stories.length - 1} style={{ padding: '15px 30px', borderRadius: '50px', border: 'none', background: storyIndex === stories.length - 1 ? '#E5E7E9' : '#F39C12', color: storyIndex === stories.length - 1 ? '#BDC3C7' : 'white', fontSize: '1.5rem', fontWeight: 'bold', cursor: storyIndex === stories.length - 1 ? 'default' : 'pointer' }}>Next ➡</button>
                     </div>
 
                 </div>
             )}
 
-            {mode === 'dialogue' && (
+            {mode === 'dialogue' && dialogues && (
                 <div style={{ width: '100%', maxWidth: '800px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
 
                     <motion.div
@@ -457,15 +264,15 @@ function MorningRoutineGame({ onBack }) {
                         style={{ background: 'white', padding: '30px', borderRadius: '30px', boxShadow: '0 10px 30px rgba(0,0,0,0.1)', width: '100%' }}
                     >
                         <h2 style={{ fontSize: '2.5rem', color: '#2980B9', textAlign: 'center', marginBottom: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '15px' }}>
-                            {MORNING_DIALOGUES[dialogueIndex].icon} {MORNING_DIALOGUES[dialogueIndex].title}
+                            {dialogues[dialogueIndex].icon} {dialogues[dialogueIndex].title}
                         </h2>
 
                         <div style={{ fontSize: '1.2rem', color: '#95A5A6', textAlign: 'center', marginBottom: '30px', fontWeight: 'bold' }}>
-                            Dialogue {dialogueIndex + 1} of {MORNING_DIALOGUES.length}
+                            Dialogue {dialogueIndex + 1} of {dialogues.length}
                         </div>
 
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-                            {MORNING_DIALOGUES[dialogueIndex].lines.map((line, idx) => (
+                            {dialogues[dialogueIndex].lines.map((line, idx) => (
                                 <motion.button
                                     key={idx}
                                     whileHover={{ scale: 1.02 }}
@@ -505,7 +312,7 @@ function MorningRoutineGame({ onBack }) {
 
                     <div style={{ display: 'flex', gap: '20px', marginTop: '30px' }}>
                         <button onClick={prevDialogue} disabled={dialogueIndex === 0} style={{ padding: '15px 30px', borderRadius: '50px', border: 'none', background: dialogueIndex === 0 ? '#E5E7E9' : '#3498DB', color: dialogueIndex === 0 ? '#BDC3C7' : 'white', fontSize: '1.5rem', fontWeight: 'bold', cursor: dialogueIndex === 0 ? 'default' : 'pointer' }}>⬅ Prev</button>
-                        <button onClick={nextDialogue} disabled={dialogueIndex === MORNING_DIALOGUES.length - 1} style={{ padding: '15px 30px', borderRadius: '50px', border: 'none', background: dialogueIndex === MORNING_DIALOGUES.length - 1 ? '#E5E7E9' : '#3498DB', color: dialogueIndex === MORNING_DIALOGUES.length - 1 ? '#BDC3C7' : 'white', fontSize: '1.5rem', fontWeight: 'bold', cursor: dialogueIndex === MORNING_DIALOGUES.length - 1 ? 'default' : 'pointer' }}>Next ➡</button>
+                        <button onClick={nextDialogue} disabled={dialogueIndex === dialogues.length - 1} style={{ padding: '15px 30px', borderRadius: '50px', border: 'none', background: dialogueIndex === dialogues.length - 1 ? '#E5E7E9' : '#3498DB', color: dialogueIndex === dialogues.length - 1 ? '#BDC3C7' : 'white', fontSize: '1.5rem', fontWeight: 'bold', cursor: dialogueIndex === dialogues.length - 1 ? 'default' : 'pointer' }}>Next ➡</button>
                     </div>
 
                 </div>

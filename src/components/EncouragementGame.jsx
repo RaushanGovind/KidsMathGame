@@ -1,26 +1,11 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { playSound as playAppSound } from '../utils/sounds';
-
-const ENCOURAGEMENT_WORDS = [
-    { word: 'TRY!', icon: '💪', context: 'You can do it, try!' },
-    { word: 'GREAT!', icon: '🌟', context: 'That is great work!' },
-    { word: 'WOW!', icon: '😲', context: 'Wow! Amazing!' },
-    { word: 'GOOD JOB!', icon: '👍', context: 'Good job holding that.' },
-    { word: 'WELL DONE!', icon: '🏆', context: 'Well done, winner!' },
-    { word: 'KEEP GOING!', icon: '🏃', context: 'Do not stop, keep going!' },
-    { word: 'YOU CAN DO IT!', icon: '🦸', context: 'Believe in yourself!' },
-    { word: 'RESPECT', icon: '🤝', context: 'Respect others.' },
-    { word: 'LISTEN', icon: '👂', context: 'Listen carefully.' },
-    { word: 'CARE', icon: '❤️', context: 'Care for friends.' },
-    { word: 'SUPPORT', icon: '🤗', context: 'Support your team.' },
-    { word: 'NICE!', icon: '👌', context: 'That is very nice.' },
-    { word: 'SUPER!', icon: '🦸‍♀️', context: 'You are super!' },
-    { word: 'COOL!', icon: '😎', context: 'That is so cool.' },
-    { word: 'BRAVO!', icon: '👏', context: 'Bravo! Bravo!' }
-];
+import { speak } from '../utils/speech';
 
 function EncouragementGame({ onBack }) {
+    const [gameData, setGameData] = useState([]);
+    const [loading, setLoading] = useState(true);
     const [mode, setMode] = useState('learn');
     const [currentIndex, setCurrentIndex] = useState(0);
     const [quizTarget, setQuizTarget] = useState(null);
@@ -28,31 +13,38 @@ function EncouragementGame({ onBack }) {
     const [score, setScore] = useState(0);
     const [feedback, setFeedback] = useState(null);
 
-    const speak = (text, rate = 0.9) => {
-        window.speechSynthesis.cancel();
-        const utterance = new SpeechSynthesisUtterance(text);
-        utterance.rate = rate;
-        utterance.pitch = 1.1;
-        window.speechSynthesis.speak(utterance);
-    };
+    useEffect(() => {
+        fetch('http://localhost:8000/api/content/encouragement')
+            .then(res => res.json())
+            .then(data => {
+                setGameData(data.content);
+                setLoading(false);
+            })
+            .catch(err => {
+                console.error("Failed to load encouragement content", err);
+                setLoading(false);
+            });
+    }, []);
 
-    const currentItem = ENCOURAGEMENT_WORDS[currentIndex];
+    const currentItem = gameData[currentIndex];
 
     useEffect(() => {
-        if (mode === 'learn') {
+        if (mode === 'learn' && currentItem) {
             const timeout = setTimeout(() => {
                 playLearnSequence();
             }, 500);
             return () => clearTimeout(timeout);
         }
-    }, [currentIndex, mode]);
+    }, [currentIndex, mode, gameData]);
 
     const playLearnSequence = () => {
-        speak(`${currentItem.word}. ${currentItem.context}`);
+        if (currentItem) {
+            speak(`${currentItem.word}. ${currentItem.context}`);
+        }
     };
 
     const nextItem = () => {
-        if (currentIndex < ENCOURAGEMENT_WORDS.length - 1) setCurrentIndex(c => c + 1);
+        if (currentIndex < gameData.length - 1) setCurrentIndex(c => c + 1);
     };
 
     const prevItem = () => {
@@ -60,12 +52,13 @@ function EncouragementGame({ onBack }) {
     };
 
     const startQuizRound = () => {
-        const target = ENCOURAGEMENT_WORDS[Math.floor(Math.random() * ENCOURAGEMENT_WORDS.length)];
+        if (!gameData || gameData.length === 0) return;
+        const target = gameData[Math.floor(Math.random() * gameData.length)];
         setQuizTarget(target);
         setFeedback(null);
         const options = [target];
         while (options.length < 3) {
-            const random = ENCOURAGEMENT_WORDS[Math.floor(Math.random() * ENCOURAGEMENT_WORDS.length)];
+            const random = gameData[Math.floor(Math.random() * gameData.length)];
             if (!options.includes(random)) options.push(random);
         }
         setQuizOptions(options.sort(() => Math.random() - 0.5));
@@ -73,8 +66,8 @@ function EncouragementGame({ onBack }) {
     };
 
     useEffect(() => {
-        if (mode === 'quiz') startQuizRound();
-    }, [mode]);
+        if (mode === 'quiz' && !loading) startQuizRound();
+    }, [mode, loading]);
 
     const handleQuizOptionClick = (item) => {
         if (item.word === quizTarget.word) {
@@ -89,6 +82,10 @@ function EncouragementGame({ onBack }) {
             speak("Try again!");
         }
     };
+
+    if (loading) return <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2rem' }}>Loading Phrases...</div>;
+
+    if (!gameData || gameData.length === 0) return <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>No sequences found.</div>;
 
     return (
         <div className="game-container" style={{
@@ -121,7 +118,7 @@ function EncouragementGame({ onBack }) {
                             border: '6px solid #F1C40F', position: 'relative', cursor: 'pointer'
                         }}
                     >
-                        <div style={{ position: 'absolute', top: '20px', right: '20px', fontSize: '1.5rem', color: '#95A5A6', fontWeight: 'bold' }}>{currentIndex + 1} / {ENCOURAGEMENT_WORDS.length}</div>
+                        <div style={{ position: 'absolute', top: '20px', right: '20px', fontSize: '1.5rem', color: '#95A5A6', fontWeight: 'bold' }}>{currentIndex + 1} / {gameData.length}</div>
 
                         <div style={{ fontSize: '10rem', marginBottom: '20px' }}>{currentItem.icon}</div>
 
@@ -134,11 +131,11 @@ function EncouragementGame({ onBack }) {
                         </div>
                     </motion.div>
 
-                    <button onClick={nextItem} disabled={currentIndex === ENCOURAGEMENT_WORDS.length - 1} style={{ background: currentIndex === ENCOURAGEMENT_WORDS.length - 1 ? '#ccc' : 'white', border: 'none', borderRadius: '50%', width: '60px', height: '60px', fontSize: '2rem', cursor: currentIndex === ENCOURAGEMENT_WORDS.length - 1 ? 'default' : 'pointer', boxShadow: '0 4px 0 rgba(0,0,0,0.1)' }}>➡</button>
+                    <button onClick={nextItem} disabled={currentIndex === gameData.length - 1} style={{ background: currentIndex === gameData.length - 1 ? '#ccc' : 'white', border: 'none', borderRadius: '50%', width: '60px', height: '60px', fontSize: '2rem', cursor: currentIndex === gameData.length - 1 ? 'default' : 'pointer', boxShadow: '0 4px 0 rgba(0,0,0,0.1)' }}>➡</button>
                 </div>
             ) : (
                 <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                    <button onClick={() => speak(quizTarget.word)} style={{ background: '#fff', border: 'none', borderRadius: '50%', width: '80px', height: '80px', fontSize: '3rem', cursor: 'pointer', boxShadow: '0 4px 0 #ddd', marginBottom: '30px' }}>🔊</button>
+                    <button onClick={() => speak(quizTarget?.word)} style={{ background: '#fff', border: 'none', borderRadius: '50%', width: '80px', height: '80px', fontSize: '3rem', cursor: 'pointer', boxShadow: '0 4px 0 #ddd', marginBottom: '30px' }}>🔊</button>
                     <h2 style={{ fontSize: '2rem', marginBottom: '30px', color: '#F1C40F' }}>Say this: "{quizTarget?.word}"</h2>
                     <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', justifyContent: 'center' }}>
                         {quizOptions.map((item, idx) => (

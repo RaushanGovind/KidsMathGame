@@ -465,6 +465,1483 @@ HINDI_THREE_LETTER_DATA = {
     ]
 }
 
+ENGLISH_NOUNS_DATA = {
+    "game_id": "english_nouns",
+    "title": "Nouns (Naming Words)",
+    "content": {
+        "person": {
+            "title": "Person 👨‍⚕️",
+            "color": "#E74C3C",
+            "items": [
+                { "text": "Doctor", "icon": "👨‍⚕️" },
+                { "text": "Teacher", "icon": "👩‍🏫" },
+                { "text": "Boy", "icon": "👦" },
+                { "text": "Girl", "icon": "👧" },
+                { "text": "Baby", "icon": "👶" },
+                { "text": "Police", "icon": "👮" },
+                { "text": "King", "icon": "👑" }
+            ]
+        },
+        "place": {
+            "title": "Place 🏠",
+            "color": "#3498DB",
+            "items": [
+                { "text": "School", "icon": "🏫" },
+                { "text": "Park", "icon": "🌳" },
+                { "text": "Home", "icon": "🏠" },
+                { "text": "Hospital", "icon": "🏥" },
+                { "text": "Beach", "icon": "🏖️" },
+                { "text": "Zoo", "icon": "🦁" },
+                { "text": "Shop", "icon": "🏪" }
+            ]
+        },
+        "animal": {
+            "title": "Animal 🐶",
+            "color": "#F1C40F",
+            "items": [
+                { "text": "Dog", "icon": "🐶" },
+                { "text": "Cat", "icon": "🐱" },
+                { "text": "Lion", "icon": "🦁" },
+                { "text": "Elephant", "icon": "🐘" },
+                { "text": "Monkey", "icon": "🐵" },
+                { "text": "Bird", "icon": "🐦" },
+                { "text": "Fish", "icon": "🐟" }
+            ]
+        },
+        "thing": {
+            "title": "Thing 🚗",
+            "color": "#9B59B6",
+            "items": [
+                { "text": "Car", "icon": "🚗" },
+                { "text": "Ball", "icon": "⚽" },
+                { "text": "Book", "icon": "📖" },
+                { "text": "Pencil", "icon": "✏️" },
+                { "text": "Chair", "icon": "🪑" },
+                { "text": "Apple", "icon": "🍎" },
+                { "text": "Bag", "icon": "🎒" }
+            ]
+        }
+    },
+    "quiz": [
+        { "question": "Which holds things?", "answer": "Bag", "options": ["Bag", "Dog", "Boy"] },
+        { "question": "Where do we learn?", "answer": "School", "options": ["Park", "School", "Shop"] },
+        { "question": "Who checks health?", "answer": "Doctor", "options": ["Doctor", "Teacher", "Baby"] },
+        { "question": "Which is an animal?", "answer": "Lion", "options": ["Apple", "Car", "Lion"] },
+        { "question": "What do we read?", "answer": "Book", "options": ["Ball", "Book", "Chair"] }
+    ]
+}
+
+PHYSICAL_ACTIONS_DATA = {
+    "game_id": "physical_actions",
+    "title": "Physical Actions",
+    "content": [
+        { "word": "KICK", "icon": "🦵", "context": "Kick the ball." },
+        { "word": "THROW", "icon": "🥎", "context": "Throw it far." },
+        { "word": "CATCH", "icon": "🤲", "context": "Catch the ball." },
+        { "word": "PUSH", "icon": "👐", "context": "Push the door." },
+        { "word": "PULL", "icon": "🤝", "context": "Pull it open." },
+        { "word": "LIFT", "icon": "🏋️", "context": "Lift heavy things." },
+        { "word": "BEND", "icon": "🙇", "context": "Bend down low." },
+        { "word": "TURN", "icon": "🔄", "context": "Turn around." },
+        { "word": "SHAKE", "icon": "🤝", "context": "Shake hands." },
+        { "word": "WAVE", "icon": "👋", "context": "Wave hello." }
+    ]
+}
+
+BASIC_ACTIONS_DATA = {
+    "game_id": "basic_actions",
+    "title": "Basic Actions",
+    "content": [
+        { "word": "RUN", "icon": "🏃", "context": "Run fast!" },
+        { "word": "JUMP", "icon": "🦘", "context": "Jump high!" },
+        { "word": "WALK", "icon": "🚶", "context": "Walk slowly." },
+        { "word": "SIT", "icon": "🪑", "context": "Sit down." },
+        { "word": "STAND", "icon": "🧍", "context": "Stand up." },
+        { "word": "EAT", "icon": "🍽️", "context": "Eat food." },
+        { "word": "DRINK", "icon": "🥤", "context": "Drink water." },
+        { "word": "SLEEP", "icon": "😴", "context": "Go to sleep." },
+        { "word": "READ", "icon": "📖", "context": "Read a book." },
+        { "word": "WRITE", "icon": "✍️", "context": "Write a letter." },
+        { "word": "TALK", "icon": "🗣️", "context": "Talk to friends." },
+        { "word": "LISTEN", "icon": "👂", "context": "Listen carefully." },
+        { "word": "LAUGH", "icon": "😂", "context": "Ha ha ha!" },
+        { "word": "CRY", "icon": "😢", "context": "Do not cry." },
+        { "word": "SMILE", "icon": "😊", "context": "Big smile." },
+        { "word": "PLAY", "icon": "🧸", "context": "Play with toys." },
+        { "word": "CLAP", "icon": "👏", "context": "Clap your hands." },
+        { "word": "DANCE", "icon": "💃", "context": "Dance to music." }
+    ]
+}
+
+TWO_WORD_SENTENCES_DATA = {
+    "game_id": "two_word_sentences",
+    "title": "Two Word Sentences",
+    "content": [
+        { "text": "BIG DOG", "w1": "BIG", "w2": "DOG", "icon": "🐕", "context": "The dog is big." },
+        { "text": "RED CAR", "w1": "RED", "w2": "CAR", "icon": "🚗", "context": "Drive the red car." },
+        { "text": "HOT TEA", "w1": "HOT", "w2": "TEA", "icon": "☕", "context": "Be careful, hot tea." },
+        { "text": "MY BAG", "w1": "MY", "w2": "BAG", "icon": "🎒", "context": "This is my bag." },
+        { "text": "RUN FAST", "w1": "RUN", "w2": "FAST", "icon": "🏃", "context": "Run fast to win." },
+        { "text": "SIT DOWN", "w1": "SIT", "w2": "DOWN", "icon": "🪑", "context": "Please sit down." },
+        { "text": "GO HOME", "w1": "GO", "w2": "HOME", "icon": "🏠", "context": "Let us go home." },
+        { "text": "BLUE SKY", "w1": "BLUE", "w2": "SKY", "icon": "☁️", "context": "Look at the blue sky." },
+        { "text": "GOOD DAY", "w1": "GOOD", "w2": "DAY", "icon": "☀️", "context": "Have a good day." },
+        { "text": "EAT FOOD", "w1": "EAT", "w2": "FOOD", "icon": "🍽️", "context": "Eat your food." },
+        { "text": "NEW TOY", "w1": "NEW", "w2": "TOY", "icon": "🧸", "context": "I have a new toy." },
+        { "text": "SAD BOY", "w1": "SAD", "w2": "BOY", "icon": "😢", "context": "Why is the boy sad?" },
+        { "text": "ONE CAT", "w1": "ONE", "w2": "CAT", "icon": "🐈", "context": "I see one cat." },
+        { "text": "OLD MAN", "w1": "OLD", "w2": "MAN", "icon": "👴", "context": "Kind old man." },
+        { "text": "COLD ICE", "w1": "COLD", "w2": "ICE", "icon": "🧊", "context": "Ice is very cold." },
+        { "text": "WET DOG", "w1": "WET", "w2": "DOG", "icon": "🚿", "context": "The dog is wet." },
+        { "text": "BIG BOX", "w1": "BIG", "w2": "BOX", "icon": "📦", "context": "Open the big box." },
+        { "text": "SEE YOU", "w1": "SEE", "w2": "YOU", "icon": "👋", "context": "See you later." },
+        { "text": "LOVE MOM", "w1": "LOVE", "w2": "MOM", "icon": "👩‍👦", "context": "I love my mom." },
+        { "text": "NICE CAR", "w1": "NICE", "w2": "CAR", "icon": "🚔", "context": "That is a nice car." },
+        { "text": "TOP HAT", "w1": "TOP", "w2": "HAT", "icon": "🎩", "context": "Wear a top hat." },
+        { "text": "BUS STOP", "w1": "BUS", "w2": "STOP", "icon": "🚏", "context": "Wait at the bus stop." },
+        { "text": "RED ROSE", "w1": "RED", "w2": "ROSE", "icon": "🌹", "context": "Smell the red rose." },
+        { "text": "SUN SET", "w1": "SUN", "w2": "SET", "icon": "🌇", "context": "Watch the sun set." },
+        { "text": "BAD DAY", "w1": "BAD", "w2": "DAY", "icon": "🌧️", "context": "It was a bad day." }
+    ]
+}
+
+THREE_WORD_SENTENCES_DATA = {
+    "game_id": "three_word_sentences",
+    "title": "Three Word Sentences",
+    "content": [
+        { "text": "I LOVE YOU", "w1": "I", "w2": "LOVE", "w3": "YOU", "icon": "❤️", "context": "Tell mom I love you." },
+        { "text": "THE BIG DOG", "w1": "THE", "w2": "BIG", "w3": "DOG", "icon": "🐕", "context": "Look at the big dog." },
+        { "text": "SEE THE CAT", "w1": "SEE", "w2": "THE", "w3": "CAT", "icon": "🐈", "context": "Can you see the cat?" },
+        { "text": "I CAN RUN", "w1": "I", "w2": "CAN", "w3": "RUN", "icon": "🏃", "context": "Watch me, I can run!" },
+        { "text": "SHE IS NICE", "w1": "SHE", "w2": "IS", "w3": "NICE", "icon": "👧", "context": "My friend, she is nice." },
+        { "text": "HE HAS TOYS", "w1": "HE", "w2": "HAS", "w3": "TOYS", "icon": "🧸", "context": "He has many toys." },
+        { "text": "SUN IS HOT", "w1": "SUN", "w2": "IS", "w3": "HOT", "icon": "☀️", "context": "The sun is very hot." },
+        { "text": "BAT IS BLACK", "w1": "BAT", "w2": "IS", "w3": "BLACK", "icon": "🦇", "context": "The bat is black." },
+        { "text": "EAT THE EGG", "w1": "EAT", "w2": "THE", "w3": "EGG", "icon": "🥚", "context": "Please eat the egg." },
+        { "text": "GO TO BED", "w1": "GO", "w2": "TO", "w3": "BED", "icon": "🛏️", "context": "Time to go to bed." },
+        { "text": "MY RED CAR", "w1": "MY", "w2": "RED", "w3": "CAR", "icon": "🚗", "context": "Drive my red car." },
+        { "text": "SEE YOU LATER", "w1": "SEE", "w2": "YOU", "w3": "LATER", "icon": "👋", "context": "Bye, see you later." },
+        { "text": "MOM IS HOME", "w1": "MOM", "w2": "IS", "w3": "HOME", "icon": "🏠", "context": "Yay, mom is home!" },
+        { "text": "DAD IS TALL", "w1": "DAD", "w2": "IS", "w3": "TALL", "icon": "👨", "context": "My dad is tall." },
+        { "text": "SKY IS BLUE", "w1": "SKY", "w2": "IS", "w3": "BLUE", "icon": "☁️", "context": "The sky is blue today." },
+        { "text": "ANT IS SMALL", "w1": "ANT", "w2": "IS", "w3": "SMALL", "icon": "🐜", "context": "The ant is very small." },
+        { "text": "BOX IS OPEN", "w1": "BOX", "w2": "IS", "w3": "OPEN", "icon": "📦", "context": "The box is open." },
+        { "text": "WE ARE HAPPY", "w1": "WE", "w2": "ARE", "w3": "HAPPY", "icon": "😊", "context": "We are happy family." },
+        { "text": "IT IS COLD", "w1": "IT", "w2": "IS", "w3": "COLD", "icon": "❄️", "context": "Brrr, it is cold." },
+        { "text": "FISH CAN SWIM", "w1": "FISH", "w2": "CAN", "w3": "SWIM", "icon": "🐠", "context": "Fish can swim fast." }
+    ]
+}
+
+FOUR_WORD_SENTENCES_DATA = {
+    "game_id": "four_word_sentences",
+    "title": "Four Word Sentences",
+    "content": [
+        { "text": "THE CAT IS FAT", "w1": "THE", "w2": "CAT", "w3": "IS", "w4": "FAT", "icon": "🐱", "context": "Oh no, the cat is fat." },
+        { "text": "I LIKE MY DOG", "w1": "I", "w2": "LIKE", "w3": "MY", "w4": "DOG", "icon": "🐶", "context": "I really like my dog." },
+        { "text": "WE GO TO PARK", "w1": "WE", "w2": "GO", "w3": "TO", "w4": "PARK", "icon": "⛲", "context": "Let us go to the park." },
+        { "text": "THE SUN IS HOT", "w1": "THE", "w2": "SUN", "w3": "IS", "w4": "HOT", "icon": "☀️", "context": "Wear a hat, the sun is hot." },
+        { "text": "HE HAS A BALL", "w1": "HE", "w2": "HAS", "w3": "A", "w4": "BALL", "icon": "⚽", "context": "Look, he has a ball." },
+        { "text": "SHE HAS A DOLL", "w1": "SHE", "w2": "HAS", "w3": "A", "w4": "DOLL", "icon": "🎎", "context": "She plays with her doll." },
+        { "text": "THE SKY IS BLUE", "w1": "THE", "w2": "SKY", "w3": "IS", "w4": "BLUE", "icon": "☁️", "context": "Look up, the sky is blue." },
+        { "text": "I SEE A BIRD", "w1": "I", "w2": "SEE", "w3": "A", "w4": "BIRD", "icon": "🐦", "context": "I see a little bird." },
+        { "text": "MY DAD IS TALL", "w1": "MY", "w2": "DAD", "w3": "IS", "w4": "TALL", "icon": "👨", "context": "Wow, my dad is tall." },
+        { "text": "GIVE ME THE TOY", "w1": "GIVE", "w2": "ME", "w3": "THE", "w4": "TOY", "icon": "🧸", "context": "Please give me the toy." },
+        { "text": "I CAN JUMP HIGH", "w1": "I", "w2": "CAN", "w3": "JUMP", "w4": "HIGH", "icon": "🤸", "context": "Watch me jump high!" },
+        { "text": "DO NOT BE SAD", "w1": "DO", "w2": "NOT", "w3": "BE", "w4": "SAD", "icon": "😊", "context": "Smile, do not be sad." },
+        { "text": "THE CAR IS RED", "w1": "THE", "w2": "CAR", "w3": "IS", "w4": "RED", "icon": "🚗", "context": "See the red car go." },
+        { "text": "LOOK AT THE MOON", "w1": "LOOK", "w2": "AT", "w3": "THE", "w4": "MOON", "icon": "🌙", "context": "Look at the bright moon." },
+        { "text": "THIS IS MY HOUSE", "w1": "THIS", "w2": "IS", "w3": "MY", "w4": "HOUSE", "icon": "🏠", "context": "Welcome, this is my house." },
+        { "text": "I WANT SOME MILK", "w1": "I", "w2": "WANT", "w3": "SOME", "w4": "MILK", "icon": "🥛", "context": "Can I have some milk?" },
+        { "text": "THE PIG IS PINK", "w1": "THE", "w2": "PIG", "w3": "IS", "w4": "PINK", "icon": "🐷", "context": "The little pig is pink." },
+        { "text": "A BUG IS HERE", "w1": "A", "w2": "BUG", "w3": "IS", "w4": "HERE", "icon": "🐞", "context": "Eek, a bug is here!" },
+        { "text": "LET US GO OUT", "w1": "LET", "w2": "US", "w3": "GO", "w4": "OUT", "icon": "🚪", "context": "Come on, let us go out." },
+        { "text": "TIME TO EAT NOW", "w1": "TIME", "w2": "TO", "w3": "EAT", "w4": "NOW", "icon": "🍽️", "context": "Dinner is ready, time to eat." }
+    ]
+}
+
+THREE_LETTER_WORDS_DATA = {
+    "game_id": "three_letter_words",
+    "title": "Three Letter Words",
+    "content": [
+        { "word": "ANT", "p1": "A", "p2": "N", "p3": "T", "icon": "🐜", "sentence": "The ant is tiny." },
+        { "word": "BAT", "p1": "B", "p2": "A", "p3": "T", "icon": "🦇", "sentence": "The bat can fly." },
+        { "word": "BED", "p1": "B", "p2": "E", "p3": "D", "icon": "🛏️", "sentence": "Sleep in the bed." },
+        { "word": "BOX", "p1": "B", "p2": "O", "p3": "X", "icon": "📦", "sentence": "Open the box." },
+        { "word": "BOY", "p1": "B", "p2": "O", "p3": "Y", "icon": "👦", "sentence": "He is a boy." },
+        { "word": "BUS", "p1": "B", "p2": "U", "p3": "S", "icon": "🚌", "sentence": "Ride the bus." },
+        { "word": "CAT", "p1": "C", "p2": "A", "p3": "T", "icon": "🐱", "sentence": "Cute little cat." },
+        { "word": "COW", "p1": "C", "p2": "O", "p3": "W", "icon": "🐮", "sentence": "The cow says moo." },
+        { "word": "CUP", "p1": "C", "p2": "U", "p3": "P", "icon": "☕", "sentence": "Hot tea in a cup." },
+        { "word": "DOG", "p1": "D", "p2": "O", "p3": "G", "icon": "🐶", "sentence": "My pet dog." },
+        { "word": "EGG", "p1": "E", "p2": "G", "p3": "G", "icon": "🥚", "sentence": "Eat an egg." },
+        { "word": "EYE", "p1": "E", "p2": "Y", "p3": "E", "icon": "👁️", "sentence": "Blink your eye." },
+        { "word": "FAN", "p1": "F", "p2": "A", "p3": "N", "icon": "🌀", "sentence": "Turn on the fan." },
+        { "word": "FOX", "p1": "F", "p2": "O", "p3": "X", "icon": "🦊", "sentence": "Sly red fox." },
+        { "word": "HAT", "p1": "H", "p2": "A", "p3": "T", "icon": "🎩", "sentence": "Wear a hat." },
+        { "word": "HEN", "p1": "H", "p2": "E", "p3": "N", "icon": "🐔", "sentence": "The hen lays eggs." },
+        { "word": "ICE", "p1": "I", "p2": "C", "p3": "E", "icon": "🧊", "sentence": "Cold ice cubes." },
+        { "word": "JAM", "p1": "J", "p2": "A", "p3": "M", "icon": "🍓", "sentence": "Sweet strawberry jam." },
+        { "word": "KEY", "p1": "K", "p2": "E", "p3": "Y", "icon": "🔑", "sentence": "Lost my key." },
+        { "word": "MAP", "p1": "M", "p2": "A", "p3": "P", "icon": "🗺️", "sentence": "Look at the map." },
+        { "word": "MUG", "p1": "M", "p2": "U", "p3": "G", "icon": "🍺", "sentence": "A root beer mug." },
+        { "word": "OWL", "p1": "O", "p2": "W", "p3": "L", "icon": "🦉", "sentence": "Night owl." },
+        { "word": "PEN", "p1": "P", "p2": "E", "p3": "N", "icon": "🖊️", "sentence": "Blue ink pen." },
+        { "word": "PIG", "p1": "P", "p2": "I", "p3": "G", "icon": "🐷", "sentence": "Pink little pig." },
+        { "word": "RAT", "p1": "R", "p2": "A", "p3": "T", "icon": "🐀", "sentence": "A squeaky rat." },
+        { "word": "RED", "p1": "R", "p2": "E", "p3": "D", "icon": "🔴", "sentence": "The color red." },
+        { "word": "RUN", "p1": "R", "p2": "U", "p3": "N", "icon": "🏃", "sentence": "Run very fast." },
+        { "word": "SUN", "p1": "S", "p2": "U", "p3": "N", "icon": "☀️", "sentence": "Bright yellow sun." },
+        { "word": "TOP", "p1": "T", "p2": "O", "p3": "P", "icon": "🔝", "sentence": "Climb to the top." },
+        { "word": "VAN", "p1": "V", "p2": "A", "p3": "N", "icon": "🚐", "sentence": "Big white van." }
+    ]
+}
+
+FOUR_LETTER_WORDS_DATA = {
+    "game_id": "four_letter_words",
+    "title": "Four Letter Words",
+    "content": [
+        { "word": "BALL", "p1": "B", "p2": "A", "p3": "L", "p4": "L", "icon": "⚽", "sentence": "Kick the ball." },
+        { "word": "BEAR", "p1": "B", "p2": "E", "p3": "A", "p4": "R", "icon": "🐻", "sentence": "Big brown bear." },
+        { "word": "BIRD", "p1": "B", "p2": "I", "p3": "R", "p4": "D", "icon": "🐦", "sentence": "The bird sings." },
+        { "word": "BOAT", "p1": "B", "p2": "O", "p3": "A", "p4": "T", "icon": "⛵", "sentence": "Sail the boat." },
+        { "word": "BOOK", "p1": "B", "p2": "O", "p3": "O", "p4": "K", "icon": "📖", "sentence": "Read a book." },
+        { "word": "CAKE", "p1": "C", "p2": "A", "p3": "K", "p4": "E", "icon": "🎂", "sentence": "Yummy cake." },
+        { "word": "CORN", "p1": "C", "p2": "O", "p3": "R", "p4": "N", "icon": "🌽", "sentence": "Sweet yellow corn." },
+        { "word": "CRAB", "p1": "C", "p2": "R", "p3": "A", "p4": "B", "icon": "🦀", "sentence": "Crab on the beach." },
+        { "word": "DOLL", "p1": "D", "p2": "O", "p3": "L", "p4": "L", "icon": "🎎", "sentence": "Play with a doll." },
+        { "word": "DOOR", "p1": "D", "p2": "O", "p3": "O", "p4": "R", "icon": "🚪", "sentence": "Open the door." },
+        { "word": "DRUM", "p1": "D", "p2": "R", "p3": "U", "p4": "M", "icon": "🥁", "sentence": "Bang the drum." },
+        { "word": "DUCK", "p1": "D", "p2": "U", "p3": "C", "p4": "K", "icon": "🦆", "sentence": "Quack quack duck." },
+        { "word": "FISH", "p1": "F", "p2": "I", "p3": "S", "p4": "H", "icon": "🐠", "sentence": "Swim like a fish." },
+        { "word": "FROG", "p1": "F", "p2": "R", "p3": "O", "p4": "G", "icon": "🐸", "sentence": "Hop like a frog." },
+        { "word": "GIFT", "p1": "G", "p2": "I", "p3": "F", "p4": "T", "icon": "🎁", "sentence": "A surprise gift." },
+        { "word": "GOAT", "p1": "G", "p2": "O", "p3": "A", "p4": "T", "icon": "🐐", "sentence": "The goat eats grass." },
+        { "word": "HAND", "p1": "H", "p2": "A", "p3": "N", "p4": "D", "icon": "✋", "sentence": "Wave your hand." },
+        { "word": "KITE", "p1": "K", "p2": "I", "p3": "T", "p4": "E", "icon": "🪁", "sentence": "Fly a kite." },
+        { "word": "LAMB", "p1": "L", "p2": "A", "p3": "M", "p4": "B", "icon": "🐑", "sentence": "Little white lamb." },
+        { "word": "LEAF", "p1": "L", "p2": "E", "p3": "A", "p4": "F", "icon": "🍃", "sentence": "Green leaf falls." },
+        { "word": "LION", "p1": "L", "p2": "I", "p3": "O", "p4": "N", "icon": "🦁", "sentence": "The lion roars." },
+        { "word": "LOVE", "p1": "L", "p2": "O", "p3": "V", "p4": "E", "icon": "❤️", "sentence": "I love you." },
+        { "word": "MILK", "p1": "M", "p2": "I", "p3": "L", "p4": "K", "icon": "🥛", "sentence": "Drink your milk." },
+        { "word": "MOON", "p1": "M", "p2": "O", "p3": "O", "p4": "N", "icon": "🌙", "sentence": "Goodnight moon." },
+        { "word": "NOSE", "p1": "N", "p2": "O", "p3": "S", "p4": "E", "icon": "👃", "sentence": "Touch your nose." },
+        { "word": "PARK", "p1": "P", "p2": "A", "p3": "R", "p4": "K", "icon": "⛲", "sentence": "Play in the park." },
+        { "word": "RAIN", "p1": "R", "p2": "A", "p3": "I", "p4": "N", "icon": "🌧️", "sentence": "Rain goes away." },
+        { "word": "RING", "p1": "R", "p2": "I", "p3": "N", "p4": "G", "icon": "💍", "sentence": "Shiny gold ring." },
+        { "word": "ROSE", "p1": "R", "p2": "O", "p3": "S", "p4": "E", "icon": "🌹", "sentence": "Smell the rose." },
+        { "word": "SHIP", "p1": "S", "p2": "H", "p3": "I", "p4": "P", "icon": "🚢", "sentence": "Big ship sails." },
+        { "word": "SHOE", "p1": "S", "p2": "H", "p3": "O", "p4": "E", "icon": "👟", "sentence": "Tie your shoe." },
+        { "word": "SNOW", "p1": "S", "p2": "N", "p3": "O", "p4": "W", "icon": "❄️", "sentence": "Cold white snow." },
+        { "word": "SOCK", "p1": "S", "p2": "O", "p3": "C", "p4": "K", "icon": "🧦", "sentence": "Put on a sock." },
+        { "word": "STAR", "p1": "S", "p2": "T", "p3": "A", "p4": "R", "icon": "⭐", "sentence": "Twinkle twinkle star." },
+        { "word": "TREE", "p1": "T", "p2": "R", "p3": "E", "p4": "E", "icon": "🌳", "sentence": "Climb the tree." },
+        { "word": "WOLF", "p1": "W", "p2": "O", "p3": "L", "p4": "F", "icon": "🐺", "sentence": "The wolf howls." }
+    ]
+}
+
+FIVE_LETTER_WORDS_DATA = {
+    "game_id": "five_letter_words",
+    "title": "Five Letter Words",
+    "content": [
+        { "word": "APPLE", "p1": "A", "p2": "P", "p3": "P", "p4": "L", "p5": "E", "icon": "🍎", "sentence": "Eat an apple." },
+        { "word": "BEACH", "p1": "B", "p2": "E", "p3": "A", "p4": "C", "p5": "H", "icon": "🏖️", "sentence": "Sand at the beach." },
+        { "word": "BREAD", "p1": "B", "p2": "R", "p3": "E", "p4": "A", "p5": "D", "icon": "🍞", "sentence": "Bake the bread." },
+        { "word": "BRUSH", "p1": "B", "p2": "R", "p3": "U", "p4": "S", "p5": "H", "icon": "🖌️", "sentence": "Paint with a brush." },
+        { "word": "CANDY", "p1": "C", "p2": "A", "p3": "N", "p4": "D", "p5": "Y", "icon": "🍬", "sentence": "Sweet stick candy." },
+        { "word": "CHAIR", "p1": "C", "p2": "H", "p3": "A", "p4": "I", "p5": "R", "icon": "🪑", "sentence": "Sit on the chair." },
+        { "word": "CLOCK", "p1": "C", "p2": "L", "p3": "O", "p4": "C", "p5": "K", "icon": "⏰", "sentence": "Tick tock clock." },
+        { "word": "CLOUD", "p1": "C", "p2": "L", "p3": "O", "p4": "U", "p5": "D", "icon": "☁️", "sentence": "White fluffy cloud." },
+        { "word": "DANCE", "p1": "D", "p2": "A", "p3": "N", "p4": "C", "p5": "E", "icon": "💃", "sentence": "Let us dance." },
+        { "word": "DRESS", "p1": "D", "p2": "R", "p3": "E", "p4": "S", "p5": "S", "icon": "👗", "sentence": "Wear a nice dress." },
+        { "word": "DRINK", "p1": "D", "p2": "R", "p3": "I", "p4": "N", "p5": "K", "icon": "🥤", "sentence": "Drink some water." },
+        { "word": "EARTH", "p1": "E", "p2": "A", "p3": "R", "p4": "T", "p5": "H", "icon": "🌍", "sentence": "We live on Earth." },
+        { "word": "FRUIT", "p1": "F", "p2": "R", "p3": "U", "p4": "I", "p5": "T", "icon": "🍇", "sentence": "Healthy yummy fruit." },
+        { "word": "GHOST", "p1": "G", "p2": "H", "p3": "O", "p4": "S", "p5": "T", "icon": "👻", "sentence": "Spooky little ghost." },
+        { "word": "GRAPE", "p1": "G", "p2": "R", "p3": "A", "p4": "P", "p5": "E", "icon": "🍇", "sentence": "Purple juicy grape." },
+        { "word": "GRASS", "p1": "G", "p2": "R", "p3": "A", "p4": "S", "p5": "S", "icon": "🌱", "sentence": "Green soft grass." },
+        { "word": "HEART", "p1": "H", "p2": "E", "p3": "A", "p4": "R", "p5": "T", "icon": "❤️", "sentence": "Love in my heart." },
+        { "word": "HORSE", "p1": "H", "p2": "O", "p3": "R", "p4": "S", "p5": "E", "icon": "🐴", "sentence": "Ride a horse." },
+        { "word": "HOUSE", "p1": "H", "p2": "O", "p3": "U", "p4": "S", "p5": "E", "icon": "🏠", "sentence": "My comfortable house." },
+        { "word": "JUICE", "p1": "J", "p2": "U", "p3": "I", "p4": "C", "p5": "E", "icon": "🧃", "sentence": "Fresh orange juice." },
+        { "word": "LEMON", "p1": "L", "p2": "E", "p3": "M", "p4": "O", "p5": "N", "icon": "🍋", "sentence": "Sour yellow lemon." },
+        { "word": "MOUSE", "p1": "M", "p2": "O", "p3": "U", "p4": "S", "p5": "E", "icon": "🐭", "sentence": "Quiet little mouse." },
+        { "word": "MUSIC", "p1": "M", "p2": "U", "p3": "S", "p4": "I", "p5": "C", "icon": "🎵", "sentence": "Listen to music." },
+        { "word": "NIGHT", "p1": "N", "p2": "I", "p3": "G", "p4": "H", "p5": "T", "icon": "🌃", "sentence": "Sleep at night." },
+        { "word": "OCEAN", "p1": "O", "p2": "C", "p3": "E", "p4": "A", "p5": "N", "icon": "🌊", "sentence": "Deep blue ocean." },
+        { "word": "PANDA", "p1": "P", "p2": "A", "p3": "N", "p4": "D", "p5": "A", "icon": "🐼", "sentence": "Cute black panda." },
+        { "word": "PAPER", "p1": "P", "p2": "A", "p3": "P", "p4": "E", "p5": "R", "icon": "📄", "sentence": "Write on paper." },
+        { "word": "PARTY", "p1": "P", "p2": "A", "p3": "R", "p4": "T", "p5": "Y", "icon": "🎉", "sentence": "Birthday party fun." },
+        { "word": "PIZZA", "p1": "P", "p2": "I", "p3": "Z", "p4": "Z", "p5": "A", "icon": "🍕", "sentence": "Cheese pepperoni pizza." },
+        { "word": "PLANE", "p1": "P", "p2": "L", "p3": "A", "p4": "N", "p5": "E", "icon": "✈️", "sentence": "Fly in a plane." },
+        { "word": "PLANT", "p1": "P", "p2": "L", "p3": "A", "p4": "N", "p5": "T", "icon": "🪴", "sentence": "Water the plant." },
+        { "word": "QUEEN", "p1": "Q", "p2": "U", "p3": "E", "p4": "E", "p5": "N", "icon": "👑", "sentence": "The royal queen." },
+        { "word": "RADIO", "p1": "R", "p2": "A", "p3": "D", "p4": "I", "p5": "O", "icon": "📻", "sentence": "Turn on the radio." },
+        { "word": "ROBOT", "p1": "R", "p2": "O", "p3": "B", "p4": "O", "p5": "T", "icon": "🤖", "sentence": "Beep boop robot." },
+        { "word": "SHARK", "p1": "S", "p2": "H", "p3": "A", "p4": "R", "p5": "K", "icon": "🦈", "sentence": "Big scary shark." },
+        { "word": "SHEEP", "p1": "S", "p2": "H", "p3": "E", "p4": "E", "p5": "P", "icon": "🐑", "sentence": "Soft wool sheep." },
+        { "word": "SHOES", "p1": "S", "p2": "H", "p3": "O", "p4": "E", "p5": "S", "icon": "👟", "sentence": "New running shoes." },
+        { "word": "SMILE", "p1": "S", "p2": "M", "p3": "I", "p4": "L", "p5": "E", "icon": "😄", "sentence": "Big happy smile." },
+        { "word": "SNAKE", "p1": "S", "p2": "N", "p3": "A", "p4": "K", "p5": "E", "icon": "🐍", "sentence": "Hissing green snake." },
+        { "word": "SPOON", "p1": "S", "p2": "P", "p3": "O", "p4": "O", "p5": "N", "icon": "🥄", "sentence": "Eat with a spoon." },
+        { "word": "TIGER", "p1": "T", "p2": "I", "p3": "G", "p4": "E", "p5": "R", "icon": "🐯", "sentence": "Striped orange tiger." },
+        { "word": "TOAST", "p1": "T", "p2": "O", "p3": "A", "p4": "S", "p5": "T", "icon": "🍞", "sentence": "Butter on toast." },
+        { "word": "TRAIN", "p1": "T", "p2": "R", "p3": "A", "p4": "I", "p5": "N", "icon": "🚂", "sentence": "Choo choo train." },
+        { "word": "TRUCK", "p1": "T", "p2": "R", "p3": "U", "p4": "C", "p5": "K", "icon": "🚚", "sentence": "Big heavy truck." },
+        { "word": "WATCH", "p1": "W", "p2": "A", "p3": "T", "p4": "C", "p5": "H", "icon": "⌚", "sentence": "Look at my watch." },
+        { "word": "WATER", "p1": "W", "p2": "A", "p3": "T", "p4": "E", "p5": "R", "icon": "💧", "sentence": "Drink cool water." },
+        { "word": "WHALE", "p1": "W", "p2": "H", "p3": "A", "p4": "L", "p5": "E", "icon": "🐋", "sentence": "Huge blue whale." },
+        { "word": "ZEBRA", "p1": "Z", "p2": "E", "p3": "B", "p4": "R", "p5": "A", "icon": "🦓", "sentence": "Striped black zebra." }
+    ]
+}
+
+SIX_LETTER_WORDS_DATA = {
+    "game_id": "six_letter_words",
+    "title": "Six Letter Words",
+    "content": [
+        { "word": "ANIMAL", "p1": "A", "p2": "N", "p3": "I", "p4": "M", "p5": "A", "p6": "L", "icon": "🐘", "sentence": "The elephant is a big animal." },
+        { "word": "BANANA", "p1": "B", "p2": "A", "p3": "N", "p4": "A", "p5": "N", "p6": "A", "icon": "🍌", "sentence": "Yellow sweet banana." },
+        { "word": "BOTTLE", "p1": "B", "p2": "O", "p3": "T", "p4": "T", "p5": "L", "p6": "E", "icon": "🍾", "sentence": "Water in a bottle." },
+        { "word": "BRIDGE", "p1": "B", "p2": "R", "p3": "I", "p4": "D", "p5": "G", "p6": "E", "icon": "🌉", "sentence": "Cross the bridge." },
+        { "word": "BUTTON", "p1": "B", "p2": "U", "p3": "T", "p4": "T", "p5": "O", "p6": "N", "icon": "🔘", "sentence": "Push the button." },
+        { "word": "CAMERA", "p1": "C", "p2": "A", "p3": "M", "p4": "E", "p5": "R", "p6": "A", "icon": "📷", "sentence": "Smile for the camera." },
+        { "word": "CARROT", "p1": "C", "p2": "A", "p3": "R", "p4": "R", "p5": "O", "p6": "T", "icon": "🥕", "sentence": "Crunchy orange carrot." },
+        { "word": "CASTLE", "p1": "C", "p2": "A", "p3": "S", "p4": "T", "p5": "L", "p6": "E", "icon": "🏰", "sentence": "A big stone castle." },
+        { "word": "CHEESE", "p1": "C", "p2": "H", "p3": "E", "p4": "E", "p5": "S", "p6": "E", "icon": "🧀", "sentence": "I like cheese." },
+        { "word": "CIRCLE", "p1": "C", "p2": "I", "p3": "R", "p4": "C", "p5": "L", "p6": "E", "icon": "🔴", "sentence": "Round like a circle." },
+        { "word": "COOKIE", "p1": "C", "p2": "O", "p3": "O", "p4": "K", "p5": "I", "p6": "E", "icon": "🍪", "sentence": "Yummy chocolate cookie." },
+        { "word": "DOCTOR", "p1": "D", "p2": "O", "p3": "C", "p4": "T", "p5": "O", "p6": "R", "icon": "👨‍⚕️", "sentence": "The doctor helps us." },
+        { "word": "DONKEY", "p1": "D", "p2": "O", "p3": "N", "p4": "K", "p5": "E", "p6": "Y", "icon": "🫏", "sentence": "The donkey says hee-haw." },
+        { "word": "DRAGON", "p1": "D", "p2": "R", "p3": "A", "p4": "G", "p5": "O", "p6": "N", "icon": "🐉", "sentence": "Fire breathing dragon." },
+        { "word": "FAMILY", "p1": "F", "p2": "A", "p3": "M", "p4": "I", "p5": "L", "p6": "Y", "icon": "👨‍👩‍👧‍👦", "sentence": "I love my family." },
+        { "word": "FINGER", "p1": "F", "p2": "I", "p3": "N", "p4": "G", "p5": "E", "p6": "R", "icon": "☝️", "sentence": "Point with your finger." },
+        { "word": "FLOWER", "p1": "F", "p2": "L", "p3": "O", "p4": "W", "p5": "E", "p6": "R", "icon": "🌸", "sentence": "Beautiful pink flower." },
+        { "word": "FOREST", "p1": "F", "p2": "O", "p3": "R", "p4": "E", "p5": "S", "p6": "T", "icon": "🌲", "sentence": "Trees in the forest." },
+        { "word": "FRIEND", "p1": "F", "p2": "R", "p3": "I", "p4": "E", "p5": "N", "p6": "D", "icon": "🤝", "sentence": "Playing with a friend." },
+        { "word": "GARDEN", "p1": "G", "p2": "A", "p3": "R", "p4": "D", "p5": "E", "p6": "N", "icon": "🏡", "sentence": "Flowers in the garden." },
+        { "word": "GUITAR", "p1": "G", "p2": "U", "p3": "I", "p4": "T", "p5": "A", "p6": "R", "icon": "🎸", "sentence": "Play the guitar." },
+        { "word": "JUNGLE", "p1": "J", "p2": "U", "p3": "N", "p4": "G", "p5": "L", "p6": "E", "icon": "🌴", "sentence": "Wild jungle animals." },
+        { "word": "KITTEN", "p1": "K", "p2": "I", "p3": "T", "p4": "T", "p5": "E", "p6": "N", "icon": "🐱", "sentence": "Cute baby kitten." },
+        { "word": "LADDER", "p1": "L", "p2": "A", "p3": "D", "p4": "D", "p5": "E", "p6": "R", "icon": "🪜", "sentence": "Climb the ladder." },
+        { "word": "LAPTOP", "p1": "L", "p2": "A", "p3": "P", "p4": "T", "p5": "O", "p6": "P", "icon": "💻", "sentence": "Work on the laptop." },
+        { "word": "MARKER", "p1": "M", "p2": "A", "p3": "R", "p4": "K", "p5": "E", "p6": "R", "icon": "🖍️", "sentence": "Color with a marker." },
+        { "word": "MONKEY", "p1": "M", "p2": "O", "p3": "N", "p4": "K", "p5": "E", "p6": "Y", "icon": "🐒", "sentence": "Monkey likes bananas." },
+        { "word": "NUMBER", "p1": "N", "p2": "U", "p3": "M", "p4": "B", "p5": "E", "p6": "R", "icon": "🔢", "sentence": "Count the numbers." },
+        { "word": "ORANGE", "p1": "O", "p2": "R", "p3": "A", "p4": "N", "p5": "G", "p6": "E", "icon": "🍊", "sentence": "Juicy orange." },
+        { "word": "PENCIL", "p1": "P", "p2": "E", "p3": "N", "p4": "C", "p5": "I", "p6": "L", "icon": "✏️", "sentence": "Write with a pencil." },
+        { "word": "PEPPER", "p1": "P", "p2": "E", "p3": "P", "p4": "P", "p5": "E", "p6": "R", "icon": "🌶️", "sentence": "Spicy red pepper." },
+        { "word": "PILLOW", "p1": "P", "p2": "I", "p3": "L", "p4": "L", "p5": "O", "p6": "W", "icon": "🛌", "sentence": "Soft fluffy pillow." },
+        { "word": "PLANET", "p1": "P", "p2": "L", "p3": "A", "p4": "N", "p5": "E", "p6": "T", "icon": "🪐", "sentence": "Earth is a planet." },
+        { "word": "POCKET", "p1": "P", "p2": "O", "p3": "C", "p4": "K", "p5": "E", "p6": "T", "icon": "👖", "sentence": "Put it in your pocket." },
+        { "word": "POTATO", "p1": "P", "p2": "O", "p3": "T", "p4": "A", "p5": "T", "p6": "O", "icon": "🥔", "sentence": "Baked potato." },
+        { "word": "PURPLE", "p1": "P", "p2": "U", "p3": "R", "p4": "P", "p5": "L", "p6": "E", "icon": "🟣", "sentence": "Color purple." },
+        { "word": "RABBIT", "p1": "R", "p2": "A", "p3": "B", "p4": "B", "p5": "I", "p6": "T", "icon": "🐰", "sentence": "Hop little rabbit." },
+        { "word": "ROCKET", "p1": "R", "p2": "O", "p3": "C", "p4": "K", "p5": "E", "p6": "T", "icon": "🚀", "sentence": "Rocket to the moon." },
+        { "word": "SCHOOL", "p1": "S", "p2": "C", "p3": "H", "p4": "O", "p5": "O", "p6": "L", "icon": "🏫", "sentence": "Learn at school." },
+        { "word": "SHORTS", "p1": "S", "p2": "H", "p3": "O", "p4": "R", "p5": "T", "p6": "S", "icon": "🩳", "sentence": "Wear your shorts." },
+        { "word": "SISTER", "p1": "S", "p2": "I", "p3": "S", "p4": "T", "p5": "E", "p6": "R", "icon": "👧", "sentence": "Play with sister." },
+        { "word": "SOCCER", "p1": "S", "p2": "O", "p3": "C", "p4": "C", "p5": "E", "p6": "R", "icon": "⚽", "sentence": "Play soccer." },
+        { "word": "SPIDER", "p1": "S", "p2": "P", "p3": "I", "p4": "D", "p5": "E", "p6": "R", "icon": "🕷️", "sentence": "Eight-legged spider." },
+        { "word": "SUMMER", "p1": "S", "p2": "U", "p3": "M", "p4": "M", "p5": "E", "p6": "R", "icon": "☀️", "sentence": "Hot summer day." },
+        { "word": "TOMATO", "p1": "T", "p2": "O", "p3": "M", "p4": "A", "p5": "T", "p6": "O", "icon": "🍅", "sentence": "Red ripe tomato." },
+        { "word": "TURTLE", "p1": "T", "p2": "U", "p3": "R", "p4": "T", "p5": "L", "p6": "E", "icon": "🐢", "sentence": "Slow green turtle." },
+        { "word": "WINDOW", "p1": "W", "p2": "I", "p3": "N", "p4": "D", "p5": "O", "p6": "W", "icon": "🪟", "sentence": "Look out the window." },
+        { "word": "WINTER", "p1": "W", "p2": "I", "p3": "N", "p4": "T", "p5": "E", "p6": "R", "icon": "🌨️", "sentence": "Cold snowy winter." },
+        { "word": "YELLOW", "p1": "Y", "p2": "E", "p3": "L", "p4": "L", "p5": "O", "p6": "W", "icon": "🟡", "sentence": "Bright yellow sun." }
+    ]
+}
+
+SEVEN_LETTER_WORDS_DATA = {
+    "game_id": "seven_letter_words",
+    "title": "Seven Letter Words",
+    "content": [
+        { "word": "AIRPORT", "p1": "A", "p2": "I", "p3": "R", "p4": "P", "p5": "O", "p6": "R", "p7": "T", "icon": "🛫", "sentence": "Fly from the airport." },
+        { "word": "BALLOON", "p1": "B", "p2": "A", "p3": "L", "p4": "L", "p5": "O", "p6": "O", "p7": "N", "icon": "🎈", "sentence": "Red floating balloon." },
+        { "word": "BEDROOM", "p1": "B", "p2": "E", "p3": "D", "p4": "R", "p5": "O", "p6": "O", "p7": "M", "icon": "🛌", "sentence": "Sleep in your bedroom." },
+        { "word": "BICYCLE", "p1": "B", "p2": "I", "p3": "C", "p4": "Y", "p5": "C", "p6": "L", "p7": "E", "icon": "🚲", "sentence": "Ride your bicycle." },
+        { "word": "BLANKET", "p1": "B", "p2": "L", "p3": "A", "p4": "N", "p5": "K", "p6": "E", "p7": "T", "icon": "🛌", "sentence": "Warm soft blanket." },
+        { "word": "BROTHER", "p1": "B", "p2": "R", "p3": "O", "p4": "T", "p5": "H", "p6": "E", "p7": "R", "icon": "👦", "sentence": "Play with brother." },
+        { "word": "CHICKEN", "p1": "C", "p2": "H", "p3": "I", "p4": "C", "p5": "K", "p6": "E", "p7": "N", "icon": "🐔", "sentence": "Cluck cluck chicken." },
+        { "word": "CUPCAKE", "p1": "C", "p2": "U", "p3": "P", "p4": "C", "p5": "A", "p6": "K", "p7": "E", "icon": "🧁", "sentence": "Sweet frosting cupcake." },
+        { "word": "DOLPHIN", "p1": "D", "p2": "O", "p3": "L", "p4": "P", "p5": "H", "p6": "I", "p7": "N", "icon": "🐬", "sentence": "Jumping blue dolphin." },
+        { "word": "EVENING", "p1": "E", "p2": "V", "p3": "E", "p4": "N", "p5": "I", "p6": "N", "p7": "G", "icon": "🌇", "sentence": "Sun sets in the evening." },
+        { "word": "FARMING", "p1": "F", "p2": "A", "p3": "R", "p4": "M", "p5": "I", "p6": "N", "p7": "G", "icon": "🚜", "sentence": "Tractor farming field." },
+        { "word": "FEATHER", "p1": "F", "p2": "E", "p3": "A", "p4": "T", "p5": "H", "p6": "E", "p7": "R", "icon": "🪶", "sentence": "Light bird feather." },
+        { "word": "GIRAFFE", "p1": "G", "p2": "I", "p3": "R", "p4": "A", "p5": "F", "p6": "F", "p7": "E", "icon": "🦒", "sentence": "Tall neck giraffe." },
+        { "word": "HAMSTER", "p1": "H", "p2": "A", "p3": "M", "p4": "S", "p5": "T", "p6": "E", "p7": "R", "icon": "🐹", "sentence": "Cute little hamster." },
+        { "word": "HOLIDAY", "p1": "H", "p2": "O", "p3": "L", "p4": "I", "p5": "D", "p6": "A", "p7": "Y", "icon": "🎉", "sentence": "Happy holiday fun." },
+        { "word": "KITCHEN", "p1": "K", "p2": "I", "p3": "T", "p4": "C", "p5": "H", "p6": "E", "p7": "N", "icon": "🍳", "sentence": "Cook in the kitchen." },
+        { "word": "LIBRARY", "p1": "L", "p2": "I", "p3": "B", "p4": "R", "p5": "A", "p6": "R", "p7": "Y", "icon": "📚", "sentence": "Quiet reading library." },
+        { "word": "LOBSTER", "p1": "L", "p2": "O", "p3": "B", "p4": "S", "p5": "T", "p6": "E", "p7": "R", "icon": "🦞", "sentence": "Red ocean lobster." },
+        { "word": "MESSAGE", "p1": "M", "p2": "E", "p3": "S", "p4": "S", "p5": "A", "p6": "G", "p7": "E", "icon": "💬", "sentence": "Send a message." },
+        { "word": "MORNING", "p1": "M", "p2": "O", "p3": "R", "p4": "N", "p5": "I", "p6": "N", "p7": "G", "icon": "🌅", "sentence": "Good morning sun." },
+        { "word": "OCTOPUS", "p1": "O", "p2": "C", "p3": "T", "p4": "O", "p5": "P", "p6": "U", "p7": "S", "icon": "🐙", "sentence": "Eight-legged octopus." },
+        { "word": "OUTSIDE", "p1": "O", "p2": "U", "p3": "T", "p4": "S", "p5": "I", "p6": "D", "p7": "E", "icon": "🌳", "sentence": "Play outside today." },
+        { "word": "PAINTER", "p1": "P", "p2": "A", "p3": "I", "p4": "N", "p5": "T", "p6": "E", "p7": "R", "icon": "🎨", "sentence": "Colorful art painter." },
+        { "word": "PAJAMAS", "p1": "P", "p2": "A", "p3": "J", "p4": "A", "p5": "M", "p6": "A", "p7": "S", "icon": "👚", "sentence": "Wear cozy pajamas." },
+        { "word": "PENGUIN", "p1": "P", "p2": "E", "p3": "N", "p4": "G", "p5": "U", "p6": "I", "p7": "N", "icon": "🐧", "sentence": "Waddle little penguin." },
+        { "word": "PICTURE", "p1": "P", "p2": "I", "p3": "C", "p4": "T", "p5": "U", "p6": "R", "p7": "E", "icon": "🖼️", "sentence": "Draw a nice picture." },
+        { "word": "POPCORN", "p1": "P", "p2": "O", "p3": "P", "p4": "C", "p5": "O", "p6": "R", "p7": "N", "icon": "🍿", "sentence": "Crunchy movie popcorn." },
+        { "word": "PUMPKIN", "p1": "P", "p2": "U", "p3": "M", "p4": "P", "p5": "K", "p6": "I", "p7": "N", "icon": "🎃", "sentence": "Orange halloween pumpkin." },
+        { "word": "RAINBOW", "p1": "R", "p2": "A", "p3": "I", "p4": "N", "p5": "B", "p6": "O", "p7": "W", "icon": "🌈", "sentence": "Colorful sky rainbow." },
+        { "word": "SCOOTER", "p1": "S", "p2": "C", "p3": "O", "p4": "O", "p5": "T", "p6": "E", "p7": "R", "icon": "🛴", "sentence": "Ride my scooter." },
+        { "word": "SNOWMAN", "p1": "S", "p2": "N", "p3": "O", "p4": "W", "p5": "M", "p6": "A", "p7": "N", "icon": "⛄", "sentence": "Frosty the snowman." },
+        { "word": "STADIUM", "p1": "S", "p2": "T", "p3": "A", "p4": "D", "p5": "I", "p6": "U", "p7": "M", "icon": "🏟️", "sentence": "Big sports stadium." },
+        { "word": "TEACHER", "p1": "T", "p2": "E", "p3": "A", "p4": "C", "p5": "H", "p6": "E", "p7": "R", "icon": "👩‍🏫", "sentence": "Listen to the teacher." },
+        { "word": "THEATER", "p1": "T", "p2": "H", "p3": "E", "p4": "A", "p5": "T", "p6": "E", "p7": "R", "icon": "🎭", "sentence": "Movie theater fun." },
+        { "word": "TORNADO", "p1": "T", "p2": "O", "p3": "R", "p4": "N", "p5": "A", "p6": "D", "p7": "O", "icon": "🌪️", "sentence": "Spinning wind tornado." },
+        { "word": "TRACTOR", "p1": "T", "p2": "R", "p3": "A", "p4": "C", "p5": "T", "p6": "O", "p7": "R", "icon": "🚜", "sentence": "Drive the tractor." },
+        { "word": "TRUMPET", "p1": "T", "p2": "R", "p3": "U", "p4": "M", "p5": "P", "p6": "E", "p7": "T", "icon": "🎺", "sentence": "Blow the trumpet." },
+        { "word": "UNICORN", "p1": "U", "p2": "N", "p3": "I", "p4": "C", "p5": "O", "p6": "R", "p7": "N", "icon": "🦄", "sentence": "Magical pretty unicorn." },
+        { "word": "VOLCANO", "p1": "V", "p2": "O", "p3": "L", "p4": "C", "p5": "A", "p6": "N", "p7": "O", "icon": "🌋", "sentence": "Hot lava volcano." },
+        { "word": "WEATHER", "p1": "W", "p2": "E", "p3": "A", "p4": "T", "p5": "H", "p6": "E", "p7": "R", "icon": "🌦️", "sentence": "Check the weather." },
+        { "word": "WHISTLE", "p1": "W", "p2": "H", "p3": "I", "p4": "S", "p5": "T", "p6": "L", "p7": "E", "icon": "😗", "sentence": "Blow the whistle." }
+    ]
+}
+
+COMMANDS_ACTIONS_DATA = {
+    "game_id": "commands_actions",
+    "title": "Commands Actions",
+    "content": [
+        { "word": "START", "icon": "▶️", "context": "Start the game." },
+        { "word": "STOP", "icon": "🛑", "context": "Stop right there." },
+        { "word": "GO", "icon": "🟢", "context": "Ready, set, go!" },
+        { "word": "WAIT", "icon": "✋", "context": "Wait for me." },
+        { "word": "CHOOSE", "icon": "👆", "context": "Choose one." },
+        { "word": "PICK", "icon": "🤏", "context": "Pick a color." },
+        { "word": "MATCH", "icon": "🧩", "context": "Match the shapes." },
+        { "word": "FIND", "icon": "🔍", "context": "Find the hidden toy." },
+        { "word": "TAP", "icon": "👇", "context": "Tap the screen." },
+        { "word": "CLICK", "icon": "🖱️", "context": "Click the button." },
+        { "word": "MOVE", "icon": "↔️", "context": "Move it here." },
+        { "word": "DRAG", "icon": "✊", "context": "Drag and drop." },
+        { "word": "DROP", "icon": "⬇️", "context": "Drop it down." }
+    ]
+}
+
+ENCOURAGEMENT_DATA = {
+    "game_id": "encouragement",
+    "title": "Encouragement",
+    "content": [
+        { "word": "TRY!", "icon": "💪", "context": "You can do it, try!" },
+        { "word": "GREAT!", "icon": "🌟", "context": "That is great work!" },
+        { "word": "WOW!", "icon": "😲", "context": "Wow! Amazing!" },
+        { "word": "GOOD JOB!", "icon": "👍", "context": "Good job holding that." },
+        { "word": "WELL DONE!", "icon": "🏆", "context": "Well done, winner!" },
+        { "word": "KEEP GOING!", "icon": "🏃", "context": "Do not stop, keep going!" },
+        { "word": "YOU CAN DO IT!", "icon": "🦸", "context": "Believe in yourself!" },
+        { "word": "RESPECT", "icon": "🤝", "context": "Respect others." },
+        { "word": "LISTEN", "icon": "👂", "context": "Listen carefully." },
+        { "word": "CARE", "icon": "❤️", "context": "Care for friends." },
+        { "word": "SUPPORT", "icon": "🤗", "context": "Support your team." },
+        { "word": "NICE!", "icon": "👌", "context": "That is very nice." },
+        { "word": "SUPER!", "icon": "🦸‍♀️", "context": "You are super!" },
+        { "word": "COOL!", "icon": "😎", "context": "That is so cool." },
+        { "word": "BRAVO!", "icon": "👏", "context": "Bravo! Bravo!" }
+    ]
+}
+
+# --- New English Games Data ---
+
+ADVERBS_DATA = {
+    "game_id": "adverbs",
+    "title": "Adverbs",
+    "categories": {
+        "manner": {
+            "title": "How? (Manner)",
+            "description": "Tells us HOW something happens.",
+            "color": "#E67E22",
+            "items": [
+                { "word": "Slowly", "sentence": "The turtle walks **slowly**.", "icon": "🐢" },
+                { "word": "Quickly", "sentence": "The rabbit runs **quickly**.", "icon": "🐇" },
+                { "word": "Neatly", "sentence": "She writes **neatly**.", "icon": "✍️" },
+                { "word": "Loudly", "sentence": "The lion roars **loudly**.", "icon": "🦁" },
+                { "word": "Softly", "sentence": "Speak **softly**.", "icon": "🤫" },
+                { "word": "Happy", "sentence": "He plays **happily**.", "icon": "😊" }
+            ]
+        },
+        "time": {
+            "title": "When? (Time)",
+            "description": "Tells us WHEN something happens.",
+            "color": "#2ECC71",
+            "items": [
+                { "word": "Today", "sentence": "We play **today**.", "icon": "📅" },
+                { "word": "Soon", "sentence": "See you **soon**.", "icon": "👋" },
+                { "word": "Yesterday", "sentence": "It rained **yesterday**.", "icon": "🌧️" },
+                { "word": "Now", "sentence": "Do it **now**.", "icon": "⏱️" },
+                { "word": "Early", "sentence": "Wake up **early**.", "icon": "🌅" },
+                { "word": "Late", "sentence": "Don't be **late**.", "icon": "🏃" }
+            ]
+        },
+        "place": {
+            "title": "Where? (Place)",
+            "description": "Tells us WHERE something is.",
+            "color": "#3498DB",
+            "items": [
+                { "word": "Here", "sentence": "Come **here**.", "icon": "👇" },
+                { "word": "There", "sentence": "Go **there**.", "icon": "👉" },
+                { "word": "Inside", "sentence": "Stay **inside**.", "icon": "🏠" },
+                { "word": "Outside", "sentence": "Play **outside**.", "icon": "🌳" },
+                { "word": "Up", "sentence": "Look **up**.", "icon": "👆" },
+                { "word": "Down", "sentence": "Sit **down**.", "icon": "🪑" }
+            ]
+        },
+        "frequency": {
+            "title": "How Often? (Frequency)",
+            "description": "Tells us HOW OFTEN we do things.",
+            "color": "#9B59B6",
+            "items": [
+                { "word": "Always", "sentence": "I **always** brush my teeth.", "icon": "🪥" },
+                { "word": "Never", "sentence": "I **never** tell lies.", "icon": "❌" },
+                { "word": "Daily", "sentence": "I read **daily**.", "icon": "📖" },
+                { "word": "Sometimes", "sentence": "**Sometimes** I eat ice cream.", "icon": "🍦" }
+            ]
+        }
+    },
+    "dialogues": [
+        {
+            "id": 1,
+            "title": "At School",
+            "icon": "🏫",
+            "lines": [
+                { "speaker": "Teacher", "text": "Riya, you read the poem **beautifully**." },
+                { "speaker": "Riya", "text": "Thank you, ma’am. I practiced **carefully**." },
+                { "speaker": "Teacher", "text": "Good students always work **hard**." },
+                { "speaker": "Riya", "text": "I will try again **tomorrow**." }
+            ]
+        },
+        {
+            "id": 2,
+            "title": "At Home",
+            "icon": "🏠",
+            "lines": [
+                { "speaker": "Mother", "text": "Rahul, you cleaned your room **nicely**." },
+                { "speaker": "Rahul", "text": "Yes, Mom. I worked **quickly**." },
+                { "speaker": "Mother", "text": "The house looks **very** neat now." },
+                { "speaker": "Rahul", "text": "I will help you **again** later." }
+            ]
+        },
+        {
+            "id": 3,
+            "title": "Playing Outside",
+            "icon": "⚽",
+            "lines": [
+                { "speaker": "Aman", "text": "The boys are running **fast**." },
+                { "speaker": "Riya", "text": "Yes, they play football **every day**." },
+                { "speaker": "Aman", "text": "Rahul kicked the ball **strongly**." },
+                { "speaker": "Riya", "text": "It went **far** across the field!" }
+            ]
+        },
+        {
+            "id": 4,
+            "title": "At Dinner",
+            "icon": "🍽️",
+            "lines": [
+                { "speaker": "Father", "text": "The food smells **really** good." },
+                { "speaker": "Mother", "text": "I cooked the rice **slowly**." },
+                { "speaker": "Child", "text": "I am eating **happily**." },
+                { "speaker": "Father", "text": "Everyone is sitting **together**." }
+            ]
+        }
+    ],
+    "quiz": [
+        { "question": "The turtle walks ___.", "answer": "slowly", "options": ["slowly", "quickly", "loudly"] },
+        { "question": "Did you finish your work ___?", "answer": "today", "options": ["today", "outside", "neatly"] },
+        { "question": "Keep your shoes ___.", "answer": "outside", "options": ["outside", "yesterday", "slowly"] },
+        { "question": "I ___ tell lies.", "answer": "never", "options": ["never", "outside", "fast"] },
+        { "question": "The lion roars ___.", "answer": "loudly", "options": ["loudly", "neatly", "kindly"] },
+        { "question": "Come ___!", "answer": "here", "options": ["here", "happy", "slow"] }
+    ]
+}
+
+FEELING_THINKING_DATA = {
+    "game_id": "feeling_thinking",
+    "title": "Feeling and Thinking",
+    "content": [
+        { "word": "LIKE", "icon": "👍", "context": "I like ice cream." },
+        { "word": "LOVE", "icon": "❤️", "context": "I love my family." },
+        { "word": "WANT", "icon": "🤲", "context": "I want a toy." },
+        { "word": "NEED", "icon": "💧", "context": "I need water." },
+        { "word": "KNOW", "icon": "💡", "context": "I know the answer." },
+        { "word": "REMEMBER", "icon": "🧠", "context": "I remember you." },
+        { "word": "FORGET", "icon": "🤷", "context": "I forget my hat." },
+        { "word": "TRY", "icon": "💪", "context": "I try my best." },
+        { "word": "HELP", "icon": "🤝", "context": "I help my friend." },
+        { "word": "THINK", "icon": "🤔", "context": "I think hard." },
+        { "word": "HOPE", "icon": "🙏", "context": "I hope it rains." },
+        { "word": "HAPPY", "icon": "😊", "context": "I feel happy." },
+        { "word": "SAD", "icon": "😢", "context": "I feel sad." },
+        { "word": "ANGRY", "icon": "😠", "context": "I feel angry." },
+        { "word": "SCARED", "icon": "😨", "context": "I feel scared." }
+    ]
+}
+
+GUEST_MANNERS_DATA = {
+    "game_id": "guest_manners",
+    "title": "Guest Manners",
+    "sections": [
+        {
+            "id": "welcome",
+            "title": "Welcoming",
+            "icon": "🚪",
+            "phrases": [
+                "Welcome to our home!",
+                "Hello, uncle/auntie!",
+                "Nice to see you!",
+                "Please come in.",
+                "We are happy you came.",
+                "How are you?"
+            ]
+        },
+        {
+            "id": "seat",
+            "title": "Offering Seat",
+            "icon": "🪑",
+            "phrases": [
+                "Please sit here.",
+                "Have a seat.",
+                "Sit comfortably.",
+                "This chair is for you."
+            ]
+        },
+        {
+            "id": "food",
+            "title": "Food & Drinks",
+            "icon": "🍹",
+            "phrases": [
+                "Would you like some water?",
+                "Please have some water.",
+                "Would you like tea or juice?",
+                "I will bring snacks.",
+                "Please have some food.",
+                "Take some more, please.",
+                "Do you like it?"
+            ]
+        },
+        {
+            "id": "chat",
+            "title": "Polite Talk",
+            "icon": "😊",
+            "phrases": [
+                "How was your day?",
+                "Did you have a good trip?",
+                "Please tell us about your family.",
+                "I am happy to see you.",
+                "That is very nice!"
+            ]
+        }
+    ]
+}
+
+
+HOME_ACTIONS_DATA = {
+    "game_id": "home_actions",
+    "title": "Home Actions",
+    "content": [
+        { "text": "I BRUSH TEETH", "verb": "BRUSH", "parts": ["I", "BRUSH", "TEETH"], "icon": "🪥", "context": "Clean and white!" },
+        { "text": "I WASH FACE", "verb": "WASH", "parts": ["I", "WASH", "FACE"], "icon": "🧼", "context": "Fresh and clean." },
+        { "text": "I COMB HAIR", "verb": "COMB", "parts": ["I", "COMB", "HAIR"], "icon": "💇", "context": "Look good." },
+        { "text": "MOM COOKS FOOD", "verb": "COOKS", "parts": ["MOM", "COOKS", "FOOD"], "icon": "🍳", "context": "Yummy smell." },
+        { "text": "DAD WASHES CAR", "verb": "WASHES", "parts": ["DAD", "WASHES", "CAR"], "icon": "🚗", "context": "Shiny car." },
+        { "text": "WE WATCH TV", "verb": "WATCH", "parts": ["WE", "WATCH", "TV"], "icon": "📺", "context": "Fun cartoon." },
+        { "text": "I READ BOOK", "verb": "READ", "parts": ["I", "READ", "BOOK"], "icon": "📖", "context": "Quiet time." },
+        { "text": "I SLEEP IN BED", "verb": "SLEEP", "parts": ["I", "SLEEP", "IN", "BED"], "icon": "🛌", "context": "Goodnight." },
+        { "text": "I EAT LUNCH", "verb": "EAT", "parts": ["I", "EAT", "LUNCH"], "icon": "🍽️", "context": "Full tummy." },
+        { "text": "I DRINK WATER", "verb": "DRINK", "parts": ["I", "DRINK", "WATER"], "icon": "🥤", "context": "Thirsty." },
+        { "text": "I CLEAN ROOM", "verb": "CLEAN", "parts": ["I", "CLEAN", "ROOM"], "icon": "🧹", "context": "Tidy up." },
+        { "text": "I PLAY TOYS", "verb": "PLAY", "parts": ["I", "PLAY", "TOYS"], "icon": "🧸", "context": "Have fun." },
+        { "text": "SHE BAKES CAKE", "verb": "BAKES", "parts": ["SHE", "BAKES", "CAKE"], "icon": "🎂", "context": "Sweet treat." },
+        { "text": "HE WATERS PLANT", "verb": "WATERS", "parts": ["HE", "WATERS", "PLANT"], "icon": "🪴", "context": "Grow green." },
+        { "text": "WE SIT ON SOFA", "verb": "SIT", "parts": ["WE", "SIT", "ON", "SOFA"], "icon": "🛋️", "context": "Comfy." },
+        { "text": "I OPEN DOOR", "verb": "OPEN", "parts": ["I", "OPEN", "DOOR"], "icon": "🚪", "context": "Welcome home." },
+        { "text": "I CLOSE WINDOW", "verb": "CLOSE", "parts": ["I", "CLOSE", "WINDOW"], "icon": "🪟", "context": "Keep warm." },
+        { "text": "I PUT ON SHOES", "verb": "PUT ON", "parts": ["I", "PUT ON", "SHOES"], "icon": "👟", "context": "Ready to go." },
+        { "text": "SHE SETS TABLE", "verb": "SETS", "parts": ["SHE", "SETS", "TABLE"], "icon": "🍽️", "context": "Dinner time." },
+        { "text": "HE SWEEPS FLOOR", "verb": "SWEEPS", "parts": ["HE", "SWEEPS", "FLOOR"], "icon": "🧹", "context": "No dust." }
+    ]
+}
+
+HOME_APPLIANCES_DATA = {
+    "game_id": "home_appliances",
+    "title": "Home Appliances",
+    "content": [
+        { "word": "FRIDGE", "icon": "❄️", "desc": "Keeps food cold." },
+        { "word": "OVEN", "icon": "🍳", "desc": "Cooks our food." },
+        { "word": "TV", "icon": "📺", "desc": "Watch cartoons." },
+        { "word": "FAN", "icon": "🌬️", "desc": "Blows cool air." },
+        { "word": "LAMP", "icon": "🛋️", "desc": "Gives us light." },
+        { "word": "IRON", "icon": "👔", "desc": "Smooths clothes." },
+        { "word": "RADIO", "icon": "📻", "desc": "Plays music." },
+        { "word": "TOASTER", "icon": "🍞", "desc": "Makes bread hot." },
+        { "word": "BLENDER", "icon": "🥤", "desc": "Makes juice." },
+        { "word": "WASHER", "icon": "🧺", "desc": "Washes clothes." },
+        { "word": "AC", "icon": "🥶", "desc": "Makes room cold." },
+        { "word": "HEATER", "icon": "🔥", "desc": "Makes room warm." },
+        { "word": "PHONE", "icon": "📞", "desc": "Call friends." },
+        { "word": "COMPUTER", "icon": "💻", "desc": "Work and play." },
+        { "word": "CLOCK", "icon": "⏰", "desc": "Tells the time." },
+        { "word": "CAMERA", "icon": "📷", "desc": "Takes photos." },
+        { "word": "VACUUM", "icon": "🧹", "desc": "Cleans the floor." },
+        { "word": "HAIRDRYER", "icon": "💇", "desc": "Dries wet hair." },
+        { "word": "MICROWAVE", "icon": "🍲", "desc": "Heats food fast." },
+        { "word": "SPEAKER", "icon": "🔊", "desc": "Loud sound." }
+    ]
+}
+
+POLITE_PHRASES_DATA = {
+    "game_id": "polite_phrases",
+    "title": "Polite Phrases",
+    "content": [
+        { "text": "THANK YOU", "icon": "🙏", "context": "When someone helps you." },
+        { "text": "THANK YOU VERY MUCH", "icon": "🙏❤️", "context": "Big thanks!" },
+        { "text": "YOU ARE WELCOME", "icon": "🤲", "context": "After someone says thanks." },
+        { "text": "PLEASE WAIT A MOMENT", "icon": "✋", "context": "Just a little time." },
+        { "text": "EXCUSE ME", "icon": "🙋", "context": "Polite attention." },
+        { "text": "SORRY FOR THE WAIT", "icon": "🙇", "context": "Apologize for delay." },
+        { "text": "HAVE A NICE DAY", "icon": "👋☀️", "context": "Friendly goodbye." },
+        { "text": "MAY I HELP YOU?", "icon": "💁", "context": "Offering help." },
+        { "text": "NICE TO MEET YOU", "icon": "🤝", "context": "Meeting a new friend." },
+        { "text": "GOOD MORNING", "icon": "🌅", "context": "Start of the day." },
+        { "text": "GOOD NIGHT", "icon": "🌙", "context": "End of the day." },
+        { "text": "GOODBYE", "icon": "👋", "context": "Saying farewell." },
+        { "text": "HAVE A SAFE TRIP", "icon": "✈️", "context": "Travel safely." },
+        { "text": "PLEASE VISIT AGAIN", "icon": "🏠", "context": "Come back soon." },
+        { "text": "SEE YOU SOON", "icon": "🔜", "context": "We will meet again." }
+    ]
+}
+
+PREPOSITIONS_DATA = {
+    "game_id": "prepositions",
+    "title": "Prepositions",
+    "basics": {
+        "title": "Basic Positions",
+        "description": "Where is it?",
+        "color": "#8E44AD",
+        "items": [
+            { "word": "In", "sentence": "The cat is **in** the box.", "icon": "📦" },
+            { "word": "On", "sentence": "The apple is **on** the table.", "icon": "🍎" },
+            { "word": "Under", "sentence": "The dog is **under** the chair.", "icon": "🐕" },
+            { "word": "Over", "sentence": "The bird flies **over** the tree.", "icon": "🐦" },
+            { "word": "Behind", "sentence": "The sun is **behind** the cloud.", "icon": "☁️" },
+            { "word": "In Front Of", "sentence": "The boy is **in front of** the door.", "icon": "🚪" }
+        ]
+    },
+    "action_sentences": [
+        { "noun": "The dog", "verb": "runs", "adverb": "quickly", "prep": "**in**", "object": "the park.", "icon": "🏞️" },
+        { "noun": "She", "verb": "sits", "adverb": "quietly", "prep": "**on**", "object": "the chair.", "icon": "🪑" },
+        { "noun": "The bird", "verb": "sings", "adverb": "loudly", "prep": "**on**", "object": "the branch.", "icon": "🌳" },
+        { "noun": "He", "verb": "walks", "adverb": "slowly", "prep": "**to**", "object": "school.", "icon": "🎒" }
+    ],
+    "quiz": [
+        { "question": "The cat is ___ the box. (Inside)", "answer": "in", "options": ["in", "on", "under"] },
+        { "question": "The bird flies ___ the tree. (Above)", "answer": "over", "options": ["over", "in", "behind"] },
+        { "question": "The apple is ___ the table. (Top)", "answer": "on", "options": ["on", "in", "under"] },
+        { "question": "The dog sleeps ___ the bed. (Below)", "answer": "under", "options": ["under", "on", "over"] }
+    ]
+}
+
+
+PRONOUNS_DATA = {
+    "game_id": "pronouns",
+    "title": "Pronouns",
+    "personal": {
+        "title": "Subject Pronouns",
+        "description": "Subject pronouns do the action.",
+        "color": "#3498DB",
+        "content": [
+            { "left": "I", "right": "We", "icon": "🙋" },
+            { "left": "You", "right": "You", "icon": "👉" },
+            { "left": "He", "right": "They", "icon": "👦" },
+            { "left": "She", "right": "They", "icon": "👧" },
+            { "left": "It", "right": "They", "icon": "📦" }
+        ],
+        "examples": [
+            "Riya is my friend. **She** is kind.",
+            "Aman and I play cricket. **We** are friends.",
+            "**She** is singing.",
+            "**They** are playing."
+        ]
+    },
+    "object": {
+        "title": "Object Pronouns",
+        "description": "Object pronouns receive the action.",
+        "color": "#E74C3C",
+        "content": [
+            { "left": "I", "right": "me", "icon": "🙋" },
+            { "left": "You", "right": "you", "icon": "👉" },
+            { "left": "He", "right": "him", "icon": "👦" },
+            { "left": "She", "right": "her", "icon": "👧" },
+            { "left": "It", "right": "it", "icon": "📦" },
+            { "left": "We", "right": "us", "icon": "👨‍👩‍👧‍👦" },
+            { "left": "They", "right": "them", "icon": "👥" }
+        ],
+        "examples": [
+            "Mother called **me**.",
+            "I gave the book to **him**.",
+            "Teacher helped **us**."
+        ]
+    },
+    "possessive": {
+        "title": "Possessive",
+        "description": "Shows ownership (Belongs to someone).",
+        "color": "#9B59B6",
+        "items": [
+            { "word": "mine", "sentence": "This bag is **mine**.", "icon": "🎒" },
+            { "word": "yours", "sentence": "The pen is **yours**.", "icon": "🖊️" },
+            { "word": "his", "sentence": "The book is **his**.", "icon": "📘" },
+            { "word": "hers", "sentence": "The doll is **hers**.", "icon": "🎎" },
+            { "word": "ours", "sentence": "The house is **ours**.", "icon": "🏡" },
+            { "word": "theirs", "sentence": "The toys are **theirs**.", "icon": "🧸" }
+        ]
+    },
+    "demonstrative": {
+        "title": "Pointing Words",
+        "description": "Demonstrative Pronouns point at things.",
+        "color": "#27AE60",
+        "items": [
+            { "word": "this", "sentence": "**This** is my pencil.", "icon": "✏️" },
+            { "word": "that", "sentence": "**That** is a star.", "icon": "⭐" },
+            { "word": "these", "sentence": "**These** are my shoes.", "icon": "👞" },
+            { "word": "those", "sentence": "**Those** are birds.", "icon": "🐦" }
+        ]
+    },
+    "dialogues": [
+        {
+            "id": 1,
+            "title": "Talking About a Friend",
+            "icon": "👧",
+            "lines": [
+                { "speaker": "Riya", "text": "This is my friend Amit." },
+                { "speaker": "Sara", "text": "Is **he** in your class?" },
+                { "speaker": "Riya", "text": "Yes, **he** sits next to **me**." },
+                { "speaker": "Sara", "text": "Is **he** good at studies?" },
+                { "speaker": "Riya", "text": "Yes, **he** helps **me** in math." }
+            ]
+        },
+        {
+            "id": 2,
+            "title": "Family Talk",
+            "icon": "👨‍👩‍👧",
+            "lines": [
+                { "speaker": "Mother", "text": "Where is your brother?" },
+                { "speaker": "Child", "text": "**He** is in his room." },
+                { "speaker": "Mother", "text": "Call **him**, please." },
+                { "speaker": "Child", "text": "Okay, I will call **him**." }
+            ]
+        },
+        {
+            "id": 3,
+            "title": "At School",
+            "icon": "🎒",
+            "lines": [
+                { "speaker": "Teacher", "text": "Rohan, where is your notebook?" },
+                { "speaker": "Rohan", "text": "Ma’am, **it** is in my bag." },
+                { "speaker": "Teacher", "text": "Show **it** to **me**." },
+                { "speaker": "Rohan", "text": "Yes, ma’am. Here **it** is." }
+            ]
+        }
+    ],
+    "quiz": [
+        { "question": "Riya is my friend. ___ is kind.", "answer": "She", "options": ["He", "She", "They"] },
+        { "question": "I saw Rahul and gave ___ the ball.", "answer": "him", "options": ["he", "him", "his"] },
+        { "question": "This book is ___. (belonging to me)", "answer": "mine", "options": ["me", "my", "mine"] },
+        { "question": "___ are my parents. (pointing to many)", "answer": "They", "options": ["They", "He", "She"] },
+        { "question": "The teacher called ___ (me).", "answer": "me", "options": ["I", "me", "my"] }
+    ]
+}
+
+SCHOOL_ACTIONS_DATA = {
+    "game_id": "school_actions",
+    "title": "School Actions",
+    "content": [
+        { "word": "LEARN", "icon": "🧠", "context": "Learn new things." },
+        { "word": "STUDY", "icon": "📚", "context": "Study for test." },
+        { "word": "ANSWER", "icon": "🙋", "context": "Answer the question." },
+        { "word": "ASK", "icon": "❓", "context": "Ask for help." },
+        { "word": "DRAW", "icon": "🎨", "context": "Draw a picture." },
+        { "word": "COLOR", "icon": "🖍️", "context": "Color with crayons." },
+        { "word": "COUNT", "icon": "🔢", "context": "Count to ten." },
+        { "word": "SPELL", "icon": "🔡", "context": "Spell your name." },
+        { "word": "THINK", "icon": "🤔", "context": "Think hard." },
+        { "word": "SOLVE", "icon": "🧩", "context": "Solve the puzzle." },
+        { "word": "SHARE", "icon": "🤝", "context": "Share with friends." }
+    ]
+}
+
+SINGULAR_PLURAL_DATA = {
+    "game_id": "singular_plural",
+    "title": "Singular and Plural",
+    "rules": [
+        {
+            "id": "s",
+            "title": "Add -S",
+            "description": "Just add \"s\" to most words.",
+            "examples": [
+                { "singular": "Cat", "plural": "Cats", "icon": "🐱" },
+                { "singular": "Book", "plural": "Books", "icon": "📚" },
+                { "singular": "Pen", "plural": "Pens", "icon": "🖊️" },
+                { "singular": "Boy", "plural": "Boys", "icon": "👦" }
+            ],
+            "sentence": "I have one book. I have two books.",
+            "color": "#3498DB"
+        },
+        {
+            "id": "es",
+            "title": "Add -ES",
+            "description": "For words ending in s, sh, ch, x, o.",
+            "examples": [
+                { "singular": "Bus", "plural": "Buses", "icon": "🚌" },
+                { "singular": "Box", "plural": "Boxes", "icon": "📦" },
+                { "singular": "Dish", "plural": "Dishes", "icon": "🍽️" },
+                { "singular": "Watch", "plural": "Watches", "icon": "⌚" },
+                { "singular": "Mango", "plural": "Mangoes", "icon": "🥭" }
+            ],
+            "sentence": "The bus is big. Many buses are on the road.",
+            "color": "#E74C3C"
+        },
+        {
+            "id": "ies",
+            "title": "Y → IES",
+            "description": "If a consonant is before Y, change Y to IES.",
+            "examples": [
+                { "singular": "Baby", "plural": "Babies", "icon": "👶" },
+                { "singular": "City", "plural": "Cities", "icon": "🏙️" },
+                { "singular": "Story", "plural": "Stories", "icon": "📖" },
+                { "singular": "Fly", "plural": "Flies", "icon": "🪰" }
+            ],
+            "note": "But if a vowel comes before Y, just add S (Boy → Boys)",
+            "sentence": "The baby is crying. The babies are crying.",
+            "color": "#9B59B6"
+        }
+    ],
+    "quiz": [
+        { "question": "cat", "answer": "cats", "options": ["cat", "cates", "cats"] },
+        { "question": "baby", "answer": "babies", "options": ["babys", "babies", "babyies"] },
+        { "question": "box", "answer": "boxes", "options": ["boxs", "boxies", "boxes"] },
+        { "question": "leaf", "answer": "leaves", "options": ["leafs", "leaves", "leafes"] },
+        { "question": "child", "answer": "children", "options": ["childs", "children", "childies"] },
+        { "question": "bus", "answer": "buses", "options": ["buss", "buses", "busez"] }
+    ]
+}
+
+MORNING_ROUTINE_DATA = {
+    "game_id": "morning_routine",
+    "title": "Morning Routine",
+    "sections": [
+        {
+            "id": "wake",
+            "title": "Waking Up",
+            "icon": "🌅",
+            "phrases": [
+                "I wake up early.",
+                "I wake up at 6 o’clock.",
+                "I get out of bed.",
+                "I make my bed.",
+                "I stretch my body."
+            ]
+        },
+        {
+            "id": "bathroom",
+            "title": "Bathroom",
+            "icon": "🪥",
+            "phrases": [
+                "I go to the bathroom.",
+                "I brush my teeth.",
+                "I wash my face.",
+                "I take a bath.",
+                "I comb my hair."
+            ]
+        },
+        {
+            "id": "ready",
+            "title": "Getting Ready",
+            "icon": "👕",
+            "phrases": [
+                "I wear my clothes.",
+                "I put on my school uniform.",
+                "I tie my shoes.",
+                "I get ready for school."
+            ]
+        },
+        {
+            "id": "breakfast",
+            "title": "Breakfast",
+            "icon": "🍳",
+            "phrases": [
+                "I eat my breakfast.",
+                "I drink milk.",
+                "I eat fruits.",
+                "Breakfast gives me energy."
+            ]
+        },
+        {
+            "id": "leaving",
+            "title": "Leaving Home",
+            "icon": "🎒",
+            "phrases": [
+                "I pack my school bag.",
+                "I check my homework.",
+                "I say goodbye to my parents.",
+                "I leave for school."
+            ]
+        },
+        {
+            "id": "habits",
+            "title": "Good Habits",
+            "icon": "😊",
+            "phrases": [
+                "I wake up early every day.",
+                "I keep myself clean.",
+                "I eat healthy food.",
+                "I am ready for the day!"
+            ]
+        }
+    ],
+    "stories": [
+        {
+            "title": "Early Bird (Riya)",
+            "icon": "🌞",
+            "text": "Riya wakes up at six in the morning. She stretches her arms and gets out of bed. She brushes her teeth and washes her face. After taking a bath, she wears her school uniform. She eats breakfast with her family. Then she packs her bag and goes to school with a smile."
+        },
+        {
+            "title": "Healthy Start (Arjun)",
+            "icon": "🌤️",
+            "text": "Arjun wakes up early every day. He makes his bed and drinks a glass of water. He brushes his teeth and takes a shower. His mother gives him eggs and toast for breakfast. He checks his homework and wears his shoes. He is ready for school on time."
+        },
+        {
+            "title": "Happy Morning (Meena)",
+            "icon": "🌈",
+            "text": "Meena wakes up when the sun rises. She folds her blanket and cleans her room. She brushes her teeth and combs her hair. After breakfast, she helps her mother for a few minutes. Then she gets ready and leaves for school happily."
+        },
+        {
+            "title": "Busy Morning (Rahul)",
+            "icon": "🚌",
+            "text": "Rahul wakes up early but moves a little slow. His mother calls him to get ready. He brushes his teeth, washes his face, and takes a quick bath. He eats breakfast and drinks milk. He packs his bag quickly and runs to catch the school bus."
+        },
+        {
+            "title": "Good Habits (Anaya)",
+            "icon": "🌻",
+            "text": "Anaya wakes up early every morning. She thanks God for a new day. She brushes her teeth and takes a bath. She wears neat clothes and eats healthy food. She packs her school bag and leaves home with a happy heart."
+        }
+    ],
+    "dialogues": [
+        {
+            "title": "Morning at Home",
+            "icon": "🌅",
+            "lines": [
+                { "speaker": "Mother", "text": "Good morning!" },
+                { "speaker": "Child", "text": "Good morning, Mom." },
+                { "speaker": "Mother", "text": "Did you sleep well?" },
+                { "speaker": "Child", "text": "Yes, I did." },
+                { "speaker": "Mother", "text": "Go brush your teeth." },
+                { "speaker": "Child", "text": "Okay, Mom!" }
+            ]
+        },
+        {
+            "title": "Getting Ready",
+            "icon": "🪥",
+            "lines": [
+                { "speaker": "Father", "text": "Are you ready for school?" },
+                { "speaker": "Child", "text": "Not yet." },
+                { "speaker": "Father", "text": "What are you doing?" },
+                { "speaker": "Child", "text": "I am combing my hair." },
+                { "speaker": "Father", "text": "Good! Hurry up." },
+                { "speaker": "Child", "text": "Yes, Dad." }
+            ]
+        },
+        {
+            "title": "Breakfast Time",
+            "icon": "🍳",
+            "lines": [
+                { "speaker": "Mother", "text": "Come and eat breakfast." },
+                { "speaker": "Child", "text": "What is for breakfast?" },
+                { "speaker": "Mother", "text": "Milk and bread." },
+                { "speaker": "Child", "text": "Yum! I like it." },
+                { "speaker": "Mother", "text": "Eat well and be strong." },
+                { "speaker": "Child", "text": "Okay, Mom!" }
+            ]
+        }
+    ],
+    "practice_lines": {
+        "simple": [
+            "I wake up early in the morning.",
+            "I get out of bed with a smile.",
+            "I brush my teeth every day.",
+            "I wash my face with clean water.",
+            "I take a bath and feel fresh.",
+            "I wear neat and clean clothes.",
+            "I comb my hair carefully.",
+            "I eat a healthy breakfast.",
+            "I drink a glass of milk.",
+            "I pack my school bag.",
+            "I check my homework before leaving.",
+            "I say goodbye to my parents.",
+            "I go to school happily."
+        ],
+        "longer": [
+            "I wake up early and start my day with a smile.",
+            "After brushing my teeth, I wash my face.",
+            "I take a bath and wear my school uniform.",
+            "My breakfast gives me energy for the day.",
+            "I pack my bag and get ready for school.",
+            "I always try to be on time.",
+            "I feel happy when I am ready for school."
+        ],
+        "expressive": [
+            { "text": "I am ready for a new day!", "icon": "😊" },
+            { "text": "Good morning, everyone!", "icon": "😄" },
+            { "text": "Today will be a great day!", "icon": "💪" },
+            { "text": "I am excited to go to school!", "icon": "🎒" }
+        ]
+    }
+}
+
+ADJECTIVES_DATA = {
+    "game_id": "adjectives",
+    "title": "Adjectives",
+    "categories": [
+        {
+            "id": "descriptive",
+            "title": "People & Things",
+            "color": "#3498DB",
+            "items": [
+                { "word": "BEAUTIFUL", "sentence": "She is a beautiful girl.", "icon": "👸" },
+                { "word": "STRONG", "sentence": "He is a strong boy.", "icon": "💪" },
+                { "word": "KIND", "sentence": "Be kind to animals.", "icon": "🤝" },
+                { "word": "BRAVE", "sentence": "The brave lion.", "icon": "🦁" },
+                { "word": "HAPPY", "sentence": "A happy family.", "icon": "😊" }
+            ]
+        },
+        {
+            "id": "size",
+            "title": "Size Words",
+            "color": "#E67E22",
+            "items": [
+                { "word": "BIG", "sentence": "An elephant is big.", "icon": "🐘" },
+                { "word": "SMALL", "sentence": "A mouse is small.", "icon": "🐭" },
+                { "word": "TALL", "sentence": "A giraffe is tall.", "icon": "🦒" },
+                { "word": "SHORT", "sentence": "The grass is short.", "icon": "🌱" },
+                { "word": "THIN", "sentence": "A thin pencil.", "icon": "✏️" }
+            ]
+        }
+    ],
+    "quiz": [
+        { "question": "An elephant is ___.", "answer": "BIG", "options": ["BIG", "SMALL", "THIN"] },
+        { "question": "Be ___ to animals.", "answer": "KIND", "options": ["KIND", "ANGRY", "SAD"] },
+        { "question": "A giraffe is ___.", "answer": "TALL", "options": ["TALL", "SHORT", "FAT"] }
+    ]
+}
+
+ACTION_SENTENCES_DATA = {
+    "game_id": "action_sentences",
+    "title": "Action Sentences",
+    "content": [
+        { "sentence": "The bird flies high.", "action": "FLIES", "subject": "BIRD", "icon": "🐦" },
+        { "sentence": "The fish swims fast.", "action": "SWIMS", "subject": "FISH", "icon": "🐟" },
+        { "sentence": "The dog barks loudly.", "action": "BARKS", "subject": "DOG", "icon": "🐕" },
+        { "sentence": "The baby cries often.", "action": "CRIES", "subject": "BABY", "icon": "👶" },
+        { "sentence": "The sun shines bright.", "action": "SHINES", "subject": "SUN", "icon": "☀️" },
+        { "sentence": "The rain falls down.", "action": "FALLS", "subject": "RAIN", "icon": "🌧️" }
+    ],
+    "quiz": [
+        { "question": "The bird ___ high.", "answer": "flies", "options": ["flies", "swims", "barks"] },
+        { "question": "The fish ___ fast.", "answer": "swims", "options": ["swims", "flies", "shines"] },
+        { "question": "The sun ___ bright.", "answer": "shines", "options": ["shines", "falls", "cries"] }
+    ]
+}
+
+
+VERBS_DATA = {
+    "game_id": "verbs",
+    "title": "Action Words (Verbs)",
+    "categories": {
+        "movement": [
+            { "word": "Walk", "sentence": "I WALK to the park.", "icon": "🚶" },
+            { "word": "Run", "sentence": "I RUN fast.", "icon": "🏃" },
+            { "word": "Jump", "sentence": "The frog can JUMP.", "icon": "🐸" },
+            { "word": "Hop", "sentence": "Bunnies HOP around.", "icon": "🐇" },
+            { "word": "Skip", "sentence": "We SKIP together.", "icon": "👭" },
+            { "word": "Climb", "sentence": "I CLIMB the stairs.", "icon": "🧗" },
+            { "word": "Crawl", "sentence": "Babies CRAWL on the floor.", "icon": "👶" },
+            { "word": "Slide", "sentence": "I go down the SLIDE.", "icon": "🛝" },
+            { "word": "Roll", "sentence": "The ball ROLLS away.", "icon": "⚽" },
+            { "word": "Swim", "sentence": "I SWIM in the pool.", "icon": "🏊" },
+            { "word": "Fly", "sentence": "Birds FLY in the sky.", "icon": "🕊️" }
+        ],
+        "hands": [
+            { "word": "Hold", "sentence": "HOLD my hand.", "icon": "🤝" },
+            { "word": "Throw", "sentence": "She THROWS the ball.", "icon": "🥎" },
+            { "word": "Catch", "sentence": "Can you CATCH it?", "icon": "🤲" },
+            { "word": "Push", "sentence": "PUSH the door open.", "icon": "🚪" },
+            { "word": "Pull", "sentence": "PULL the rope.", "icon": "🪢" },
+            { "word": "Lift", "sentence": "He LIFTS the box.", "icon": "📦" },
+            { "word": "Drop", "sentence": "Don’t DROP the glass.", "icon": "🥛" },
+            { "word": "Open", "sentence": "Please OPEN the book.", "icon": "📖" },
+            { "word": "Close", "sentence": "CLOSE the window.", "icon": "🪟" },
+            { "word": "Cut", "sentence": "CUT the paper.", "icon": "✂️" },
+            { "word": "Draw", "sentence": "She DRAWS a picture.", "icon": "🎨" }
+        ],
+        "home": [
+            { "word": "Sweep", "sentence": "I SWEEP the floor.", "icon": "🧹" },
+            { "word": "Mop", "sentence": "Dad MOPS the kitchen.", "icon": "🪣" },
+            { "word": "Wash", "sentence": "I WASH my hands.", "icon": "🧼" },
+            { "word": "Cook", "sentence": "Mom COOKS dinner.", "icon": "🍳" },
+            { "word": "Bake", "sentence": "We BAKE a cake.", "icon": "🍰" },
+            { "word": "Clean", "sentence": "Let’s CLEAN the room.", "icon": "✨" },
+            { "word": "Fold", "sentence": "I FOLD my clothes.", "icon": "👕" },
+            { "word": "Dust", "sentence": "Planning to DUST the shelf.", "icon": "🪶" },
+            { "word": "Water", "sentence": "I WATER the plants.", "icon": "🌱" }
+        ],
+        "learning": [
+            { "word": "Learn", "sentence": "I LEARN new things.", "icon": "💡" },
+            { "word": "Study", "sentence": "I STUDY English.", "icon": "📚" },
+            { "word": "Practice", "sentence": "We PRACTICE math.", "icon": "➕" },
+            { "word": "Teach", "sentence": "She TEACHES the class.", "icon": "👩‍🏫" },
+            { "word": "Explain", "sentence": "The teacher EXPLAINS the lesson.", "icon": "🗣️" },
+            { "word": "Ask", "sentence": "I ASK a question.", "icon": "❓" },
+            { "word": "Answer", "sentence": "He ANSWERS correctly.", "icon": "✅" },
+            { "word": "Solve", "sentence": "I can SOLVE the puzzle.", "icon": "🧩" }
+        ],
+        "feelings": [
+            { "word": "Smile", "sentence": "She SMILES at me.", "icon": "😊" },
+            { "word": "Laugh", "sentence": "We LAUGH together.", "icon": "😂" },
+            { "word": "Cry", "sentence": "The baby CRIES when hungry.", "icon": "😭" },
+            { "word": "Worry", "sentence": "Don’t WORRY be happy.", "icon": "😟" },
+            { "word": "Hope", "sentence": "I HOPE it rains.", "icon": "🤞" },
+            { "word": "Wish", "sentence": "Make a WISH.", "icon": "🌠" },
+            { "word": "Enjoy", "sentence": "We ENJOY the game.", "icon": "🎉" }
+        ],
+        "communication": [
+            { "word": "Talk", "sentence": "We TALK everyday.", "icon": "💬" },
+            { "word": "Speak", "sentence": "I SPEAK English.", "icon": "🗣️" },
+            { "word": "Say", "sentence": "SAY hello!", "icon": "👋" },
+            { "word": "Tell", "sentence": "TELL me a story.", "icon": "📖" },
+            { "word": "Shout", "sentence": "Don’t SHOUT inside.", "icon": "📢" },
+            { "word": "Whisper", "sentence": "He WHISPERS softly.", "icon": "🤫" },
+            { "word": "Call", "sentence": "CALL your friend.", "icon": "📞" }
+        ]
+    },
+    "quiz": [
+        { "text": "Birds ___ in the sky.", "answer": "fly", "options": ["fly", "swim", "crawl"] },
+        { "text": "I ___ my homework every day.", "answer": "do", "options": ["do", "eat", "jump"] },
+        { "text": "She ___ the ball to me.", "answer": "throws", "options": ["throws", "eats", "sleeps"] },
+        { "text": "We ___ our hands before eating.", "answer": "wash", "options": ["wash", "break", "run"] },
+        { "text": "The baby ___ when she is hungry.", "answer": "cries", "options": ["cries", "laughs", "dances"] },
+        { "text": "Please ___ the door.", "answer": "open", "options": ["open", "fly", "cook"] },
+        { "text": "Mom ___ dinner.", "answer": "cooks", "options": ["cooks", "jumps", "draws"] },
+        { "text": "I ___ English.", "answer": "study", "options": ["study", "throw", "dust"] },
+        { "text": "She ___ at me.", "answer": "smiles", "options": ["smiles", "runs", "climbs"] },
+        { "text": "He ___ softly.", "answer": "whispers", "options": ["whispers", "shouts", "falls"] }
+    ]
+}
+
+
+TWO_LETTER_WORDS_DATA = {
+    "game_id": "two_letter_words",
+    "title": "Two Letter Words",
+    "content": [
+        { "word": "AM", "p1": "A", "p2": "M", "icon": "🙋‍♂️", "sentence": "I am happy." },
+        { "word": "AN", "p1": "A", "p2": "N", "icon": "🍎", "sentence": "I saw an apple." },
+        { "word": "AS", "p1": "A", "p2": "S", "icon": "⚡", "sentence": "As fast as I can." },
+        { "word": "AT", "p1": "A", "p2": "T", "icon": "📍", "sentence": "Look at the cat." },
+        { "word": "BE", "p1": "B", "p2": "E", "icon": "🐝", "sentence": "Be kind." },
+        { "word": "BY", "p1": "B", "p2": "Y", "icon": "🌊", "sentence": "By the sea." },
+        { "word": "DO", "p1": "D", "p2": "O", "icon": "✅", "sentence": "Do your best." },
+        { "word": "GO", "p1": "G", "p2": "O", "icon": "🚦", "sentence": "Ready, set, go!" },
+        { "word": "HE", "p1": "H", "p2": "E", "icon": "👦", "sentence": "He is my friend." },
+        { "word": "HI", "p1": "H", "p2": "I", "icon": "👋", "sentence": "Hi there!" },
+        { "word": "IF", "p1": "I", "p2": "F", "icon": "☔", "sentence": "If it rains." },
+        { "word": "IN", "p1": "I", "p2": "N", "icon": "📦", "sentence": "It is in the box." },
+        { "word": "IS", "p1": "I", "p2": "S", "icon": "🌞", "sentence": "It is sunny." },
+        { "word": "IT", "p1": "I", "p2": "T", "icon": "🎈", "sentence": "It is fun." },
+        { "word": "ME", "p1": "M", "p2": "E", "icon": "🧒", "sentence": "Play with me." },
+        { "word": "MY", "p1": "M", "p2": "Y", "icon": "🧸", "sentence": "This is my toy." },
+        { "word": "NO", "p1": "N", "p2": "O", "icon": "🚫", "sentence": "Say no." },
+        { "word": "OF", "p1": "O", "p2": "F", "icon": "☕", "sentence": "Cup of tea." },
+        { "word": "ON", "p1": "O", "p2": "N", "icon": "🔛", "sentence": "On the table." },
+        { "word": "OR", "p1": "O", "p2": "R", "icon": "🤷", "sentence": "This or that?" },
+        { "word": "SO", "p1": "S", "p2": "O", "icon": "😊", "sentence": "I am so happy." },
+        { "word": "TO", "p1": "T", "p2": "O", "icon": "👉", "sentence": "Go to sleep." },
+        { "word": "UP", "p1": "U", "p2": "P", "icon": "⬆️", "sentence": "Look up!" },
+        { "word": "US", "p1": "U", "p2": "S", "icon": "👥", "sentence": "Play with us." },
+        { "word": "WE", "p1": "W", "p2": "E", "icon": "👨‍👩‍👧‍👦", "sentence": "We are family." }
+    ]
+}
+
+
+SPELLING_DATA = {
+    "game_id": "spelling",
+    "title": "Spelling Bee",
+    "levels": {
+        "easy": ["cat", "dog", "sun", "box", "hat", "run", "pen", "cup"],
+        "medium": ["apple", "happy", "green", "tiger", "sunny", "pizza", "robot", "cloud"],
+        "hard": ["elephant", "butterfly", "dinosaur", "rainbow", "adventure", "chocolate", "computer"]
+    }
+}
+
+SENTENCE_BUILDER_DATA = {
+    "game_id": "sentence_builder",
+    "content": [
+        { "id": 1, "words": ["Birds", "fly"], "correct": "Birds fly", "icon": "🐦" },
+        { "id": 2, "words": ["The", "boy", "runs", "fast"], "correct": "The boy runs fast", "icon": "🏃" },
+        { "id": 3, "words": ["The", "girl", "sings", "beautifully"], "correct": "The girl sings beautifully", "icon": "🎤" },
+        { "id": 4, "words": ["The", "cat", "is", "happy"], "correct": "The cat is happy", "icon": "😺" },
+        { "id": 5, "words": ["I", "play", "football"], "correct": "I play football", "icon": "⚽" },
+        { "id": 6, "words": ["The", "dog", "sits", "on", "the", "mat"], "correct": "The dog sits on the mat", "icon": "🐕" },
+        { "id": 7, "words": ["She", "reads", "a", "book"], "correct": "She reads a book", "icon": "📖" },
+        { "id": 8, "words": ["We", "are", "friends"], "correct": "We are friends", "icon": "👫" }
+    ]
+}
+
+CONVERSATION_DATA = {
+    "game_id": "conversation",
+    "scenarios": {
+        "school": {
+            "title": "At School",
+            "theme": "#3498DB",
+            "bg": "#E3F2FD",
+            "dialogue": [
+                { "speaker": "Teacher", "text": "Good morning, class!", "icon": "👩‍🏫", "side": "left" },
+                { "speaker": "You", "text": "Good morning, teacher!", "icon": "🧒", "side": "right" },
+                { "speaker": "Teacher", "text": "How are you today?", "icon": "👩‍🏫", "side": "left" },
+                { "speaker": "You", "text": "I am happy, thank you!", "icon": "🧒", "side": "right" },
+                { "speaker": "Teacher", "text": "Great! Let's learn math.", "icon": "👩‍🏫", "side": "left" },
+                { "speaker": "You", "text": "Yes, I like math.", "icon": "🧒", "side": "right" },
+                { "speaker": "Teacher", "text": "What is 1 + 1?", "icon": "👩‍🏫", "side": "left" },
+                { "speaker": "You", "text": "It is 2!", "icon": "🧒", "side": "right" },
+                { "speaker": "Teacher", "text": "Very good job!", "icon": "👩‍🏫", "side": "left" }
+            ]
+        },
+        "mom": {
+            "title": "With Mom",
+            "theme": "#E91E63",
+            "bg": "#FCE4EC",
+            "dialogue": [
+                { "speaker": "Mom", "text": "Good morning, sweetie.", "icon": "👩", "side": "left" },
+                { "speaker": "You", "text": "Good morning, Mom.", "icon": "🧒", "side": "right" },
+                { "speaker": "Mom", "text": "Are you hungry?", "icon": "👩", "side": "left" },
+                { "speaker": "You", "text": "Yes, I want breakfast.", "icon": "🧒", "side": "right" },
+                { "speaker": "Mom", "text": "Here is some milk and toast.", "icon": "👩", "side": "left" },
+                { "speaker": "You", "text": "Thank you, Mom!", "icon": "🧒", "side": "right" },
+                { "speaker": "Mom", "text": "Have a good day at school.", "icon": "👩", "side": "left" },
+                { "speaker": "You", "text": "I love you, Mom.", "icon": "🧒", "side": "right" },
+                { "speaker": "Mom", "text": "I love you too.", "icon": "👩", "side": "left" }
+            ]
+        },
+        "sister": {
+            "title": "With Sister",
+            "theme": "#9B59B6",
+            "bg": "#F3E5F5",
+            "dialogue": [
+                { "speaker": "Sister", "text": "Hi! What are you doing?", "icon": "👧", "side": "left" },
+                { "speaker": "You", "text": "I am playing with blocks.", "icon": "🧒", "side": "right" },
+                { "speaker": "Sister", "text": "Can I play too?", "icon": "👧", "side": "left" },
+                { "speaker": "You", "text": "Yes, come sit here.", "icon": "🧒", "side": "right" },
+                { "speaker": "Sister", "text": "Let's build a castle!", "icon": "👧", "side": "left" },
+                { "speaker": "You", "text": "That is a great idea.", "icon": "🧒", "side": "right" },
+                { "speaker": "Sister", "text": "Pass me the blue block.", "icon": "👧", "side": "left" },
+                { "speaker": "You", "text": "Here you go.", "icon": "🧒", "side": "right" },
+                { "speaker": "Sister", "text": "This is fun!", "icon": "👧", "side": "left" }
+            ]
+        },
+        "friend": {
+            "title": "With Friend",
+            "theme": "#F39C12",
+            "bg": "#FFF3E0",
+            "dialogue": [
+                { "speaker": "Friend", "text": "Hello! What is your name?", "icon": "👦", "side": "left" },
+                { "speaker": "You", "text": "Hi! My name is Alex.", "icon": "🧒", "side": "right" },
+                { "speaker": "Friend", "text": "My name is Sam.", "icon": "👦", "side": "left" },
+                { "speaker": "You", "text": "Nice to meet you, Sam.", "icon": "🧒", "side": "right" },
+                { "speaker": "Friend", "text": "Do you like soccer?", "icon": "👦", "side": "left" },
+                { "speaker": "You", "text": "Yes, I like soccer!", "icon": "🧒", "side": "right" },
+                { "speaker": "Friend", "text": "Let's play together.", "icon": "👦", "side": "left" },
+                { "speaker": "You", "text": "Okay, let's go!", "icon": "🧒", "side": "right" },
+                { "speaker": "Friend", "text": "Kick the ball!", "icon": "👦", "side": "left" }
+            ]
+        }
+    }
+}
+
+YES_NO_QUESTIONS_DATA = {
+    "game_id": "yes_no_questions",
+    "categories": {
+        "is_am_are": {
+            "title": "Is / Am / Are",
+            "description": "Helping words for NOW.",
+            "color": "#3498DB",
+            "content": [
+                { "stmt": "She is happy.", "quest": "Is she happy?", "ans": "Yes, she is. / No, she isn’t." },
+                { "stmt": "They are playing.", "quest": "Are they playing?", "ans": "Yes, they are." },
+                { "stmt": "I am late.", "quest": "Am I late?", "ans": "No, you aren’t." }
+            ]
+        },
+        "do_does": {
+            "title": "Do / Does",
+            "description": "For habits and facts.",
+            "color": "#2ECC71",
+            "content": [
+                { "stmt": "You like milk.", "quest": "Do you like milk?", "ans": "Yes, I do." },
+                { "stmt": "She plays football.", "quest": "Does she play football?", "ans": "No, she doesn’t." },
+                { "stmt": "They go to school.", "quest": "Do they go to school?", "ans": "Yes, they do." }
+            ]
+        },
+        "did": {
+            "title": "Did (Past)",
+            "description": "For things that happened BEFORE.",
+            "color": "#E67E22",
+            "content": [
+                { "stmt": "You finished homework.", "quest": "Did you finish homework?", "ans": "Yes, I did." },
+                { "stmt": "He went to school.", "quest": "Did he go to school?", "ans": "No, he didn’t." }
+            ]
+        },
+        "can": {
+            "title": "Can (Ability)",
+            "description": "Ask if someone helps or does something.",
+            "color": "#9B59B6",
+            "content": [
+                { "stmt": "She can swim.", "quest": "Can she swim?", "ans": "Yes, she can." },
+                { "stmt": "You can help me.", "quest": "Can you help me?", "ans": "Yes, I can." }
+            ]
+        },
+        "will": {
+            "title": "Will (Future)",
+            "description": "Ask about TOMORROW or LATER.",
+            "color": "#E74C3C",
+            "content": [
+                { "stmt": "You will come.", "quest": "Will you come?", "ans": "Yes, I will." },
+                { "stmt": "They will play.", "quest": "Will they play?", "ans": "No, they won’t." }
+            ]
+        }
+    },
+    "dialogues": [
+        {
+            "speaker": "Mother",
+            "text": "Are you ready?",
+            "replySpeaker": "Child",
+            "replyText": "Yes, I am."
+        },
+        {
+            "speaker": "Teacher",
+            "text": "Did you do your homework?",
+            "replySpeaker": "Student",
+            "replyText": "Yes, I did."
+        },
+        {
+            "speaker": "Friend",
+            "text": "Can you play today?",
+            "replySpeaker": "Child",
+            "replyText": "No, I can’t."
+        }
+    ],
+    "quiz": [
+        { "question": "She is your sister.", "answer": "Is she your sister?", "options": ["Is she your sister?", "Does she your sister?", "Can she your sister?"] },
+        { "question": "They like mangoes.", "answer": "Do they like mangoes?", "options": ["Are they like mangoes?", "Do they like mangoes?", "Did they like mangoes?"] },
+        { "question": "He can run fast.", "answer": "Can he run fast?", "options": ["Is he run fast?", "Does he run fast?", "Can he run fast?"] },
+        { "question": "You finished your work.", "answer": "Did you finish your work?", "options": ["Do you finish your work?", "Did you finish your work?", "Will you finish your work?"] },
+        { "question": "We will go tomorrow.", "answer": "Will we go tomorrow?", "options": ["Will we go tomorrow?", "Do we go tomorrow?", "Are we go tomorrow?"] }
+    ]
+}
+
 async def seed():
     print("Seeding database...")
     
@@ -531,6 +2008,263 @@ async def seed():
         upsert=True
     )
     print("Seeded Hindi Three Letter")
+
+    # 9. English Nouns
+    await content_collection.replace_one(
+        {"game_id": "english_nouns"},
+        ENGLISH_NOUNS_DATA,
+        upsert=True
+    )
+    print("Seeded English Nouns")
+
+    # 10. Physical Actions
+    await content_collection.replace_one(
+        {"game_id": "physical_actions"},
+        PHYSICAL_ACTIONS_DATA,
+        upsert=True
+    )
+    print("Seeded Physical Actions")
+
+    # 11. Basic Actions
+    await content_collection.replace_one(
+        {"game_id": "basic_actions"},
+        BASIC_ACTIONS_DATA,
+        upsert=True
+    )
+    print("Seeded Basic Actions")
+
+    # 12. Two Word Sentences
+    await content_collection.replace_one(
+        {"game_id": "two_word_sentences"},
+        TWO_WORD_SENTENCES_DATA,
+        upsert=True
+    )
+    print("Seeded Two Word Sentences")
+
+    # 13. Three Word Sentences
+    await content_collection.replace_one(
+        {"game_id": "three_word_sentences"},
+        THREE_WORD_SENTENCES_DATA,
+        upsert=True
+    )
+    print("Seeded Three Word Sentences")
+
+    # 14. Four Word Sentences
+    await content_collection.replace_one(
+        {"game_id": "four_word_sentences"},
+        FOUR_WORD_SENTENCES_DATA,
+        upsert=True
+    )
+    print("Seeded Four Word Sentences")
+
+    # 15. Three Letter Words
+    await content_collection.replace_one(
+        {"game_id": "three_letter_words"},
+        THREE_LETTER_WORDS_DATA,
+        upsert=True
+    )
+    print("Seeded Three Letter Words")
+
+    # 16. Four Letter Words
+    await content_collection.replace_one(
+        {"game_id": "four_letter_words"},
+        FOUR_LETTER_WORDS_DATA,
+        upsert=True
+    )
+    print("Seeded Four Letter Words")
+
+    # 17. Five Letter Words
+    await content_collection.replace_one(
+        {"game_id": "five_letter_words"},
+        FIVE_LETTER_WORDS_DATA,
+        upsert=True
+    )
+    print("Seeded Five Letter Words")
+
+    # 18. Six Letter Words
+    await content_collection.replace_one(
+        {"game_id": "six_letter_words"},
+        SIX_LETTER_WORDS_DATA,
+        upsert=True
+    )
+    print("Seeded Six Letter Words")
+
+    # 19. Seven Letter Words
+    await content_collection.replace_one(
+        {"game_id": "seven_letter_words"},
+        SEVEN_LETTER_WORDS_DATA,
+        upsert=True
+    )
+    print("Seeded Seven Letter Words")
+
+
+    # 20. Commands Actions
+    await content_collection.replace_one(
+        {"game_id": "commands_actions"},
+        COMMANDS_ACTIONS_DATA,
+        upsert=True
+    )
+    print("Seeded Commands Actions")
+
+    # 21. Adverbs
+    await content_collection.replace_one(
+        {"game_id": "adverbs"},
+        ADVERBS_DATA,
+        upsert=True
+    )
+    print("Seeded Adverbs")
+
+    # 22. Feeling and Thinking
+    await content_collection.replace_one(
+        {"game_id": "feeling_thinking"},
+        FEELING_THINKING_DATA,
+        upsert=True
+    )
+    print("Seeded Feeling Thinking")
+
+    # 23. Guest Manners
+    await content_collection.replace_one(
+        {"game_id": "guest_manners"},
+        GUEST_MANNERS_DATA,
+        upsert=True
+    )
+    print("Seeded Guest Manners")
+
+    # 24. Home Actions
+    await content_collection.replace_one(
+        {"game_id": "home_actions"},
+        HOME_ACTIONS_DATA,
+        upsert=True
+    )
+    print("Seeded Home Actions")
+
+    # 25. Home Appliances
+    await content_collection.replace_one(
+        {"game_id": "home_appliances"},
+        HOME_APPLIANCES_DATA,
+        upsert=True
+    )
+    print("Seeded Home Appliances")
+
+    # 26. Polite Phrases
+    await content_collection.replace_one(
+        {"game_id": "polite_phrases"},
+        POLITE_PHRASES_DATA,
+        upsert=True
+    )
+    print("Seeded Polite Phrases")
+
+    # 27. Prepositions
+    await content_collection.replace_one(
+        {"game_id": "prepositions"},
+        PREPOSITIONS_DATA,
+        upsert=True
+    )
+    print("Seeded Prepositions")
+
+    # 28. Pronouns
+    await content_collection.replace_one(
+        {"game_id": "pronouns"},
+        PRONOUNS_DATA,
+        upsert=True
+    )
+    print("Seeded Pronouns")
+
+    # 29. School Actions
+    await content_collection.replace_one(
+        {"game_id": "school_actions"},
+        SCHOOL_ACTIONS_DATA,
+        upsert=True
+    )
+    print("Seeded School Actions")
+
+    # 30. Singular Plural
+    await content_collection.replace_one(
+        {"game_id": "singular_plural"},
+        SINGULAR_PLURAL_DATA,
+        upsert=True
+    )
+    print("Seeded Singular Plural")
+
+    # 31. Morning Routine
+    await content_collection.replace_one(
+        {"game_id": "morning_routine"},
+        MORNING_ROUTINE_DATA,
+        upsert=True
+    )
+    print("Seeded Morning Routine")
+
+    # 32. Adjectives
+    await content_collection.replace_one(
+        {"game_id": "adjectives"},
+        ADJECTIVES_DATA,
+        upsert=True
+    )
+    print("Seeded Adjectives")
+
+    # 33. Action Sentences
+    await content_collection.replace_one(
+        {"game_id": "action_sentences"},
+        ACTION_SENTENCES_DATA,
+        upsert=True
+    )
+    print("Seeded Action Sentences")
+
+    # 34. Verbs
+    await content_collection.replace_one(
+        {"game_id": "verbs"},
+        VERBS_DATA,
+        upsert=True
+    )
+    print("Seeded Verbs")
+
+    # 35. Two Letter Words
+    await content_collection.replace_one(
+        {"game_id": "two_letter_words"},
+        TWO_LETTER_WORDS_DATA,
+        upsert=True
+    )
+    print("Seeded Two Letter Words")
+
+    # 36. Spelling
+    await content_collection.replace_one(
+        {"game_id": "spelling"},
+        SPELLING_DATA,
+        upsert=True
+    )
+    print("Seeded Spelling")
+
+    # 37. Encouragement
+    await content_collection.replace_one(
+        {"game_id": "encouragement"},
+        ENCOURAGEMENT_DATA,
+        upsert=True
+    )
+    print("Seeded Encouragement")
+
+    # 38. Yes/No Questions
+    await content_collection.replace_one(
+        {"game_id": "yes_no_questions"},
+        YES_NO_QUESTIONS_DATA,
+        upsert=True
+    )
+    print("Seeded Yes/No Questions")
+
+    # 39. Sentence Builder
+    await content_collection.replace_one(
+        {"game_id": "sentence_builder"},
+        SENTENCE_BUILDER_DATA,
+        upsert=True
+    )
+    print("Seeded Sentence Builder")
+
+    # 40. Conversation
+    await content_collection.replace_one(
+        {"game_id": "conversation"},
+        CONVERSATION_DATA,
+        upsert=True
+    )
+    print("Seeded Conversation")
 
     print("Done!")
 

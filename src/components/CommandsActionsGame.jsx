@@ -1,22 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { playSound as playAppSound } from '../utils/sounds';
-
-const COMMANDS_ACTIONS = [
-    { word: 'START', icon: '▶️', context: 'Start the game.' },
-    { word: 'STOP', icon: '🛑', context: 'Stop right there.' },
-    { word: 'GO', icon: '🟢', context: 'Ready, set, go!' },
-    { word: 'WAIT', icon: '✋', context: 'Wait for me.' },
-    { word: 'CHOOSE', icon: '👆', context: 'Choose one.' },
-    { word: 'PICK', icon: '🤏', context: 'Pick a color.' },
-    { word: 'MATCH', icon: '🧩', context: 'Match the shapes.' },
-    { word: 'FIND', icon: '🔍', context: 'Find the hidden toy.' },
-    { word: 'TAP', icon: '👇', context: 'Tap the screen.' },
-    { word: 'CLICK', icon: '🖱️', context: 'Click the button.' },
-    { word: 'MOVE', icon: '↔️', context: 'Move it here.' },
-    { word: 'DRAG', icon: '✊', context: 'Drag and drop.' },
-    { word: 'DROP', icon: '⬇️', context: 'Drop it down.' }
-];
+import { speak } from '../utils/speech';
 
 function CommandsActionsGame({ onBack }) {
     const [mode, setMode] = useState('learn');
@@ -26,31 +11,41 @@ function CommandsActionsGame({ onBack }) {
     const [score, setScore] = useState(0);
     const [feedback, setFeedback] = useState(null);
 
-    const speak = (text, rate = 0.9) => {
-        window.speechSynthesis.cancel();
-        const utterance = new SpeechSynthesisUtterance(text);
-        utterance.rate = rate;
-        utterance.pitch = 1.1;
-        window.speechSynthesis.speak(utterance);
-    };
-
-    const currentCommand = COMMANDS_ACTIONS[currentIndex];
+    const [gameData, setGameData] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        if (mode === 'learn') {
+        fetch('http://localhost:8000/api/content/commands_actions')
+            .then(res => res.json())
+            .then(data => {
+                setGameData(data.content);
+                setLoading(false);
+            })
+            .catch(err => {
+                console.error("Failed to load commands", err);
+                setLoading(false);
+            });
+    }, []);
+
+    const currentCommand = gameData[currentIndex];
+
+    useEffect(() => {
+        if (mode === 'learn' && currentCommand) {
             const timeout = setTimeout(() => {
                 playLearnSequence();
             }, 500);
             return () => clearTimeout(timeout);
         }
-    }, [currentIndex, mode]);
+    }, [currentIndex, mode, gameData]);
 
     const playLearnSequence = () => {
-        speak(`${currentCommand.word}. ${currentCommand.context}`);
+        if (currentCommand) {
+            speak(`${currentCommand.word}. ${currentCommand.context}`);
+        }
     };
 
     const nextCommand = () => {
-        if (currentIndex < COMMANDS_ACTIONS.length - 1) setCurrentIndex(c => c + 1);
+        if (currentIndex < gameData.length - 1) setCurrentIndex(c => c + 1);
     };
 
     const prevCommand = () => {
@@ -58,12 +53,13 @@ function CommandsActionsGame({ onBack }) {
     };
 
     const startQuizRound = () => {
-        const target = COMMANDS_ACTIONS[Math.floor(Math.random() * COMMANDS_ACTIONS.length)];
+        if (!gameData || gameData.length === 0) return;
+        const target = gameData[Math.floor(Math.random() * gameData.length)];
         setQuizTarget(target);
         setFeedback(null);
         const options = [target];
         while (options.length < 3) {
-            const random = COMMANDS_ACTIONS[Math.floor(Math.random() * COMMANDS_ACTIONS.length)];
+            const random = gameData[Math.floor(Math.random() * gameData.length)];
             if (!options.includes(random)) options.push(random);
         }
         setQuizOptions(options.sort(() => Math.random() - 0.5));
@@ -71,8 +67,8 @@ function CommandsActionsGame({ onBack }) {
     };
 
     useEffect(() => {
-        if (mode === 'quiz') startQuizRound();
-    }, [mode]);
+        if (mode === 'quiz' && !loading) startQuizRound();
+    }, [mode, loading]);
 
     const handleQuizOptionClick = (item) => {
         if (item.word === quizTarget.word) {
@@ -87,6 +83,10 @@ function CommandsActionsGame({ onBack }) {
             speak("Try again!");
         }
     };
+
+    if (loading) return <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2rem' }}>Loading Commands...</div>;
+
+    if (!gameData || gameData.length === 0) return <div>No data found</div>;
 
     return (
         <div className="game-container" style={{
@@ -119,7 +119,7 @@ function CommandsActionsGame({ onBack }) {
                             border: '6px solid #27AE60', position: 'relative', cursor: 'pointer'
                         }}
                     >
-                        <div style={{ position: 'absolute', top: '20px', right: '20px', fontSize: '1.5rem', color: '#95A5A6', fontWeight: 'bold' }}>{currentIndex + 1} / {COMMANDS_ACTIONS.length}</div>
+                        <div style={{ position: 'absolute', top: '20px', right: '20px', fontSize: '1.5rem', color: '#95A5A6', fontWeight: 'bold' }}>{currentIndex + 1} / {gameData.length}</div>
 
                         <div style={{ fontSize: '10rem', marginBottom: '20px' }}>{currentCommand.icon}</div>
 
@@ -132,11 +132,11 @@ function CommandsActionsGame({ onBack }) {
                         </div>
                     </motion.div>
 
-                    <button onClick={nextCommand} disabled={currentIndex === COMMANDS_ACTIONS.length - 1} style={{ background: currentIndex === COMMANDS_ACTIONS.length - 1 ? '#ccc' : 'white', border: 'none', borderRadius: '50%', width: '60px', height: '60px', fontSize: '2rem', cursor: currentIndex === COMMANDS_ACTIONS.length - 1 ? 'default' : 'pointer', boxShadow: '0 4px 0 rgba(0,0,0,0.1)' }}>➡</button>
+                    <button onClick={nextCommand} disabled={currentIndex === gameData.length - 1} style={{ background: currentIndex === gameData.length - 1 ? '#ccc' : 'white', border: 'none', borderRadius: '50%', width: '60px', height: '60px', fontSize: '2rem', cursor: currentIndex === gameData.length - 1 ? 'default' : 'pointer', boxShadow: '0 4px 0 rgba(0,0,0,0.1)' }}>➡</button>
                 </div>
             ) : (
                 <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                    <button onClick={() => speak(quizTarget.word)} style={{ background: '#fff', border: 'none', borderRadius: '50%', width: '80px', height: '80px', fontSize: '3rem', cursor: 'pointer', boxShadow: '0 4px 0 #ddd', marginBottom: '30px' }}>🔊</button>
+                    <button onClick={() => speak(currentCommand?.word || quizTarget?.word)} style={{ background: '#fff', border: 'none', borderRadius: '50%', width: '80px', height: '80px', fontSize: '3rem', cursor: 'pointer', boxShadow: '0 4px 0 #ddd', marginBottom: '30px' }}>🔊</button>
                     <h2 style={{ fontSize: '2rem', marginBottom: '30px', color: '#27AE60' }}>Which one is "{quizTarget?.word}"?</h2>
                     <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', justifyContent: 'center' }}>
                         {quizOptions.map((item, idx) => (

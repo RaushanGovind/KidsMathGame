@@ -4,28 +4,11 @@ import { playSound as playAppSound } from '../utils/sounds';
 
 const APPLIANCES = [
     { word: 'FRIDGE', icon: '❄️', desc: 'Keeps food cold.' },
-    { word: 'OVEN', icon: '🍳', desc: 'Cooks our food.' },
-    { word: 'TV', icon: '📺', desc: 'Watch cartoons.' },
-    { word: 'FAN', icon: '🌬️', desc: 'Blows cool air.' },
-    { word: 'LAMP', icon: '🛋️', desc: 'Gives us light.' },
-    { word: 'IRON', icon: '👔', desc: 'Smooths clothes.' },
-    { word: 'RADIO', icon: '📻', desc: 'Plays music.' },
-    { word: 'TOASTER', icon: '🍞', desc: 'Makes bread hot.' },
-    { word: 'BLENDER', icon: '🥤', desc: 'Makes juice.' },
-    { word: 'WASHER', icon: '🧺', desc: 'Washes clothes.' },
-    { word: 'AC', icon: '🥶', desc: 'Makes room cold.' },
-    { word: 'HEATER', icon: '🔥', desc: 'Makes room warm.' },
-    { word: 'PHONE', icon: '📞', desc: 'Call friends.' },
-    { word: 'COMPUTER', icon: '💻', desc: 'Work and play.' },
-    { word: 'CLOCK', icon: '⏰', desc: 'Tells the time.' },
-    { word: 'CAMERA', icon: '📷', desc: 'Takes photos.' },
-    { word: 'VACUUM', icon: '🧹', desc: 'Cleans the floor.' },
-    { word: 'HAIRDRYER', icon: '💇', desc: 'Dries wet hair.' },
-    { word: 'MICROWAVE', icon: '🍲', desc: 'Heats food fast.' },
-    { word: 'SPEAKER', icon: '🔊', desc: 'Loud sound.' }
-];
+import { speak } from '../utils/speech';
 
 function HomeAppliancesGame({ onBack }) {
+    const [gameData, setGameData] = useState([]);
+    const [loading, setLoading] = useState(true);
     const [mode, setMode] = useState('learn');
     const [currentIndex, setCurrentIndex] = useState(0);
     const [quizTarget, setQuizTarget] = useState(null);
@@ -33,31 +16,38 @@ function HomeAppliancesGame({ onBack }) {
     const [score, setScore] = useState(0);
     const [feedback, setFeedback] = useState(null);
 
-    const speak = (text, rate = 0.85) => {
-        window.speechSynthesis.cancel();
-        const utterance = new SpeechSynthesisUtterance(text);
-        utterance.rate = rate;
-        utterance.pitch = 1.1;
-        window.speechSynthesis.speak(utterance);
-    };
+    useEffect(() => {
+        fetch('http://localhost:8000/api/content/home_appliances')
+            .then(res => res.json())
+            .then(data => {
+                setGameData(data.content);
+                setLoading(false);
+            })
+            .catch(err => {
+                console.error("Failed to load home appliances content", err);
+                setLoading(false);
+            });
+    }, []);
 
-    const currentItem = APPLIANCES[currentIndex];
+    const currentItem = gameData[currentIndex];
 
     useEffect(() => {
-        if (mode === 'learn') {
+        if (mode === 'learn' && currentItem) {
             const timeout = setTimeout(() => {
                 playLearnSequence();
             }, 500);
             return () => clearTimeout(timeout);
         }
-    }, [currentIndex, mode]);
+    }, [currentIndex, mode, gameData]);
 
     const playLearnSequence = () => {
-        speak(`${currentItem.word}. ${currentItem.desc}`);
+        if (currentItem) {
+            speak(`${currentItem.name}. ${currentItem.context}`);
+        }
     };
 
     const nextItem = () => {
-        if (currentIndex < APPLIANCES.length - 1) setCurrentIndex(c => c + 1);
+        if (currentIndex < gameData.length - 1) setCurrentIndex(c => c + 1);
     };
 
     const prevItem = () => {
@@ -65,28 +55,29 @@ function HomeAppliancesGame({ onBack }) {
     };
 
     const startQuizRound = () => {
-        const target = APPLIANCES[Math.floor(Math.random() * APPLIANCES.length)];
+        if (!gameData || gameData.length === 0) return;
+        const target = gameData[Math.floor(Math.random() * gameData.length)];
         setQuizTarget(target);
         setFeedback(null);
         const options = [target];
         while (options.length < 3) {
-            const random = APPLIANCES[Math.floor(Math.random() * APPLIANCES.length)];
+            const random = gameData[Math.floor(Math.random() * gameData.length)];
             if (!options.includes(random)) options.push(random);
         }
         setQuizOptions(options.sort(() => Math.random() - 0.5));
-        setTimeout(() => speak(`Where is the... ${target.word}?`), 500);
+        setTimeout(() => speak(`Identify the appliance: ${target.name}`), 500);
     };
 
     useEffect(() => {
-        if (mode === 'quiz') startQuizRound();
-    }, [mode]);
+        if (mode === 'quiz' && !loading) startQuizRound();
+    }, [mode, loading, gameData]); // Added gameData to dependencies
 
     const handleQuizOptionClick = (item) => {
-        if (item.word === quizTarget.word) {
+        if (item.name === quizTarget.name) {
             playAppSound('correct');
             setFeedback('correct');
             setScore(s => s + 1);
-            speak(`Correct! It is a ${item.word}.`);
+            speak(`Correct! ${item.name}`);
             setTimeout(startQuizRound, 2000);
         } else {
             playAppSound('wrong');
@@ -95,17 +86,21 @@ function HomeAppliancesGame({ onBack }) {
         }
     };
 
+    if (loading) return <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2rem' }}>Loading Appliances...</div>;
+
+    if (!gameData || gameData.length === 0) return <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>No content found.</div>;
+
     return (
         <div className="game-container" style={{
             display: 'flex', flexDirection: 'column', alignItems: 'center',
             width: '100%', padding: '20px', minHeight: '100vh',
-            background: 'linear-gradient(135deg, #CFD8DC 0%, #B0BEC5 100%)'
+            background: 'linear-gradient(135deg, #F0F3F4 0%, #D5DBDB 100%)'
         }}>
             <div style={{ width: '100%', maxWidth: '1000px', display: 'flex', justifyContent: 'space-between', marginBottom: '20px', alignItems: 'center' }}>
                 <button onClick={onBack} style={{ padding: '12px 24px', background: 'white', color: '#2C3E50', fontWeight: '900', fontSize: '1.1rem', borderRadius: '15px', border: '2px solid #ECF0F1', cursor: 'pointer' }}>⬅ MENU</button>
                 <div style={{ display: 'flex', gap: '15px' }}>
-                    <button onClick={() => setMode('learn')} style={{ padding: '10px 20px', background: mode === 'learn' ? '#607D8B' : 'white', color: mode === 'learn' ? 'white' : '#2C3E50', borderRadius: '20px', border: 'none', fontWeight: 'bold', cursor: 'pointer' }}>LEARN</button>
-                    <button onClick={() => setMode('quiz')} style={{ padding: '10px 20px', background: mode === 'quiz' ? '#E67E22' : 'white', color: mode === 'quiz' ? 'white' : '#2C3E50', borderRadius: '20px', border: 'none', fontWeight: 'bold', cursor: 'pointer' }}>QUIZ</button>
+                    <button onClick={() => setMode('learn')} style={{ padding: '10px 20px', background: mode === 'learn' ? '#7F8C8D' : 'white', color: mode === 'learn' ? 'white' : '#2C3E50', borderRadius: '20px', border: 'none', fontWeight: 'bold', cursor: 'pointer' }}>LEARN</button>
+                    <button onClick={() => setMode('quiz')} style={{ padding: '10px 20px', background: mode === 'quiz' ? '#3498DB' : 'white', color: mode === 'quiz' ? 'white' : '#2C3E50', borderRadius: '20px', border: 'none', fontWeight: 'bold', cursor: 'pointer' }}>QUIZ</button>
                 </div>
             </div>
 
@@ -114,42 +109,42 @@ function HomeAppliancesGame({ onBack }) {
                     <button onClick={prevItem} disabled={currentIndex === 0} style={{ background: currentIndex === 0 ? '#ccc' : 'white', border: 'none', borderRadius: '50%', width: '60px', height: '60px', fontSize: '2rem', cursor: currentIndex === 0 ? 'default' : 'pointer', boxShadow: '0 4px 0 rgba(0,0,0,0.1)' }}>⬅</button>
 
                     <motion.div
-                        key={currentItem.word}
+                        key={currentItem.name}
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0, scale: 0.9 }}
                         onClick={playLearnSequence}
                         style={{
                             background: 'white', padding: '40px', borderRadius: '40px',
-                            boxShadow: '0 20px 0 rgba(0,0,0,0.1)', width: '100%', maxWidth: '600px',
+                            boxShadow: '0 20px 0 rgba(0,0,0,0.1)', width: '100%', maxWidth: '750px',
                             display: 'flex', flexDirection: 'column', alignItems: 'center',
-                            border: '6px solid #607D8B', position: 'relative', cursor: 'pointer'
+                            border: '6px solid #7F8C8D', position: 'relative', cursor: 'pointer'
                         }}
                     >
-                        <div style={{ position: 'absolute', top: '20px', right: '20px', fontSize: '1.5rem', color: '#95A5A6', fontWeight: 'bold' }}>{currentIndex + 1} / {APPLIANCES.length}</div>
+                        <div style={{ position: 'absolute', top: '20px', right: '20px', fontSize: '1.5rem', color: '#95A5A6', fontWeight: 'bold' }}>{currentIndex + 1} / {gameData.length}</div>
 
                         <div style={{ fontSize: '10rem', marginBottom: '20px' }}>{currentItem.icon}</div>
 
-                        <div style={{ fontSize: '4rem', fontWeight: '1000', color: '#2C3E50', lineHeight: 1, marginBottom: '20px', textAlign: 'center' }}>
-                            {currentItem.word}
+                        <div style={{ fontSize: '3.5rem', fontWeight: '1000', color: '#2C3E50', lineHeight: 1.2, marginBottom: '20px', textAlign: 'center' }}>
+                            {currentItem.name}
                         </div>
 
-                        <div style={{ fontSize: '2rem', fontWeight: '700', color: '#455A64', background: '#ECEFF1', padding: '15px 30px', borderRadius: '20px', textAlign: 'center' }}>
-                            "{currentItem.desc}"
+                        <div style={{ fontSize: '2rem', fontWeight: '700', color: '#1B2631', background: '#E5E8E8', padding: '15px 30px', borderRadius: '20px', textAlign: 'center' }}>
+                            "{currentItem.context}"
                         </div>
                     </motion.div>
 
-                    <button onClick={nextItem} disabled={currentIndex === APPLIANCES.length - 1} style={{ background: currentIndex === APPLIANCES.length - 1 ? '#ccc' : 'white', border: 'none', borderRadius: '50%', width: '60px', height: '60px', fontSize: '2rem', cursor: currentIndex === APPLIANCES.length - 1 ? 'default' : 'pointer', boxShadow: '0 4px 0 rgba(0,0,0,0.1)' }}>➡</button>
+                    <button onClick={nextItem} disabled={currentIndex === gameData.length - 1} style={{ background: currentIndex === gameData.length - 1 ? '#ccc' : 'white', border: 'none', borderRadius: '50%', width: '60px', height: '60px', fontSize: '2rem', cursor: currentIndex === gameData.length - 1 ? 'default' : 'pointer', boxShadow: '0 4px 0 rgba(0,0,0,0.1)' }}>➡</button>
                 </div>
             ) : (
                 <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                    <button onClick={() => speak(quizTarget.word)} style={{ background: '#fff', border: 'none', borderRadius: '50%', width: '80px', height: '80px', fontSize: '3rem', cursor: 'pointer', boxShadow: '0 4px 0 #ddd', marginBottom: '30px' }}>🔊</button>
-                    <h2 style={{ fontSize: '2rem', marginBottom: '30px', color: '#607D8B' }}>Find the "{quizTarget?.word}"</h2>
+                    <button onClick={() => speak(quizTarget?.name)} style={{ background: '#fff', border: 'none', borderRadius: '50%', width: '80px', height: '80px', fontSize: '3rem', cursor: 'pointer', boxShadow: '0 4px 0 #ddd', marginBottom: '30px' }}>🔊</button>
+                    <h2 style={{ fontSize: '2rem', marginBottom: '30px', color: '#2C3E50' }}>Identify: "{quizTarget?.name}"</h2>
                     <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', justifyContent: 'center' }}>
                         {quizOptions.map((item, idx) => (
-                            <motion.button key={idx} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }} onClick={() => handleQuizOptionClick(item)} style={{ background: 'white', border: '4px solid #F39C12', borderRadius: '20px', padding: '30px 40px', display: 'flex', flexDirection: 'column', alignItems: 'center', boxShadow: '0 8px 0 #D35400', cursor: 'pointer', minWidth: '200px' }}>
+                            <motion.button key={idx} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }} onClick={() => handleQuizOptionClick(item)} style={{ background: 'white', border: '4px solid #7F8C8D', borderRadius: '20px', padding: '30px 40px', display: 'flex', flexDirection: 'column', alignItems: 'center', boxShadow: '0 8px 0 #2C3E50', cursor: 'pointer', minWidth: '220px' }}>
                                 <span style={{ fontSize: '5rem', marginBottom: '10px' }}>{item.icon}</span>
-                                <span style={{ fontSize: '1.5rem', fontWeight: '900', color: '#2C3E50' }}>{item.word}</span>
+                                <span style={{ fontSize: '1.4rem', fontWeight: '900', color: '#2C3E50', textAlign: 'center' }}>{item.name}</span>
                             </motion.button>
                         ))}
                     </div>

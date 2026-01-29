@@ -1,29 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { playSound as playAppSound } from '../utils/sounds';
-
-const THREE_WORD_SENTENCES = [
-    { text: 'I LOVE YOU', w1: 'I', w2: 'LOVE', w3: 'YOU', icon: '❤️', context: 'Tell mom I love you.' },
-    { text: 'THE BIG DOG', w1: 'THE', w2: 'BIG', w3: 'DOG', icon: '🐕', context: 'Look at the big dog.' },
-    { text: 'SEE THE CAT', w1: 'SEE', w2: 'THE', w3: 'CAT', icon: '🐈', context: 'Can you see the cat?' },
-    { text: 'I CAN RUN', w1: 'I', w2: 'CAN', w3: 'RUN', icon: '🏃', context: 'Watch me, I can run!' },
-    { text: 'SHE IS NICE', w1: 'SHE', w2: 'IS', w3: 'NICE', icon: '👧', context: 'My friend, she is nice.' },
-    { text: 'HE HAS TOYS', w1: 'HE', w2: 'HAS', w3: 'TOYS', icon: '🧸', context: 'He has many toys.' },
-    { text: 'SUN IS HOT', w1: 'SUN', w2: 'IS', w3: 'HOT', icon: '☀️', context: 'The sun is very hot.' },
-    { text: 'BAT IS BLACK', w1: 'BAT', w2: 'IS', w3: 'BLACK', icon: '🦇', context: 'The bat is black.' },
-    { text: 'EAT THE EGG', w1: 'EAT', w2: 'THE', w3: 'EGG', icon: '🥚', context: 'Please eat the egg.' },
-    { text: 'GO TO BED', w1: 'GO', w2: 'TO', w3: 'BED', icon: '🛏️', context: 'Time to go to bed.' },
-    { text: 'MY RED CAR', w1: 'MY', w2: 'RED', w3: 'CAR', icon: '🚗', context: 'Drive my red car.' },
-    { text: 'SEE YOU LATER', w1: 'SEE', w2: 'YOU', w3: 'LATER', icon: '👋', context: 'Bye, see you later.' },
-    { text: 'MOM IS HOME', w1: 'MOM', w2: 'IS', w3: 'HOME', icon: '🏠', context: 'Yay, mom is home!' },
-    { text: 'DAD IS TALL', w1: 'DAD', w2: 'IS', w3: 'TALL', icon: '👨', context: 'My dad is tall.' },
-    { text: 'SKY IS BLUE', w1: 'SKY', w2: 'IS', w3: 'BLUE', icon: '☁️', context: 'The sky is blue today.' },
-    { text: 'ANT IS SMALL', w1: 'ANT', w2: 'IS', w3: 'SMALL', icon: '🐜', context: 'The ant is very small.' },
-    { text: 'BOX IS OPEN', w1: 'BOX', w2: 'IS', w3: 'OPEN', icon: '📦', context: 'The box is open.' },
-    { text: 'WE ARE HAPPY', w1: 'WE', w2: 'ARE', w3: 'HAPPY', icon: '😊', context: 'We are happy family.' },
-    { text: 'IT IS COLD', w1: 'IT', w2: 'IS', w3: 'COLD', icon: '❄️', context: 'Brrr, it is cold.' },
-    { text: 'FISH CAN SWIM', w1: 'FISH', w2: 'CAN', w3: 'SWIM', icon: '🐠', context: 'Fish can swim fast.' }
-];
+import { speak } from '../utils/speech';
 
 function ThreeWordSentencesGame({ onBack }) {
     const [mode, setMode] = useState('learn');
@@ -33,31 +11,41 @@ function ThreeWordSentencesGame({ onBack }) {
     const [score, setScore] = useState(0);
     const [feedback, setFeedback] = useState(null);
 
-    const speak = (text, rate = 0.85) => {
-        window.speechSynthesis.cancel();
-        const utterance = new SpeechSynthesisUtterance(text);
-        utterance.rate = rate;
-        utterance.pitch = 1.1;
-        window.speechSynthesis.speak(utterance);
-    };
-
-    const currentSentence = THREE_WORD_SENTENCES[currentIndex];
+    const [gameData, setGameData] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        if (mode === 'learn') {
+        fetch('http://localhost:8000/api/content/three_word_sentences')
+            .then(res => res.json())
+            .then(data => {
+                setGameData(data.content);
+                setLoading(false);
+            })
+            .catch(err => {
+                console.error("Failed to load sentences", err);
+                setLoading(false);
+            });
+    }, []);
+
+    const currentSentence = gameData[currentIndex];
+
+    useEffect(() => {
+        if (mode === 'learn' && currentSentence) {
             const timeout = setTimeout(() => {
                 playLearnSequence();
             }, 500);
             return () => clearTimeout(timeout);
         }
-    }, [currentIndex, mode]);
+    }, [currentIndex, mode, gameData]);
 
     const playLearnSequence = () => {
-        speak(`${currentSentence.w1}... ${currentSentence.w2}... ${currentSentence.w3}...... ${currentSentence.text}. ${currentSentence.context}`);
+        if (currentSentence) {
+            speak(`${currentSentence.w1}... ${currentSentence.w2}... ${currentSentence.w3}...... ${currentSentence.text}. ${currentSentence.context}`);
+        }
     };
 
     const nextSentence = () => {
-        if (currentIndex < THREE_WORD_SENTENCES.length - 1) setCurrentIndex(c => c + 1);
+        if (currentIndex < gameData.length - 1) setCurrentIndex(c => c + 1);
     };
 
     const prevSentence = () => {
@@ -65,12 +53,13 @@ function ThreeWordSentencesGame({ onBack }) {
     };
 
     const startQuizRound = () => {
-        const target = THREE_WORD_SENTENCES[Math.floor(Math.random() * THREE_WORD_SENTENCES.length)];
+        if (!gameData || gameData.length === 0) return;
+        const target = gameData[Math.floor(Math.random() * gameData.length)];
         setQuizTarget(target);
         setFeedback(null);
         const options = [target];
         while (options.length < 3) {
-            const random = THREE_WORD_SENTENCES[Math.floor(Math.random() * THREE_WORD_SENTENCES.length)];
+            const random = gameData[Math.floor(Math.random() * gameData.length)];
             if (!options.includes(random)) options.push(random);
         }
         setQuizOptions(options.sort(() => Math.random() - 0.5));
@@ -78,8 +67,8 @@ function ThreeWordSentencesGame({ onBack }) {
     };
 
     useEffect(() => {
-        if (mode === 'quiz') startQuizRound();
-    }, [mode]);
+        if (mode === 'quiz' && !loading) startQuizRound();
+    }, [mode, loading]);
 
     const handleQuizOptionClick = (item) => {
         if (item.text === quizTarget.text) {
@@ -94,6 +83,10 @@ function ThreeWordSentencesGame({ onBack }) {
             speak("Try again!");
         }
     };
+
+    if (loading) return <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2rem' }}>Loading Sentences...</div>;
+
+    if (!gameData || gameData.length === 0) return <div>No data found</div>;
 
     return (
         <div className="game-container" style={{
@@ -126,7 +119,7 @@ function ThreeWordSentencesGame({ onBack }) {
                             border: '6px solid #27AE60', position: 'relative', cursor: 'pointer'
                         }}
                     >
-                        <div style={{ position: 'absolute', top: '20px', right: '20px', fontSize: '1.5rem', color: '#95A5A6', fontWeight: 'bold' }}>{currentIndex + 1} / {THREE_WORD_SENTENCES.length}</div>
+                        <div style={{ position: 'absolute', top: '20px', right: '20px', fontSize: '1.5rem', color: '#95A5A6', fontWeight: 'bold' }}>{currentIndex + 1} / {gameData.length}</div>
 
                         {/* Breakdown */}
                         <div style={{ display: 'flex', gap: '10px', marginBottom: '20px', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center' }}>
@@ -150,7 +143,7 @@ function ThreeWordSentencesGame({ onBack }) {
                         </div>
                     </motion.div>
 
-                    <button onClick={nextSentence} disabled={currentIndex === THREE_WORD_SENTENCES.length - 1} style={{ background: currentIndex === THREE_WORD_SENTENCES.length - 1 ? '#ccc' : 'white', border: 'none', borderRadius: '50%', width: '60px', height: '60px', fontSize: '2rem', cursor: currentIndex === THREE_WORD_SENTENCES.length - 1 ? 'default' : 'pointer', boxShadow: '0 4px 0 rgba(0,0,0,0.1)' }}>➡</button>
+                    <button onClick={nextSentence} disabled={currentIndex === gameData.length - 1} style={{ background: currentIndex === gameData.length - 1 ? '#ccc' : 'white', border: 'none', borderRadius: '50%', width: '60px', height: '60px', fontSize: '2rem', cursor: currentIndex === gameData.length - 1 ? 'default' : 'pointer', boxShadow: '0 4px 0 rgba(0,0,0,0.1)' }}>➡</button>
                 </div>
             ) : (
                 <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>

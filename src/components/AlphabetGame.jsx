@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { speak } from '../utils/speech';
 
 function AlphabetGame({ onBack }) {
     const [selectedLetter, setSelectedLetter] = useState(null);
@@ -19,17 +20,9 @@ function AlphabetGame({ onBack }) {
             });
     }, []);
 
-    const playSound = (text) => {
-        window.speechSynthesis.cancel();
-        const utterance = new SpeechSynthesisUtterance(text);
-        utterance.rate = 0.9;
-        utterance.pitch = 1.1;
-        window.speechSynthesis.speak(utterance);
-    };
-
     const handleLetterClick = (item) => {
         setSelectedLetter(item);
-        playSound(`${item.letter} is for ${item.word}`);
+        speak(`${item.letter} is for ${item.word}`, 'en-US', 1.0);
     };
 
     if (loading) return <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2rem' }}>Loading...</div>;
@@ -124,7 +117,7 @@ function AlphabetGame({ onBack }) {
                             exit={{ scale: 0.5, rotate: 10 }}
                             onClick={(e) => {
                                 e.stopPropagation();
-                                playSound(`${selectedLetter.letter} is for ${selectedLetter.word}`);
+                                speak(`${selectedLetter.letter} is for ${selectedLetter.word}`, 'en-US', 1.0);
                             }}
                             style={{
                                 background: 'white',

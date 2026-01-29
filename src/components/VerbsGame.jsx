@@ -1,89 +1,11 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { playSound as playAppSound } from '../utils/sounds';
-
-const VERB_DATA = {
-    movement: [
-        { word: 'Walk', sentence: 'I WALK to the park.', icon: '🚶' },
-        { word: 'Run', sentence: 'I RUN fast.', icon: '🏃' },
-        { word: 'Jump', sentence: 'The frog can JUMP.', icon: '🐸' },
-        { word: 'Hop', sentence: 'Bunnies HOP around.', icon: '🐇' },
-        { word: 'Skip', sentence: 'We SKIP together.', icon: '👭' },
-        { word: 'Climb', sentence: 'I CLIMB the stairs.', icon: '🧗' },
-        { word: 'Crawl', sentence: 'Babies CRAWL on the floor.', icon: '👶' },
-        { word: 'Slide', sentence: 'I go down the SLIDE.', icon: '🛝' },
-        { word: 'Roll', sentence: 'The ball ROLLS away.', icon: '⚽' },
-        { word: 'Swim', sentence: 'I SWIM in the pool.', icon: '🏊' },
-        { word: 'Fly', sentence: 'Birds FLY in the sky.', icon: '🕊️' }
-    ],
-    hands: [
-        { word: 'Hold', sentence: 'HOLD my hand.', icon: '🤝' },
-        { word: 'Throw', sentence: 'She THROWS the ball.', icon: '🥎' },
-        { word: 'Catch', sentence: 'Can you CATCH it?', icon: '🤲' },
-        { word: 'Push', sentence: 'PUSH the door open.', icon: '🚪' },
-        { word: 'Pull', sentence: 'PULL the rope.', icon: '🪢' },
-        { word: 'Lift', sentence: 'He LIFTS the box.', icon: '📦' },
-        { word: 'Drop', sentence: 'Don’t DROP the glass.', icon: '🥛' },
-        { word: 'Open', sentence: 'Please OPEN the book.', icon: '📖' },
-        { word: 'Close', sentence: 'CLOSE the window.', icon: '🪟' },
-        { word: 'Cut', sentence: 'CUT the paper.', icon: '✂️' },
-        { word: 'Draw', sentence: 'She DRAWS a picture.', icon: '🎨' }
-    ],
-    home: [
-        { word: 'Sweep', sentence: 'I SWEEP the floor.', icon: '🧹' },
-        { word: 'Mop', sentence: 'Dad MOPS the kitchen.', icon: '🪣' },
-        { word: 'Wash', sentence: 'I WASH my hands.', icon: '🧼' },
-        { word: 'Cook', sentence: 'Mom COOKS dinner.', icon: '🍳' },
-        { word: 'Bake', sentence: 'We BAKE a cake.', icon: '🍰' },
-        { word: 'Clean', sentence: 'Let’s CLEAN the room.', icon: '✨' },
-        { word: 'Fold', sentence: 'I FOLD my clothes.', icon: '👕' },
-        { word: 'Dust', sentence: 'Planning to DUST the shelf.', icon: '🪶' },
-        { word: 'Water', sentence: 'I WATER the plants.', icon: '🌱' }
-    ],
-    learning: [
-        { word: 'Learn', sentence: 'I LEARN new things.', icon: '💡' },
-        { word: 'Study', sentence: 'I STUDY English.', icon: '📚' },
-        { word: 'Practice', sentence: 'We PRACTICE math.', icon: '➕' },
-        { word: 'Teach', sentence: 'She TEACHES the class.', icon: '👩‍🏫' },
-        { word: 'Explain', sentence: 'The teacher EXPLAINS the lesson.', icon: '🗣️' },
-        { word: 'Ask', sentence: 'I ASK a question.', icon: '❓' },
-        { word: 'Answer', sentence: 'He ANSWERS correctly.', icon: '✅' },
-        { word: 'Solve', sentence: 'I can SOLVE the puzzle.', icon: '🧩' }
-    ],
-    feelings: [
-        { word: 'Smile', sentence: 'She SMILES at me.', icon: '😊' },
-        { word: 'Laugh', sentence: 'We LAUGH together.', icon: '😂' },
-        { word: 'Cry', sentence: 'The baby CRIES when hungry.', icon: '😭' },
-        { word: 'Worry', sentence: 'Don’t WORRY be happy.', icon: '😟' },
-        { word: 'Hope', sentence: 'I HOPE it rains.', icon: '🤞' },
-        { word: 'Wish', sentence: 'Make a WISH.', icon: '🌠' },
-        { word: 'Enjoy', sentence: 'We ENJOY the game.', icon: '🎉' }
-    ],
-    communication: [
-        { word: 'Talk', sentence: 'We TALK everyday.', icon: '💬' },
-        { word: 'Speak', sentence: 'I SPEAK English.', icon: '🗣️' },
-        { word: 'Say', sentence: 'SAY hello!', icon: '👋' },
-        { word: 'Tell', sentence: 'TELL me a story.', icon: '📖' },
-        { word: 'Shout', sentence: 'Don’t SHOUT inside.', icon: '📢' },
-        { word: 'Whisper', sentence: 'He WHISPERS softly.', icon: '🤫' },
-        { word: 'Call', sentence: 'CALL your friend.', icon: '📞' }
-    ]
-};
-
-const PRACTICE_QUIZ = [
-    { text: "Birds ___ in the sky.", answer: "fly", options: ["fly", "swim", "crawl"] },
-    { text: "I ___ my homework every day.", answer: "do", options: ["do", "eat", "jump"] },
-    { text: "She ___ the ball to me.", answer: "throws", options: ["throws", "eats", "sleeps"] },
-    { text: "We ___ our hands before eating.", answer: "wash", options: ["wash", "break", "run"] },
-    { text: "The baby ___ when she is hungry.", answer: "cries", options: ["cries", "laughs", "dances"] },
-    { text: "Please ___ the door.", answer: "open", options: ["open", "fly", "cook"] },
-    { text: "Mom ___ dinner.", answer: "cooks", options: ["cooks", "jumps", "draws"] },
-    { text: "I ___ English.", answer: "study", options: ["study", "throw", "dust"] },
-    { text: "She ___ at me.", answer: "smiles", options: ["smiles", "runs", "climbs"] },
-    { text: "He ___ softly.", answer: "whispers", options: ["whispers", "shouts", "falls"] }
-];
+import { speak } from '../utils/speech';
 
 function VerbsGame({ onBack }) {
+    const [gameData, setGameData] = useState(null);
+    const [loading, setLoading] = useState(true);
     const [mode, setMode] = useState('learn'); // 'learn' | 'quiz'
     const [category, setCategory] = useState('movement');
     const [quizIndex, setQuizIndex] = useState(0);
@@ -91,21 +13,26 @@ function VerbsGame({ onBack }) {
     const [showResult, setShowResult] = useState(false);
     const [feedback, setFeedback] = useState(null);
 
-    const speak = (text) => {
-        window.speechSynthesis.cancel();
-        const utterance = new SpeechSynthesisUtterance(text);
-        utterance.rate = 0.9;
-        utterance.pitch = 1.1;
-        window.speechSynthesis.speak(utterance);
-    };
+    useEffect(() => {
+        fetch('http://localhost:8000/api/content/verbs')
+            .then(res => res.json())
+            .then(data => {
+                setGameData(data);
+                setLoading(false);
+            })
+            .catch(err => {
+                console.error("Failed to load verbs content", err);
+                setLoading(false);
+            });
+    }, []);
 
     const handleQuizAnswer = (option) => {
-        const correct = PRACTICE_QUIZ[quizIndex].answer;
+        const correct = gameData.quiz[quizIndex].answer;
         if (option === correct) {
             playAppSound('correct');
             setScore(s => s + 1);
             setFeedback('correct');
-            speak(`Correct! ${PRACTICE_QUIZ[quizIndex].text.replace('___', option)}`);
+            speak(`Correct! ${gameData.quiz[quizIndex].text.replace('___', option)}`);
         } else {
             playAppSound('wrong');
             setFeedback('incorrect');
@@ -113,7 +40,7 @@ function VerbsGame({ onBack }) {
         }
 
         setTimeout(() => {
-            if (quizIndex < PRACTICE_QUIZ.length - 1) {
+            if (quizIndex < gameData.quiz.length - 1) {
                 setQuizIndex(c => c + 1);
                 setFeedback(null);
             } else {
@@ -129,6 +56,10 @@ function VerbsGame({ onBack }) {
         setFeedback(null);
         setMode('learn');
     };
+
+    if (loading) return <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2rem' }}>Loading Verbs...</div>;
+
+    if (!gameData) return <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>Error loading data.</div>;
 
     return (
         <div className="game-container" style={{
@@ -186,7 +117,7 @@ function VerbsGame({ onBack }) {
 
                     {/* Cards Grid */}
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '20px', width: '100%' }}>
-                        {VERB_DATA[category].map((item, idx) => (
+                        {gameData.content[category].map((item, idx) => (
                             <motion.div
                                 key={idx}
                                 whileHover={{ scale: 1.05 }}
@@ -217,13 +148,13 @@ function VerbsGame({ onBack }) {
             {mode === 'quiz' && !showResult && (
                 <div style={{ width: '100%', maxWidth: '800px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                     <div style={{ background: 'white', padding: '40px', borderRadius: '30px', boxShadow: '0 10px 30px rgba(0,0,0,0.1)', width: '100%', textAlign: 'center' }}>
-                        <h2 style={{ fontSize: '1.5rem', color: '#E74C3C', marginBottom: '10px' }}>Question {quizIndex + 1} / {PRACTICE_QUIZ.length}</h2>
+                        <h2 style={{ fontSize: '1.5rem', color: '#E74C3C', marginBottom: '10px' }}>Question {quizIndex + 1} / {gameData.quiz.length}</h2>
                         <div style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#2C3E50', marginBottom: '40px', lineHeight: '1.4' }}>
-                            {PRACTICE_QUIZ[quizIndex].text.replace('___', '______')}
+                            {gameData.quiz[quizIndex].text.replace('___', '______')}
                         </div>
 
                         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '20px' }}>
-                            {PRACTICE_QUIZ[quizIndex].options.map((option, idx) => (
+                            {gameData.quiz[quizIndex].options.map((option, idx) => (
                                 <motion.button
                                     key={idx}
                                     whileHover={{ scale: 1.05 }}
@@ -236,8 +167,8 @@ function VerbsGame({ onBack }) {
                                         fontWeight: 'bold',
                                         borderRadius: '20px',
                                         border: 'none',
-                                        background: feedback && option === PRACTICE_QUIZ[quizIndex].answer ? '#2ECC71' :
-                                            feedback && option !== PRACTICE_QUIZ[quizIndex].answer && feedback === 'incorrect' ? '#E74C3C' : '#FADBD8',
+                                        background: feedback && option === gameData.quiz[quizIndex].answer ? '#2ECC71' :
+                                            feedback && option !== gameData.quiz[quizIndex].answer && feedback === 'incorrect' ? '#E74C3C' : '#FADBD8',
                                         color: feedback ? 'white' : '#C0392B',
                                         cursor: 'pointer'
                                     }}
@@ -254,7 +185,7 @@ function VerbsGame({ onBack }) {
                 <div style={{ width: '100%', maxWidth: '600px', background: 'white', padding: '40px', borderRadius: '30px', boxShadow: '0 10px 30px rgba(0,0,0,0.1)', textAlign: 'center' }}>
                     <div style={{ fontSize: '5rem', marginBottom: '20px' }}>🎉</div>
                     <h2 style={{ fontSize: '3rem', color: '#E74C3C', marginBottom: '20px' }}>Quiz Complete!</h2>
-                    <p style={{ fontSize: '2rem', color: '#2C3E50', marginBottom: '40px' }}>You scored {score} out of {PRACTICE_QUIZ.length}!</p>
+                    <p style={{ fontSize: '2rem', color: '#2C3E50', marginBottom: '40px' }}>You scored {score} out of {gameData.quiz.length}!</p>
                     <button onClick={resetQuiz} style={{ padding: '15px 40px', borderRadius: '50px', background: '#F39C12', color: 'white', fontSize: '1.5rem', fontWeight: 'bold', border: 'none', cursor: 'pointer', boxShadow: '0 5px 0 #D35400' }}>Play Again 🔄</button>
                 </div>
             )}

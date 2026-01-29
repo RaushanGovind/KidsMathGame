@@ -1,87 +1,11 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { playSound as playAppSound } from '../utils/sounds';
-
-const QUESTION_DATA = {
-    is_am_are: {
-        title: "Is / Am / Are",
-        description: "Helping words for NOW.",
-        color: '#3498DB',
-        content: [
-            { stmt: "She is happy.", quest: "Is she happy?", ans: "Yes, she is. / No, she isn’t." },
-            { stmt: "They are playing.", quest: "Are they playing?", ans: "Yes, they are." },
-            { stmt: "I am late.", quest: "Am I late?", ans: "No, you aren’t." }
-        ]
-    },
-    do_does: {
-        title: "Do / Does",
-        description: "For habits and facts.",
-        color: '#2ECC71',
-        content: [
-            { stmt: "You like milk.", quest: "Do you like milk?", ans: "Yes, I do." },
-            { stmt: "She plays football.", quest: "Does she play football?", ans: "No, she doesn’t." },
-            { stmt: "They go to school.", quest: "Do they go to school?", ans: "Yes, they do." }
-        ]
-    },
-    did: {
-        title: "Did (Past)",
-        description: "For things that happened BEFORE.",
-        color: '#E67E22',
-        content: [
-            { stmt: "You finished homework.", quest: "Did you finish homework?", ans: "Yes, I did." },
-            { stmt: "He went to school.", quest: "Did he go to school?", ans: "No, he didn’t." }
-        ]
-    },
-    can: {
-        title: "Can (Ability)",
-        description: "Ask if someone helps or does something.",
-        color: '#9B59B6',
-        content: [
-            { stmt: "She can swim.", quest: "Can she swim?", ans: "Yes, she can." },
-            { stmt: "You can help me.", quest: "Can you help me?", ans: "Yes, I can." }
-        ]
-    },
-    will: {
-        title: "Will (Future)",
-        description: "Ask about TOMORROW or LATER.",
-        color: '#E74C3C',
-        content: [
-            { stmt: "You will come.", quest: "Will you come?", ans: "Yes, I will." },
-            { stmt: "They will play.", quest: "Will they play?", ans: "No, they won’t." }
-        ]
-    }
-};
-
-const DIALOGUES = [
-    {
-        speaker: "Mother",
-        text: "Are you ready?",
-        replySpeaker: "Child",
-        replyText: "Yes, I am."
-    },
-    {
-        speaker: "Teacher",
-        text: "Did you do your homework?",
-        replySpeaker: "Student",
-        replyText: "Yes, I did."
-    },
-    {
-        speaker: "Friend",
-        text: "Can you play today?",
-        replySpeaker: "Child",
-        replyText: "No, I can’t."
-    }
-];
-
-const QUIZ_DATA = [
-    { question: 'She is your sister.', answer: 'Is she your sister?', options: ['Is she your sister?', 'Does she your sister?', 'Can she your sister?'] },
-    { question: 'They like mangoes.', answer: 'Do they like mangoes?', options: ['Are they like mangoes?', 'Do they like mangoes?', 'Did they like mangoes?'] },
-    { question: 'He can run fast.', answer: 'Can he run fast?', options: ['Is he run fast?', 'Does he run fast?', 'Can he run fast?'] },
-    { question: 'You finished your work.', answer: 'Did you finish your work?', options: ['Do you finish your work?', 'Did you finish your work?', 'Will you finish your work?'] },
-    { question: 'We will go tomorrow.', answer: 'Will we go tomorrow?', options: ['Will we go tomorrow?', 'Do we go tomorrow?', 'Are we go tomorrow?'] }
-];
+import { speak } from '../utils/speech';
 
 function YesNoQuestionsGame({ onBack }) {
+    const [gameData, setGameData] = useState(null);
+    const [loading, setLoading] = useState(true);
     const [mode, setMode] = useState('learn'); // 'learn' | 'dialogue' | 'quiz'
     const [category, setCategory] = useState('is_am_are');
     const [quizIndex, setQuizIndex] = useState(0);
@@ -89,16 +13,21 @@ function YesNoQuestionsGame({ onBack }) {
     const [showResult, setShowResult] = useState(false);
     const [feedback, setFeedback] = useState(null);
 
-    const speak = (text) => {
-        window.speechSynthesis.cancel();
-        const utterance = new SpeechSynthesisUtterance(text);
-        utterance.rate = 0.9;
-        utterance.pitch = 1.1;
-        window.speechSynthesis.speak(utterance);
-    };
+    useEffect(() => {
+        fetch('http://localhost:8000/api/content/yes_no_questions')
+            .then(res => res.json())
+            .then(data => {
+                setGameData(data);
+                setLoading(false);
+            })
+            .catch(err => {
+                console.error("Failed to load yes/no questions content", err);
+                setLoading(false);
+            });
+    }, []);
 
     const handleQuizAnswer = (option) => {
-        const correct = QUIZ_DATA[quizIndex].answer;
+        const correct = gameData.quiz[quizIndex].answer;
         if (option === correct) {
             playAppSound('correct');
             setScore(s => s + 1);
@@ -111,7 +40,7 @@ function YesNoQuestionsGame({ onBack }) {
         }
 
         setTimeout(() => {
-            if (quizIndex < QUIZ_DATA.length - 1) {
+            if (quizIndex < gameData.quiz.length - 1) {
                 setQuizIndex(c => c + 1);
                 setFeedback(null);
             } else {
@@ -128,7 +57,11 @@ function YesNoQuestionsGame({ onBack }) {
         setMode('learn');
     };
 
-    const currentData = QUESTION_DATA[category];
+    if (loading) return <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2rem' }}>Loading Questions...</div>;
+
+    if (!gameData) return <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>Error loading data.</div>;
+
+    const currentData = gameData.categories[category];
 
     return (
         <div className="game-container" style={{
@@ -160,7 +93,7 @@ function YesNoQuestionsGame({ onBack }) {
 
                     {/* Category Tabs */}
                     <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', justifyContent: 'center', marginBottom: '30px' }}>
-                        {Object.keys(QUESTION_DATA).map(key => (
+                        {Object.keys(gameData.categories).map(key => (
                             <button
                                 key={key}
                                 onClick={() => setCategory(key)}
@@ -168,14 +101,14 @@ function YesNoQuestionsGame({ onBack }) {
                                     padding: '10px 20px',
                                     borderRadius: '20px',
                                     border: 'none',
-                                    background: category === key ? QUESTION_DATA[key].color : 'white',
-                                    color: category === key ? 'white' : QUESTION_DATA[key].color,
+                                    background: category === key ? gameData.categories[key].color : 'white',
+                                    color: category === key ? 'white' : gameData.categories[key].color,
                                     fontWeight: 'bold',
                                     cursor: 'pointer',
                                     boxShadow: '0 2px 5px rgba(0,0,0,0.1)'
                                 }}
                             >
-                                {QUESTION_DATA[key].title}
+                                {gameData.categories[key].title}
                             </button>
                         ))}
                     </div>
@@ -219,7 +152,7 @@ function YesNoQuestionsGame({ onBack }) {
 
             {mode === 'dialogue' && (
                 <div style={{ width: '100%', maxWidth: '800px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '30px' }}>
-                    {DIALOGUES.map((d, idx) => (
+                    {gameData.dialogues.map((d, idx) => (
                         <div key={idx} onClick={() => speak(d.text + " " + d.replyText)} style={{ background: 'white', width: '100%', padding: '30px', borderRadius: '25px', boxShadow: '0 8px 25px rgba(0,0,0,0.05)', cursor: 'pointer' }}>
                             <div style={{ display: 'flex', alignItems: 'center', marginBottom: '15px' }}>
                                 <div style={{ fontWeight: 'bold', color: '#3498DB', width: '80px' }}>{d.speaker}:</div>
@@ -238,14 +171,14 @@ function YesNoQuestionsGame({ onBack }) {
             {mode === 'quiz' && !showResult && (
                 <div style={{ width: '100%', maxWidth: '700px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                     <div style={{ background: 'white', padding: '40px', borderRadius: '30px', boxShadow: '0 10px 30px rgba(0,0,0,0.1)', width: '100%', textAlign: 'center' }}>
-                        <h2 style={{ fontSize: '1.5rem', color: '#8E44AD', marginBottom: '10px' }}>Change to Question {quizIndex + 1} / {QUIZ_DATA.length}</h2>
+                        <h2 style={{ fontSize: '1.5rem', color: '#8E44AD', marginBottom: '10px' }}>Change to Question {quizIndex + 1} / {gameData.quiz.length}</h2>
 
                         <div style={{ fontSize: '2rem', fontWeight: '900', color: '#2C3E50', marginBottom: '40px', background: '#F4ECF7', padding: '20px', borderRadius: '15px' }}>
-                            {QUIZ_DATA[quizIndex].question}
+                            {gameData.quiz[quizIndex].question}
                         </div>
 
                         <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '15px' }}>
-                            {QUIZ_DATA[quizIndex].options.map((option, idx) => (
+                            {gameData.quiz[quizIndex].options.map((option, idx) => (
                                 <motion.button
                                     key={idx}
                                     whileHover={{ scale: 1.02 }}
@@ -258,9 +191,9 @@ function YesNoQuestionsGame({ onBack }) {
                                         fontWeight: 'bold',
                                         borderRadius: '15px',
                                         border: '2px solid #ECF0F1',
-                                        background: feedback && option === QUIZ_DATA[quizIndex].answer ? '#2ECC71' :
-                                            feedback && option !== QUIZ_DATA[quizIndex].answer && feedback === 'wrong' ? '#E74C3C' : 'white',
-                                        color: feedback && (option === QUIZ_DATA[quizIndex].answer || option !== QUIZ_DATA[quizIndex].answer && feedback === 'wrong') ? 'white' : '#2C3E50',
+                                        background: feedback && option === gameData.quiz[quizIndex].answer ? '#2ECC71' :
+                                            feedback && option !== gameData.quiz[quizIndex].answer && feedback === 'wrong' ? '#E74C3C' : 'white',
+                                        color: feedback && (option === gameData.quiz[quizIndex].answer || option !== gameData.quiz[quizIndex].answer && feedback === 'wrong') ? 'white' : '#2C3E50',
                                         cursor: 'pointer',
                                         textAlign: 'left'
                                     }}
@@ -277,7 +210,7 @@ function YesNoQuestionsGame({ onBack }) {
                 <div style={{ width: '100%', maxWidth: '600px', background: 'white', padding: '40px', borderRadius: '30px', boxShadow: '0 10px 30px rgba(0,0,0,0.1)', textAlign: 'center' }}>
                     <div style={{ fontSize: '5rem', marginBottom: '20px' }}>🎉</div>
                     <h2 style={{ fontSize: '3rem', color: '#3498DB', marginBottom: '20px' }}>Quiz Complete!</h2>
-                    <p style={{ fontSize: '2rem', color: '#2C3E50', marginBottom: '40px' }}>You scored {score} out of {QUIZ_DATA.length}!</p>
+                    <p style={{ fontSize: '2rem', color: '#2C3E50', marginBottom: '40px' }}>You scored {score} out of {gameData.quiz.length}!</p>
                     <button onClick={resetQuiz} style={{ padding: '15px 40px', borderRadius: '50px', background: '#F39C12', color: 'white', fontSize: '1.5rem', fontWeight: 'bold', border: 'none', cursor: 'pointer', boxShadow: '0 5px 0 #D35400' }}>Play Again 🔄</button>
                 </div>
             )}

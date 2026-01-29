@@ -1,26 +1,11 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { playSound as playAppSound } from '../utils/sounds';
-
-const FEELING_THINKING = [
-    { word: 'LIKE', icon: '👍', context: 'I like ice cream.' },
-    { word: 'LOVE', icon: '❤️', context: 'I love my family.' },
-    { word: 'WANT', icon: '🤲', context: 'I want a toy.' },
-    { word: 'NEED', icon: '💧', context: 'I need water.' },
-    { word: 'KNOW', icon: '💡', context: 'I know the answer.' },
-    { word: 'REMEMBER', icon: '🧠', context: 'I remember you.' },
-    { word: 'FORGET', icon: '🤷', context: 'I forget my hat.' },
-    { word: 'TRY', icon: '💪', context: 'I try my best.' },
-    { word: 'HELP', icon: '🤝', context: 'I help my friend.' },
-    { word: 'THINK', icon: '🤔', context: 'I think hard.' },
-    { word: 'HOPE', icon: '🙏', context: 'I hope it rains.' },
-    { word: 'HAPPY', icon: '😊', context: 'I feel happy.' },
-    { word: 'SAD', icon: '😢', context: 'I feel sad.' },
-    { word: 'ANGRY', icon: '😠', context: 'I feel angry.' },
-    { word: 'SCARED', icon: '😨', context: 'I feel scared.' }
-];
+import { speak } from '../utils/speech';
 
 function FeelingThinkingGame({ onBack }) {
+    const [gameData, setGameData] = useState([]);
+    const [loading, setLoading] = useState(true);
     const [mode, setMode] = useState('learn');
     const [currentIndex, setCurrentIndex] = useState(0);
     const [quizTarget, setQuizTarget] = useState(null);
@@ -28,31 +13,38 @@ function FeelingThinkingGame({ onBack }) {
     const [score, setScore] = useState(0);
     const [feedback, setFeedback] = useState(null);
 
-    const speak = (text, rate = 0.9) => {
-        window.speechSynthesis.cancel();
-        const utterance = new SpeechSynthesisUtterance(text);
-        utterance.rate = rate;
-        utterance.pitch = 1.1;
-        window.speechSynthesis.speak(utterance);
-    };
+    useEffect(() => {
+        fetch('http://localhost:8000/api/content/feeling_thinking')
+            .then(res => res.json())
+            .then(data => {
+                setGameData(data.content);
+                setLoading(false);
+            })
+            .catch(err => {
+                console.error("Failed to load feeling/thinking content", err);
+                setLoading(false);
+            });
+    }, []);
 
-    const currentItem = FEELING_THINKING[currentIndex];
+    const currentItem = gameData[currentIndex];
 
     useEffect(() => {
-        if (mode === 'learn') {
+        if (mode === 'learn' && currentItem) {
             const timeout = setTimeout(() => {
                 playLearnSequence();
             }, 500);
             return () => clearTimeout(timeout);
         }
-    }, [currentIndex, mode]);
+    }, [currentIndex, mode, gameData]);
 
     const playLearnSequence = () => {
-        speak(`${currentItem.word}. ${currentItem.context}`);
+        if (currentItem) {
+            speak(`${currentItem.word}. ${currentItem.context}`);
+        }
     };
 
     const nextItem = () => {
-        if (currentIndex < FEELING_THINKING.length - 1) setCurrentIndex(c => c + 1);
+        if (currentIndex < gameData.length - 1) setCurrentIndex(c => c + 1);
     };
 
     const prevItem = () => {
@@ -60,21 +52,22 @@ function FeelingThinkingGame({ onBack }) {
     };
 
     const startQuizRound = () => {
-        const target = FEELING_THINKING[Math.floor(Math.random() * FEELING_THINKING.length)];
+        if (!gameData || gameData.length === 0) return;
+        const target = gameData[Math.floor(Math.random() * gameData.length)];
         setQuizTarget(target);
         setFeedback(null);
         const options = [target];
         while (options.length < 3) {
-            const random = FEELING_THINKING[Math.floor(Math.random() * FEELING_THINKING.length)];
+            const random = gameData[Math.floor(Math.random() * gameData.length)];
             if (!options.includes(random)) options.push(random);
         }
         setQuizOptions(options.sort(() => Math.random() - 0.5));
-        setTimeout(() => speak(`Who feels or thinks... ${target.word}?`), 500);
+        setTimeout(() => speak(`Identify... ${target.word}`), 500);
     };
 
     useEffect(() => {
-        if (mode === 'quiz') startQuizRound();
-    }, [mode]);
+        if (mode === 'quiz' && !loading) startQuizRound();
+    }, [mode, loading]);
 
     const handleQuizOptionClick = (item) => {
         if (item.word === quizTarget.word) {
@@ -89,6 +82,10 @@ function FeelingThinkingGame({ onBack }) {
             speak("Try again!");
         }
     };
+
+    if (loading) return <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2rem' }}>Loading Feelings...</div>;
+
+    if (!gameData || gameData.length === 0) return <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>No content found.</div>;
 
     return (
         <div className="game-container" style={{
@@ -121,7 +118,7 @@ function FeelingThinkingGame({ onBack }) {
                             border: '6px solid #E91E63', position: 'relative', cursor: 'pointer'
                         }}
                     >
-                        <div style={{ position: 'absolute', top: '20px', right: '20px', fontSize: '1.5rem', color: '#95A5A6', fontWeight: 'bold' }}>{currentIndex + 1} / {FEELING_THINKING.length}</div>
+                        <div style={{ position: 'absolute', top: '20px', right: '20px', fontSize: '1.5rem', color: '#95A5A6', fontWeight: 'bold' }}>{currentIndex + 1} / {gameData.length}</div>
 
                         <div style={{ fontSize: '10rem', marginBottom: '20px' }}>{currentItem.icon}</div>
 
@@ -134,12 +131,12 @@ function FeelingThinkingGame({ onBack }) {
                         </div>
                     </motion.div>
 
-                    <button onClick={nextItem} disabled={currentIndex === FEELING_THINKING.length - 1} style={{ background: currentIndex === FEELING_THINKING.length - 1 ? '#ccc' : 'white', border: 'none', borderRadius: '50%', width: '60px', height: '60px', fontSize: '2rem', cursor: currentIndex === FEELING_THINKING.length - 1 ? 'default' : 'pointer', boxShadow: '0 4px 0 rgba(0,0,0,0.1)' }}>➡</button>
+                    <button onClick={nextItem} disabled={currentIndex === gameData.length - 1} style={{ background: currentIndex === gameData.length - 1 ? '#ccc' : 'white', border: 'none', borderRadius: '50%', width: '60px', height: '60px', fontSize: '2rem', cursor: currentIndex === gameData.length - 1 ? 'default' : 'pointer', boxShadow: '0 4px 0 rgba(0,0,0,0.1)' }}>➡</button>
                 </div>
             ) : (
                 <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                    <button onClick={() => speak(quizTarget.word)} style={{ background: '#fff', border: 'none', borderRadius: '50%', width: '80px', height: '80px', fontSize: '3rem', cursor: 'pointer', boxShadow: '0 4px 0 #ddd', marginBottom: '30px' }}>🔊</button>
-                    <h2 style={{ fontSize: '2rem', marginBottom: '30px', color: '#E91E63' }}>Describe this: "{quizTarget?.word}"</h2>
+                    <button onClick={() => speak(quizTarget?.word)} style={{ background: '#fff', border: 'none', borderRadius: '50%', width: '80px', height: '80px', fontSize: '3rem', cursor: 'pointer', boxShadow: '0 4px 0 #ddd', marginBottom: '30px' }}>🔊</button>
+                    <h2 style={{ fontSize: '2rem', marginBottom: '30px', color: '#E91E63' }}>Which one is "{quizTarget?.word}"?</h2>
                     <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', justifyContent: 'center' }}>
                         {quizOptions.map((item, idx) => (
                             <motion.button key={idx} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }} onClick={() => handleQuizOptionClick(item)} style={{ background: 'white', border: '4px solid #F39C12', borderRadius: '20px', padding: '30px 40px', display: 'flex', flexDirection: 'column', alignItems: 'center', boxShadow: '0 8px 0 #D35400', cursor: 'pointer', minWidth: '200px' }}>

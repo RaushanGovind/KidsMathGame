@@ -1,34 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { playSound as playAppSound } from '../utils/sounds';
-
-const TWO_WORD_SENTENCES = [
-    { text: 'BIG DOG', w1: 'BIG', w2: 'DOG', icon: '🐕', context: 'The dog is big.' },
-    { text: 'RED CAR', w1: 'RED', w2: 'CAR', icon: '🚗', context: 'Drive the red car.' },
-    { text: 'HOT TEA', w1: 'HOT', w2: 'TEA', icon: '☕', context: 'Be careful, hot tea.' },
-    { text: 'MY BAG', w1: 'MY', w2: 'BAG', icon: '🎒', context: 'This is my bag.' },
-    { text: 'RUN FAST', w1: 'RUN', w2: 'FAST', icon: '🏃', context: 'Run fast to win.' },
-    { text: 'SIT DOWN', w1: 'SIT', w2: 'DOWN', icon: '🪑', context: 'Please sit down.' },
-    { text: 'GO HOME', w1: 'GO', w2: 'HOME', icon: '🏠', context: 'Let us go home.' },
-    { text: 'BLUE SKY', w1: 'BLUE', w2: 'SKY', icon: '☁️', context: 'Look at the blue sky.' },
-    { text: 'GOOD DAY', w1: 'GOOD', w2: 'DAY', icon: '☀️', context: 'Have a good day.' },
-    { text: 'EAT FOOD', w1: 'EAT', w2: 'FOOD', icon: '🍽️', context: 'Eat your food.' },
-    { text: 'NEW TOY', w1: 'NEW', w2: 'TOY', icon: '🧸', context: 'I have a new toy.' },
-    { text: 'SAD BOY', w1: 'SAD', w2: 'BOY', icon: '😢', context: 'Why is the boy sad?' },
-    { text: 'ONE CAT', w1: 'ONE', w2: 'CAT', icon: '🐈', context: 'I see one cat.' },
-    { text: 'OLD MAN', w1: 'OLD', w2: 'MAN', icon: '👴', context: 'Kind old man.' },
-    { text: 'COLD ICE', w1: 'COLD', w2: 'ICE', icon: '🧊', context: 'Ice is very cold.' },
-    { text: 'WET DOG', w1: 'WET', w2: 'DOG', icon: '🚿', context: 'The dog is wet.' },
-    { text: 'BIG BOX', w1: 'BIG', w2: 'BOX', icon: '📦', context: 'Open the big box.' },
-    { text: 'SEE YOU', w1: 'SEE', w2: 'YOU', icon: '👋', context: 'See you later.' },
-    { text: 'LOVE MOM', w1: 'LOVE', w2: 'MOM', icon: '👩‍👦', context: 'I love my mom.' },
-    { text: 'NICE CAR', w1: 'NICE', w2: 'CAR', icon: '🚔', context: 'That is a nice car.' },
-    { text: 'TOP HAT', w1: 'TOP', w2: 'HAT', icon: '🎩', context: 'Wear a top hat.' },
-    { text: 'BUS STOP', w1: 'BUS', w2: 'STOP', icon: '🚏', context: 'Wait at the bus stop.' },
-    { text: 'RED ROSE', w1: 'RED', w2: 'ROSE', icon: '🌹', context: 'Smell the red rose.' },
-    { text: 'SUN SET', w1: 'SUN', w2: 'SET', icon: '🌇', context: 'Watch the sun set.' },
-    { text: 'BAD DAY', w1: 'BAD', w2: 'DAY', icon: '🌧️', context: 'It was a bad day.' }
-];
+import { speak } from '../utils/speech';
 
 function TwoWordSentencesGame({ onBack }) {
     const [mode, setMode] = useState('learn');
@@ -38,32 +11,41 @@ function TwoWordSentencesGame({ onBack }) {
     const [score, setScore] = useState(0);
     const [feedback, setFeedback] = useState(null);
 
-    const speak = (text, rate = 0.8) => {
-        window.speechSynthesis.cancel();
-        const utterance = new SpeechSynthesisUtterance(text);
-        utterance.rate = rate;
-        utterance.pitch = 1.1;
-        window.speechSynthesis.speak(utterance);
-    };
-
-    const currentSentence = TWO_WORD_SENTENCES[currentIndex];
+    const [gameData, setGameData] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        if (mode === 'learn') {
+        fetch('http://localhost:8000/api/content/two_word_sentences')
+            .then(res => res.json())
+            .then(data => {
+                setGameData(data.content);
+                setLoading(false);
+            })
+            .catch(err => {
+                console.error("Failed to load sentences", err);
+                setLoading(false);
+            });
+    }, []);
+
+    const currentSentence = gameData[currentIndex];
+
+    useEffect(() => {
+        if (mode === 'learn' && currentSentence) {
             const timeout = setTimeout(() => {
                 playLearnSequence();
             }, 500);
             return () => clearTimeout(timeout);
         }
-    }, [currentIndex, mode]);
+    }, [currentIndex, mode, gameData]);
 
     const playLearnSequence = () => {
-        // "BIG... DOG... BIG DOG!"
-        speak(`${currentSentence.w1}...... ${currentSentence.w2}...... ${currentSentence.text}. ${currentSentence.context}`);
+        if (currentSentence) {
+            speak(`${currentSentence.w1}...... ${currentSentence.w2}...... ${currentSentence.text}. ${currentSentence.context}`);
+        }
     };
 
     const nextSentence = () => {
-        if (currentIndex < TWO_WORD_SENTENCES.length - 1) setCurrentIndex(c => c + 1);
+        if (currentIndex < gameData.length - 1) setCurrentIndex(c => c + 1);
     };
 
     const prevSentence = () => {
@@ -71,12 +53,13 @@ function TwoWordSentencesGame({ onBack }) {
     };
 
     const startQuizRound = () => {
-        const target = TWO_WORD_SENTENCES[Math.floor(Math.random() * TWO_WORD_SENTENCES.length)];
+        if (!gameData || gameData.length === 0) return;
+        const target = gameData[Math.floor(Math.random() * gameData.length)];
         setQuizTarget(target);
         setFeedback(null);
         const options = [target];
         while (options.length < 3) {
-            const random = TWO_WORD_SENTENCES[Math.floor(Math.random() * TWO_WORD_SENTENCES.length)];
+            const random = gameData[Math.floor(Math.random() * gameData.length)];
             if (!options.includes(random)) options.push(random);
         }
         setQuizOptions(options.sort(() => Math.random() - 0.5));
@@ -84,8 +67,8 @@ function TwoWordSentencesGame({ onBack }) {
     };
 
     useEffect(() => {
-        if (mode === 'quiz') startQuizRound();
-    }, [mode]);
+        if (mode === 'quiz' && !loading) startQuizRound();
+    }, [mode, loading]);
 
     const handleQuizOptionClick = (item) => {
         if (item.text === quizTarget.text) {
@@ -100,6 +83,10 @@ function TwoWordSentencesGame({ onBack }) {
             speak("Try again!");
         }
     };
+
+    if (loading) return <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2rem' }}>Loading Sentences...</div>;
+
+    if (!gameData || gameData.length === 0) return <div>No data found</div>;
 
     return (
         <div className="game-container" style={{
@@ -132,7 +119,7 @@ function TwoWordSentencesGame({ onBack }) {
                             border: '6px solid #16A085', position: 'relative', cursor: 'pointer'
                         }}
                     >
-                        <div style={{ position: 'absolute', top: '20px', right: '20px', fontSize: '1.5rem', color: '#95A5A6', fontWeight: 'bold' }}>{currentIndex + 1} / {TWO_WORD_SENTENCES.length}</div>
+                        <div style={{ position: 'absolute', top: '20px', right: '20px', fontSize: '1.5rem', color: '#95A5A6', fontWeight: 'bold' }}>{currentIndex + 1} / {gameData.length}</div>
 
                         {/* Breakdown */}
                         <div style={{ display: 'flex', gap: '10px', marginBottom: '20px', alignItems: 'center' }}>
@@ -159,7 +146,7 @@ function TwoWordSentencesGame({ onBack }) {
                         </div>
                     </motion.div>
 
-                    <button onClick={nextSentence} disabled={currentIndex === TWO_WORD_SENTENCES.length - 1} style={{ background: currentIndex === TWO_WORD_SENTENCES.length - 1 ? '#ccc' : 'white', border: 'none', borderRadius: '50%', width: '60px', height: '60px', fontSize: '2rem', cursor: currentIndex === TWO_WORD_SENTENCES.length - 1 ? 'default' : 'pointer', boxShadow: '0 4px 0 rgba(0,0,0,0.1)' }}>➡</button>
+                    <button onClick={nextSentence} disabled={currentIndex === gameData.length - 1} style={{ background: currentIndex === gameData.length - 1 ? '#ccc' : 'white', border: 'none', borderRadius: '50%', width: '60px', height: '60px', fontSize: '2rem', cursor: currentIndex === gameData.length - 1 ? 'default' : 'pointer', boxShadow: '0 4px 0 rgba(0,0,0,0.1)' }}>➡</button>
                 </div>
             ) : (
                 <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>

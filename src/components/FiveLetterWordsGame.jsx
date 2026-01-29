@@ -1,57 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { playSound as playAppSound } from '../utils/sounds';
-
-const FIVE_LETTER_WORDS = [
-    { word: 'APPLE', p1: 'A', p2: 'P', p3: 'P', p4: 'L', p5: 'E', icon: '🍎', sentence: 'Eat an apple.' },
-    { word: 'BEACH', p1: 'B', p2: 'E', p3: 'A', p4: 'C', p5: 'H', icon: '🏖️', sentence: 'Sand at the beach.' },
-    { word: 'BREAD', p1: 'B', p2: 'R', p3: 'E', p4: 'A', p5: 'D', icon: '🍞', sentence: 'Bake the bread.' },
-    { word: 'BRUSH', p1: 'B', p2: 'R', p3: 'U', p4: 'S', p5: 'H', icon: '🖌️', sentence: 'Paint with a brush.' },
-    { word: 'CANDY', p1: 'C', p2: 'A', p3: 'N', p4: 'D', p5: 'Y', icon: '🍬', sentence: 'Sweet stick candy.' },
-    { word: 'CHAIR', p1: 'C', p2: 'H', p3: 'A', p4: 'I', p5: 'R', icon: '🪑', sentence: 'Sit on the chair.' },
-    { word: 'CLOCK', p1: 'C', p2: 'L', p3: 'O', p4: 'C', p5: 'K', icon: '⏰', sentence: 'Tick tock clock.' },
-    { word: 'CLOUD', p1: 'C', p2: 'L', p3: 'O', p4: 'U', p5: 'D', icon: '☁️', sentence: 'White fluffy cloud.' },
-    { word: 'DANCE', p1: 'D', p2: 'A', p3: 'N', p4: 'C', p5: 'E', icon: '💃', sentence: 'Let us dance.' },
-    { word: 'DRESS', p1: 'D', p2: 'R', p3: 'E', p4: 'S', p5: 'S', icon: '👗', sentence: 'Wear a nice dress.' },
-    { word: 'DRINK', p1: 'D', p2: 'R', p3: 'I', p4: 'N', p5: 'K', icon: '🥤', sentence: 'Drink some water.' },
-    { word: 'EARTH', p1: 'E', p2: 'A', p3: 'R', p4: 'T', p5: 'H', icon: '🌍', sentence: 'We live on Earth.' },
-    { word: 'FRUIT', p1: 'F', p2: 'R', p3: 'U', p4: 'I', p5: 'T', icon: '🍇', sentence: 'Healthy yummy fruit.' },
-    { word: 'GHOST', p1: 'G', p2: 'H', p3: 'O', p4: 'S', p5: 'T', icon: '👻', sentence: 'Spooky little ghost.' },
-    { word: 'GRAPE', p1: 'G', p2: 'R', p3: 'A', p4: 'P', p5: 'E', icon: '🍇', sentence: 'Purple juicy grape.' },
-    { word: 'GRASS', p1: 'G', p2: 'R', p3: 'A', p4: 'S', p5: 'S', icon: '🌱', sentence: 'Green soft grass.' },
-    { word: 'HEART', p1: 'H', p2: 'E', p3: 'A', p4: 'R', p5: 'T', icon: '❤️', sentence: 'Love in my heart.' },
-    { word: 'HORSE', p1: 'H', p2: 'O', p3: 'R', p4: 'S', p5: 'E', icon: '🐴', sentence: 'Ride a horse.' },
-    { word: 'HOUSE', p1: 'H', p2: 'O', p3: 'U', p4: 'S', p5: 'E', icon: '🏠', sentence: 'My comfortable house.' },
-    { word: 'JUICE', p1: 'J', p2: 'U', p3: 'I', p4: 'C', p5: 'E', icon: '🧃', sentence: 'Fresh orange juice.' },
-    { word: 'LEMON', p1: 'L', p2: 'E', p3: 'M', p4: 'O', p5: 'N', icon: '🍋', sentence: 'Sour yellow lemon.' },
-    { word: 'MOUSE', p1: 'M', p2: 'O', p3: 'U', p4: 'S', p5: 'E', icon: '🐭', sentence: 'Quiet little mouse.' },
-    { word: 'MUSIC', p1: 'M', p2: 'U', p3: 'S', p4: 'I', p5: 'C', icon: '🎵', sentence: 'Listen to music.' },
-    { word: 'NIGHT', p1: 'N', p2: 'I', p3: 'G', p4: 'H', p5: 'T', icon: '🌃', sentence: 'Sleep at night.' },
-    { word: 'OCEAN', p1: 'O', p2: 'C', p3: 'E', p4: 'A', p5: 'N', icon: '🌊', sentence: 'Deep blue ocean.' },
-    { word: 'PANDA', p1: 'P', p2: 'A', p3: 'N', p4: 'D', p5: 'A', icon: '🐼', sentence: 'Cute black panda.' },
-    { word: 'PAPER', p1: 'P', p2: 'A', p3: 'P', p4: 'E', p5: 'R', icon: '📄', sentence: 'Write on paper.' },
-    { word: 'PARTY', p1: 'P', p2: 'A', p3: 'R', p4: 'T', p5: 'Y', icon: '🎉', sentence: 'Birthday party fun.' },
-    { word: 'PIZZA', p1: 'P', p2: 'I', p3: 'Z', p4: 'Z', p5: 'A', icon: '🍕', sentence: 'Cheese pepperoni pizza.' },
-    { word: 'PLANE', p1: 'P', p2: 'L', p3: 'A', p4: 'N', p5: 'E', icon: '✈️', sentence: 'Fly in a plane.' },
-    { word: 'PLANT', p1: 'P', p2: 'L', p3: 'A', p4: 'N', p5: 'T', icon: '🪴', sentence: 'Water the plant.' },
-    { word: 'QUEEN', p1: 'Q', p2: 'U', p3: 'E', p4: 'E', p5: 'N', icon: '👑', sentence: 'The royal queen.' },
-    { word: 'RADIO', p1: 'R', p2: 'A', p3: 'D', p4: 'I', p5: 'O', icon: '📻', sentence: 'Turn on the radio.' },
-    { word: 'ROBOT', p1: 'R', p2: 'O', p3: 'B', p4: 'O', p5: 'T', icon: '🤖', sentence: 'Beep boop robot.' },
-    { word: 'SHARK', p1: 'S', p2: 'H', p3: 'A', p4: 'R', p5: 'K', icon: '🦈', sentence: 'Big scary shark.' },
-    { word: 'SHEEP', p1: 'S', p2: 'H', p3: 'E', p4: 'E', p5: 'P', icon: '🐑', sentence: 'Soft wool sheep.' },
-    { word: 'SHOES', p1: 'S', p2: 'H', p3: 'O', p4: 'E', p5: 'S', icon: '👟', sentence: 'New running shoes.' },
-    { word: 'SMILE', p1: 'S', p2: 'M', p3: 'I', p4: 'L', p5: 'E', icon: '😄', sentence: 'Big happy smile.' },
-    { word: 'SNAKE', p1: 'S', p2: 'N', p3: 'A', p4: 'K', p5: 'E', icon: '🐍', sentence: 'Hissing green snake.' },
-    { word: 'SPOON', p1: 'S', p2: 'P', p3: 'O', p4: 'O', p5: 'N', icon: '🥄', sentence: 'Eat with a spoon.' },
-    { word: 'TIGER', p1: 'T', p2: 'I', p3: 'G', p4: 'E', p5: 'R', icon: '🐯', sentence: 'Striped orange tiger.' },
-    { word: 'TOAST', p1: 'T', p2: 'O', p3: 'A', p4: 'S', p5: 'T', icon: '🍞', sentence: 'Butter on toast.' },
-    { word: 'TRAIN', p1: 'T', p2: 'R', p3: 'A', p4: 'I', p5: 'N', icon: '🚂', sentence: 'Choo choo train.' },
-    { word: 'TRUCK', p1: 'T', p2: 'R', p3: 'U', p4: 'C', p5: 'K', icon: '🚚', sentence: 'Big heavy truck.' },
-    { word: 'WATCH', p1: 'W', p2: 'A', p3: 'T', p4: 'C', p5: 'H', icon: '⌚', sentence: 'Look at my watch.' },
-    { word: 'WATER', p1: 'W', p2: 'A', p3: 'T', p4: 'E', p5: 'R', icon: '💧', sentence: 'Drink cool water.' },
-    { word: 'WHALE', p1: 'W', p2: 'H', p3: 'A', p4: 'L', p5: 'E', icon: '🐋', sentence: 'Huge blue whale.' },
-    { word: 'ZEBRA', p1: 'Z', p2: 'E', p3: 'B', p4: 'R', p5: 'A', icon: '🦓', sentence: 'Striped black zebra.' }
-];
+import { speak } from '../utils/speech';
 
 function FiveLetterWordsGame({ onBack }) {
     const [mode, setMode] = useState('learn');
@@ -61,31 +11,41 @@ function FiveLetterWordsGame({ onBack }) {
     const [score, setScore] = useState(0);
     const [feedback, setFeedback] = useState(null);
 
-    const speak = (text, rate = 0.8) => {
-        window.speechSynthesis.cancel();
-        const utterance = new SpeechSynthesisUtterance(text);
-        utterance.rate = rate;
-        utterance.pitch = 1.1;
-        window.speechSynthesis.speak(utterance);
-    };
-
-    const currentWord = FIVE_LETTER_WORDS[currentIndex];
+    const [gameData, setGameData] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        if (mode === 'learn') {
+        fetch('http://localhost:8000/api/content/five_letter_words')
+            .then(res => res.json())
+            .then(data => {
+                setGameData(data.content);
+                setLoading(false);
+            })
+            .catch(err => {
+                console.error("Failed to load words", err);
+                setLoading(false);
+            });
+    }, []);
+
+    const currentWord = gameData[currentIndex];
+
+    useEffect(() => {
+        if (mode === 'learn' && currentWord) {
             const timeout = setTimeout(() => {
                 playLearnSequence();
             }, 500);
             return () => clearTimeout(timeout);
         }
-    }, [currentIndex, mode]);
+    }, [currentIndex, mode, gameData]);
 
     const playLearnSequence = () => {
-        speak(`${currentWord.p1}... ${currentWord.p2}... ${currentWord.p3}... ${currentWord.p4}... ${currentWord.p5}...... ${currentWord.word}. ${currentWord.sentence}`);
+        if (currentWord) {
+            speak(`${currentWord.p1}... ${currentWord.p2}... ${currentWord.p3}... ${currentWord.p4}... ${currentWord.p5}...... ${currentWord.word}. ${currentWord.sentence}`);
+        }
     };
 
     const nextWord = () => {
-        if (currentIndex < FIVE_LETTER_WORDS.length - 1) setCurrentIndex(c => c + 1);
+        if (currentIndex < gameData.length - 1) setCurrentIndex(c => c + 1);
     };
 
     const prevWord = () => {
@@ -93,12 +53,13 @@ function FiveLetterWordsGame({ onBack }) {
     };
 
     const startQuizRound = () => {
-        const target = FIVE_LETTER_WORDS[Math.floor(Math.random() * FIVE_LETTER_WORDS.length)];
+        if (!gameData || gameData.length === 0) return;
+        const target = gameData[Math.floor(Math.random() * gameData.length)];
         setQuizTarget(target);
         setFeedback(null);
         const options = [target];
         while (options.length < 3) {
-            const random = FIVE_LETTER_WORDS[Math.floor(Math.random() * FIVE_LETTER_WORDS.length)];
+            const random = gameData[Math.floor(Math.random() * gameData.length)];
             if (!options.includes(random)) options.push(random);
         }
         setQuizOptions(options.sort(() => Math.random() - 0.5));
@@ -106,8 +67,8 @@ function FiveLetterWordsGame({ onBack }) {
     };
 
     useEffect(() => {
-        if (mode === 'quiz') startQuizRound();
-    }, [mode]);
+        if (mode === 'quiz' && !loading) startQuizRound();
+    }, [mode, loading]);
 
     const handleQuizOptionClick = (item) => {
         if (item.word === quizTarget.word) {
@@ -122,6 +83,10 @@ function FiveLetterWordsGame({ onBack }) {
             speak("Try again!");
         }
     };
+
+    if (loading) return <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2rem' }}>Loading Words...</div>;
+
+    if (!gameData || gameData.length === 0) return <div>No data found</div>;
 
     return (
         <div className="game-container" style={{
@@ -154,7 +119,7 @@ function FiveLetterWordsGame({ onBack }) {
                             border: '6px solid #F39C12', position: 'relative', cursor: 'pointer'
                         }}
                     >
-                        <div style={{ position: 'absolute', top: '20px', right: '20px', fontSize: '1.5rem', color: '#95A5A6', fontWeight: 'bold' }}>{currentIndex + 1} / {FIVE_LETTER_WORDS.length}</div>
+                        <div style={{ position: 'absolute', top: '20px', right: '20px', fontSize: '1.5rem', color: '#95A5A6', fontWeight: 'bold' }}>{currentIndex + 1} / {gameData.length}</div>
                         <div style={{ display: 'flex', gap: '4px', marginBottom: '20px', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center' }}>
                             {[currentWord.p1, currentWord.p2, currentWord.p3, currentWord.p4, currentWord.p5].map((char, i) => (
                                 <div key={i} style={{ display: 'flex', alignItems: 'center' }}>
@@ -169,11 +134,11 @@ function FiveLetterWordsGame({ onBack }) {
                         <div style={{ fontSize: '1.5rem', fontWeight: '700', color: '#D35400', background: '#FFF3E0', padding: '15px 30px', borderRadius: '20px', textAlign: 'center' }}>"{currentWord.sentence}"</div>
                     </motion.div>
 
-                    <button onClick={nextWord} disabled={currentIndex === FIVE_LETTER_WORDS.length - 1} style={{ background: currentIndex === FIVE_LETTER_WORDS.length - 1 ? '#ccc' : 'white', border: 'none', borderRadius: '50%', width: '60px', height: '60px', fontSize: '2rem', cursor: currentIndex === FIVE_LETTER_WORDS.length - 1 ? 'default' : 'pointer', boxShadow: '0 4px 0 rgba(0,0,0,0.1)' }}>➡</button>
+                    <button onClick={nextWord} disabled={currentIndex === gameData.length - 1} style={{ background: currentIndex === gameData.length - 1 ? '#ccc' : 'white', border: 'none', borderRadius: '50%', width: '60px', height: '60px', fontSize: '2rem', cursor: currentIndex === gameData.length - 1 ? 'default' : 'pointer', boxShadow: '0 4px 0 rgba(0,0,0,0.1)' }}>➡</button>
                 </div>
             ) : (
                 <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                    <button onClick={() => speak(quizTarget.word)} style={{ background: '#fff', border: 'none', borderRadius: '50%', width: '80px', height: '80px', fontSize: '3rem', cursor: 'pointer', boxShadow: '0 4px 0 #ddd', marginBottom: '30px' }}>🔊</button>
+                    <button onClick={() => speak(currentWord?.word || quizTarget?.word)} style={{ background: '#fff', border: 'none', borderRadius: '50%', width: '80px', height: '80px', fontSize: '3rem', cursor: 'pointer', boxShadow: '0 4px 0 #ddd', marginBottom: '30px' }}>🔊</button>
                     <h2 style={{ fontSize: '2rem', marginBottom: '30px', color: '#F39C12' }}>Which one is "{quizTarget?.word}"?</h2>
                     <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', justifyContent: 'center' }}>
                         {quizOptions.map((item, idx) => (

@@ -1,85 +1,27 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-
-const SCENARIOS = {
-    school: {
-        title: 'At School',
-        theme: '#3498DB',
-        bg: '#E3F2FD',
-        dialogue: [
-            { speaker: 'Teacher', text: 'Good morning, class!', icon: '👩‍🏫', side: 'left' },
-            { speaker: 'You', text: 'Good morning, teacher!', icon: '🧒', side: 'right' },
-            { speaker: 'Teacher', text: 'How are you today?', icon: '👩‍🏫', side: 'left' },
-            { speaker: 'You', text: 'I am happy, thank you!', icon: '🧒', side: 'right' },
-            { speaker: 'Teacher', text: 'Great! Let\'s learn math.', icon: '👩‍🏫', side: 'left' },
-            { speaker: 'You', text: 'Yes, I like math.', icon: '🧒', side: 'right' },
-            { speaker: 'Teacher', text: 'What is 1 + 1?', icon: '👩‍🏫', side: 'left' },
-            { speaker: 'You', text: 'It is 2!', icon: '🧒', side: 'right' },
-            { speaker: 'Teacher', text: 'Very good job!', icon: '👩‍🏫', side: 'left' }
-        ]
-    },
-    mom: {
-        title: 'With Mom',
-        theme: '#E91E63',
-        bg: '#FCE4EC',
-        dialogue: [
-            { speaker: 'Mom', text: 'Good morning, sweetie.', icon: '👩', side: 'left' },
-            { speaker: 'You', text: 'Good morning, Mom.', icon: '🧒', side: 'right' },
-            { speaker: 'Mom', text: 'Are you hungry?', icon: '👩', side: 'left' },
-            { speaker: 'You', text: 'Yes, I want breakfast.', icon: '🧒', side: 'right' },
-            { speaker: 'Mom', text: 'Here is some milk and toast.', icon: '👩', side: 'left' },
-            { speaker: 'You', text: 'Thank you, Mom!', icon: '🧒', side: 'right' },
-            { speaker: 'Mom', text: 'Have a good day at school.', icon: '👩', side: 'left' },
-            { speaker: 'You', text: 'I love you, Mom.', icon: '🧒', side: 'right' },
-            { speaker: 'Mom', text: 'I love you too.', icon: '👩', side: 'left' }
-        ]
-    },
-    sister: {
-        title: 'With Sister',
-        theme: '#9B59B6',
-        bg: '#F3E5F5',
-        dialogue: [
-            { speaker: 'Sister', text: 'Hi! What are you doing?', icon: '👧', side: 'left' },
-            { speaker: 'You', text: 'I am playing with blocks.', icon: '🧒', side: 'right' },
-            { speaker: 'Sister', text: 'Can I play too?', icon: '👧', side: 'left' },
-            { speaker: 'You', text: 'Yes, come sit here.', icon: '🧒', side: 'right' },
-            { speaker: 'Sister', text: 'Let\'s build a castle!', icon: '👧', side: 'left' },
-            { speaker: 'You', text: 'That is a great idea.', icon: '🧒', side: 'right' },
-            { speaker: 'Sister', text: 'Pass me the blue block.', icon: '👧', side: 'left' },
-            { speaker: 'You', text: 'Here you go.', icon: '🧒', side: 'right' },
-            { speaker: 'Sister', text: 'This is fun!', icon: '👧', side: 'left' }
-        ]
-    },
-    friend: {
-        title: 'With Friend',
-        theme: '#F39C12',
-        bg: '#FFF3E0',
-        dialogue: [
-            { speaker: 'Friend', text: 'Hello! What is your name?', icon: '👦', side: 'left' },
-            { speaker: 'You', text: 'Hi! My name is Alex.', icon: '🧒', side: 'right' },
-            { speaker: 'Friend', text: 'My name is Sam.', icon: '👦', side: 'left' },
-            { speaker: 'You', text: 'Nice to meet you, Sam.', icon: '🧒', side: 'right' },
-            { speaker: 'Friend', text: 'Do you like soccer?', icon: '👦', side: 'left' },
-            { speaker: 'You', text: 'Yes, I like soccer!', icon: '🧒', side: 'right' },
-            { speaker: 'Friend', text: 'Let\'s play together.', icon: '👦', side: 'left' },
-            { speaker: 'You', text: 'Okay, let\'s go!', icon: '🧒', side: 'right' },
-            { speaker: 'Friend', text: 'Kick the ball!', icon: '👦', side: 'left' }
-        ]
-    }
-};
+import { speak } from '../utils/speech';
 
 function ConversationGame({ scenarioId, onBack }) {
-    const scenario = SCENARIOS[scenarioId];
+    const [scenarios, setScenarios] = useState(null);
+    const [loading, setLoading] = useState(true);
     const [step, setStep] = useState(0);
     const bottomRef = useRef(null);
 
-    const speak = (text) => {
-        window.speechSynthesis.cancel();
-        const utterance = new SpeechSynthesisUtterance(text);
-        utterance.rate = 0.9;
-        utterance.pitch = 1.1;
-        window.speechSynthesis.speak(utterance);
-    };
+    useEffect(() => {
+        fetch('http://localhost:8000/api/content/conversation')
+            .then(res => res.json())
+            .then(data => {
+                setScenarios(data.scenarios);
+                setLoading(false);
+            })
+            .catch(err => {
+                console.error("Failed to load scenarios", err);
+                setLoading(false);
+            });
+    }, []);
+
+    const scenario = scenarios ? scenarios[scenarioId] : null;
 
     // Auto-scroll to bottom
     useEffect(() => {
@@ -88,27 +30,32 @@ function ConversationGame({ scenarioId, onBack }) {
 
     // Speak when step increments
     useEffect(() => {
-        if (step < scenario.dialogue.length) {
+        if (scenario && step < scenario.dialogue.length) {
             // Tiny delay for clear UX
-            setTimeout(() => {
-                speak(scenario.dialogue[step].text);
+            const timeout = setTimeout(() => {
+                speak(scenario.dialogue[step].text, 'en-US', 0.9, 1.1);
             }, 300);
+            return () => clearTimeout(timeout);
         }
     }, [step, scenario]);
 
     const handleNext = () => {
-        if (step < scenario.dialogue.length - 1) {
+        if (scenario && step < scenario.dialogue.length - 1) {
             setStep(s => s + 1);
         }
     };
 
     const handleReplay = (text) => {
-        speak(text);
+        speak(text, 'en-US', 0.9, 1.1);
     };
 
     const handleRestart = () => {
         setStep(0);
     };
+
+    if (loading) return <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2rem' }}>Loading Conversation...</div>;
+
+    if (!scenario) return <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>Scenario not found.</div>;
 
     return (
         <div className="game-container" style={{

@@ -1,31 +1,11 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { playSound as playAppSound } from '../utils/sounds';
-
-const HOME_ACTIONS = [
-    { text: 'I BRUSH TEETH', verb: 'BRUSH', parts: ['I', 'BRUSH', 'TEETH'], icon: '🪥', context: 'Clean and white!' },
-    { text: 'I WASH FACE', verb: 'WASH', parts: ['I', 'WASH', 'FACE'], icon: '🧼', context: 'Fresh and clean.' },
-    { text: 'I COMB HAIR', verb: 'COMB', parts: ['I', 'COMB', 'HAIR'], icon: '💇', context: 'Look good.' },
-    { text: 'MOM COOKS FOOD', verb: 'COOKS', parts: ['MOM', 'COOKS', 'FOOD'], icon: '🍳', context: 'Yummy smell.' },
-    { text: 'DAD WASHES CAR', verb: 'WASHES', parts: ['DAD', 'WASHES', 'CAR'], icon: '🚗', context: 'Shiny car.' },
-    { text: 'WE WATCH TV', verb: 'WATCH', parts: ['WE', 'WATCH', 'TV'], icon: '📺', context: 'Fun cartoon.' },
-    { text: 'I READ BOOK', verb: 'READ', parts: ['I', 'READ', 'BOOK'], icon: '📖', context: 'Quiet time.' },
-    { text: 'I SLEEP IN BED', verb: 'SLEEP', parts: ['I', 'SLEEP', 'IN', 'BED'], icon: '🛌', context: 'Goodnight.' },
-    { text: 'I EAT LUNCH', verb: 'EAT', parts: ['I', 'EAT', 'LUNCH'], icon: '🍽️', context: 'Full tummy.' },
-    { text: 'I DRINK WATER', verb: 'DRINK', parts: ['I', 'DRINK', 'WATER'], icon: '🥤', context: 'Thirsty.' },
-    { text: 'I CLEAN ROOM', verb: 'CLEAN', parts: ['I', 'CLEAN', 'ROOM'], icon: '🧹', context: 'Tidy up.' },
-    { text: 'I PLAY TOYS', verb: 'PLAY', parts: ['I', 'PLAY', 'TOYS'], icon: '🧸', context: 'Have fun.' },
-    { text: 'SHE BAKES CAKE', verb: 'BAKES', parts: ['SHE', 'BAKES', 'CAKE'], icon: '🎂', context: 'Sweet treat.' },
-    { text: 'HE WATERS PLANT', verb: 'WATERS', parts: ['HE', 'WATERS', 'PLANT'], icon: '🪴', context: 'Grow green.' },
-    { text: 'WE SIT ON SOFA', verb: 'SIT', parts: ['WE', 'SIT', 'ON', 'SOFA'], icon: '🛋️', context: 'Comfy.' },
-    { text: 'I OPEN DOOR', verb: 'OPEN', parts: ['I', 'OPEN', 'DOOR'], icon: '🚪', context: 'Welcome home.' },
-    { text: 'I CLOSE WINDOW', verb: 'CLOSE', parts: ['I', 'CLOSE', 'WINDOW'], icon: '🪟', context: 'Keep warm.' },
-    { text: 'I PUT ON SHOES', verb: 'PUT ON', parts: ['I', 'PUT ON', 'SHOES'], icon: '👟', context: 'Ready to go.' },
-    { text: 'SHE SETS TABLE', verb: 'SETS', parts: ['SHE', 'SETS', 'TABLE'], icon: '🍽️', context: 'Dinner time.' },
-    { text: 'HE SWEEPS FLOOR', verb: 'SWEEPS', parts: ['HE', 'SWEEPS', 'FLOOR'], icon: '🧹', context: 'No dust.' }
-];
+import { speak } from '../utils/speech';
 
 function HomeActionsGame({ onBack }) {
+    const [gameData, setGameData] = useState([]);
+    const [loading, setLoading] = useState(true);
     const [mode, setMode] = useState('learn');
     const [currentIndex, setCurrentIndex] = useState(0);
     const [quizTarget, setQuizTarget] = useState(null);
@@ -33,53 +13,61 @@ function HomeActionsGame({ onBack }) {
     const [score, setScore] = useState(0);
     const [feedback, setFeedback] = useState(null);
 
-    const speak = (text, rate = 0.85) => {
-        window.speechSynthesis.cancel();
-        const utterance = new SpeechSynthesisUtterance(text);
-        utterance.rate = rate;
-        utterance.pitch = 1.1;
-        window.speechSynthesis.speak(utterance);
-    };
+    useEffect(() => {
+        fetch('http://localhost:8000/api/content/home_actions')
+            .then(res => res.json())
+            .then(data => {
+                setGameData(data.content);
+                setLoading(false);
+            })
+            .catch(err => {
+                console.error("Failed to load home actions content", err);
+                setLoading(false);
+            });
+    }, []);
 
-    const currentAction = HOME_ACTIONS[currentIndex];
+    const currentItem = gameData[currentIndex];
 
     useEffect(() => {
-        if (mode === 'learn') {
+        if (mode === 'learn' && currentItem) {
             const timeout = setTimeout(() => {
                 playLearnSequence();
             }, 500);
             return () => clearTimeout(timeout);
         }
-    }, [currentIndex, mode]);
+    }, [currentIndex, mode, gameData]);
 
     const playLearnSequence = () => {
-        speak(`${currentAction.text}. ${currentAction.context}`);
+        if (currentItem) {
+            speak(`${currentItem.text}. ${currentItem.context}`);
+        }
     };
 
-    const nextAction = () => {
-        if (currentIndex < HOME_ACTIONS.length - 1) setCurrentIndex(c => c + 1);
+    const nextItem = () => {
+        if (currentIndex < gameData.length - 1) setCurrentIndex(c => c + 1);
     };
 
-    const prevAction = () => {
+    const prevItem = () => {
         if (currentIndex > 0) setCurrentIndex(c => c - 1);
     };
 
     const startQuizRound = () => {
-        const target = HOME_ACTIONS[Math.floor(Math.random() * HOME_ACTIONS.length)];
+        if (!gameData || gameData.length === 0) return;
+        const target = gameData[Math.floor(Math.random() * gameData.length)];
         setQuizTarget(target);
         setFeedback(null);
         const options = [target];
         while (options.length < 3) {
-            const random = HOME_ACTIONS[Math.floor(Math.random() * HOME_ACTIONS.length)];
+            const random = gameData[Math.floor(Math.random() * gameData.length)];
             if (!options.includes(random)) options.push(random);
         }
         setQuizOptions(options.sort(() => Math.random() - 0.5));
-        setTimeout(() => speak(`Who is doing... ${target.text}`), 500);
+        setTimeout(() => speak(`Find: ${target.text}`), 500);
     };
 
     useEffect(() => {
-        if (mode === 'quiz') startQuizRound();
-    }, [mode]);
+        if (mode === 'quiz' && !loading) startQuizRound();
+    }, [mode, loading]);
 
     const handleQuizOptionClick = (item) => {
         if (item.text === quizTarget.text) {
@@ -94,6 +82,10 @@ function HomeActionsGame({ onBack }) {
             speak("Try again!");
         }
     };
+
+    if (loading) return <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2rem' }}>Loading Home Actions...</div>;
+
+    if (!gameData || gameData.length === 0) return <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>No content found.</div>;
 
     return (
         <div className="game-container" style={{
@@ -111,10 +103,10 @@ function HomeActionsGame({ onBack }) {
 
             {mode === 'learn' ? (
                 <div style={{ display: 'flex', alignItems: 'center', gap: '20px', width: '100%', maxWidth: '1000px', justifyContent: 'center' }}>
-                    <button onClick={prevAction} disabled={currentIndex === 0} style={{ background: currentIndex === 0 ? '#ccc' : 'white', border: 'none', borderRadius: '50%', width: '60px', height: '60px', fontSize: '2rem', cursor: currentIndex === 0 ? 'default' : 'pointer', boxShadow: '0 4px 0 rgba(0,0,0,0.1)' }}>⬅</button>
+                    <button onClick={prevItem} disabled={currentIndex === 0} style={{ background: currentIndex === 0 ? '#ccc' : 'white', border: 'none', borderRadius: '50%', width: '60px', height: '60px', fontSize: '2rem', cursor: currentIndex === 0 ? 'default' : 'pointer', boxShadow: '0 4px 0 rgba(0,0,0,0.1)' }}>⬅</button>
 
                     <motion.div
-                        key={currentAction.text}
+                        key={currentItem.text}
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0, scale: 0.9 }}
@@ -126,20 +118,19 @@ function HomeActionsGame({ onBack }) {
                             border: '6px solid #D35400', position: 'relative', cursor: 'pointer'
                         }}
                     >
-                        <div style={{ position: 'absolute', top: '20px', right: '20px', fontSize: '1.5rem', color: '#95A5A6', fontWeight: 'bold' }}>{currentIndex + 1} / {HOME_ACTIONS.length}</div>
+                        <div style={{ position: 'absolute', top: '20px', right: '20px', fontSize: '1.5rem', color: '#95A5A6', fontWeight: 'bold' }}>{currentIndex + 1} / {gameData.length}</div>
 
                         <div style={{ fontSize: '2.5rem', color: '#D35400', marginBottom: '10px', fontWeight: 'bold' }}>AT HOME 🏠</div>
 
-                        {/* Sentence with Highlighted Verb */}
                         <div style={{ display: 'flex', gap: '15px', flexWrap: 'wrap', justifyContent: 'center', marginBottom: '20px' }}>
-                            {currentAction.parts.map((word, i) => (
+                            {currentItem.parts.map((word, i) => (
                                 <motion.span
                                     key={i}
                                     style={{
                                         fontSize: '4rem',
                                         fontWeight: '1000',
-                                        color: word === currentAction.verb || (currentAction.verb === 'PUT ON' && (word === 'PUT' || word === 'ON')) ? '#D35400' : '#2C3E50',
-                                        textDecoration: word === currentAction.verb || (currentAction.verb === 'PUT ON' && (word === 'PUT' || word === 'ON')) ? 'underline' : 'none',
+                                        color: word === currentItem.verb || (currentItem.verb === 'PUT ON' && (word === 'PUT' || word === 'ON')) ? '#D35400' : '#2C3E50',
+                                        textDecoration: word === currentItem.verb || (currentItem.verb === 'PUT ON' && (word === 'PUT' || word === 'ON')) ? 'underline' : 'none',
                                         textDecorationColor: '#F39C12',
                                         textDecorationThickness: '4px'
                                     }}
@@ -149,18 +140,18 @@ function HomeActionsGame({ onBack }) {
                             ))}
                         </div>
 
-                        <div style={{ fontSize: '10rem', marginBottom: '10px' }}>{currentAction.icon}</div>
+                        <div style={{ fontSize: '10rem', marginBottom: '10px' }}>{currentItem.icon}</div>
 
                         <div style={{ fontSize: '2rem', fontWeight: '800', color: '#A04000', background: '#FFCCBC', padding: '15px 40px', borderRadius: '30px', textAlign: 'center' }}>
-                            "{currentAction.context}"
+                            "{currentItem.context}"
                         </div>
                     </motion.div>
 
-                    <button onClick={nextAction} disabled={currentIndex === HOME_ACTIONS.length - 1} style={{ background: currentIndex === HOME_ACTIONS.length - 1 ? '#ccc' : 'white', border: 'none', borderRadius: '50%', width: '60px', height: '60px', fontSize: '2rem', cursor: currentIndex === HOME_ACTIONS.length - 1 ? 'default' : 'pointer', boxShadow: '0 4px 0 rgba(0,0,0,0.1)' }}>➡</button>
+                    <button onClick={nextItem} disabled={currentIndex === gameData.length - 1} style={{ background: currentIndex === gameData.length - 1 ? '#ccc' : 'white', border: 'none', borderRadius: '50%', width: '60px', height: '60px', fontSize: '2rem', cursor: currentIndex === gameData.length - 1 ? 'default' : 'pointer', boxShadow: '0 4px 0 rgba(0,0,0,0.1)' }}>➡</button>
                 </div>
             ) : (
                 <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                    <button onClick={() => speak(quizTarget.text)} style={{ background: '#fff', border: 'none', borderRadius: '50%', width: '80px', height: '80px', fontSize: '3rem', cursor: 'pointer', boxShadow: '0 4px 0 #ddd', marginBottom: '30px' }}>🔊</button>
+                    <button onClick={() => speak(quizTarget?.text)} style={{ background: '#fff', border: 'none', borderRadius: '50%', width: '80px', height: '80px', fontSize: '3rem', cursor: 'pointer', boxShadow: '0 4px 0 #ddd', marginBottom: '30px' }}>🔊</button>
                     <h2 style={{ fontSize: '2rem', marginBottom: '30px', color: '#D35400' }}>Find: "{quizTarget?.text}"</h2>
                     <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', justifyContent: 'center' }}>
                         {quizOptions.map((item, idx) => (

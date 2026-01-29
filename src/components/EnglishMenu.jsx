@@ -53,7 +53,6 @@ const MENU_STRUCTURE = {
         { id: 'pronouns', title: 'Pronouns', icon: '👉', color: '#F1C40F', shadow: '#D4AC0D', type: 'game' },
         { id: 'adverbs', title: 'Adverbs (Describing Words)', icon: '🏃💨', color: '#16A085', shadow: '#138D75', type: 'game' },
         { id: 'adjectives', title: 'Adjectives (Describing Nouns)', icon: '🎨', color: '#E91E63', shadow: '#C2185B', type: 'game' },
-        { id: 'prepositions', title: 'Prepositions (Position)', icon: '📍', color: '#8E44AD', shadow: '#71368A', type: 'game' },
         { id: 'yesnoquestions', title: 'Yes/No Questions', icon: '❓', color: '#3498DB', shadow: '#2980B9', type: 'game' },
         // Future topics (Animals, Fruits, etc.) go here
     ]

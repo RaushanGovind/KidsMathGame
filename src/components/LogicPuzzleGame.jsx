@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { playSound as playAppSound } from '../utils/sounds';
+import { speak } from '../utils/speech';
 
 function LogicPuzzleGame({ onBack }) {
     const [gameData, setGameData] = useState(null);
@@ -28,13 +29,6 @@ function LogicPuzzleGame({ onBack }) {
             });
     }, []);
 
-    const playSound = (text) => {
-        window.speechSynthesis.cancel();
-        const utterance = new SpeechSynthesisUtterance(text);
-        utterance.rate = 1.0;
-        window.speechSynthesis.speak(utterance);
-    };
-
     const handleAnswer = (option) => {
         const currentQuestions = gameData.categories[activeCategory].questions;
         const correct = currentQuestions[quizIndex].a;
@@ -43,11 +37,11 @@ function LogicPuzzleGame({ onBack }) {
             playAppSound('correct');
             setScore(s => s + 1);
             setFeedback('correct');
-            playSound("That is logical!");
+            speak("That is logical!");
         } else {
             playAppSound('wrong');
             setFeedback('wrong');
-            playSound("Think again.");
+            speak("Think again.");
         }
 
         setTimeout(() => {

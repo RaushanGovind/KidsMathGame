@@ -1,59 +1,11 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { playSound as playAppSound } from '../utils/sounds';
-
-const SENTENCE_DATA = [
-    {
-        id: 1,
-        words: ["Birds", "fly"],
-        correct: "Birds fly",
-        icon: "🐦"
-    },
-    {
-        id: 2,
-        words: ["The", "boy", "runs", "fast"],
-        correct: "The boy runs fast",
-        icon: "🏃"
-    },
-    {
-        id: 3,
-        words: ["The", "girl", "sings", "beautifully"],
-        correct: "The girl sings beautifully",
-        icon: "🎤"
-    },
-    {
-        id: 4,
-        words: ["The", "cat", "is", "happy"],
-        correct: "The cat is happy",
-        icon: "😺"
-    },
-    {
-        id: 5,
-        words: ["I", "play", "football"],
-        correct: "I play football",
-        icon: "⚽"
-    },
-    {
-        id: 6,
-        words: ["The", "dog", "sits", "on", "the", "mat"],
-        correct: "The dog sits on the mat",
-        icon: "🐕"
-    },
-    {
-        id: 7,
-        words: ["She", "reads", "a", "book"],
-        correct: "She reads a book",
-        icon: "📖"
-    },
-    {
-        id: 8,
-        words: ["We", "are", "friends"],
-        correct: "We are friends",
-        icon: "👫"
-    }
-];
+import { speak } from '../utils/speech';
 
 function SentenceBuildingGame({ onBack }) {
+    const [sentenceData, setSentenceData] = useState([]);
+    const [loading, setLoading] = useState(true);
     const [level, setLevel] = useState(0);
     const [currentWords, setCurrentWords] = useState([]);
     const [selectedWords, setSelectedWords] = useState([]);
@@ -61,24 +13,32 @@ function SentenceBuildingGame({ onBack }) {
     const [showSuccess, setShowSuccess] = useState(false);
 
     useEffect(() => {
-        resetLevel();
-    }, [level]);
+        fetch('http://localhost:8000/api/content/sentence_builder')
+            .then(res => res.json())
+            .then(data => {
+                setSentenceData(data.content);
+                setLoading(false);
+            })
+            .catch(err => {
+                console.error("Failed to load sentence builder content", err);
+                setLoading(false);
+            });
+    }, []);
+
+    useEffect(() => {
+        if (sentenceData.length > 0) {
+            resetLevel();
+        }
+    }, [level, sentenceData]);
 
     const resetLevel = () => {
+        if (sentenceData.length === 0) return;
         // Shuffle words
-        const shuffled = [...SENTENCE_DATA[level].words].sort(() => Math.random() - 0.5);
+        const shuffled = [...sentenceData[level].words].sort(() => Math.random() - 0.5);
         setCurrentWords(shuffled);
         setSelectedWords([]);
         setIsCorrect(false);
         setShowSuccess(false);
-    };
-
-    const speak = (text) => {
-        window.speechSynthesis.cancel();
-        const utterance = new SpeechSynthesisUtterance(text);
-        utterance.rate = 0.9;
-        utterance.pitch = 1.1;
-        window.speechSynthesis.speak(utterance);
     };
 
     const handleWordClick = (word, index) => {
@@ -106,7 +66,7 @@ function SentenceBuildingGame({ onBack }) {
 
     const checkSentence = (words) => {
         const formedSentence = words.join(" ");
-        const targetSentence = SENTENCE_DATA[level].correct;
+        const targetSentence = sentenceData[level].correct;
 
         if (formedSentence === targetSentence) {
             playAppSound('correct');
@@ -116,19 +76,21 @@ function SentenceBuildingGame({ onBack }) {
         } else {
             playAppSound('wrong');
             speak("Try again");
-            // Auto reset after delay or let user undo?
-            // Let's interactively let them undo
         }
     };
 
     const nextLevel = () => {
-        if (level < SENTENCE_DATA.length - 1) {
+        if (level < sentenceData.length - 1) {
             setLevel(l => l + 1);
         } else {
             // Game Over / Restart
             setLevel(0);
         }
     };
+
+    if (loading) return <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2rem' }}>Loading Game...</div>;
+
+    if (!sentenceData || sentenceData.length === 0) return <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>Error loading data.</div>;
 
     return (
         <div className="game-container" style={{
@@ -148,12 +110,12 @@ function SentenceBuildingGame({ onBack }) {
 
             {/* Progress */}
             <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#7F8C8D', marginBottom: '20px' }}>
-                Sentence {level + 1} of {SENTENCE_DATA.length}
+                Sentence {level + 1} of {sentenceData.length}
             </div>
 
             {/* Target Image/Icon */}
             <div style={{ fontSize: '5rem', marginBottom: '20px' }}>
-                {SENTENCE_DATA[level].icon}
+                {sentenceData[level].icon}
             </div>
 
             {/* Sentence Display Area */}

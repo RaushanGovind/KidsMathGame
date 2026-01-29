@@ -1,39 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { playSound as playAppSound } from '../utils/sounds';
-
-const THREE_LETTER_WORDS = [
-    { word: 'ANT', p1: 'A', p2: 'N', p3: 'T', icon: '🐜', sentence: 'The ant is tiny.' },
-    { word: 'BAT', p1: 'B', p2: 'A', p3: 'T', icon: '🦇', sentence: 'The bat can fly.' },
-    { word: 'BED', p1: 'B', p2: 'E', p3: 'D', icon: '🛏️', sentence: 'Sleep in the bed.' },
-    { word: 'BOX', p1: 'B', p2: 'O', p3: 'X', icon: '📦', sentence: 'Open the box.' },
-    { word: 'BOY', p1: 'B', p2: 'O', p3: 'Y', icon: '👦', sentence: 'He is a boy.' },
-    { word: 'BUS', p1: 'B', p2: 'U', p3: 'S', icon: '🚌', sentence: 'Ride the bus.' },
-    { word: 'CAT', p1: 'C', p2: 'A', p3: 'T', icon: '🐱', sentence: 'Cute little cat.' },
-    { word: 'COW', p1: 'C', p2: 'O', p3: 'W', icon: '🐮', sentence: 'The cow says moo.' },
-    { word: 'CUP', p1: 'C', p2: 'U', p3: 'P', icon: '☕', sentence: 'Hot tea in a cup.' },
-    { word: 'DOG', p1: 'D', p2: 'O', p3: 'G', icon: '🐶', sentence: 'My pet dog.' },
-    { word: 'EGG', p1: 'E', p2: 'G', p3: 'G', icon: '🥚', sentence: 'Eat an egg.' },
-    { word: 'EYE', p1: 'E', p2: 'Y', p3: 'E', icon: '👁️', sentence: 'Blink your eye.' },
-    { word: 'FAN', p1: 'F', p2: 'A', p3: 'N', icon: '🌀', sentence: 'Turn on the fan.' },
-    { word: 'FOX', p1: 'F', p2: 'O', p3: 'X', icon: '🦊', sentence: 'Sly red fox.' },
-    { word: 'HAT', p1: 'H', p2: 'A', p3: 'T', icon: '🎩', sentence: 'Wear a hat.' },
-    { word: 'HEN', p1: 'H', p2: 'E', p3: 'N', icon: '🐔', sentence: 'The hen lays eggs.' },
-    { word: 'ICE', p1: 'I', p2: 'C', p3: 'E', icon: '🧊', sentence: 'Cold ice cubes.' },
-    { word: 'JAM', p1: 'J', p2: 'A', p3: 'M', icon: '🍓', sentence: 'Sweet strawberry jam.' },
-    { word: 'KEY', p1: 'K', p2: 'E', p3: 'Y', icon: '🔑', sentence: 'Lost my key.' },
-    { word: 'MAP', p1: 'M', p2: 'A', p3: 'P', icon: '🗺️', sentence: 'Look at the map.' },
-    { word: 'MUG', p1: 'M', p2: 'U', p3: 'G', icon: '🍺', sentence: 'A root beer mug.' },
-    { word: 'OWL', p1: 'O', p2: 'W', p3: 'L', icon: '🦉', sentence: 'Night owl.' },
-    { word: 'PEN', p1: 'P', p2: 'E', p3: 'N', icon: '🖊️', sentence: 'Blue ink pen.' },
-    { word: 'PIG', p1: 'P', p2: 'I', p3: 'G', icon: '🐷', sentence: 'Pink little pig.' },
-    { word: 'RAT', p1: 'R', p2: 'A', p3: 'T', icon: '🐀', sentence: 'A squeaky rat.' },
-    { word: 'RED', p1: 'R', p2: 'E', p3: 'D', icon: '🔴', sentence: 'The color red.' },
-    { word: 'RUN', p1: 'R', p2: 'U', p3: 'N', icon: '🏃', sentence: 'Run very fast.' },
-    { word: 'SUN', p1: 'S', p2: 'U', p3: 'N', icon: '☀️', sentence: 'Bright yellow sun.' },
-    { word: 'TOP', p1: 'T', p2: 'O', p3: 'P', icon: '🔝', sentence: 'Climb to the top.' },
-    { word: 'VAN', p1: 'V', p2: 'A', p3: 'N', icon: '🚐', sentence: 'Big white van.' }
-];
+import { speak } from '../utils/speech';
 
 function ThreeLetterWordsGame({ onBack }) {
     const [mode, setMode] = useState('learn'); // 'learn' or 'quiz'
@@ -45,33 +13,42 @@ function ThreeLetterWordsGame({ onBack }) {
     const [score, setScore] = useState(0);
     const [feedback, setFeedback] = useState(null);
 
-    const speak = (text, rate = 0.8) => {
-        window.speechSynthesis.cancel();
-        const utterance = new SpeechSynthesisUtterance(text);
-        utterance.rate = rate;
-        utterance.pitch = 1.1;
-        window.speechSynthesis.speak(utterance);
-    };
+    const [gameData, setGameData] = useState([]);
+    const [loading, setLoading] = useState(true);
 
-    const currentWord = THREE_LETTER_WORDS[currentIndex];
+    useEffect(() => {
+        fetch('http://localhost:8000/api/content/three_letter_words')
+            .then(res => res.json())
+            .then(data => {
+                setGameData(data.content);
+                setLoading(false);
+            })
+            .catch(err => {
+                console.error("Failed to load words", err);
+                setLoading(false);
+            });
+    }, []);
+
+    const currentWord = gameData[currentIndex];
 
     // Trigger TTS when card changes in Learn mode
     useEffect(() => {
-        if (mode === 'learn') {
+        if (mode === 'learn' && currentWord) {
             const timeout = setTimeout(() => {
                 playLearnSequence();
             }, 500);
             return () => clearTimeout(timeout);
         }
-    }, [currentIndex, mode]);
+    }, [currentIndex, mode, gameData]);
 
     const playLearnSequence = () => {
-        // "C... A... T... CAT!"
-        speak(`${currentWord.p1}...... ${currentWord.p2}...... ${currentWord.p3}...... ${currentWord.word}. ${currentWord.sentence}`);
+        if (currentWord) {
+            speak(`${currentWord.p1}...... ${currentWord.p2}...... ${currentWord.p3}...... ${currentWord.word}. ${currentWord.sentence}`);
+        }
     };
 
     const nextWord = () => {
-        if (currentIndex < THREE_LETTER_WORDS.length - 1) {
+        if (currentIndex < gameData.length - 1) {
             setCurrentIndex(c => c + 1);
         }
     };
@@ -84,15 +61,16 @@ function ThreeLetterWordsGame({ onBack }) {
 
     // --- Quiz Logic ---
     const startQuizRound = () => {
-        const targetIndex = Math.floor(Math.random() * THREE_LETTER_WORDS.length);
-        const target = THREE_LETTER_WORDS[targetIndex];
+        if (!gameData || gameData.length === 0) return;
+        const targetIndex = Math.floor(Math.random() * gameData.length);
+        const target = gameData[targetIndex];
         setQuizTarget(target);
         setFeedback(null);
 
         // Generate options
         const options = [target];
         while (options.length < 3) {
-            const random = THREE_LETTER_WORDS[Math.floor(Math.random() * THREE_LETTER_WORDS.length)];
+            const random = gameData[Math.floor(Math.random() * gameData.length)];
             if (!options.includes(random)) options.push(random);
         }
         // Shuffle
@@ -102,10 +80,10 @@ function ThreeLetterWordsGame({ onBack }) {
     };
 
     useEffect(() => {
-        if (mode === 'quiz') {
+        if (mode === 'quiz' && !loading) {
             startQuizRound();
         }
-    }, [mode]);
+    }, [mode, loading]);
 
     const handleQuizOptionClick = (item) => {
         if (item.word === quizTarget.word) {
@@ -120,6 +98,10 @@ function ThreeLetterWordsGame({ onBack }) {
             speak("Try again!");
         }
     };
+
+    if (loading) return <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2rem' }}>Loading Words...</div>;
+
+    if (!gameData || gameData.length === 0) return <div>No data found</div>;
 
     return (
         <div className="game-container" style={{
@@ -190,7 +172,7 @@ function ThreeLetterWordsGame({ onBack }) {
                         }}
                     >
                         <div style={{ position: 'absolute', top: '20px', right: '20px', fontSize: '1.5rem', color: '#95A5A6', fontWeight: 'bold' }}>
-                            {currentIndex + 1} / {THREE_LETTER_WORDS.length}
+                            {currentIndex + 1} / {gameData.length}
                         </div>
 
                         {/* Phonics Breakdown */}
@@ -237,11 +219,11 @@ function ThreeLetterWordsGame({ onBack }) {
                     {/* Next Button */}
                     <button
                         onClick={nextWord}
-                        disabled={currentIndex === THREE_LETTER_WORDS.length - 1}
+                        disabled={currentIndex === gameData.length - 1}
                         style={{
-                            background: currentIndex === THREE_LETTER_WORDS.length - 1 ? '#ccc' : 'white',
+                            background: currentIndex === gameData.length - 1 ? '#ccc' : 'white',
                             border: 'none', borderRadius: '50%', width: '60px', height: '60px',
-                            fontSize: '2rem', cursor: currentIndex === THREE_LETTER_WORDS.length - 1 ? 'default' : 'pointer',
+                            fontSize: '2rem', cursor: currentIndex === gameData.length - 1 ? 'default' : 'pointer',
                             boxShadow: '0 4px 0 rgba(0,0,0,0.1)'
                         }}
                     >

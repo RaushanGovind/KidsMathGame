@@ -1,65 +1,37 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { playSound as playAppSound } from '../utils/sounds';
-
-const PREPOSITION_DATA = {
-    basics: {
-        title: "Basic Positions",
-        description: "Where is it?",
-        color: '#8E44AD',
-        items: [
-            { word: "In", sentence: "The cat is **in** the box.", icon: "📦" },
-            { word: "On", sentence: "The apple is **on** the table.", icon: "🍎" },
-            { word: "Under", sentence: "The dog is **under** the chair.", icon: "🐕" },
-            { word: "Over", sentence: "The bird flies **over** the tree.", icon: "🐦" },
-            { word: "Behind", sentence: "The sun is **behind** the cloud.", icon: "☁️" },
-            { word: "In Front Of", sentence: "The boy is **in front of** the door.", icon: "🚪" }
-        ]
-    },
-    action_sentences: {
-        title: "Action Sentences",
-        description: "Noun + Verb + Adverb + Preposition",
-        color: '#E67E22',
-        sentences: [
-            { noun: "The dog", verb: "runs", adverb: "quickly", prep: "**in**", object: "the park.", icon: "🏞️" },
-            { noun: "She", verb: "sits", adverb: "quietly", prep: "**on**", object: "the chair.", icon: "🪑" },
-            { noun: "The bird", verb: "sings", adverb: "loudly", prep: "**on**", object: "the branch.", icon: "🌳" },
-            { noun: "He", verb: "walks", adverb: "slowly", prep: "**to**", object: "school.", icon: "🎒" }
-        ]
-    }
-};
-
-const QUIZ_DATA = [
-    { question: 'The cat is ___ the box. (Inside)', answer: 'in', options: ['in', 'on', 'under'] },
-    { question: 'The bird flies ___ the tree. (Above)', answer: 'over', options: ['over', 'in', 'behind'] },
-    { question: 'The apple is ___ the table. (Top)', answer: 'on', options: ['on', 'in', 'under'] },
-    { question: 'The dog sleeps ___ the bed. (Below)', answer: 'under', options: ['under', 'on', 'over'] },
-    { question: 'Who is standing ___ the door?', answer: 'behind', options: ['behind', 'in', 'on'] }
-];
+import { speak } from '../utils/speech';
 
 function PrepositionsGame({ onBack }) {
+    const [gameData, setGameData] = useState(null);
+    const [loading, setLoading] = useState(true);
     const [mode, setMode] = useState('learn'); // 'learn' | 'sentences' | 'quiz'
     const [quizIndex, setQuizIndex] = useState(0);
     const [score, setScore] = useState(0);
     const [showResult, setShowResult] = useState(false);
     const [feedback, setFeedback] = useState(null);
 
-    const speak = (text) => {
-        window.speechSynthesis.cancel();
-        const cleanText = text.replace(/\*\*/g, '');
-        const utterance = new SpeechSynthesisUtterance(cleanText);
-        utterance.rate = 0.9;
-        utterance.pitch = 1.1;
-        window.speechSynthesis.speak(utterance);
-    };
+    useEffect(() => {
+        fetch('http://localhost:8000/api/content/prepositions')
+            .then(res => res.json())
+            .then(data => {
+                setGameData(data);
+                setLoading(false);
+            })
+            .catch(err => {
+                console.error("Failed to load prepositions content", err);
+                setLoading(false);
+            });
+    }, []);
 
     const handleQuizAnswer = (option) => {
-        const correct = QUIZ_DATA[quizIndex].answer;
+        const correct = gameData.quiz[quizIndex].answer;
         if (option === correct) {
             playAppSound('correct');
             setScore(s => s + 1);
             setFeedback('correct');
-            speak(`Correct! ${QUIZ_DATA[quizIndex].question.replace('___', option)}`);
+            speak(`Correct! ${gameData.quiz[quizIndex].question.replace('___', option)}`);
         } else {
             playAppSound('wrong');
             setFeedback('wrong');
@@ -67,7 +39,7 @@ function PrepositionsGame({ onBack }) {
         }
 
         setTimeout(() => {
-            if (quizIndex < QUIZ_DATA.length - 1) {
+            if (quizIndex < gameData.quiz.length - 1) {
                 setQuizIndex(c => c + 1);
                 setFeedback(null);
             } else {
@@ -83,6 +55,10 @@ function PrepositionsGame({ onBack }) {
         setFeedback(null);
         setMode('learn');
     };
+
+    if (loading) return <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2rem' }}>Loading Prepositions...</div>;
+
+    if (!gameData) return <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>Error loading data.</div>;
 
     const renderStyledText = (text, color = '#8E44AD') => {
         const parts = text.split(/(\*\*.*?\*\*)/);
@@ -122,12 +98,12 @@ function PrepositionsGame({ onBack }) {
             {mode === 'learn' && (
                 <div style={{ width: '100%', maxWidth: '1000px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                     <div style={{ textAlign: 'center', marginBottom: '30px' }}>
-                        <h2 style={{ color: '#8E44AD', fontSize: '2rem', margin: 0 }}>{PREPOSITION_DATA.basics.title}</h2>
-                        <p style={{ color: '#7F8C8D', fontSize: '1.2rem' }}>{PREPOSITION_DATA.basics.description}</p>
+                        <h2 style={{ color: '#8E44AD', fontSize: '2rem', margin: 0 }}>{gameData.basics.title}</h2>
+                        <p style={{ color: '#7F8C8D', fontSize: '1.2rem' }}>{gameData.basics.description}</p>
                     </div>
 
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', width: '100%' }}>
-                        {PREPOSITION_DATA.basics.items.map((item, idx) => (
+                        {gameData.basics.items.map((item, idx) => (
                             <div key={idx}
                                 onClick={() => speak(item.sentence)}
                                 style={{
@@ -148,14 +124,14 @@ function PrepositionsGame({ onBack }) {
             {mode === 'sentences' && (
                 <div style={{ width: '100%', maxWidth: '900px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                     <div style={{ textAlign: 'center', marginBottom: '30px' }}>
-                        <h2 style={{ color: '#E67E22', fontSize: '2rem', margin: 0 }}>{PREPOSITION_DATA.action_sentences.title}</h2>
-                        <p style={{ color: '#7F8C8D', fontSize: '1.2rem' }}>{PREPOSITION_DATA.action_sentences.description}</p>
+                        <h2 style={{ color: '#E67E22', fontSize: '2rem', margin: 0 }}>Action Sentences</h2>
+                        <p style={{ color: '#7F8C8D', fontSize: '1.2rem' }}>Noun + Verb + Adverb + Preposition</p>
                     </div>
 
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '25px', width: '100%' }}>
-                        {PREPOSITION_DATA.action_sentences.sentences.map((s, idx) => (
+                        {gameData.action_sentences.map((s, idx) => (
                             <div key={idx}
-                                onClick={() => speak(`${s.noun} ${s.verb} ${s.adverb} ${s.prep} ${s.object}`)}
+                                onClick={() => speak(`${s.noun} ${s.verb} ${s.adverb} ${s.prep.replace(/\*\*/g, '')} ${s.object}`)}
                                 style={{
                                     background: 'white', padding: '25px', borderRadius: '25px',
                                     boxShadow: '0 8px 20px rgba(0,0,0,0.05)', display: 'flex', alignItems: 'center', gap: '20px',
@@ -183,14 +159,14 @@ function PrepositionsGame({ onBack }) {
             {mode === 'quiz' && !showResult && (
                 <div style={{ width: '100%', maxWidth: '600px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                     <div style={{ background: 'white', padding: '40px', borderRadius: '30px', boxShadow: '0 10px 30px rgba(0,0,0,0.1)', width: '100%', textAlign: 'center' }}>
-                        <h2 style={{ fontSize: '1.5rem', color: '#8E44AD', marginBottom: '10px' }}>Question {quizIndex + 1} / {QUIZ_DATA.length}</h2>
+                        <h2 style={{ fontSize: '1.5rem', color: '#8E44AD', marginBottom: '10px' }}>Question {quizIndex + 1} / {gameData.quiz.length}</h2>
 
                         <div style={{ fontSize: '1.8rem', fontWeight: 'bold', color: '#2C3E50', marginBottom: '40px', lineHeight: '1.4' }}>
-                            {QUIZ_DATA[quizIndex].question}
+                            {gameData.quiz[quizIndex].question}
                         </div>
 
                         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '15px' }}>
-                            {QUIZ_DATA[quizIndex].options.map((option, idx) => (
+                            {gameData.quiz[quizIndex].options.map((option, idx) => (
                                 <motion.button
                                     key={idx}
                                     whileHover={{ scale: 1.05 }}
@@ -203,8 +179,8 @@ function PrepositionsGame({ onBack }) {
                                         fontWeight: 'bold',
                                         borderRadius: '15px',
                                         border: 'none',
-                                        background: feedback && option === QUIZ_DATA[quizIndex].answer ? '#2ECC71' :
-                                            feedback && option !== QUIZ_DATA[quizIndex].answer && feedback === 'wrong' ? '#E74C3C' : '#F4ECF7',
+                                        background: feedback && option === gameData.quiz[quizIndex].answer ? '#2ECC71' :
+                                            feedback && option !== gameData.quiz[quizIndex].answer && feedback === 'wrong' ? '#E74C3C' : '#F4ECF7',
                                         color: feedback ? 'white' : '#8E44AD',
                                         cursor: 'pointer'
                                     }}
@@ -221,7 +197,7 @@ function PrepositionsGame({ onBack }) {
                 <div style={{ width: '100%', maxWidth: '600px', background: 'white', padding: '40px', borderRadius: '30px', boxShadow: '0 10px 30px rgba(0,0,0,0.1)', textAlign: 'center' }}>
                     <div style={{ fontSize: '5rem', marginBottom: '20px' }}>🎉</div>
                     <h2 style={{ fontSize: '3rem', color: '#8E44AD', marginBottom: '20px' }}>Quiz Complete!</h2>
-                    <p style={{ fontSize: '2rem', color: '#2C3E50', marginBottom: '40px' }}>You scored {score} out of {QUIZ_DATA.length}!</p>
+                    <p style={{ fontSize: '2rem', color: '#2C3E50', marginBottom: '40px' }}>You scored {score} out of {gameData.quiz.length}!</p>
                     <button onClick={resetQuiz} style={{ padding: '15px 40px', borderRadius: '50px', background: '#F39C12', color: 'white', fontSize: '1.5rem', fontWeight: 'bold', border: 'none', cursor: 'pointer', boxShadow: '0 5px 0 #D35400' }}>Play Again 🔄</button>
                 </div>
             )}
