@@ -231,269 +231,301 @@ function AdditionGame({ onBack }) {
                 }}
             >
                 <div style={{ marginBottom: '30px', textAlign: 'center' }}>
-                    <h2 style={{ fontSize: '2.5rem', fontWeight: '1000', color: '#2C3E50', margin: 0, textTransform: 'uppercase' }}>
+                    <h2 style={{ fontSize: '2rem', fontWeight: '1000', color: '#2C3E50', margin: 0, textTransform: 'uppercase', letterSpacing: '1px' }}>
                         {mode === 'learn' ? '➕ Learn Addition' : '➕ Addition Practice'}
                     </h2>
-                    <p style={{ fontSize: '1.2rem', fontWeight: '900', color: '#64748B', marginTop: '10px' }}>
+                    <p style={{ fontSize: '1rem', fontWeight: '800', color: '#64748B', marginTop: '5px' }}>
                         {mode === 'learn' ? 'Conventional Column Method!' : 'Solve the problem!'}
                     </p>
                 </div>
 
-                {/* Settings */}
+                {/* Settings Panel */}
                 <div style={{
                     width: '100%',
                     display: 'flex',
                     justifyContent: 'center',
-                    gap: '15px',
-                    marginBottom: '30px',
-                    padding: '15px',
-                    background: '#f8f9fa',
+                    gap: '20px',
+                    marginBottom: '35px',
+                    padding: '15px 25px',
+                    background: '#F1F5F9',
                     borderRadius: '20px',
-                    border: '2px dashed #dee2e6',
+                    border: '2px solid #E2E8F0',
                     flexWrap: 'wrap'
                 }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                        <span style={{ fontWeight: 'bold', color: '#495057' }}>Digits:</span>
-                        <select value={settings.digits} onChange={e => setSettings({ ...settings, digits: Number(e.target.value) })} style={{ padding: '8px', borderRadius: '10px', border: '2px solid #ced4da', fontWeight: 'bold' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                        <span style={{ fontWeight: '800', color: '#475569', fontSize: '0.9rem' }}>DIGITS:</span>
+                        <select
+                            value={settings.digits}
+                            onChange={e => setSettings({ ...settings, digits: Number(e.target.value) })}
+                            style={{ padding: '6px 12px', borderRadius: '10px', border: '2px solid #CBD5E1', fontWeight: '900', color: '#1E293B', cursor: 'pointer', outline: 'none' }}
+                        >
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                         </select>
                     </div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                        <span style={{ fontWeight: 'bold', color: '#495057' }}>Rows:</span>
-                        <select value={settings.rows} onChange={e => setSettings({ ...settings, rows: Number(e.target.value) })} style={{ padding: '8px', borderRadius: '10px', border: '2px solid #ced4da', fontWeight: 'bold' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                        <span style={{ fontWeight: '800', color: '#475569', fontSize: '0.9rem' }}>ROWS:</span>
+                        <select
+                            value={settings.rows}
+                            onChange={e => setSettings({ ...settings, rows: Number(e.target.value) })}
+                            style={{ padding: '6px 12px', borderRadius: '10px', border: '2px solid #CBD5E1', fontWeight: '900', color: '#1E293B', cursor: 'pointer', outline: 'none' }}
+                        >
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
                         </select>
                     </div>
                     {mode === 'test' && (
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                            <span style={{ fontWeight: 'bold', color: '#495057' }}>Carry Mode:</span>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                            <span style={{ fontWeight: '800', color: '#475569', fontSize: '0.9rem' }}>CARRY BOX:</span>
                             <button
                                 onClick={() => setSettings(s => ({ ...s, carry: !s.carry }))}
                                 style={{
-                                    padding: '8px 15px',
-                                    borderRadius: '10px',
-                                    background: settings.carry ? '#2ecc71' : '#bdc3c7',
+                                    padding: '8px 20px',
+                                    borderRadius: '12px',
+                                    background: settings.carry ? '#10B981' : '#94A3B8',
                                     color: 'white',
                                     border: 'none',
-                                    fontWeight: 'bold',
-                                    cursor: 'pointer'
+                                    fontWeight: '900',
+                                    cursor: 'pointer',
+                                    boxShadow: `0 4px 0 ${settings.carry ? '#059669' : '#64748B'}`,
+                                    transition: 'all 0.2s',
+                                    fontSize: '0.85rem'
                                 }}
                             >
-                                {settings.carry ? 'ON' : 'OFF'}
+                                {settings.carry ? 'VISIBLE' : 'HIDDEN'}
                             </button>
                         </div>
                     )}
                 </div>
 
                 {mode === 'learn' ? (
-                    // LEARN MODE: Show step-by-step solution
-                    <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '30px', alignItems: 'center' }}>
-                        {/* Conventional Column Display */}
+                    // LEARN MODE: Modern Step-by-Step Visualization
+                    <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '40px', alignItems: 'center' }}>
                         <motion.div
-                            initial={{ opacity: 0, scale: 0.9 }}
+                            initial={{ opacity: 0, scale: 0.95 }}
                             animate={{ opacity: 1, scale: 1 }}
-                            transition={{ delay: 0.1 }}
                             style={{
                                 background: 'white',
-                                padding: '40px',
-                                borderRadius: '25px',
-                                border: '4px solid #27AE60',
-                                fontFamily: 'monospace',
-                                display: 'inline-block'
+                                padding: '30px 40px',
+                                borderRadius: '30px',
+                                border: '3px solid #E2E8F0',
+                                boxShadow: '0 10px 25px rgba(0,0,0,0.05)',
+                                display: 'inline-flex',
+                                flexDirection: 'column',
+                                alignItems: 'flex-end'
                             }}
                         >
-                            {/* Carry indicators */}
-                            <div style={{ display: 'flex', flexDirection: 'row-reverse', gap: '10px', marginBottom: '5px', paddingLeft: '80px' }}>
+                            {/* Carry indicators (Offset to the left by one) */}
+                            <div style={{ display: 'flex', flexDirection: 'row-reverse', marginBottom: '10px', marginRight: '5px' }}>
                                 {Array.from({ length: question.columnCount }).map((_, i) => (
-                                    <div key={i} style={{ width: '80px', textAlign: 'center' }}>
-                                        {question.carries[i] > 0 && (
-                                            <span style={{ fontSize: '1.5rem', color: '#E74C3C', fontWeight: '900' }}>
-                                                {question.carries[i]}
+                                    <div key={i} style={{ width: '70px', height: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                        {/* Display carry from the PREVIOUS column (i-1) */}
+                                        {i > 0 && question.carries[i - 1] > 0 && (
+                                            <span style={{ fontSize: '1.4rem', color: '#EF4444', fontWeight: '1000', background: '#FEF2F2', padding: '2px 10px', borderRadius: '10px', border: '2px solid #FEE2E2' }}>
+                                                {question.carries[i - 1]}
                                             </span>
                                         )}
                                     </div>
                                 ))}
+                                <div style={{ width: '60px' }}></div> {/* Spacer for the + symbol column */}
                             </div>
 
-                            {/* Numbers */}
+                            {/* Numbers Rows */}
                             {question.numbers.map((num, idx) => (
-                                <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
-                                    <div style={{ width: '70px', fontSize: '3rem', fontWeight: '1000', color: '#27AE60' }}>
+                                <div key={idx} style={{ display: 'flex', flexDirection: 'row-reverse', alignItems: 'center', marginBottom: '5px' }}>
+                                    {Array.from({ length: question.columnCount }).map((_, i) => (
+                                        <div key={i} style={{
+                                            width: '70px',
+                                            fontSize: '3rem',
+                                            fontWeight: '800',
+                                            color: '#1E293B',
+                                            textAlign: 'center'
+                                        }}>
+                                            {getDigit(num, i)}
+                                        </div>
+                                    ))}
+                                    <div style={{
+                                        width: '60px',
+                                        fontSize: '2.5rem',
+                                        fontWeight: '900',
+                                        color: '#E67E22',
+                                        textAlign: 'center'
+                                    }}>
                                         {idx === question.numbers.length - 1 ? '+' : ''}
-                                    </div>
-                                    <div style={{ display: 'flex', flexDirection: 'row-reverse', gap: '10px' }}>
-                                        {Array.from({ length: question.columnCount }).map((_, i) => (
-                                            <div key={i} style={{
-                                                width: '80px',
-                                                fontSize: '3rem',
-                                                fontWeight: '1000',
-                                                color: '#2C3E50',
-                                                textAlign: 'center'
-                                            }}>
-                                                {getDigit(num, i)}
-                                            </div>
-                                        ))}
                                     </div>
                                 </div>
                             ))}
 
                             {/* Horizontal line */}
-                            <div style={{ borderTop: '4px solid #2C3E50', margin: '10px 0', marginLeft: '80px' }}></div>
+                            <div style={{
+                                width: `calc(${question.columnCount * 70}px + 60px)`,
+                                height: '4px',
+                                background: '#1E293B',
+                                margin: '15px 0',
+                                borderRadius: '2px'
+                            }}></div>
 
-                            {/* Answer */}
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginTop: '15px' }}>
-                                <div style={{ width: '70px' }}></div>
-                                <div style={{ display: 'flex', flexDirection: 'row-reverse', gap: '10px' }}>
-                                    {Array.from({ length: question.columnCount }).map((_, i) => (
-                                        <div key={i} style={{
-                                            width: '80px',
-                                            fontSize: '3.5rem',
-                                            fontWeight: '1000',
-                                            color: '#FF6F00',
-                                            textAlign: 'center'
-                                        }}>
-                                            {getAnswerDigit(i)}
-                                        </div>
-                                    ))}
-                                </div>
+                            {/* Answer Row */}
+                            <div style={{ display: 'flex', flexDirection: 'row-reverse', alignItems: 'center' }}>
+                                {Array.from({ length: question.columnCount }).map((_, i) => (
+                                    <div key={i} style={{
+                                        width: '70px',
+                                        fontSize: '3.5rem',
+                                        fontWeight: '900',
+                                        color: '#27AE60',
+                                        textAlign: 'center'
+                                    }}>
+                                        {getAnswerDigit(i)}
+                                    </div>
+                                ))}
+                                <div style={{ width: '60px' }}></div>
                             </div>
                         </motion.div>
 
-                        {/* Explanation */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.3 }}
-                            style={{ width: '100%', maxWidth: '700px' }}
-                        >
-                            {Array.from({ length: question.columnCount }).reverse().map((_, idx) => {
-                                const colIndex = question.columnCount - 1 - idx;
+                        {/* Step-by-Step Explanation Cards */}
+                        <div style={{ width: '100%', maxWidth: '650px', display: 'flex', flexDirection: 'column', gap: '15px' }}>
+                            {Array.from({ length: question.columnCount }).map((_, idx) => {
+                                const colIndex = idx; // 0=units, 1=tens...
                                 const columnSum = getColumnSum(colIndex);
-                                const carry = question.carries[colIndex];
-                                const previousCarry = (colIndex > 0 && question.carries[colIndex - 1]) || 0;
+                                const carryOut = question.carries[colIndex];
+                                const carryIn = (colIndex > 0 && question.carries[colIndex - 1]) || 0;
 
                                 return (
-                                    <div key={colIndex} style={{
-                                        background: '#E8F5E9',
-                                        padding: '20px',
-                                        borderRadius: '15px',
-                                        border: '3px solid #4CAF50',
-                                        marginBottom: '15px'
-                                    }}>
-                                        <h3 style={{ fontSize: '1.3rem', fontWeight: '900', color: '#2E7D32', marginBottom: '10px' }}>
-                                            Column {colIndex + 1}: {previousCarry > 0 && `(Carry ${previousCarry}) + `}
-                                            {question.numbers.map((num, i) => getDigitValue(num, colIndex) || 0).join(' + ')}
-                                            {' = '}{columnSum}
+                                    <motion.div
+                                        key={colIndex}
+                                        initial={{ opacity: 0, x: -20 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        transition={{ delay: idx * 0.1 }}
+                                        style={{
+                                            background: '#FFFFFF',
+                                            padding: '20px 25px',
+                                            borderRadius: '20px',
+                                            border: '2px solid #ECFDF5',
+                                            boxShadow: '0 4px 12px rgba(0,0,0,0.03)',
+                                            borderLeft: '6px solid #10B981'
+                                        }}
+                                    >
+                                        <h3 style={{ fontSize: '1.2rem', fontWeight: '900', color: '#065F46', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                                            <span style={{ background: '#10B981', color: 'white', width: '28px', height: '28px', borderRadius: '50%', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.9rem' }}>{idx + 1}</span>
+                                            {colIndex === 0 ? 'Units' : colIndex === 1 ? 'Tens' : colIndex === 2 ? 'Hundreds' : `Column ${colIndex + 1}`} Column
                                         </h3>
-                                        <p style={{ fontSize: '1.1rem', fontWeight: '700', color: '#1B5E20', margin: 0 }}>
-                                            Write: <strong>{columnSum % 10}</strong>
-                                            {carry > 0 && <> | Carry: <strong style={{ color: '#E74C3C' }}>{carry}</strong></>}
-                                        </p>
-                                    </div>
+                                        <div style={{ fontSize: '1.1rem', fontWeight: '700', color: '#475569' }}>
+                                            {carryIn > 0 && <span style={{ color: '#EF4444' }}>(Carry {carryIn}) + </span>}
+                                            {question.numbers.map((num, i) => getDigitValue(num, colIndex) || 0).join(' + ')}
+                                            {' = '}<span style={{ color: '#1E293B', fontWeight: '900' }}>{columnSum}</span>
+                                        </div>
+                                        <div style={{ marginTop: '5px', fontSize: '1rem', color: '#10B981', fontWeight: '800' }}>
+                                            Write: <span style={{ fontSize: '1.3rem' }}>{columnSum % 10}</span>
+                                            {carryOut > 0 && <span style={{ marginLeft: '15px', color: '#EF4444' }}>| Carry: {carryOut}</span>}
+                                        </div>
+                                    </motion.div>
                                 );
                             })}
-                        </motion.div>
+                        </div>
 
                         <motion.button
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
+                            whileHover={{ scale: 1.02 }}
+                            whileTap={{ scale: 0.98 }}
                             onClick={generateQuestion}
                             style={{
-                                padding: '20px 60px',
-                                background: '#27AE60',
+                                padding: '18px 50px',
+                                background: '#10B981',
                                 color: 'white',
-                                borderRadius: '30px',
+                                borderRadius: '20px',
                                 border: 'none',
-                                boxShadow: '0 8px 0 #1E8449',
-                                fontSize: '2rem',
+                                boxShadow: '0 6px 0 #059669',
+                                fontSize: '1.5rem',
                                 fontWeight: '1000',
                                 cursor: 'pointer',
                                 textTransform: 'uppercase'
                             }}
                         >
-                            🔄 NEW PROBLEM
+                            🔄 Generate New
                         </motion.button>
                     </div>
                 ) : (
-                    // TEST MODE: Interactive solving
+                    // TEST MODE: Balanced and Scaled for Mobile
                     <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                        {/* Flying Carry Animation */}
-                        <AnimatePresence>
-                            {animatingCarry && (
-                                <motion.div
-                                    initial={{ x: animatingCarry.fromCol * -92, y: 150, scale: 1.5, opacity: 1 }}
-                                    animate={{ x: animatingCarry.toCol * -92, y: -220, scale: 1, opacity: 0.8 }}
-                                    exit={{ opacity: 0 }}
-                                    transition={{ duration: 0.8, ease: "easeInOut" }}
-                                    style={{
-                                        position: 'absolute',
-                                        bottom: '150px',
-                                        right: '60px',
-                                        width: '40px', height: '40px',
-                                        background: '#F1C40F', color: '#2C3E50',
-                                        borderRadius: '50%',
-                                        display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                        fontWeight: '900', fontSize: '1.5rem',
-                                        zIndex: 100,
-                                        pointerEvents: 'none'
-                                    }}
-                                >
-                                    {animatingCarry.val}
-                                </motion.div>
-                            )}
-                        </AnimatePresence>
-
-                        <div className="columns-container" style={{ display: 'flex', flexDirection: 'row-reverse', gap: '10px' }}>
-                            {Array.from({ length: question.columnCount }).map((_, i) => (
-                                <div key={i} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '80px', position: 'relative' }}>
-                                    {/* Carry Area */}
-                                    <div style={{ height: '50px', marginBottom: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                                        {(settings.carry || carryInputs[i]) && i < question.columnCount - 1 && (
-                                            <motion.div
-                                                initial={carryInputs[i] ? { scale: 0.5, opacity: 0 } : false}
-                                                animate={carryInputs[i] ? { scale: 1, opacity: 1 } : false}
-                                                style={{
-                                                    width: '45px', height: '45px',
-                                                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                                    borderRadius: '12px',
-                                                    background: carryInputs[i] ? '#F1C40F' : '#f1f2f6',
-                                                    color: '#2C3E50',
-                                                    fontWeight: '900',
-                                                    fontSize: '1.4rem',
-                                                    border: '2px solid #ddd'
+                        <div style={{
+                            background: 'white',
+                            padding: '30px 40px',
+                            borderRadius: '30px',
+                            border: '3px solid #E2E8F0',
+                            boxShadow: '0 10px 30px rgba(0,0,0,0.05)',
+                            display: 'inline-flex',
+                            flexDirection: 'column',
+                            alignItems: 'flex-end',
+                            position: 'relative'
+                        }}>
+                            {/* Interactive Carry Inputs */}
+                            <div style={{ display: 'flex', flexDirection: 'row-reverse', marginBottom: '10px', marginRight: '5px' }}>
+                                {Array.from({ length: question.columnCount }).map((_, i) => (
+                                    <div key={i} style={{ width: '70px', height: '45px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                        {(settings.carry || carryInputs[i]) && i > 0 && (
+                                            <input
+                                                type="text"
+                                                inputMode="numeric"
+                                                maxLength="1"
+                                                value={carryInputs[i] || ''}
+                                                onChange={(e) => {
+                                                    const val = e.target.value.slice(-1);
+                                                    if (/^\d*$/.test(val)) setCarryInputs(prev => ({ ...prev, [i]: val }));
                                                 }}
-                                            >
-                                                {carryInputs[i] || ''}
-                                            </motion.div>
+                                                placeholder="c"
+                                                style={{
+                                                    width: '40px',
+                                                    height: '40px',
+                                                    textAlign: 'center',
+                                                    fontSize: '1.2rem',
+                                                    fontWeight: '900',
+                                                    border: '2px dashed #CBD5E1',
+                                                    borderRadius: '10px',
+                                                    background: carryInputs[i] ? '#FEF3C7' : '#F8FAFC',
+                                                    color: '#92400E',
+                                                    outline: 'none'
+                                                }}
+                                            />
                                         )}
                                     </div>
+                                ))}
+                                <div style={{ width: '60px' }}></div>
+                            </div>
 
-                                    {/* Numbers */}
-                                    {question.numbers.map((num, idx) => (
-                                        <div key={idx} style={{
-                                            fontSize: '5rem',
-                                            fontWeight: '900',
-                                            height: '80px',
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                            justifyContent: 'center',
-                                            width: '100%',
-                                            position: 'relative',
-                                            color: '#2C3E50'
+                            {/* Summands */}
+                            {question.numbers.map((num, idx) => (
+                                <div key={idx} style={{ display: 'flex', flexDirection: 'row-reverse', alignItems: 'center', marginBottom: '5px' }}>
+                                    {Array.from({ length: question.columnCount }).map((_, i) => (
+                                        <div key={i} style={{
+                                            width: '70px',
+                                            fontSize: '3rem',
+                                            fontWeight: '800',
+                                            color: '#1E293B',
+                                            textAlign: 'center'
                                         }}>
-                                            {idx === question.numbers.length - 1 && i === question.columnCount - 1 && (
-                                                <span style={{ position: 'absolute', left: '-25px', fontWeight: '900', color: '#E67E22' }}>+</span>
-                                            )}
                                             {getDigit(num, i)}
                                         </div>
                                     ))}
+                                    <div style={{ width: '60px', fontSize: '2.5rem', fontWeight: '900', color: '#F97316', textAlign: 'center' }}>
+                                        {idx === question.numbers.length - 1 ? '+' : ''}
+                                    </div>
+                                </div>
+                            ))}
 
-                                    {/* Answer Input */}
-                                    <div style={{ width: '100%', borderTop: '6px solid #2C3E50', marginTop: '10px', paddingTop: '15px', display: 'flex', justifyContent: 'center' }}>
+                            {/* Divider Line */}
+                            <div style={{
+                                width: `calc(${question.columnCount * 70}px + 60px)`,
+                                height: '5px',
+                                background: '#1E293B',
+                                margin: '15px 0',
+                                borderRadius: '5px'
+                            }}></div>
+
+                            {/* User Answer Inputs */}
+                            <div style={{ display: 'flex', flexDirection: 'row-reverse', alignItems: 'center' }}>
+                                {Array.from({ length: question.columnCount }).map((_, i) => (
+                                    <div key={i} style={{ width: '70px', display: 'flex', justifyContent: 'center' }}>
                                         <input
                                             ref={el => inputsRef.current[i] = el}
                                             type="text"
@@ -502,87 +534,65 @@ function AdditionGame({ onBack }) {
                                             onChange={(e) => handleInput(i, e.target.value)}
                                             onKeyDown={(e) => handleKeyDown(e, i)}
                                             style={{
-                                                width: '70px',
-                                                height: '70px',
-                                                fontSize: '3rem',
+                                                width: '55px',
+                                                height: '65px',
+                                                fontSize: '2.5rem',
                                                 textAlign: 'center',
-                                                borderRadius: '15px',
-                                                border: '3px solid #34495E',
-                                                background: '#fff',
-                                                color: '#2C3E50',
+                                                borderRadius: '12px',
+                                                border: feedback === 'incorrect' ? '3px solid #EF4444' : feedback === 'correct' ? '3px solid #10B981' : '3px solid #334155',
+                                                background: '#FFFFFF',
+                                                color: '#1E293B',
                                                 fontWeight: '900',
-                                                outline: 'none'
+                                                outline: 'none',
+                                                transition: 'all 0.2s',
+                                                boxShadow: '0 4px 6px rgba(0,0,0,0.05)'
                                             }}
                                         />
                                     </div>
-                                </div>
-                            ))}
+                                ))}
+                                <div style={{ width: '60px' }}></div>
+                            </div>
                         </div>
 
-                        {/* Feedback */}
-                        <div style={{ height: '60px', marginTop: '20px', display: 'flex', alignItems: 'center' }}>
+                        {/* Action Buttons */}
+                        <div style={{ marginTop: '30px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px' }}>
                             <AnimatePresence mode="wait">
                                 {feedback && (
                                     <motion.div
                                         key={feedback}
-                                        initial={{ scale: 0, opacity: 0, y: 20 }}
-                                        animate={{ scale: 1.2, opacity: 1, y: 0 }}
-                                        exit={{ scale: 0, opacity: 0, y: -20 }}
+                                        initial={{ scale: 0.8, opacity: 0 }}
+                                        animate={{ scale: 1, opacity: 1 }}
                                         style={{
-                                            fontSize: '2.5rem',
-                                            fontWeight: '900',
-                                            color: feedback === 'correct' ? '#27AE60' : '#E74C3C'
+                                            fontSize: '1.8rem',
+                                            fontWeight: '1000',
+                                            color: feedback === 'correct' ? '#10B981' : '#EF4444'
                                         }}
                                     >
                                         {feedback === 'correct' ? '🌟 EXCELLENT!' : '❌ TRY AGAIN!'}
                                     </motion.div>
                                 )}
                             </AnimatePresence>
-                        </div>
 
-                        {feedback === 'correct' ? (
-                            <motion.button
-                                initial={{ scale: 0 }}
-                                animate={{ scale: 1 }}
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                onClick={generateQuestion}
-                                style={{
-                                    marginTop: '10px',
-                                    padding: '20px 60px',
-                                    fontSize: '2rem',
-                                    background: '#27AE60',
-                                    color: 'white',
-                                    fontWeight: '900',
-                                    borderRadius: '25px',
-                                    border: 'none',
-                                    boxShadow: '0 8px 0 #219150',
-                                    cursor: 'pointer'
-                                }}
-                            >
-                                NEXT QUESTION
-                            </motion.button>
-                        ) : (
                             <motion.button
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
-                                onClick={checkAnswer}
+                                onClick={feedback === 'correct' ? generateQuestion : checkAnswer}
                                 style={{
-                                    marginTop: '10px',
-                                    padding: '20px 60px',
-                                    fontSize: '2rem',
-                                    background: '#E67E22',
+                                    padding: '18px 60px',
+                                    fontSize: '1.5rem',
+                                    background: feedback === 'correct' ? '#10B981' : '#F97316',
                                     color: 'white',
-                                    fontWeight: '900',
-                                    borderRadius: '25px',
+                                    fontWeight: '1000',
+                                    borderRadius: '20px',
                                     border: 'none',
-                                    boxShadow: '0 8px 0 #D35400',
-                                    cursor: 'pointer'
+                                    boxShadow: `0 6px 0 ${feedback === 'correct' ? '#059669' : '#C2410C'}`,
+                                    cursor: 'pointer',
+                                    textTransform: 'uppercase'
                                 }}
                             >
-                                CHECK ANSWER
+                                {feedback === 'correct' ? 'NEXT PROBLEM ➡' : 'CHECK ANSWER'}
                             </motion.button>
-                        )}
+                        </div>
                     </div>
                 )}
 

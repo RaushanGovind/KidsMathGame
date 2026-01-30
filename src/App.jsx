@@ -61,6 +61,7 @@ import ReasoningBasicsGame from './components/ReasoningBasicsGame';
 import LogicPuzzleGame from './components/LogicPuzzleGame';
 import HindiMenu from './components/HindiMenu';
 import HindiGame from './components/HindiGame';
+import HindiStoriesGame from './components/HindiStoriesGame';
 
 import { GameProvider } from './context/GameContext';
 
@@ -119,6 +120,8 @@ function App() {
         return <HindiGame gameType="hindi-2-letter" onBack={() => setCurrentMode('hindi-menu')} />;
       case 'hindi-3-letter':
         return <HindiGame gameType="hindi-3-letter" onBack={() => setCurrentMode('hindi-menu')} />;
+      case 'hindi-stories':
+        return <HindiStoriesGame onBack={() => setCurrentMode('hindi-menu')} />;
       case 'mentalmath':
         return <MentalMathGame onBack={() => setCurrentMode('menu')} />;
       case 'spelling':

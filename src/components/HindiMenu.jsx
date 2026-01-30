@@ -6,7 +6,8 @@ const MENU_STRUCTURE = {
     root: [
         { id: 'hindi-varnamala', title: 'वर्णमाला (Varnamala)', icon: '🕉️', color: '#E74C3C', shadow: '#C0392B', type: 'game' },
         { id: 'hindi-2-letter', title: 'दो अक्षर वाले शब्द', icon: '📝', color: '#F1C40F', shadow: '#D35400', type: 'game' },
-        { id: 'hindi-3-letter', title: 'तीन अक्षर वाले शब्द', icon: '📝', color: '#2ECC71', shadow: '#27AE60', type: 'game' }
+        { id: 'hindi-3-letter', title: 'तीन अक्षर वाले शब्द', icon: '📝', color: '#2ECC71', shadow: '#27AE60', type: 'game' },
+        { id: 'hindi-stories', title: 'कहानियाँ (Stories)', icon: '📖', color: '#3498DB', shadow: '#2980B9', type: 'game' }
     ]
 };
 

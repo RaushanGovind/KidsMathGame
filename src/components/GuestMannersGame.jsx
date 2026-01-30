@@ -95,27 +95,59 @@ function GuestMannersGame({ onBack }) {
         }}>
             <div style={{ width: '100%', maxWidth: '1000px', display: 'flex', justifyContent: 'space-between', marginBottom: '20px', alignItems: 'center' }}>
                 <button onClick={onBack} style={{ padding: '12px 24px', background: 'white', color: '#2C3E50', fontWeight: '900', fontSize: '1.1rem', borderRadius: '15px', border: '2px solid #ECF0F1', cursor: 'pointer' }}>⬅ MENU</button>
-                color: '#2C3E50',
-                background: '#FEF5E7',
-                border: 'none',
-                borderRadius: '20px',
-                cursor: 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                boxShadow: '0 4px 0 rgba(0,0,0,0.05)',
-                fontWeight: '600'
-                                }}
-                            >
-                {phrase}
-                <span style={{ fontSize: '1.5rem', opacity: 0.5 }}>🔊</span>
-            </motion.button>
-                        ))}
-        </div>
-                </motion.div >
+                <div style={{ display: 'flex', gap: '15px' }}>
+                    <button onClick={() => setMode('learn')} style={{ padding: '10px 20px', background: mode === 'learn' ? '#1ABC9C' : 'white', color: mode === 'learn' ? 'white' : '#2C3E50', borderRadius: '20px', border: 'none', fontWeight: 'bold', cursor: 'pointer' }}>LEARN</button>
+                    <button onClick={() => setMode('quiz')} style={{ padding: '10px 20px', background: mode === 'quiz' ? '#117A65' : 'white', color: mode === 'quiz' ? 'white' : '#2C3E50', borderRadius: '20px', border: 'none', fontWeight: 'bold', cursor: 'pointer' }}>QUIZ</button>
+                </div>
+            </div>
 
-            </div >
-        </div >
+            {mode === 'learn' ? (
+                <div style={{ display: 'flex', alignItems: 'center', gap: '20px', width: '100%', maxWidth: '1000px', justifyContent: 'center' }}>
+                    <button onClick={prevItem} disabled={currentIndex === 0} style={{ background: currentIndex === 0 ? '#ccc' : 'white', border: 'none', borderRadius: '50%', width: '60px', height: '60px', fontSize: '2rem', cursor: currentIndex === 0 ? 'default' : 'pointer', boxShadow: '0 4px 0 rgba(0,0,0,0.1)' }}>⬅</button>
+
+                    <motion.div
+                        key={currentItem.text}
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.9 }}
+                        onClick={playLearnSequence}
+                        style={{
+                            background: 'white', padding: '40px', borderRadius: '40px',
+                            boxShadow: '0 20px 0 rgba(0,0,0,0.1)', width: '100%', maxWidth: '700px',
+                            display: 'flex', flexDirection: 'column', alignItems: 'center',
+                            border: '6px solid #1ABC9C', position: 'relative', cursor: 'pointer'
+                        }}
+                    >
+                        <div style={{ position: 'absolute', top: '20px', right: '20px', fontSize: '1.5rem', color: '#95A5A6', fontWeight: 'bold' }}>{currentIndex + 1} / {gameData.length}</div>
+
+                        <div style={{ fontSize: '10rem', marginBottom: '20px' }}>{currentItem.icon}</div>
+
+                        <div style={{ fontSize: '4rem', fontWeight: '1000', color: '#16A085', lineHeight: 1, marginBottom: '20px', textAlign: 'center' }}>
+                            {currentItem.text}
+                        </div>
+
+                        <div style={{ fontSize: '2rem', fontWeight: '700', color: '#0E6251', background: '#D1F2EB', padding: '15px 30px', borderRadius: '20px', textAlign: 'center' }}>
+                            "{currentItem.context}"
+                        </div>
+                    </motion.div>
+
+                    <button onClick={nextItem} disabled={currentIndex === gameData.length - 1} style={{ background: currentIndex === gameData.length - 1 ? '#ccc' : 'white', border: 'none', borderRadius: '50%', width: '60px', height: '60px', fontSize: '2rem', cursor: currentIndex === gameData.length - 1 ? 'default' : 'pointer', boxShadow: '0 4px 0 rgba(0,0,0,0.1)' }}>➡</button>
+                </div>
+            ) : (
+                <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                    <button onClick={() => speak(quizTarget?.text)} style={{ background: '#fff', border: 'none', borderRadius: '50%', width: '80px', height: '80px', fontSize: '3rem', cursor: 'pointer', boxShadow: '0 4px 0 #ddd', marginBottom: '30px' }}>🔊</button>
+                    <h2 style={{ fontSize: '2rem', marginBottom: '30px', color: '#16A085' }}>Manners: "{quizTarget?.text}"</h2>
+                    <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', justifyContent: 'center' }}>
+                        {quizOptions.map((item, idx) => (
+                            <motion.button key={idx} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }} onClick={() => handleQuizOptionClick(item)} style={{ background: 'white', border: '4px solid #1ABC9C', borderRadius: '20px', padding: '30px 40px', display: 'flex', flexDirection: 'column', alignItems: 'center', boxShadow: '0 8px 0 #117A65', cursor: 'pointer', minWidth: '200px' }}>
+                                <span style={{ fontSize: '5rem', marginBottom: '10px' }}>{item.icon}</span>
+                                <span style={{ fontSize: '1.5rem', fontWeight: '900', color: '#2C3E50' }}>{item.text}</span>
+                            </motion.button>
+                        ))}
+                    </div>
+                </div>
+            )}
+        </div>
     );
 }
 

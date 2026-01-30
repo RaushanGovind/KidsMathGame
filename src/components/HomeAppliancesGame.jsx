@@ -1,9 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { playSound as playAppSound } from '../utils/sounds';
-
-const APPLIANCES = [
-    { word: 'FRIDGE', icon: '❄️', desc: 'Keeps food cold.' },
 import { speak } from '../utils/speech';
 
 function HomeAppliancesGame({ onBack }) {

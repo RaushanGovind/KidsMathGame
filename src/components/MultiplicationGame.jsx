@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { playSound } from '../utils/sounds';
 
 function MultiplicationGame({ onBack }) {
     const [settings, setSettings] = useState({ digits1: 2, digits2: 1 }); // digits1: top number, digits2: multiplier
@@ -12,6 +13,8 @@ function MultiplicationGame({ onBack }) {
     // Carry State
     const [carryInputs, setCarryInputs] = useState({}); // { 1: '5' } keyed by column logical index (0=ones, 1=tens...)
 
+    const inputsRef = useRef([]);
+
     useEffect(() => {
         generateQuestion();
     }, [settings]);
@@ -21,8 +24,8 @@ function MultiplicationGame({ onBack }) {
         const max1 = Math.pow(10, settings.digits1) - 1;
         const num1 = Math.floor(Math.random() * (max1 - min1 + 1)) + min1;
 
-        const min2 = Math.pow(10, settings.digits2 - 1);
         const max2 = Math.pow(10, settings.digits2) - 1;
+        const min2 = Math.pow(10, settings.digits2 - 1);
         const num2 = Math.floor(Math.random() * (max2 - min2 + 1)) + min2;
 
         setQuestion({ top: num1, bottom: num2, answer: num1 * num2 });
@@ -80,8 +83,10 @@ function MultiplicationGame({ onBack }) {
         }
 
         if (isCorrect) {
+            playSound('correct');
             setFeedback('correct');
         } else {
+            playSound('wrong');
             setFeedback('incorrect');
         }
     };
@@ -92,50 +97,68 @@ function MultiplicationGame({ onBack }) {
         return idx >= 0 ? s[idx] : "";
     };
 
-    const totalCols = String(question.answer).length + 1;
+    const totalCols = Math.max(String(question.answer).length, String(question.top).length + 1) + 1;
 
     return (
-        <div className="game-container" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', padding: '20px' }}>
-            <div style={{ width: '100%', maxWidth: '800px', display: 'flex', justifyContent: 'flex-start', marginBottom: '20px' }}>
-                <button onClick={onBack} style={{
-                    padding: '12px 24px', background: 'white', color: '#2C3E50',
-                    fontWeight: '900', fontSize: '1.1rem', borderRadius: '15px',
-                    boxShadow: '0 4px 0 #bdc3c7', border: '2px solid #ecf0f1'
-                }}>⬅ MENU</button>
+        <div className="game-container" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', padding: '10px', minHeight: '100vh', background: '#F8FAFC' }}>
+
+            {/* Premium Header */}
+            <div style={{
+                width: '100%',
+                maxWidth: '600px',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '15px',
+                marginBottom: '25px',
+                marginTop: '15px'
+            }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
+                    <button onClick={onBack} style={{ padding: '10px 22px', background: 'white', color: '#2C3E50', fontWeight: '1000', borderRadius: '15px', border: 'none', boxShadow: '0 4px 0 #bdc3c7', cursor: 'pointer', fontSize: '1.1rem' }}>⬅ MENU</button>
+
+                    <div style={{ display: 'flex', gap: '15px', background: 'white', padding: '10px 20px', borderRadius: '25px', boxShadow: '0 4px 12px rgba(0,0,0,0.06)', border: '2px solid #F1F5F9' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                            <span style={{ fontWeight: '1000', color: '#64748B', fontSize: '0.9rem' }}>TOP:</span>
+                            <select value={settings.digits1} onChange={e => setSettings({ ...settings, digits1: Number(e.target.value) })} style={{ padding: '4px 10px', borderRadius: '10px', border: '2px solid #E2E8F0', fontWeight: '900', color: '#1E293B', cursor: 'pointer', outline: 'none' }}>
+                                {[1, 2, 3].map(d => <option key={d} value={d}>{d}</option>)}
+                            </select>
+                        </div>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                            <span style={{ fontWeight: '1000', color: '#64748B', fontSize: '0.9rem' }}>BOTTOM:</span>
+                            <select value={settings.digits2} onChange={e => setSettings({ ...settings, digits2: Number(e.target.value) })} style={{ padding: '4px 10px', borderRadius: '10px', border: '2px solid #E2E8F0', fontWeight: '900', color: '#1E293B', cursor: 'pointer', outline: 'none' }}>
+                                {[1, 2].map(d => <option key={d} value={d}>{d}</option>)}
+                            </select>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <motion.div
                 layout
                 className="glass-panel"
                 style={{
-                    padding: '40px', display: 'flex', flexDirection: 'column', alignItems: 'center',
-                    background: 'rgba(255, 255, 255, 0.95)', boxShadow: '0 20px 40px rgba(0,0,0,0.1)',
-                    borderRadius: '40px', width: '100%', maxWidth: '750px'
+                    padding: '30px 20px',
+                    background: 'rgba(255, 255, 255, 0.98)',
+                    borderRadius: '40px',
+                    width: '100%',
+                    maxWidth: '650px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    boxShadow: '0 25px 60px rgba(0,0,0,0.12)',
+                    border: '1px solid rgba(255,255,255,0.8)',
+                    backdropFilter: 'blur(25px)'
                 }}
             >
-                <div style={{
-                    width: '100%', display: 'flex', justifyContent: 'center', gap: '30px',
-                    marginBottom: '40px', padding: '20px', background: 'rgba(255,255,255,0.8)',
-                    borderRadius: '25px', border: '3px solid white', boxShadow: '0 8px 30px rgba(0,0,0,0.05)', flexWrap: 'wrap'
-                }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                        <span style={{ fontWeight: '900', color: '#2C3E50' }}>TOP:</span>
-                        <select value={settings.digits1} onChange={e => setSettings({ ...settings, digits1: Number(e.target.value) })} style={{ padding: '8px 12px', borderRadius: '12px', border: '2px solid #eee', fontWeight: '900' }}>
-                            {[1, 2, 3].map(d => <option key={d} value={d}>{d} Digits</option>)}
-                        </select>
-                    </div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                        <span style={{ fontWeight: '900', color: '#2C3E50' }}>BOTTOM:</span>
-                        <select value={settings.digits2} onChange={e => setSettings({ ...settings, digits2: Number(e.target.value) })} style={{ padding: '8px 12px', borderRadius: '12px', border: '2px solid #eee', fontWeight: '900' }}>
-                            {[1, 2].map(d => <option key={d} value={d}>{d} Digits</option>)}
-                        </select>
-                    </div>
+                <div style={{ textAlign: 'center', marginBottom: '30px' }}>
+                    <h1 style={{ fontSize: '2rem', fontWeight: '1000', color: '#2C3E50', margin: 0, textTransform: 'uppercase', letterSpacing: '1px' }}>✖ Multiplication</h1>
+                    <p style={{ fontSize: '1rem', fontWeight: '800', color: '#64748B', marginTop: '8px' }}>🎯 Fill in the partial products and total!</p>
                 </div>
 
-                <div style={{ display: 'inline-flex', flexDirection: 'column', alignItems: 'flex-end', position: 'relative' }}>
-                    <div style={{ display: 'flex', flexDirection: 'row-reverse', gap: '15px', marginBottom: '10px' }}>
+                <div style={{ background: 'white', padding: '30px 40px', borderRadius: '30px', border: '3px solid #E2E8F0', boxShadow: '0 10px 25px rgba(0,0,0,0.05)', display: 'inline-flex', flexDirection: 'column', alignItems: 'flex-end' }}>
+                    {/* Carry Row */}
+                    <div style={{ display: 'flex', flexDirection: 'row-reverse', marginBottom: '10px', marginRight: '5px' }}>
                         {Array.from({ length: totalCols }).map((_, i) => (
-                            <div key={i} style={{ width: '80px', display: 'flex', justifyContent: 'center' }}>
+                            <div key={i} style={{ width: '70px', height: '45px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                                 {i > 0 && i < totalCols && (
                                     <input
                                         type="text" maxLength="1"
@@ -144,170 +167,173 @@ function MultiplicationGame({ onBack }) {
                                             const val = e.target.value.slice(-1);
                                             if (/^\d*$/.test(val)) setCarryInputs(prev => ({ ...prev, [i]: val }));
                                         }}
+                                        placeholder="c"
                                         style={{
-                                            width: '40px', height: '40px', background: '#F1C40F',
-                                            border: '2px solid white', borderRadius: '10px',
-                                            textAlign: 'center', fontSize: '1.3rem', fontWeight: '900',
-                                            color: '#2C3E50', boxShadow: '0 3px 0 rgba(0,0,0,0.1)', outline: 'none'
+                                            width: '40px', height: '40px', background: '#FEF3C7',
+                                            border: '2px dashed #FDE68A', borderRadius: '10px',
+                                            textAlign: 'center', fontSize: '1.2rem', fontWeight: '900',
+                                            color: '#92400E', outline: 'none'
                                         }}
                                     />
                                 )}
                             </div>
                         ))}
+                        <div style={{ width: '60px' }}></div>
                     </div>
 
-                    <div style={{ display: 'flex', flexDirection: 'row-reverse', gap: '15px' }}>
+                    {/* Top Number */}
+                    <div style={{ display: 'flex', flexDirection: 'row-reverse', alignItems: 'center', marginBottom: '5px' }}>
                         {Array.from({ length: totalCols }).map((_, i) => (
-                            <div key={i} style={{ width: '80px', textAlign: 'center', fontSize: '5.5rem', fontWeight: '900', color: '#2C3E50', lineHeight: '1' }}>
+                            <div key={i} style={{ width: '70px', fontSize: '3rem', fontWeight: '800', color: '#1E293B', textAlign: 'center' }}>
                                 {getDigit(question.top, i)}
                             </div>
                         ))}
+                        <div style={{ width: '60px' }}></div>
                     </div>
 
-                    <div style={{ display: 'flex', flexDirection: 'row-reverse', gap: '15px', borderBottom: '8px solid #2C3E50', paddingBottom: '20px', marginBottom: '20px', position: 'relative' }}>
-                        {Array.from({ length: totalCols }).map((_, i) => {
-                            const digit = getDigit(question.bottom, i);
-                            const isSignCol = i === String(question.bottom).length;
-                            return (
-                                <div key={i} style={{ width: '80px', textAlign: 'center', fontSize: '5.5rem', fontWeight: '900', color: '#2C3E50', lineHeight: '1', position: 'relative' }}>
-                                    {digit}
-                                    {isSignCol && <div style={{ position: 'absolute', left: '0', top: '50%', transform: 'translate(-50%, -50%)', fontSize: '5rem', color: '#E74C3C' }}>×</div>}
-                                </div>
-                            );
-                        })}
+                    {/* Bottom Number */}
+                    <div style={{ display: 'flex', flexDirection: 'row-reverse', alignItems: 'center', marginBottom: '5px' }}>
+                        {Array.from({ length: totalCols }).map((_, i) => (
+                            <div key={i} style={{ width: '70px', fontSize: '3rem', fontWeight: '800', color: '#1E293B', textAlign: 'center' }}>
+                                {getDigit(question.bottom, i)}
+                            </div>
+                        ))}
+                        <div style={{ width: '60px', fontSize: '2.5rem', fontWeight: '900', color: '#F97316', textAlign: 'center' }}>✖</div>
                     </div>
 
+                    {/* First Divider */}
+                    <div style={{ width: `calc(${totalCols * 70}px + 60px)`, height: '4px', background: '#1E293B', margin: '15px 0', borderRadius: '5px' }}></div>
+
+                    {/* Multiplication Body */}
                     {settings.digits2 === 1 ? (
-                        <div style={{ display: 'flex', flexDirection: 'row-reverse', gap: '15px' }}>
+                        <div style={{ display: 'flex', flexDirection: 'row-reverse', alignItems: 'center' }}>
                             {Array.from({ length: totalCols }).map((_, i) => {
                                 const isRelevant = i < String(question.answer).length;
                                 return (
-                                    <div key={i} style={{ width: '80px', display: 'flex', justifyContent: 'center' }}>
+                                    <div key={i} style={{ width: '70px', display: 'flex', justifyContent: 'center' }}>
                                         {isRelevant ? (
-                                            <motion.input
-                                                whileFocus={{ scale: 1.05 }}
+                                            <input
                                                 type="text" inputMode="numeric"
                                                 value={userInputs.final[i] || ''}
                                                 onChange={(e) => handleInput('final', i, e.target.value)}
-                                                style={{
-                                                    width: '80px', height: '80px', fontSize: '3.5rem', textAlign: 'center',
-                                                    borderRadius: '20px', border: '4px solid #34495E',
-                                                    background: '#fff', color: '#2C3E50', fontWeight: '900',
-                                                    boxShadow: '0 8px 0 #eee, inset 0 4px 8px rgba(0,0,0,0.05)', outline: 'none'
-                                                }}
+                                                style={{ width: '55px', height: '65px', fontSize: '2.5rem', textAlign: 'center', borderRadius: '12px', border: feedback === 'incorrect' ? '3px solid #EF4444' : feedback === 'correct' ? '3px solid #10B981' : '3px solid #334155', background: '#fff', color: '#1E293B', fontWeight: '900', outline: 'none' }}
                                             />
-                                        ) : <div style={{ width: '80px' }} />}
+                                        ) : <div style={{ width: '70px' }} />}
                                     </div>
                                 );
                             })}
+                            <div style={{ width: '60px' }}></div>
                         </div>
                     ) : (
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '15px', alignItems: 'flex-end' }}>
-                            <div style={{ display: 'flex', flexDirection: 'row-reverse', gap: '15px' }}>
+                            {/* Partial 1 */}
+                            <div style={{ display: 'flex', flexDirection: 'row-reverse', alignItems: 'center' }}>
                                 {Array.from({ length: totalCols }).map((_, i) => {
                                     const isRelevant = i < String(question.top * (question.bottom % 10)).length;
                                     return (
-                                        <div key={i} style={{ width: '80px', display: 'flex', justifyContent: 'center' }}>
+                                        <div key={i} style={{ width: '70px', display: 'flex', justifyContent: 'center' }}>
                                             {isRelevant ? (
                                                 <input
                                                     type="text" inputMode="numeric"
                                                     value={userInputs.partial1[i] || ''}
                                                     onChange={(e) => handleInput('partial1', i, e.target.value)}
-                                                    style={{ width: '70px', height: '70px', fontSize: '3rem', textAlign: 'center', borderRadius: '15px', border: '3px solid #bdc3c7', background: '#f8f9fa', fontWeight: '900', outline: 'none' }}
+                                                    style={{ width: '55px', height: '60px', fontSize: '2.2rem', textAlign: 'center', borderRadius: '12px', border: '2px solid #CBD5E1', background: '#F8FAFC', fontWeight: '900', outline: 'none' }}
                                                 />
-                                            ) : <div style={{ width: '80px' }} />}
+                                            ) : <div style={{ width: '70px' }} />}
                                         </div>
                                     );
                                 })}
+                                <div style={{ width: '60px' }}></div>
                             </div>
 
-                            <div style={{ display: 'flex', flexDirection: 'row-reverse', gap: '15px', position: 'relative' }}>
+                            {/* Partial 2 */}
+                            <div style={{ display: 'flex', flexDirection: 'row-reverse', alignItems: 'center' }}>
                                 {Array.from({ length: totalCols }).map((_, i) => {
                                     const p2Val = question.top * Math.floor(question.bottom / 10);
                                     const isRelevant = i > 0 && i <= String(p2Val).length;
                                     const isShiftZero = i === 0;
-                                    const isPlusCol = i === totalCols - 1;
 
                                     return (
-                                        <div key={i} style={{ width: '80px', display: 'flex', justifyContent: 'center', position: 'relative' }}>
-                                            {isPlusCol && <div style={{ position: 'absolute', right: '100%', fontSize: '4rem', fontWeight: '900', paddingRight: '20px' }}>+</div>}
+                                        <div key={i} style={{ width: '70px', display: 'flex', justifyContent: 'center', position: 'relative' }}>
                                             {isShiftZero ? (
-                                                <div style={{ width: '70px', height: '70px', border: '3px dashed #bdc3c7', borderRadius: '15px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '3rem', fontWeight: '900', color: '#bdc3c7' }}>0</div>
+                                                <div style={{ width: '55px', height: '60px', border: '2px dashed #CBD5E1', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2.2rem', fontWeight: '900', color: '#94A3B8', background: '#F1F5F9' }}>0</div>
                                             ) : isRelevant ? (
                                                 <input
                                                     type="text" inputMode="numeric"
                                                     value={userInputs.partial2[i] || ''}
                                                     onChange={(e) => handleInput('partial2', i, e.target.value)}
-                                                    style={{ width: '70px', height: '70px', fontSize: '3rem', textAlign: 'center', borderRadius: '15px', border: '3px solid #bdc3c7', background: '#f8f9fa', fontWeight: '900', outline: 'none' }}
+                                                    style={{ width: '55px', height: '60px', fontSize: '2.2rem', textAlign: 'center', borderRadius: '12px', border: '2px solid #CBD5E1', background: '#F8FAFC', fontWeight: '900', outline: 'none' }}
                                                 />
-                                            ) : <div style={{ width: '80px' }} />}
+                                            ) : <div style={{ width: '70px' }} />}
                                         </div>
                                     );
                                 })}
+                                <div style={{ width: '60px', fontSize: '2rem', fontWeight: '1000', color: '#3B82F6', textAlign: 'center' }}>➕</div>
                             </div>
 
-                            <div style={{ width: '100%', height: '8px', background: '#2C3E50', borderRadius: '4px', margin: '10px 0' }}></div>
-                            <div style={{ display: 'flex', flexDirection: 'row-reverse', gap: '15px' }}>
+                            <div style={{ width: `calc(${totalCols * 70}px + 60px)`, height: '5px', background: '#1E293B', margin: '5px 0', borderRadius: '5px' }}></div>
+
+                            {/* Final Sum */}
+                            <div style={{ display: 'flex', flexDirection: 'row-reverse', alignItems: 'center' }}>
                                 {Array.from({ length: totalCols }).map((_, i) => {
                                     const isRelevant = i < String(question.answer).length;
                                     return (
-                                        <div key={i} style={{ width: '80px', display: 'flex', justifyContent: 'center' }}>
+                                        <div key={i} style={{ width: '70px', display: 'flex', justifyContent: 'center' }}>
                                             {isRelevant ? (
-                                                <motion.input
-                                                    whileFocus={{ scale: 1.05 }}
+                                                <input
                                                     type="text" inputMode="numeric"
                                                     value={userInputs.final[i] || ''}
                                                     onChange={(e) => handleInput('final', i, e.target.value)}
-                                                    style={{ width: '80px', height: '80px', fontSize: '3.5rem', textAlign: 'center', borderRadius: '20px', border: '4px solid #34495E', background: '#fff', color: '#2C3E50', fontWeight: '900', boxShadow: '0 8px 0 #eee, inset 0 4px 8px rgba(0,0,0,0.05)', outline: 'none' }}
+                                                    style={{ width: '55px', height: '65px', fontSize: '2.5rem', textAlign: 'center', borderRadius: '12px', border: feedback === 'incorrect' ? '3px solid #EF4444' : feedback === 'correct' ? '3px solid #10B981' : '3px solid #334155', background: '#fff', color: '#1E293B', fontWeight: '900', outline: 'none' }}
                                                 />
-                                            ) : <div style={{ width: '80px' }} />}
+                                            ) : <div style={{ width: '70px' }} />}
                                         </div>
                                     );
                                 })}
+                                <div style={{ width: '60px' }}></div>
                             </div>
                         </div>
                     )}
                 </div>
 
-                <div style={{ height: '80px', display: 'flex', alignItems: 'center', marginTop: '30px' }}>
+                <div style={{ marginTop: '30px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px' }}>
                     <AnimatePresence mode="wait">
                         {feedback && (
-                            <motion.div key={feedback} initial={{ scale: 0 }} animate={{ scale: 1.2 }} exit={{ scale: 0 }} style={{ fontSize: '2.5rem', fontWeight: '900', color: feedback === 'correct' ? '#27AE60' : '#E74C3C' }}>
+                            <motion.div
+                                key={feedback}
+                                initial={{ scale: 0.8, opacity: 0 }}
+                                animate={{ scale: 1, opacity: 1 }}
+                                style={{
+                                    fontSize: '1.8rem',
+                                    fontWeight: '1000',
+                                    color: feedback === 'correct' ? '#10B981' : '#EF4444'
+                                }}
+                            >
                                 {feedback === 'correct' ? '🌟 BRILLIANT!' : '❌ TRY AGAIN!'}
                             </motion.div>
                         )}
                     </AnimatePresence>
-                </div>
 
-                {feedback === 'correct' ? (
-                    <motion.button
-                        initial={{ scale: 0 }}
-                        animate={{ scale: 1 }}
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        onClick={generateQuestion}
-                        style={{
-                            padding: '20px 80px', fontSize: '2.2rem', background: '#27AE60', color: 'white',
-                            fontWeight: '900', borderRadius: '30px', border: 'none',
-                            boxShadow: '0 10px 0 #219150, 0 15px 30px rgba(0,0,0,0.2)', cursor: 'pointer'
-                        }}
-                    >
-                        NEXT QUESTION
-                    </motion.button>
-                ) : (
                     <motion.button
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        onClick={checkAnswer}
+                        onClick={feedback === 'correct' ? generateQuestion : checkAnswer}
                         style={{
-                            padding: '20px 80px', fontSize: '2.2rem', background: '#F1C40F', color: '#2C3E50',
-                            fontWeight: '900', borderRadius: '30px', border: 'none',
-                            boxShadow: '0 10px 0 #D4AC0D, 0 15px 30px rgba(0,0,0,0.2)', cursor: 'pointer'
+                            padding: '18px 60px',
+                            fontSize: '1.5rem',
+                            background: feedback === 'correct' ? '#10B981' : '#F97316',
+                            color: 'white',
+                            fontWeight: '1000',
+                            borderRadius: '20px',
+                            border: 'none',
+                            boxShadow: `0 6px 0 ${feedback === 'correct' ? '#059669' : '#C2410C'}`,
+                            cursor: 'pointer',
+                            textTransform: 'uppercase'
                         }}
                     >
-                        CHECK ANSWER
+                        {feedback === 'correct' ? 'NEXT PROBLEM ➡' : 'CHECK ANSWER'}
                     </motion.button>
-                )}
+                </div>
             </motion.div>
         </div>
     );
