@@ -62,6 +62,7 @@ import LogicPuzzleGame from './components/LogicPuzzleGame';
 import HindiMenu from './components/HindiMenu';
 import HindiGame from './components/HindiGame';
 import HindiStoriesGame from './components/HindiStoriesGame';
+import EnglishStoriesGame from './components/EnglishStoriesGame';
 
 import { GameProvider } from './context/GameContext';
 
@@ -128,6 +129,8 @@ function App() {
         return <SpellingGame onBack={() => setCurrentMode('english-menu')} />;
       case 'wordscramble':
         return <WordScrambleGame onBack={() => setCurrentMode('english-menu')} />;
+      case 'english-stories':
+        return <EnglishStoriesGame onBack={() => setCurrentMode('english-menu')} />;
       case 'alphabet':
         return <AlphabetGame onBack={() => setCurrentMode('english-menu')} />;
       case 'twoletter':

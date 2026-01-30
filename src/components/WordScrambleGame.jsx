@@ -2,31 +2,9 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { playSound as playAppSound } from '../utils/sounds';
 
-// Word Data with icons
-const WORDS = [
-    { word: 'CAT', icon: '🐱', hint: 'Meows and likes milk' },
-    { word: 'DOG', icon: '🐶', hint: 'Barks and guards home' },
-    { word: 'SUN', icon: '☀️', hint: 'Shines in the sky' },
-    { word: 'BALL', icon: '⚽', hint: 'You kick this' },
-    { word: 'BOOK', icon: '📖', hint: 'You read this' },
-    { word: 'FISH', icon: '🐠', hint: 'Swims in water' },
-    { word: 'TREE', icon: '🌳', hint: 'Has leaves and gives shade' },
-    { word: 'BIRD', icon: '🐦', hint: 'Flies in the sky' },
-    { word: 'CAKE', icon: '🎂', hint: 'Yummy birthday treat' },
-    { word: 'MILK', icon: '🥛', hint: 'White and healthy drink' },
-    { word: 'STAR', icon: '⭐', hint: 'Twinkles at night' },
-    { word: 'MOON', icon: '🌙', hint: 'Shines at night' },
-    { word: 'APPLE', icon: '🍎', hint: 'Red healthy fruit' },
-    { word: 'HOUSE', icon: '🏠', hint: 'Where you live' },
-    { word: 'CHAIR', icon: '🪑', hint: 'You sit on this' },
-    { word: 'TABLE', icon: '🧱', hint: 'Put things on this' },
-    { word: 'SPOON', icon: '🥄', hint: 'Use this to eat soup' },
-    { word: 'HAPPY', icon: '😊', hint: 'Smile!' },
-    { word: 'WATER', icon: '💧', hint: 'Drink this when thirsty' },
-    { word: 'TIGER', icon: '🐅', hint: 'Big wild cat' }
-];
-
 function WordScrambleGame({ onBack }) {
+    const [words, setWords] = useState([]);
+    const [loading, setLoading] = useState(true);
     const [currentWordIndex, setCurrentWordIndex] = useState(0);
     const [scrambledLetters, setScrambledLetters] = useState([]);
     const [userGuess, setUserGuess] = useState([]);
@@ -35,13 +13,25 @@ function WordScrambleGame({ onBack }) {
     const [feedback, setFeedback] = useState(null); // 'correct' | 'wrong' | null
     const [availableLetters, setAvailableLetters] = useState([]); // Array of {id, letter}
 
-    // Initialize or loading new word
     useEffect(() => {
-        loadWord(currentWordIndex);
-    }, [currentWordIndex]);
+        fetch('http://localhost:8000/api/content/word_scramble')
+            .then(res => res.json())
+            .then(data => {
+                if (data && data.content) {
+                    setWords(data.content);
+                    loadWord(0, data.content);
+                }
+                setLoading(false);
+            })
+            .catch(err => {
+                console.error("Failed to load words", err);
+                setLoading(false);
+            });
+    }, []);
 
-    const loadWord = (index) => {
-        const target = WORDS[index].word;
+    const loadWord = (index, wordList = words) => {
+        if (!wordList || wordList.length === 0) return;
+        const target = wordList[index].word;
         const letters = target.split('').map((l, i) => ({ id: i, letter: l }));
         // Shuffle
         const shuffled = [...letters].sort(() => Math.random() - 0.5);
@@ -50,6 +40,13 @@ function WordScrambleGame({ onBack }) {
         setUserGuess([]);
         setFeedback(null);
     };
+
+    // Trigger on index change
+    useEffect(() => {
+        if (words.length > 0) {
+            loadWord(currentWordIndex);
+        }
+    }, [currentWordIndex]);
 
     const speak = (text) => {
         window.speechSynthesis.cancel();
@@ -80,7 +77,7 @@ function WordScrambleGame({ onBack }) {
     };
 
     const checkAnswer = () => {
-        const target = WORDS[currentWordIndex].word;
+        const target = words[currentWordIndex].word;
         const guessString = userGuess.map(l => l.letter).join('');
 
         if (guessString === target) {
@@ -90,7 +87,7 @@ function WordScrambleGame({ onBack }) {
             setScore(s => s + 10);
 
             setTimeout(() => {
-                if (currentWordIndex < WORDS.length - 1) {
+                if (currentWordIndex < words.length - 1) {
                     setCurrentWordIndex(prev => prev + 1);
                 } else {
                     setShowResult(true);
@@ -116,7 +113,7 @@ function WordScrambleGame({ onBack }) {
 
     useEffect(() => {
         // Auto-check when all letters are used
-        if (userGuess.length === WORDS[currentWordIndex].word.length && userGuess.length > 0 && !feedback) {
+        if (words.length > 0 && userGuess.length === words[currentWordIndex].word.length && userGuess.length > 0 && !feedback) {
             checkAnswer();
         }
     }, [userGuess]);
@@ -147,7 +144,9 @@ function WordScrambleGame({ onBack }) {
                 </div>
             </div>
 
-            {!showResult ? (
+            {loading ? (
+                <div style={{ fontSize: '2rem', color: '#D35400', marginTop: '100px' }}>Loading...</div>
+            ) : !showResult && words.length > 0 ? (
                 <div style={{ width: '100%', maxWidth: '800px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
 
                     {/* Clue Card */}
@@ -157,13 +156,13 @@ function WordScrambleGame({ onBack }) {
                         key={currentWordIndex}
                         style={{ background: 'white', padding: '30px', borderRadius: '30px', boxShadow: '0 10px 20px rgba(0,0,0,0.1)', textAlign: 'center', marginBottom: '40px', width: '100%' }}
                     >
-                        <div style={{ fontSize: '5rem', marginBottom: '10px' }}>{WORDS[currentWordIndex].icon}</div>
-                        <div style={{ fontSize: '1.5rem', color: '#7F8C8D', fontStyle: 'italic' }}>"{WORDS[currentWordIndex].hint}"</div>
+                        <div style={{ fontSize: '5rem', marginBottom: '10px' }}>{words[currentWordIndex].icon}</div>
+                        <div style={{ fontSize: '1.5rem', color: '#7F8C8D', fontStyle: 'italic' }}>"{words[currentWordIndex].hint}"</div>
                     </motion.div>
 
                     {/* Answer Slots */}
                     <div style={{ display: 'flex', gap: '10px', marginBottom: '40px', minHeight: '80px' }}>
-                        {Array(WORDS[currentWordIndex].word.length).fill(null).map((_, idx) => {
+                        {Array(words[currentWordIndex].word.length).fill(null).map((_, idx) => {
                             const letterObj = userGuess[idx];
                             return (
                                 <motion.button

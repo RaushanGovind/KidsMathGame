@@ -11,6 +11,7 @@ const MENU_STRUCTURE = {
         { id: 'folder_topics', title: 'Topic Words', icon: '📚', color: '#E67E22', shadow: '#D35400', type: 'folder', target: 'topics' },
         { id: 'spelling', title: 'Spelling Bee', icon: '🐝', color: '#F1C40F', shadow: '#D4AC0D', type: 'game' },
         { id: 'wordscramble', title: 'Word Scramble', icon: '🔠', color: '#E67E22', shadow: '#D35400', type: 'game' },
+        { id: 'english-stories', title: 'Stories 📖', color: '#3498DB', shadow: '#2980B9', icon: '📚', type: 'game' }
     ],
     words: [
         { id: 'twoletter', title: '2 Letter Words', icon: '✌️', color: '#1ABC9C', shadow: '#16A085', type: 'game' },

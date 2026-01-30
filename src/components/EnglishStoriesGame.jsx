@@ -3,15 +3,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { speak } from '../utils/speech';
 import { playSound } from '../utils/sounds';
 
-
-
-function HindiStoriesGame({ onBack }) {
+function EnglishStoriesGame({ onBack }) {
     const [stories, setStories] = useState([]);
     const [loading, setLoading] = useState(true);
     const [selectedStory, setSelectedStory] = useState(null);
 
     useEffect(() => {
-        fetch('http://localhost:8000/api/content/hindi_stories')
+        fetch('http://localhost:8000/api/content/english_stories')
             .then(res => res.json())
             .then(data => {
                 if (data && data.content) {
@@ -20,13 +18,15 @@ function HindiStoriesGame({ onBack }) {
                 setLoading(false);
             })
             .catch(err => {
-                console.error("Failed to load stories", err);
+                console.error("Failed to load english stories", err);
                 setLoading(false);
             });
     }, []);
 
     const handleSpeak = (text) => {
-        speak(text, 'hi-IN', 0.8);
+        // Clear any ongoing speech
+        window.speechSynthesis?.cancel();
+        speak(text, 'en-US', 0.9);
     };
 
     const handleStorySelect = (story) => {
@@ -45,22 +45,28 @@ function HindiStoriesGame({ onBack }) {
     };
 
     if (loading) return (
-        <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: '#FDFCFB' }}>
-            <motion.div animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 1, ease: 'linear' }} style={{ fontSize: '4rem' }}>📖</motion.div>
-            <div style={{ fontSize: '1.5rem', fontWeight: '900', color: '#D35400', marginTop: '20px' }}>कहानियाँ आ रही हैं...</div>
+        <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: '#F0F9FF' }}>
+            <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ repeat: Infinity, duration: 1, ease: 'linear' }}
+                style={{ fontSize: '4rem' }}
+            >
+                📖
+            </motion.div>
+            <div style={{ fontSize: '1.5rem', fontWeight: '900', color: '#0284C7', marginTop: '20px' }}>Loading Stories...</div>
         </div>
     );
 
     return (
         <div className="game-container" style={{
             display: 'flex', flexDirection: 'column', alignItems: 'center',
-            width: '100%', minHeight: '100vh', background: '#FDFCFB', padding: '20px'
+            width: '100%', minHeight: '100vh', background: '#F0F9FF', padding: '20px'
         }}>
             {/* Header */}
             <div style={{ width: '100%', maxWidth: '800px', display: 'flex', justifyContent: 'space-between', marginBottom: '30px', alignItems: 'center' }}>
-                <button onClick={handleBack} style={{ padding: '12px 24px', background: 'white', color: '#2C3E50', fontWeight: '1000', borderRadius: '15px', border: '2px solid #F1F5F9', boxShadow: '0 4px 0 #CBD5E1', cursor: 'pointer', fontSize: '1.1rem' }}>⬅ BACK</button>
-                <h1 style={{ fontSize: '2rem', fontWeight: '1000', color: '#D35400', margin: 0, fontFamily: 'serif' }}>
-                    {selectedStory ? "कहानी (Story)" : "हिंदी कहानियाँ"}
+                <button onClick={handleBack} style={{ padding: '12px 24px', background: 'white', color: '#0369A1', fontWeight: '1000', borderRadius: '15px', border: '2px solid #E0F2FE', boxShadow: '0 4px 0 #BAE6FD', cursor: 'pointer', fontSize: '1.1rem' }}>⬅ BACK</button>
+                <h1 style={{ fontSize: '2.5rem', fontWeight: '1000', color: '#0369A1', margin: 0, fontFamily: 'serif' }}>
+                    {selectedStory ? "Story Time" : "English Stories"}
                 </h1>
                 <div style={{ width: '80px', visibility: 'hidden' }}></div>
             </div>
@@ -95,17 +101,18 @@ function HindiStoriesGame({ onBack }) {
                                     display: 'flex',
                                     alignItems: 'center',
                                     gap: '20px',
-                                    boxShadow: '0 10px 25px rgba(0,0,0,0.05)',
+                                    boxShadow: '0 10px 25px rgba(2, 132, 199, 0.1)',
                                     cursor: 'pointer',
-                                    textAlign: 'left'
+                                    textAlign: 'left',
+                                    border: '2px solid transparent'
                                 }}
                             >
-                                <div style={{ fontSize: '3rem', background: '#FEF3C7', width: '70px', height: '70px', borderRadius: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                <div style={{ fontSize: '3rem', background: '#E0F2FE', width: '75px', height: '75px', borderRadius: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                                     {story.icon}
                                 </div>
                                 <div style={{ flex: 1 }}>
-                                    <h3 style={{ fontSize: '1.4rem', margin: 0, color: '#1E293B', fontWeight: '900', fontFamily: 'serif' }}>{story.title}</h3>
-                                    <span style={{ fontSize: '0.9rem', color: '#64748B', fontWeight: '700' }}>देखें कहानी ➡</span>
+                                    <h3 style={{ fontSize: '1.5rem', margin: 0, color: '#0C4A6E', fontWeight: '900', fontFamily: 'serif' }}>{story.title}</h3>
+                                    <span style={{ fontSize: '0.9rem', color: '#0369A1', fontWeight: '700' }}>Read Story 📚 ➡</span>
                                 </div>
                             </motion.button>
                         ))}
@@ -113,76 +120,80 @@ function HindiStoriesGame({ onBack }) {
                 ) : (
                     <motion.div
                         key="reader"
-                        initial={{ opacity: 0, x: 50 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: -50 }}
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.9 }}
                         style={{
                             width: '100%',
-                            maxWidth: '700px',
+                            maxWidth: '750px',
                             background: 'white',
                             borderRadius: '40px',
                             padding: '40px',
-                            boxShadow: '0 30px 60px rgba(0,0,0,0.1)',
+                            boxShadow: '0 30px 60px rgba(2, 132, 199, 0.15)',
                             display: 'flex',
                             flexDirection: 'column',
                             gap: '30px',
-                            border: '1px solid #F1F5F9'
+                            border: '3px solid #E0F2FE'
                         }}
                     >
                         <div style={{ textAlign: 'center' }}>
-                            <div style={{ fontSize: '5rem', marginBottom: '10px' }}>{selectedStory.icon}</div>
-                            <h2 style={{ fontSize: '2.5rem', fontWeight: '1000', color: '#1E293B', margin: 0, fontFamily: 'serif' }}>{selectedStory.title}</h2>
+                            <div style={{ fontSize: '6rem', marginBottom: '10px' }}>{selectedStory.icon}</div>
+                            <h2 style={{ fontSize: '2.8rem', fontWeight: '1000', color: '#0C4A6E', margin: 0, fontFamily: 'serif' }}>{selectedStory.title}</h2>
                         </div>
 
                         <div style={{
                             fontSize: '1.6rem',
                             lineHeight: '1.8',
-                            color: '#334155',
+                            color: '#1E293B',
                             fontFamily: 'serif',
                             textAlign: 'justify',
-                            background: '#FFFBEB',
-                            padding: '30px',
+                            background: '#F8FAFC',
+                            padding: '35px',
                             borderRadius: '25px',
-                            border: '2px solid #FEF3C7'
+                            border: '2px dashed #CBD5E1',
+                            boxShadow: 'inset 0 2px 10px rgba(0,0,0,0.02)'
                         }}>
                             {selectedStory.content}
                         </div>
 
                         <div style={{
-                            background: '#ECFDF5',
-                            padding: '20px 30px',
-                            borderRadius: '20px',
-                            borderLeft: '10px solid #10B981',
+                            background: '#F0FDFA',
+                            padding: '25px 35px',
+                            borderRadius: '25px',
+                            borderLeft: '10px solid #14B8A6',
                             display: 'flex',
                             flexDirection: 'column',
-                            gap: '5px'
+                            gap: '8px',
+                            boxShadow: '0 5px 15px rgba(20, 184, 166, 0.1)'
                         }}>
-                            <span style={{ fontWeight: '1000', color: '#047857', fontSize: '1.2rem' }}>सीख (Moral):</span>
-                            <p style={{ margin: 0, fontSize: '1.4rem', fontWeight: '800', color: '#b86739ff', fontFamily: 'serif' }}>
-                                {selectedStory.moral}
+                            <span style={{ fontWeight: '1000', color: '#0D9488', fontSize: '1.3rem', textTransform: 'uppercase', letterSpacing: '1px' }}>The Moral:</span>
+                            <p style={{ margin: 0, fontSize: '1.5rem', fontWeight: '800', color: '#0F766E', fontFamily: 'serif', fontStyle: 'italic' }}>
+                                "{selectedStory.moral}"
                             </p>
                         </div>
 
-                        <div style={{ display: 'flex', gap: '15px', justifyContent: 'center', marginTop: '10px' }}>
-                            <button
-                                onClick={() => handleSpeak(`${selectedStory.title}. ${selectedStory.content}. सीख. ${selectedStory.moral}`)}
+                        <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', marginTop: '10px' }}>
+                            <motion.button
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                onClick={() => handleSpeak(`${selectedStory.title}. ${selectedStory.content}. The moral is: ${selectedStory.moral}`)}
                                 style={{
-                                    padding: '15px 40px',
-                                    background: '#D35400',
+                                    padding: '18px 45px',
+                                    background: '#0284C7',
                                     color: 'white',
                                     border: 'none',
-                                    borderRadius: '20px',
+                                    borderRadius: '50px',
                                     fontWeight: '1000',
-                                    fontSize: '1.2rem',
-                                    boxShadow: '0 6px 0 #A04000',
+                                    fontSize: '1.4rem',
+                                    boxShadow: '0 8px 0 #0369A1',
                                     cursor: 'pointer',
                                     display: 'flex',
                                     alignItems: 'center',
-                                    gap: '10px'
+                                    gap: '15px'
                                 }}
                             >
-                                🔊 पूरी कहानी सुनें (Listen All)
-                            </button>
+                                <span style={{ fontSize: '1.8rem' }}>🔊</span> Read Aloud
+                            </motion.button>
                         </div>
                     </motion.div>
                 )}
@@ -191,4 +202,4 @@ function HindiStoriesGame({ onBack }) {
     );
 }
 
-export default HindiStoriesGame;
+export default EnglishStoriesGame;

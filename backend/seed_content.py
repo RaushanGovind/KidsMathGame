@@ -2089,6 +2089,138 @@ YES_NO_QUESTIONS_DATA = {
     ]
 }
 
+WORD_SCRAMBLE_DATA = {
+    "game_id": "word_scramble",
+    "content": [
+        { "word": "CAT", "icon": "🐱", "hint": "Meows and likes milk" },
+        { "word": "DOG", "icon": "🐶", "hint": "Barks and guards home" },
+        { "word": "SUN", "icon": "☀️", "hint": "Shines in the sky" },
+        { "word": "BALL", "icon": "⚽", "hint": "You kick this" },
+        { "word": "BOOK", "icon": "📖", "hint": "You read this" },
+        { "word": "FISH", "icon": "🐠", "hint": "Swims in water" },
+        { "word": "TREE", "icon": "🌳", "hint": "Has leaves and gives shade" },
+        { "word": "BIRD", "icon": "🐦", "hint": "Flies in the sky" },
+        { "word": "CAKE", "icon": "🎂", "hint": "Yummy birthday treat" },
+        { "word": "MILK", "icon": "🥛", "hint": "White and healthy drink" },
+        { "word": "STAR", "icon": "⭐", "hint": "Twinkles at night" },
+        { "word": "MOON", "icon": "🌙", "hint": "Shines at night" },
+        { "word": "APPLE", "icon": "🍎", "hint": "Red healthy fruit" },
+        { "word": "HOUSE", "icon": "🏠", "hint": "Where you live" },
+        { "word": "CHAIR", "icon": "🪑", "hint": "You sit on this" },
+        { "word": "TABLE", "icon": "🧱", "hint": "Put things on this" },
+        { "word": "SPOON", "icon": "🥄", "hint": "Use this to eat soup" },
+        { "word": "HAPPY", "icon": "😊", "hint": "Smile!" },
+        { "word": "WATER", "icon": "💧", "hint": "Drink this when thirsty" },
+        { "word": "TIGER", "icon": "🐅", "hint": "Big wild cat" }
+    ]
+}
+
+ENGLISH_STORIES_DATA = {
+    "game_id": "english_stories",
+    "content": [
+        {
+            "id": 1, "title": "The Lion and the Mouse", "icon": "🦁",
+            "content": "A small Mouse accidentally woke up a sleeping Lion. The Lion was angry, but the Mouse begged for mercy, promising to help him one day. The Lion laughed but let him go. Later, the Lion was caught in a hunter's net. The Mouse heard him roar and gnawed the ropes to set him free. The Lion realized even a small friend can be a great help.",
+            "moral": "No act of kindness, no matter how small, is ever wasted."
+        },
+        {
+            "id": 2, "title": "The Thirsty Crow", "icon": "🐦",
+            "content": "A thirsty Crow found a pitcher with very little water at the bottom. He couldn't reach it. He thought of a plan and began dropping pebbles into the pitcher one by one. As the pebbles rose, so did the water level. Finally, the Crow could drink the water and fly away happily.",
+            "moral": "Where there is a will, there is a way."
+        },
+        {
+            "id": 3, "title": "The Boy Who Cried Wolf", "icon": "🐺",
+            "content": "A shepherd boy was bored and cried 'Wolf! Wolf!' to trick the villagers. They ran to help him but found no wolf. He did this twice. When a real wolf finally came, nobody believed his cries. The wolf ate the sheep because nobody came to help the boy who lied.",
+            "moral": "A liar will not be believed, even when he speaks the truth."
+        },
+        {
+            "id": 4, "title": "The Ant and the Grasshopper", "icon": "🐜",
+            "content": "A Grasshopper sang all summer while the Ants worked hard to store food. When winter came, the Grasshopper had nothing to eat and was starving. He went to the Ants for help, but they told him, 'You sang all summer, now dance the winter away.' The Grasshopper realized his mistake too late.",
+            "moral": "Work hard today to enjoy tomorrow."
+        },
+        {
+            "id": 5, "title": "The Tortoise and the Hare", "icon": "🐢",
+            "content": "The Hare bragged about his speed and challenged the slow Tortoise to a race. The Hare ran fast and took a nap, confident he would win. The Tortoise kept walking slowly but steadily. When the Hare woke up, the Tortoise had already crossed the finish line.",
+            "moral": "Slow and steady wins the race."
+        },
+        {
+            "id": 6, "title": "The Fox and the Grapes", "icon": "🦊",
+            "content": "A hungry Fox saw a bunch of juicy grapes hanging high on a vine. He jumped and jumped but couldn't reach them. Walking away, he said, 'They were probably sour anyway!' He made an excuse because he couldn't get what he wanted.",
+            "moral": "It is easy to despise what you cannot get."
+        },
+        {
+            "id": 7, "title": "The Honest Woodcutter", "icon": "🪓",
+            "content": "A woodcutter dropped his iron axe into a river. A Divine Being appeared and offered him a golden axe, then a silver one. The woodcutter refused both, saying only the iron one was his. Pleased by his honesty, the Being gave him all three axes.",
+            "moral": "Honesty is the best policy."
+        },
+        {
+            "id": 8, "title": "The Goose That Laid Golden Eggs", "icon": "🪺",
+            "content": "A farmer had a Goose that laid one golden egg every day. Greedily, he thought the Goose must be full of gold inside. He killed it to get all the gold at once, but found nothing. He lost his daily golden egg forever.",
+            "moral": "Greed leads to great loss."
+        },
+        {
+            "id": 9, "title": "The Dog and the Shadow", "icon": "🐕",
+            "content": "A Dog carrying a piece of meat saw his reflection in a river. He thought it was another dog with a bigger piece of meat. He barked at the reflection, and his own meat fell into the water. He ended up with nothing because he was greedy.",
+            "moral": "Be content with what you have."
+        },
+        {
+            "id": 10, "title": "The Fox and the Crow", "icon": "🧀",
+            "content": "A Crow was sitting on a branch with a piece of cheese. A Fox wanted the cheese and began praising the Crow's voice. The Crow, feeling flattered, opened her beak to sing, and the cheese fell down. The Fox grabbed it and ran away.",
+            "moral": "Do not trust flatterers."
+        },
+        {
+            "id": 11, "title": "The Two Friends and the Bear", "icon": "🐻",
+            "content": "Two friends were walking when a Bear appeared. One climbed a tree, leaving the other on the ground. The friend on the ground pretended to be dead. The Bear sniffed his ear and left. The tree-climbing friend asked, 'What did the bear say?' He replied, 'Don't trust friends who leave you in danger.'",
+            "moral": "A friend in need is a friend indeed."
+        },
+        {
+            "id": 12, "title": "The Milkmaid and Her Pail", "icon": "🥛",
+            "content": "A milkmaid was carrying a pail of milk on her head. She started dreaming of selling it to buy eggs, then chickens, then a fine dress. In her excitement, she tossed her head and the milk spilled. All her dreams vanished with the milk.",
+            "moral": "Don't count your chickens before they are hatched."
+        },
+        {
+            "id": 13, "title": "The Bundle of Sticks", "icon": "🪵",
+            "content": "A father gave his quarreling sons a bundle of sticks and asked them to break it. None could. Then he untied it and they broke the sticks easily. He said, 'If you stay together like the bundle, no one can hurt you. If you are divided, you will be broken.'",
+            "moral": "Unity is strength."
+        },
+        {
+            "id": 14, "title": "The Lion and the Rabbit", "icon": "🐰",
+            "content": "A cruel Lion ate animals every day. A clever Rabbit, whose turn it was to be eaten, told the Lion there was another lion in a deep well. The Lion looked into the well, saw his reflection, and jumped in to fight it. He drowned, and the animals were safe.",
+            "moral": "Wisdom is stronger than physical force."
+        },
+        {
+            "id": 15, "title": "The Peacock and the Crane", "icon": "🦚",
+            "content": "A Peacock laughed at a Crane's dull feathers, bragging about his own colorful tail. The Crane said, 'I can fly high into the sky and see the world, while you can only walk on the ground like a rooster.' The Peacock was silenced.",
+            "moral": "Fine feathers do not make fine birds."
+        },
+        {
+            "id": 16, "title": "The Golden Touch", "icon": "👑",
+            "content": "King Midas wished that everything he touched would turn into gold. His wish was granted. He was happy until he touched his food and his daughter, turning them into cold gold. He realized that gold isn't everything and begged to have his wish taken back.",
+            "moral": "Be careful what you wish for."
+        },
+        {
+            "id": 17, "title": "The Wind and the Sun", "icon": "☀️",
+            "content": "The Wind and the Sun argued over who was stronger. They saw a traveler and agreed that whoever could make him remove his coat was the winner. The Wind blew hard, but the traveler held his coat tighter. The Sun shone warmly, and the traveler gladly took off his coat.",
+            "moral": "GENTLENESS and kind persuasion win where force fails."
+        },
+        {
+            "id": 18, "title": "The Mouse and the Camel", "icon": "🐫",
+            "content": "A Mouse thought he was very strong and tried to lead a Camel by a rope. The Camel followed quietly to teach him a lesson. When they reached a deep river, the Mouse stopped. The Camel walked through easily and said, 'Why stop? Follow me!' The Mouse realized his size and pride were small.",
+            "moral": "Do not let pride blind you to your true abilities."
+        },
+        {
+            "id": 19, "title": "The Elephant and the Tailor", "icon": "🐘",
+            "content": "An Elephant and a Tailor were friends. One day, the Tailor pricked the Elephant's trunk with a needle. The next day, the Elephant filled his trunk with muddy water and sprayed it all over the Tailor's shop, ruining the new clothes. The Tailor learned his lesson.",
+            "moral": "As you sow, so shall you reap."
+        },
+        {
+            "id": 20, "title": "The Shepherd and the Lion", "icon": "🐾",
+            "content": "A shepherd found a Lion in pain because of a thorn in its paw. He kindly pulled it out. Years later, the shepherd was thrown to the lions as a punishment. The Lion recognized him and instead of attacking, licked his hand. The King was amazed and set both free.",
+            "moral": "Gratitude is the sign of a noble soul."
+        }
+    ]
+}
+
 async def seed():
     print("Seeding database...")
     
@@ -2420,6 +2552,22 @@ async def seed():
         upsert=True
     )
     print("Seeded Hindi Stories")
+
+    # 42. Word Scramble
+    await content_collection.replace_one(
+        {"game_id": "word_scramble"},
+        WORD_SCRAMBLE_DATA,
+        upsert=True
+    )
+    print("Seeded Word Scramble")
+
+    # 43. English Stories
+    await content_collection.replace_one(
+        {"game_id": "english_stories"},
+        ENGLISH_STORIES_DATA,
+        upsert=True
+    )
+    print("Seeded English Stories")
 
     print("Done!")
 
