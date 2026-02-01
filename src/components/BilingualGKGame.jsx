@@ -90,7 +90,7 @@ const BilingualGKGame = ({ onBack, subject = 'gk' }) => {
         default: { color: "#636E72", shadow: "#2D3436", icon: "📚" }
     };
 
-    const PHYSICS_TOPICS = ['physics_basics', 'electricity', 'energy', 'magnets', 'sound', 'heat', 'gravity', 'solar_system', 'simple_machines', 'light', 'forces_motion'];
+    const PHYSICS_TOPICS = ['physics_basics', 'electricity', 'energy', 'magnets', 'sound', 'heat', 'gravity', 'solar_system', 'simple_machines', 'light', 'forces_motion', 'weather', 'air_wind'];
     const CHEMISTRY_TOPICS = ['chemistry_basics', 'atoms', 'elements', 'acids_bases', 'states_of_matter', 'chemical_changes', 'water_cycle', 'spices'];
     const BIOLOGY_TOPICS = ['biology_basics', 'human_body', 'human_body_organs', 'plants_parts', 'plants_need', 'animals', 'birds', 'insects', 'wild_animals', 'water_animals', 'fruits', 'vegetables', 'flowers', 'food_nutrition', 'living_nonliving'];
 
@@ -152,7 +152,8 @@ const BilingualGKGame = ({ onBack, subject = 'gk' }) => {
         const fetchContent = async () => {
             try {
                 setLoading(true);
-                const response = await fetch('http://localhost:8000/api/content/bilingual_gk');
+                const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+                const response = await fetch(`${API_URL}/api/content/bilingual_gk`);
                 const result = await response.json();
 
                 // Merge sets and topics, ensuring no duplicates
