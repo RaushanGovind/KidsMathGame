@@ -9841,6 +9841,569 @@ BILINGUAL_GK_DATA = {
                 "en_a": "Traffic Light"
             },
         ],
+        'physics_basics': [
+            {
+                'id': 1,
+                'hi_q': "बल क्या है?",
+                'en_q': "What is Force?",
+                'hi_a': "बल का मतलब धक्का या खींचना है। दरवाज़ा खोलने के लिए हम धक्का देते हैं। दराज खोलने के लिए हम खींचते हैं",
+                'en_a': "Force means a push or a pull. Examples: We push a door to open it. We pull a drawer to open it"
+            },
+            {
+                'id': 2,
+                'hi_q': "गति का मतलब चलना या हिलना है। सड़क पर चलती कार गति है?",
+                'en_q': "What movement. A car moving on the road is motion?",
+                'hi_a': "गति",
+                'en_a': "Motion"
+            },
+            {
+                'id': 3,
+                'hi_q': "प्रकाश हमें चीज़ें देखने में मदद करता है। सूरज प्रकाश का मुख्य स्रोत है?",
+                'en_q': "What helps us see things. The Sun is our main source of light?",
+                'hi_a': "प्रकाश",
+                'en_a': "Light"
+            },
+            {
+                'id': 4,
+                'hi_q': "चुंबक लोहे की चीज़ों को खींच सकता है। चुंबक के दो ध्रुव होते हैं?",
+                'en_q': "What A magnet can pull iron objects. Magnets have two poles?",
+                'hi_a': "चुंबक",
+                'en_a': "Magnet"
+            },
+            {
+                'id': 5,
+                'hi_q': "पदार्थ की अवस्थाएँ क्या है?",
+                'en_q': "What is States of Matter?",
+                'hi_a': "पदार्थ की अवस्थाएँ",
+                'en_a': "States of Matter"
+            },
+            {
+                'id': 6,
+                'hi_q': "ठोस क्या है?",
+                'en_q': "What is Solid?",
+                'hi_a': "ठोस",
+                'en_a': "Solid"
+            },
+            {
+                'id': 7,
+                'hi_q': "द्रव क्या है?",
+                'en_q': "What is Liquid?",
+                'hi_a': "द्रव",
+                'en_a': "Liquid"
+            },
+            {
+                'id': 8,
+                'hi_q': "गैस क्या है?",
+                'en_q': "What is Gas?",
+                'hi_a': "हमारे आसपास की हर चीज़ पदार्थ से बनी है। भौतिक विज्ञान क्यों ज़रूरी है भौतिक विज्ञान हमें दुनिया को समझने में मदद करता है। धक्का या खींचो — motion you prove! रोशनी और चुंबक — science every day!",
+                'en_a': "Everything around us is made of matter. 🎯 WHY PHYSICS IS IMPORTANT Physics helps us understand the world. Push or pull, things will move, Light to see and magnets play,"
+            },
+        ],
+        'electricity': [
+            {
+                'id': 1,
+                'hi_q': "बिजली हमें रोशनी देती है। बिजली पंखा, टीवी और कंप्यूटर चलाती है?",
+                'en_q': "What Electricity gives us light. Electricity runs fans, TVs, and computers?",
+                'hi_a': "बिजली क्या करती है",
+                'en_a': "WHAT ELECTRICITY DOES"
+            },
+            {
+                'id': 2,
+                'hi_q': "बिजली कहाँ से आती है क्या है?",
+                'en_q': "What is WHERE ELECTRICITY COMES FROM?",
+                'hi_a': "बिजली बिजलीघरों में बनाई जाती है। बिजली पानी, हवा, सूरज और कोयले से बनाई जा सकती है",
+                'en_a': "Electricity is made in power stations. It can be made using water, wind, sun, and coal"
+            },
+            {
+                'id': 3,
+                'hi_q': "सरल विद्युत परिपथ क्या है?",
+                'en_q': "What is SIMPLE ELECTRIC CIRCUIT?",
+                'hi_a': "परिपथ वह रास्ता है जिससे बिजली बहती है। बैटरी → तार → बल्ब = रोशनी",
+                'en_a': "A circuit is a path through which electricity flows. Battery → Wire → Bulb = Light"
+            },
+            {
+                'id': 4,
+                'hi_q': "सुरक्षा नियम क्या है?",
+                'en_q': "What is SAFETY RULES?",
+                'hi_a': "गीले हाथों से स्विच न छुएँ। बिजली के सॉकेट में उंगली न डालें। बिजली क्यों ज़रूरी है बिजली हमारे जीवन को आसान और आरामदायक बनाती है। स्विच दबाओ — bulb will glow! पंखा चले, टीवी बजे — electricity saves the day!",
+                'en_a': "Do not touch switches with wet hands. Do not put fingers into electric sockets. 🎯 WHY ELECTRICITY IS IMPORTANT Electricity makes our life easy and comfortable. Flip the switch and light will glow, Fans will spin and TV play,"
+            },
+        ],
+        'energy': [
+            {
+                'id': 1,
+                'hi_q': "भोजन हमें ऊर्जा देता है। स्वस्थ भोजन हमें ताकतवर बनाता है?",
+                'en_q': "What Food gives us energy. Healthy food makes us strong?",
+                'hi_a': "भोजन से ऊर्जा",
+                'en_a': "ENERGY FROM FOOD"
+            },
+            {
+                'id': 2,
+                'hi_q': "ऊर्जा के स्रोत क्या है?",
+                'en_q': "What is TYPES OF ENERGY SOURCES?",
+                'hi_a': "ऊर्जा के स्रोत",
+                'en_a': "TYPES OF ENERGY SOURCES"
+            },
+            {
+                'id': 3,
+                'hi_q': "सूरज से मिलने वाली ऊर्जा। सोलर पैनल सूरज की रोशनी से बिजली बनाते हैं?",
+                'en_q': "What Energy from the Sun. Solar panels use sunlight to make electricity?",
+                'hi_a': "सौर ऊर्जा",
+                'en_a': "Solar Energy"
+            },
+            {
+                'id': 4,
+                'hi_q': "चलती हवा से मिलने वाली ऊर्जा। पवनचक्कियाँ हवा से बिजली बनाती हैं?",
+                'en_q': "What Energy from moving air. Windmills use wind to produce electricity?",
+                'hi_a': "पवन ऊर्जा",
+                'en_a': "Wind Energy"
+            },
+            {
+                'id': 5,
+                'hi_q': "बहते पानी से मिलने वाली ऊर्जा। बांध पानी से बिजली बनाते हैं?",
+                'en_q': "What Energy from flowing water. Dams use water to make electricity?",
+                'hi_a': "जल ऊर्जा",
+                'en_a': "Water Energy"
+            },
+            {
+                'id': 6,
+                'hi_q': "ऊर्जा के उपयोग क्या है?",
+                'en_q': "What is USES OF ENERGY?",
+                'hi_a': "हम बल्ब जलाने के लिए ऊर्जा का उपयोग करते हैं। हम मशीनें और वाहन चलाने के लिए ऊर्जा का उपयोग करते हैं। ऊर्जा क्यों ज़रूरी है ऊर्जा के बिना कुछ भी काम नहीं कर सकता। सूरज, हवा, पानी — energy makes things go! अच्छा खाना, खेलना-कूदना — energy all the way!",
+                'en_a': "We use energy to light bulbs. We use energy to run machines and vehicles. 🎯 WHY ENERGY IS IMPORTANT Without energy, nothing can work. Sun and wind and water flow, Eat good food and play all day,"
+            },
+        ],
+        'magnets': [
+            {
+                'id': 1,
+                'hi_q': "चुंबक क्या खींचता है क्या है?",
+                'en_q': "What is WHAT MAGNETS ATTRACT?",
+                'hi_a': "चुंबक लोहा, निकल और स्टील को खींचता है। चुंबक लकड़ी, प्लास्टिक या कागज़ को नहीं खींचता",
+                'en_a': "Magnets attract iron, nickel, and steel. Magnets do not attract wood, plastic, or paper"
+            },
+            {
+                'id': 2,
+                'hi_q': "हर चुंबक के दो ध्रुव होते हैं:?",
+                'en_q': "What Every magnet has two poles:?",
+                'hi_a': "चुंबक के ध्रुव",
+                'en_a': "POLES OF A MAGNET"
+            },
+            {
+                'id': 3,
+                'hi_q': "उत्तरी ध्रुव क्या है?",
+                'en_q': "What is North Pole?",
+                'hi_a': "उत्तरी ध्रुव",
+                'en_a': "North Pole"
+            },
+            {
+                'id': 4,
+                'hi_q': "अलग-अलग ध्रुव एक-दूसरे को खींचते हैं। एक जैसे ध्रुव एक-दूसरे को दूर धकेलते हैं?",
+                'en_q': "What Opposite poles attract each other. Same poles push each other away?",
+                'hi_a': "दक्षिणी ध्रुव",
+                'en_a': "South Pole"
+            },
+            {
+                'id': 5,
+                'hi_q': "चुंबक के प्रकार क्या है?",
+                'en_q': "What is TYPES OF MAGNETS?",
+                'hi_a': "चुंबक के प्रकार",
+                'en_a': "TYPES OF MAGNETS"
+            },
+            {
+                'id': 6,
+                'hi_q': "छड़ी चुंबक क्या है?",
+                'en_q': "What is Bar Magnet?",
+                'hi_a': "छड़ी चुंबक",
+                'en_a': "Bar Magnet"
+            },
+            {
+                'id': 7,
+                'hi_q': "घोड़े की नाल जैसा चुंबक क्या है?",
+                'en_q': "What is Horseshoe Magnet?",
+                'hi_a': "घोड़े की नाल जैसा चुंबक",
+                'en_a': "Horseshoe Magnet"
+            },
+            {
+                'id': 8,
+                'hi_q': "छल्ला चुंबक क्या है?",
+                'en_q': "What is Ring Magnet?",
+                'hi_a': "छल्ला चुंबक",
+                'en_a': "Ring Magnet"
+            },
+            {
+                'id': 9,
+                'hi_q': "?",
+                'en_q': "What Magnets are used in compasses?",
+                'hi_a': "चुंबक के उपयोग",
+                'en_a': "USES OF MAGNETS"
+            },
+            {
+                'id': 10,
+                'hi_q': "कम्पास क्या है?",
+                'en_q': "What is ?",
+                'hi_a': "चुंबक स्पीकर और खिलौनों में उपयोग होते हैं। चुंबक खींचे चीज़ें tight! उत्तर-दक्षिण ध्रुव — attract in air!",
+                'en_a': "Magnets are used in speakers and toys. Magnets pull with magic might, North and south, a special pair,"
+            },
+        ],
+        'sound': [
+            {
+                'id': 1,
+                'hi_q': "ध्वनि कैसे बनती है क्या है?",
+                'en_q': "What is HOW SOUND IS MADE?",
+                'hi_a': "जब कोई वस्तु कंपन करती है तो ध्वनि बनती है। जब हम ढोल बजाते हैं तो वह कंपन करता है और आवाज़ निकलती है",
+                'en_a': "Sound is made when things vibrate. Example: When we hit a drum, it vibrates and makes sound"
+            },
+            {
+                'id': 2,
+                'hi_q': "ध्वनि हवा के माध्यम से हमारे कानों तक पहुँचती है। हमारे कान अलग-अलग ध्वनियाँ सुनने में मदद करते हैं?",
+                'en_q': "What Sound travels through air to our ears. Our ears help us hear different sounds?",
+                'hi_a': "हम ध्वनि कैसे सुनते हैं",
+                'en_a': "HOW WE HEAR SOUND"
+            },
+            {
+                'id': 3,
+                'hi_q': "ध्वनि के प्रकार क्या है?",
+                'en_q': "What is TYPES OF SOUNDS?",
+                'hi_a': "ध्वनि के प्रकार",
+                'en_a': "TYPES OF SOUNDS"
+            },
+            {
+                'id': 4,
+                'hi_q': "धीमी आवाज़ क्या है?",
+                'en_q': "What is Soft Sound?",
+                'hi_a': "धीमी आवाज़",
+                'en_a': "Soft Sound"
+            },
+            {
+                'id': 5,
+                'hi_q': "तेज़ आवाज़ क्या है?",
+                'en_q': "What is Loud Sound?",
+                'hi_a': "तेज़ आवाज़",
+                'en_a': "Loud Sound"
+            },
+            {
+                'id': 6,
+                'hi_q': "शोर क्या है?",
+                'en_q': "What is NOISE?",
+                'hi_a': "बहुत तेज और खराब लगने वाली आवाज़ को शोर कहते हैं। ध्वनि क्यों महत्वपूर्ण है ध्वनि हमें बोलने, सुनने और संगीत का आनंद लेने में मदद करती है। ताली बजाओ — sound goes round! धीमी या तेज — sound we know!",
+                'en_a': "Very loud and unpleasant sound is called noise. 🎯 WHY SOUND IS IMPORTANT Sound helps us talk, listen, and enjoy music. Clap your hands and hear the sound, Soft or loud, high or low,"
+            },
+        ],
+        'heat': [
+            {
+                'id': 1,
+                'hi_q': "ऊष्मा के स्रोत क्या है?",
+                'en_q': "What is SOURCES OF HEAT?",
+                'hi_a': "सूरज ऊष्मा का मुख्य स्रोत है। आग भी ऊष्मा देती है। बिजली के हीटर भी ऊष्मा देते हैं",
+                'en_a': "The Sun is the main source of heat. Fire also gives heat. Electric heaters give heat"
+            },
+            {
+                'id': 2,
+                'hi_q': "ऊष्मा के प्रभाव क्या है?",
+                'en_q': "What is EFFECTS OF HEAT?",
+                'hi_a': "ऊष्मा चीज़ों को गरम करती है। ऊष्मा बर्फ को पानी में बदल सकती है। ऊष्मा पानी को भाप में बदल सकती है",
+                'en_a': "Heat can make things hot. Heat can melt ice into water. Heat can boil water into steam"
+            },
+            {
+                'id': 3,
+                'hi_q': "ठंड क्या है?",
+                'en_q': "What is COLD?",
+                'hi_a': "जब ऊष्मा कम होती है, तो ठंड लगती है। हम सर्दी में गर्म रहने के लिए ऊनी कपड़े पहनते हैं। ऊष्मा क्यों ज़रूरी है ऊष्मा हमें खाना पकाने और गर्म रहने में मदद करती है। सूरज चमके — warm and sweet! बर्फ पिघले, पानी उबले — heat at work, no toil!",
+                'en_a': "When there is less heat, it feels cold. We wear woollen clothes in winter to keep warm. 🎯 WHY HEAT IS IMPORTANT Heat helps us cook food and keep warm. Sun so bright, gives us heat, Ice will melt and water boil,"
+            },
+        ],
+        'gravity': [
+            {
+                'id': 1,
+                'hi_q': "गुरुत्वाकर्षण क्या करता है क्या है?",
+                'en_q': "What is WHAT GRAVITY DOES?",
+                'hi_a': "जब आप गेंद गिराते हैं, तो वह नीचे गिरती है। बारिश बादलों से नीचे गिरती है क्योंकि गुरुत्वाकर्षण होता है",
+                'en_a': "When you drop a ball, it falls down. Rain falls from clouds to the ground because of gravity"
+            },
+            {
+                'id': 2,
+                'hi_q': "पृथ्वी का गुरुत्वाकर्षण क्या है?",
+                'en_q': "What is S GRAVITY?",
+                'hi_a': "पृथ्वी हर चीज़ को अपने केंद्र की ओर खींचती है। इसीलिए हम हवा में तैरते नहीं हैं",
+                'en_a': "The Earth pulls everything towards its center. That is why we do not float in the air"
+            },
+            {
+                'id': 3,
+                'hi_q': "चाँद पर गुरुत्वाकर्षण क्या है?",
+                'en_q': "What is GRAVITY ON THE MOON?",
+                'hi_a': "चाँद पर पृथ्वी से कम गुरुत्वाकर्षण होता है। अंतरिक्ष यात्री चाँद पर ज़्यादा ऊँचा कूद सकते हैं। गुरुत्वाकर्षण क्यों ज़रूरी है गुरुत्वाकर्षण हमें, पानी और हवा को पृथ्वी पर बनाए रखता है। ऊपर फेंको, नीचे गिरे — gravity you see! पृथ्वी खींचे सबको — big and small!",
+                'en_a': "The Moon has less gravity than Earth. Astronauts can jump higher on the Moon. 🎯 WHY GRAVITY IS IMPORTANT Gravity keeps us, water, and air on Earth. Up you throw, down it will be, Earth pulls all, big and small,"
+            },
+        ],
+        'simple_machines': [
+            {
+                'id': 1,
+                'hi_q': "उत्तोलक भारी चीज़ उठाने में मदद करता है?",
+                'en_q': "What A lever helps lift heavy things?",
+                'hi_a': "उत्तोलक",
+                'en_a': "Lever"
+            },
+            {
+                'id': 2,
+                'hi_q': "झूला पट्टी क्या है?",
+                'en_q': "What is Seesaw?",
+                'hi_a': "झूला पट्टी",
+                'en_a': "Seesaw"
+            },
+            {
+                'id': 3,
+                'hi_q': "चरखी रस्सी की मदद से चीज़ें उठाती है?",
+                'en_q': "What A pulley helps lift objects using a rope?",
+                'hi_a': "चरखी",
+                'en_a': "Pulley"
+            },
+            {
+                'id': 4,
+                'hi_q': "कुएँ से पानी निकालना क्या है?",
+                'en_q': "What is Drawing water from a well?",
+                'hi_a': "कुएँ से पानी निकालना",
+                'en_a': "Drawing water from a well"
+            },
+            {
+                'id': 5,
+                'hi_q': "यह चीज़ों को आसानी से चलने में मदद करता है?",
+                'en_q': "What This helps things move easily?",
+                'hi_a': "पहिया और धुरी",
+                'en_a': "Wheel and Axle"
+            },
+            {
+                'id': 6,
+                'hi_q': "साइकिल का पहिया क्या है?",
+                'en_q': "What is Bicycle wheel?",
+                'hi_a': "साइकिल का पहिया",
+                'en_a': "Bicycle wheel"
+            },
+            {
+                'id': 7,
+                'hi_q': "ढलान चीज़ों को ऊपर-नीचे ले जाने में मदद करती है?",
+                'en_q': "What A sloping surface used to move things up or down?",
+                'hi_a': "ढलान",
+                'en_a': "Inclined Plane"
+            },
+            {
+                'id': 8,
+                'hi_q': "रैंप क्या है?",
+                'en_q': "What is Ramp?",
+                'hi_a': "रैंप",
+                'en_a': "Ramp"
+            },
+            {
+                'id': 9,
+                'hi_q': "पेच चीज़ों को जोड़कर रखता है?",
+                'en_q': "What A screw holds things together?",
+                'hi_a': "पेच",
+                'en_a': "Screw"
+            },
+            {
+                'id': 10,
+                'hi_q': "कील जैसी चीज़ें काटने या फाड़ने में मदद करती हैं?",
+                'en_q': "What A wedge is used to cut or split objects?",
+                'hi_a': "कील/फाड़ने वाला औज़ार",
+                'en_a': "Wedge"
+            },
+            {
+                'id': 11,
+                'hi_q': "चाकू क्या है?",
+                'en_q': "What is Knife?",
+                'hi_a': "सरल मशीनें क्यों ज़रूरी हैं ये काम को तेज़ और आसान बनाती हैं। धक्का, खींचो, उठाओ — machines by your side! पहिए घूमें, उत्तोलक उठाएँ — smart and wise!",
+                'en_a': "🎯 WHY SIMPLE MACHINES ARE IMPORTANT They make work faster and easier. Push or pull, lift or slide, Wheels roll and levers rise,"
+            },
+        ],
+        'water_cycle': [
+            {
+                'id': 1,
+                'hi_q': "वाष्पीकरण क्या है?",
+                'en_q': "What is Evaporation?",
+                'hi_a': "सूरज नदियों, झीलों और समुद्र के पानी को गरम करता है। पानी भाप बनकर ऊपर उठता है",
+                'en_a': "The Sun heats water in rivers, lakes, and oceans. Water changes into water vapor and rises into the air"
+            },
+            {
+                'id': 2,
+                'hi_q': "भाप ठंडी होकर बादल बनाती है?",
+                'en_q': "What Water vapor cools and forms clouds?",
+                'hi_a': "संघनन",
+                'en_a': "Condensation"
+            },
+            {
+                'id': 3,
+                'hi_q': "बादल भारी होकर बारिश के रूप में पानी गिराते हैं। कभी-कभी यह बर्फ या ओले के रूप में गिरता है?",
+                'en_q': "What Clouds become heavy and water falls as rain. Sometimes it falls as snow or hail?",
+                'hi_a': "वर्षा",
+                'en_a': "Precipitation"
+            },
+            {
+                'id': 4,
+                'hi_q': "संग्रह क्या है?",
+                'en_q': "What is Collection?",
+                'hi_a': "बारिश का पानी नदियों, झीलों और समुद्र में जमा होता है। फिर जल चक्र दोबारा शुरू होता है। जल चक्र क्यों ज़रूरी है जल चक्र हमें ताज़ा पानी देता है। यह पौधों, जानवरों और इंसानों को जीवित रहने में मदद करता है। सूरज गरम करे पानी — up it goes! आसमान में बादल बन जाएँ high! बारिश गिरे, नदियाँ बहें — round and round we go!",
+                'en_a': "Rainwater collects in rivers, lakes, and oceans. Then the cycle starts again. 🎯 WHY WATER CYCLE IS IMPORTANT The water cycle gives us fresh water. It helps plants, animals, and people survive. Sun heats water, up it goes, Clouds form high in the sky, Rain falls down, rivers flow,"
+            },
+        ],
+        'air_wind': [
+            {
+                'id': 1,
+                'hi_q': "हवा जगह घेरती है। हवा हमें सांस लेने में मदद करती है। हवा का भी वजन होता है?",
+                'en_q': "What takes up space. Air helps us breathe. Air has weight?",
+                'hi_a': "हवा",
+                'en_a': "AIR"
+            },
+            {
+                'id': 2,
+                'hi_q': "पवन क्या है?",
+                'en_q': "What is WIND?",
+                'hi_a': "पवन चलती हुई हवा है। पवन धीमी या तेज हो सकती है। तेज हवा पेड़ों और पतंगों को हिला सकती है",
+                'en_a': "Wind is moving air. Wind can be slow or fast. Strong winds can move trees and kites"
+            },
+            {
+                'id': 3,
+                'hi_q': "पवन के उपयोग क्या है?",
+                'en_q': "What is USES OF WIND?",
+                'hi_a': "हवा नावों को चलने में मदद करती है। पवनचक्की हवा से बिजली बनाती है। हवा क्यों ज़रूरी है हवा के बिना हम जीवित नहीं रह सकते। हवा है चारों ओर — fresh and clean! जब हवा चले — wind at play!",
+                'en_a': "Wind helps boats sail. Windmills use wind to make electricity. 🎯 WHY AIR IS IMPORTANT Without air, we cannot live. Air is around but cannot be seen, When air moves, wind we say,"
+            },
+        ],
+        'earth_globe': [
+            {
+                'id': 1,
+                'hi_q': "पृथ्वी क्या है?",
+                'en_q': "What is Earth?",
+                'hi_a': "पृथ्वी पर जमीन, पानी और हवा है। इसे नीला ग्रह कहा जाता है क्योंकि इसमें बहुत पानी है। पृथ्वी के घूमने से दिन और रात होते हैं",
+                'en_a': "Earth has land, water, and air. It is called the Blue Planet. Day and night happen because Earth spins"
+            },
+            {
+                'id': 2,
+                'hi_q': "ग्लोब क्या है?",
+                'en_q': "What is Globe?",
+                'hi_a': "ग्लोब पृथ्वी का मॉडल होता है। यह महाद्वीप, महासागर और देश दिखाता है। हम दुनिया के बारे में सीखने के लिए ग्लोब का उपयोग करते हैं",
+                'en_a': "A globe is a model of the Earth. It shows continents, oceans, and countries. We use a globe to learn about the world"
+            },
+            {
+                'id': 3,
+                'hi_q': "महासागर बहुत बड़े जल क्षेत्र होते हैं?",
+                'en_q': "What are very big water bodies?",
+                'hi_a': "महासागर",
+                'en_a': "Oceans"
+            },
+            {
+                'id': 4,
+                'hi_q': "महाद्वीप क्या है?",
+                'en_q': "What is Continents?",
+                'hi_a': "महाद्वीप बड़े भूभाग होते हैं। पृथ्वी क्यों खास है पृथ्वी ही एकमात्र ग्रह है जहाँ जीवन पाया जाता है। पृथ्वी गोल है, घूमे दिन-रात — in its own way! ग्लोब बताए दुनिया सारी — for me and you!",
+                'en_a': "Continents are large land areas. 🎯 WHY EARTH IS SPECIAL Earth is the only planet known to have life. Earth is round and spins all day, Globe shows land and oceans blue,"
+            },
+        ],
+        'countries': [
+            {
+                'id': 1,
+                'hi_q': "भारत हमारा देश है?",
+                'en_q': "What our country?",
+                'hi_a': "भारत",
+                'en_a': "India"
+            },
+            {
+                'id': 2,
+                'hi_q': "नई दिल्ली क्या है?",
+                'en_q': "What is New Delhi?",
+                'hi_a': "नई दिल्ली",
+                'en_a': "New Delhi"
+            },
+            {
+                'id': 3,
+                'hi_q': "अमेरिका एक बड़ा देश है?",
+                'en_q': "What The United States is a large country. Capital: Washington, D.C?",
+                'hi_a': "अमेरिका",
+                'en_a': "United States"
+            },
+            {
+                'id': 4,
+                'hi_q': "चीन की जनसंख्या बहुत अधिक है?",
+                'en_q': "What has the largest population in the world?",
+                'hi_a': "चीन",
+                'en_a': "China"
+            },
+            {
+                'id': 5,
+                'hi_q': "बीजिंग क्या है?",
+                'en_q': "What is Beijing?",
+                'hi_a': "बीजिंग",
+                'en_a': "Beijing"
+            },
+            {
+                'id': 6,
+                'hi_q': "जापान को उगते सूरज का देश कहा जाता है?",
+                'en_q': "What is known as the land of the rising sun?",
+                'hi_a': "जापान",
+                'en_a': "Japan"
+            },
+            {
+                'id': 7,
+                'hi_q': "टोक्यो क्या है?",
+                'en_q': "What is Tokyo?",
+                'hi_a': "टोक्यो",
+                'en_a': "Tokyo"
+            },
+            {
+                'id': 8,
+                'hi_q': "ऑस्ट्रेलिया एक महाद्वीप भी है?",
+                'en_q': "What also a continent?",
+                'hi_a': "ऑस्ट्रेलिया",
+                'en_a': "Australia"
+            },
+            {
+                'id': 9,
+                'hi_q': "कैनबरा क्या है?",
+                'en_q': "What is Canberra?",
+                'hi_a': "कैनबरा",
+                'en_a': "Canberra"
+            },
+            {
+                'id': 10,
+                'hi_q': "फ्रांस एफिल टॉवर के लिए प्रसिद्ध है?",
+                'en_q': "What famous for the Eiffel Tower?",
+                'hi_a': "फ्रांस",
+                'en_a': "France"
+            },
+            {
+                'id': 11,
+                'hi_q': "पेरिस क्या है?",
+                'en_q': "What is Paris?",
+                'hi_a': "पेरिस",
+                'en_a': "Paris"
+            },
+            {
+                'id': 12,
+                'hi_q': "ब्राज़ील अमेज़न वर्षावन के लिए प्रसिद्ध है?",
+                'en_q': "What known for the Amazon rainforest?",
+                'hi_a': "ब्राज़ील",
+                'en_a': "Brazil"
+            },
+            {
+                'id': 13,
+                'hi_q': "ब्रासीलिया क्या है?",
+                'en_q': "What is lia?",
+                'hi_a': "ब्रासीलिया",
+                'en_a': "lia"
+            },
+            {
+                'id': 14,
+                'hi_q': "कनाडा बर्फ और मेपल पत्तों के लिए प्रसिद्ध है?",
+                'en_q': "What famous for snow and maple leaves?",
+                'hi_a': "कनाडा",
+                'en_a': "Canada"
+            },
+            {
+                'id': 15,
+                'hi_q': "ओटावा क्या है?",
+                'en_q': "What is Ottawa?",
+                'hi_a': "देश क्यों महत्वपूर्ण हैं देश लोगों को नियम और संस्कृति के साथ मिलकर रहने में मदद करते हैं। देश बड़े हों या छोटे — we can learn them all! हर देश का झंडा — proud and grand!",
+                'en_a': "🎯 WHY COUNTRIES ARE IMPORTANT Countries help people live together with rules and culture. Countries big and countries small, Flags fly high in every land,"
+            },
+        ],
     }
 }
 
