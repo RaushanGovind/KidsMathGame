@@ -18,7 +18,8 @@ function MentalMathGame({ onBack }) {
     const [feedback, setFeedback] = useState(null);
 
     useEffect(() => {
-        fetch('http://localhost:8000/api/content/mental_math')
+        const API_URL = import.meta.env.VITE_API_URL || \'http://localhost:8000\';
+        fetch(`${API_URL}/api/content/mental_math`)
             .then(res => res.json())
             .then(data => {
                 setGameData(data);

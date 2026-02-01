@@ -9,7 +9,8 @@ function AlphabetGame({ onBack }) {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch('http://localhost:8000/api/content/alphabet')
+        const API_URL = import.meta.env.VITE_API_URL || \'http://localhost:8000\';
+        fetch(`${API_URL}/api/content/alphabet`)
             .then(res => res.json())
             .then(data => {
                 setAlphabetData(data.content);

@@ -14,7 +14,8 @@ function HindiGame({ gameType, onBack }) {
         const endpoint = gameType === 'varnamala' ? 'varnamala' :
             gameType === 'hindi-2-letter' ? 'two_letter' : 'three_letter';
 
-        fetch(`http://localhost:8000/api/content/hindi_${endpoint}`)
+        const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+        fetch(`${API_URL}/api/content/hindi_${endpoint}`)
             .then(res => res.json())
             .then(data => {
                 setGameData(data);

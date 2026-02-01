@@ -11,7 +11,8 @@ function MorningRoutineGame({ onBack }) {
     const [dialogueIndex, setDialogueIndex] = useState(0);
 
     useEffect(() => {
-        fetch('http://localhost:8000/api/content/morning_routine')
+        const API_URL = import.meta.env.VITE_API_URL || \'http://localhost:8000\';
+        fetch(`${API_URL}/api/content/morning_routine`)
             .then(res => res.json())
             .then(data => {
                 setGameData(data);

@@ -15,7 +15,8 @@ function PronounsGame({ onBack }) {
     const [selectedDialogueId, setSelectedDialogueId] = useState(null);
 
     useEffect(() => {
-        fetch('http://localhost:8000/api/content/pronouns')
+        const API_URL = import.meta.env.VITE_API_URL || \'http://localhost:8000\';
+        fetch(`${API_URL}/api/content/pronouns`)
             .then(res => res.json())
             .then(data => {
                 setGameData(data);

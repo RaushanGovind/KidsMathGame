@@ -13,7 +13,8 @@ function EncouragementGame({ onBack }) {
     const [feedback, setFeedback] = useState(null);
 
     useEffect(() => {
-        fetch('http://localhost:8000/api/content/encouragement')
+        const API_URL = import.meta.env.VITE_API_URL || \'http://localhost:8000\';
+        fetch(`${API_URL}/api/content/encouragement`)
             .then(res => res.json())
             .then(data => {
                 setGameData(data.content);

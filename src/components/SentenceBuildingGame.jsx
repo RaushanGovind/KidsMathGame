@@ -13,7 +13,8 @@ function SentenceBuildingGame({ onBack }) {
     const [showSuccess, setShowSuccess] = useState(false);
 
     useEffect(() => {
-        fetch('http://localhost:8000/api/content/sentence_builder')
+        const API_URL = import.meta.env.VITE_API_URL || \'http://localhost:8000\';
+        fetch(`${API_URL}/api/content/sentence_builder`)
             .then(res => res.json())
             .then(data => {
                 setSentenceData(data.content);

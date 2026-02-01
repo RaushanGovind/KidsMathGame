@@ -15,7 +15,8 @@ function ActionSentencesGame({ onBack }) {
     const [quizIndex, setQuizIndex] = useState(0);
 
     useEffect(() => {
-        fetch('http://localhost:8000/api/content/action_sentences')
+        const API_URL = import.meta.env.VITE_API_URL || \'http://localhost:8000\';
+        fetch(`${API_URL}/api/content/action_sentences`)
             .then(res => res.json())
             .then(data => {
                 setGameData(data);

@@ -14,7 +14,8 @@ function HomeActionsGame({ onBack }) {
     const [feedback, setFeedback] = useState(null);
 
     useEffect(() => {
-        fetch('http://localhost:8000/api/content/home_actions')
+        const API_URL = import.meta.env.VITE_API_URL || \'http://localhost:8000\';
+        fetch(`${API_URL}/api/content/home_actions`)
             .then(res => res.json())
             .then(data => {
                 setGameData(data.content);

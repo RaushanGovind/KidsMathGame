@@ -15,7 +15,8 @@ function FourLetterWordsGame({ onBack }) {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch('http://localhost:8000/api/content/four_letter_words')
+        const API_URL = import.meta.env.VITE_API_URL || \'http://localhost:8000\';
+        fetch(`${API_URL}/api/content/four_letter_words`)
             .then(res => res.json())
             .then(data => {
                 setGameData(data.content);

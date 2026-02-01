@@ -9,7 +9,8 @@ function ConversationGame({ scenarioId, onBack }) {
     const bottomRef = useRef(null);
 
     useEffect(() => {
-        fetch('http://localhost:8000/api/content/conversation')
+        const API_URL = import.meta.env.VITE_API_URL || \'http://localhost:8000\';
+        fetch(`${API_URL}/api/content/conversation`)
             .then(res => res.json())
             .then(data => {
                 setScenarios(data.scenarios);

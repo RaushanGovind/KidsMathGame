@@ -12,7 +12,8 @@ function UnitaryMethodGame({ onBack }) {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch('http://localhost:8000/api/content/unitary_method')
+        const API_URL = import.meta.env.VITE_API_URL || \'http://localhost:8000\';
+        fetch(`${API_URL}/api/content/unitary_method`)
             .then(res => res.json())
             .then(data => {
                 setItemTypes(data.item_types);
