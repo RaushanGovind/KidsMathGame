@@ -231,11 +231,23 @@ const BilingualGKGame = ({ onBack, subject = 'gk' }) => {
 
     const activeTheme = activeCategory ? getTheme(activeCategory) : null;
 
+    const getOccupationImage = () => {
+        if (activeCategory !== 'occupations' || !activeQuestions[currentQuestionIndex]) return null;
+        const q = activeQuestions[currentQuestionIndex];
+        const text = (String(q.en_q || '') + " " + String(q.en_a || '')).toLowerCase();
+
+        if (text.includes('doctor')) return <img src="/images/occupations/doctor.png?v=3" alt="Doctor" style={{ height: '100%', borderRadius: '20px', objectFit: 'contain' }} />;
+        if (text.includes('teacher')) return <img src="/images/occupations/teacher.png?v=3" alt="Teacher" style={{ height: '100%', borderRadius: '20px', objectFit: 'contain' }} />;
+        if (text.includes('farmer')) return <img src="/images/occupations/farmer.png?v=3" alt="Farmer" style={{ height: '100%', borderRadius: '20px', objectFit: 'contain' }} />;
+        if (text.includes('police')) return <img src="/images/occupations/police.png?v=3" alt="Police" style={{ height: '100%', borderRadius: '20px', objectFit: 'contain' }} />;
+        return null;
+    };
+
     return (
         <div style={{ width: '100%', minHeight: '100vh', background: '#ecf0f1', padding: '20px 0' }}>
 
             {/* Main Container */}
-            <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '20px' }}>
+            <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '10px 20px' }}>
 
                 {/* Header */}
                 <div
@@ -243,7 +255,7 @@ const BilingualGKGame = ({ onBack, subject = 'gk' }) => {
                     style={{
                         display: 'flex',
                         alignItems: 'center',
-                        marginBottom: '30px',
+                        marginBottom: '10px',
                         position: 'relative',
                         justifyContent: 'space-between'
                     }}
@@ -277,40 +289,31 @@ const BilingualGKGame = ({ onBack, subject = 'gk' }) => {
                     <div
                         className="title-container"
                         style={{
-                            position: 'absolute',
-                            width: '100%',
-                            textAlign: 'center',
-                            pointerEvents: 'none',
-                            left: 0
+                            flex: 1,
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center'
                         }}>
-                        <div
-                            style={{
-                                display: 'flex',
-                                flexDirection: 'column',
-                                alignItems: 'center',
-                                gap: '4px'
-                            }}
-                        >
-                            <span style={{
-                                fontSize: '0.8rem',
-                                fontWeight: '900',
-                                color: '#94A3B8',
-                                letterSpacing: '2px',
-                                textTransform: 'uppercase'
+                        {activeCategory && (
+                            <h1 style={{
+                                margin: 0,
+                                fontSize: '1.4rem',
+                                color: '#334155',
+                                fontWeight: '800',
                             }}>
-                                {activeCategory ? `TOPIC` : "GENERAL KNOWLEDGE"}
-                            </span>
-                            {activeCategory && (
-                                <h1 style={{
-                                    margin: 0,
-                                    fontSize: '1.2rem',
-                                    color: '#334155',
-                                    fontWeight: '800',
-                                }}>
-                                    {getCategoryTitle(activeCategory)}
-                                </h1>
-                            )}
-                        </div>
+                                {getCategoryTitle(activeCategory)}
+                            </h1>
+                        )}
+                        {!activeCategory && (
+                            <h1 style={{
+                                margin: 0,
+                                fontSize: '1.2rem',
+                                color: '#334155',
+                                fontWeight: '800',
+                            }}>
+                                GENERAL KNOWLEDGE
+                            </h1>
+                        )}
                     </div>
                 </div>
 
@@ -410,7 +413,7 @@ const BilingualGKGame = ({ onBack, subject = 'gk' }) => {
                             margin: '0 auto',
                             display: 'flex',
                             flexDirection: 'column',
-                            gap: '30px',
+                            gap: '15px',
                             alignItems: 'center'
                         }}
                     >
@@ -443,7 +446,7 @@ const BilingualGKGame = ({ onBack, subject = 'gk' }) => {
                             style={{
                                 background: 'white',
                                 borderRadius: '40px',
-                                padding: '50px',
+                                padding: '30px',
                                 boxShadow: '0 15px 30px rgba(0,0,0,0.1)',
                                 width: '100%',
                                 textAlign: 'center',
@@ -451,11 +454,18 @@ const BilingualGKGame = ({ onBack, subject = 'gk' }) => {
                                 border: '4px solid white'
                             }}
                         >
-                            <div style={{ marginBottom: '40px', position: 'relative' }}>
-                                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '15px' }}>
+                            <div style={{ marginBottom: '30px', position: 'relative' }}>
+                                {/* Image Logic for Occupations */}
+                                {activeCategory === 'occupations' && (
+                                    <div style={{ marginBottom: '20px', height: '200px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                        {getOccupationImage()}
+                                    </div>
+                                )}
+
+                                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
                                     <h2
                                         className="mobile-text-lg"
-                                        style={{ fontSize: '2.5rem', color: '#2C3E50', fontWeight: '900', margin: 0, lineHeight: 1.2 }}
+                                        style={{ fontSize: '1.8rem', color: '#2C3E50', fontWeight: '900', margin: 0, lineHeight: 1.3 }}
                                     >
                                         {activeQuestions[currentQuestionIndex].en_q}
                                     </h2>
@@ -463,20 +473,20 @@ const BilingualGKGame = ({ onBack, subject = 'gk' }) => {
                                         onClick={() => speak(activeQuestions[currentQuestionIndex].en_q, 'en-IN')}
                                         style={{ background: 'none', border: 'none', cursor: 'pointer', color: activeTheme.color }}
                                     >
-                                        <Volume2 size={32} />
+                                        <Volume2 size={24} />
                                     </button>
                                 </div>
                                 <div
                                     className="mobile-text-md"
                                     style={{
-                                        fontSize: '2rem',
+                                        fontSize: '1.4rem',
                                         color: '#7F8C8D',
                                         fontWeight: 'bold',
-                                        marginTop: '20px',
+                                        marginTop: '15px',
                                         display: 'flex',
                                         alignItems: 'center',
                                         justifyContent: 'center',
-                                        gap: '15px'
+                                        gap: '10px'
                                     }}
                                 >
                                     {activeQuestions[currentQuestionIndex].hi_q}
@@ -484,7 +494,7 @@ const BilingualGKGame = ({ onBack, subject = 'gk' }) => {
                                         onClick={() => speak(activeQuestions[currentQuestionIndex].hi_q, 'hi-IN')}
                                         style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#7F8C8D' }}
                                     >
-                                        <Volume2 size={24} />
+                                        <Volume2 size={20} />
                                     </button>
                                 </div>
                             </div>
@@ -652,7 +662,7 @@ const BilingualGKGame = ({ onBack, subject = 'gk' }) => {
                 )}
             </AnimatePresence>
         </div>
-        </div >
+
     );
 };
 
