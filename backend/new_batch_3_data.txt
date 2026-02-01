@@ -1,0 +1,486 @@
+[ANIMALS_SECTION]
+🐾 ANIMALS – Kids Learning
+
+Animals are living beings.
+जानवर जीवित प्राणी होते हैं।
+They can move, grow, eat food, and have babies.
+वे चल सकते हैं, बढ़ते हैं, खाना खाते हैं और बच्चे पैदा करते हैं।
+
+------------------------------------
+
+🏠 DOMESTIC ANIMALS (पालतू जानवर)
+
+These animals live with people.
+ये जानवर इंसानों के साथ रहते हैं।
+
+Dog (कुत्ता) – Guards the house  
+कुत्ता घर की रखवाली करता है
+
+Cat (बिल्ली) – Catches rats  
+बिल्ली चूहे पकड़ती है
+
+Cow (गाय) – Gives us milk  
+गाय हमें दूध देती है
+
+Goat (बकरी) – Gives milk and meat  
+बकरी दूध और मांस देती है
+
+------------------------------------
+
+🌳 WILD ANIMALS (जंगली जानवर)
+
+These animals live in forests.
+ये जानवर जंगल में रहते हैं।
+
+Lion (शेर) – King of the jungle  
+शेर जंगल का राजा है
+
+Tiger (बाघ) – A strong wild animal  
+बाघ एक ताकतवर जंगली जानवर है
+
+Elephant (हाथी) – The largest land animal  
+हाथी सबसे बड़ा स्थलीय जानवर है
+
+Monkey (बंदर) – Loves climbing trees  
+बंदर पेड़ों पर चढ़ना पसंद करता है
+
+------------------------------------
+
+🚜 FARM ANIMALS (खेती के जानवर)
+
+These animals help farmers.
+ये जानवर किसानों की मदद करते हैं।
+
+Ox (बैल) – Helps in ploughing fields  
+बैल खेत जोतने में मदद करता है
+
+Horse (घोड़ा) – Used for riding and carrying loads  
+घोड़ा सवारी और सामान ढोने में काम आता है
+
+------------------------------------
+
+🌊 WATER ANIMALS (जल के जानवर)
+
+These animals live in water.
+ये जानवर पानी में रहते हैं।
+
+Fish (मछली) – Swims in water  
+मछली पानी में तैरती है
+
+Whale (व्हेल) – The largest sea animal  
+व्हेल समुद्र का सबसे बड़ा जानवर है
+
+Dolphin (डॉल्फ़िन) – A friendly sea animal  
+डॉल्फ़िन एक दोस्ताना समुद्री जानवर है
+
+------------------------------------
+
+🦜 BIRDS (पक्षी)
+
+Birds have wings and can fly.
+पक्षियों के पंख होते हैं और वे उड़ सकते हैं।
+
+Parrot (तोता) – Green bird that can mimic sounds  
+तोता हरा पक्षी है जो आवाज़ की नकल कर सकता है
+
+Peacock (मोर) – National bird of India  
+मोर भारत का राष्ट्रीय पक्षी है
+
+------------------------------------
+
+🎵 RHYME
+
+Animals big and animals small,  
+जानवर बड़े और जानवर छोटे, सब हैं प्यारे, सब हैं मोटे।
+
+Some can swim and some can fly,  
+कुछ तैरते, कुछ उड़ते — आसमान में high!
+
+Some live with us, some in the zoo,  
+कुछ घर में, कुछ जंगल में — animals are friends for you!
+
+[TRANSPORT_SECTION]
+🚗 TRANSPORT – Kids Learning
+
+Transport helps us move from one place to another.
+परिवहन हमें एक स्थान से दूसरे स्थान तक जाने में मदद करता है।
+
+------------------------------------
+
+🛣️ LAND TRANSPORT (स्थल परिवहन)
+
+These vehicles move on roads and tracks.
+ये वाहन सड़कों और पटरियों पर चलते हैं।
+
+Car (कार) – Used by families for travel  
+कार परिवारों द्वारा यात्रा के लिए उपयोग की जाती है
+
+Bus (बस) – Carries many people  
+बस कई लोगों को ले जाती है
+
+Train (रेलगाड़ी) – Runs on railway tracks  
+रेलगाड़ी पटरियों पर चलती है
+
+Bicycle (साइकिल) – A two-wheel vehicle  
+साइकिल दो पहियों वाला वाहन है
+
+------------------------------------
+
+🚢 WATER TRANSPORT (जल परिवहन)
+
+These vehicles move on water.
+ये वाहन पानी पर चलते हैं।
+
+Boat (नाव) – Small water vehicle  
+नाव छोटा जल वाहन है
+
+Ship (जहाज) – Big water vehicle  
+जहाज बड़ा जल वाहन है
+
+------------------------------------
+
+✈️ AIR TRANSPORT (वायु परिवहन)
+
+These vehicles fly in the sky.
+ये वाहन आकाश में उड़ते हैं।
+
+Aeroplane (हवाई जहाज) – Fastest way to travel long distances  
+हवाई जहाज लंबी दूरी तय करने का सबसे तेज़ साधन है
+
+Helicopter (हेलीकॉप्टर) – Can land in small areas  
+हेलीकॉप्टर छोटी जगहों पर भी उतर सकता है
+
+------------------------------------
+
+🚦 TRAFFIC RULE (यातायात नियम)
+
+We must follow traffic rules to stay safe.
+सुरक्षित रहने के लिए हमें यातायात नियमों का पालन करना चाहिए।
+
+Red light – Stop  
+लाल बत्ती – रुकें
+
+Yellow light – Wait  
+पीली बत्ती – तैयार रहें
+
+Green light – Go  
+हरी बत्ती – चलें
+
+------------------------------------
+
+🎵 RHYME
+
+Car and bus go on the road,  
+कार और बस चलें सड़क पर, सफ़र करें हम load।
+
+Boats and ships sail in the sea,  
+नाव और जहाज चलें पानी में, देखो कितना free!
+
+Planes and helicopters fly so high,  
+हवाई जहाज और हेलीकॉप्टर उड़ें ऊँचा in the sky!
+
+[LANDFORMS_SECTION]
+[BILINGUAL_GK_TOPIC_LANDFORMS]
+
+Q1
+HI_Q: स्थलरूप (Landforms) क्या होते हैं?
+EN_Q: What are landforms?
+HI_A: पृथ्वी की सतह के अलग-अलग प्राकृतिक आकार
+EN_A: Different natural shapes on the Earth's surface
+
+Q2
+HI_Q: बहुत ऊँची भूमि को क्या कहते हैं?
+EN_Q: What do we call very high land?
+HI_A: पर्वत
+EN_A: Mountain
+
+Q3
+HI_Q: पर्वतों की लंबी श्रृंखला को क्या कहते हैं?
+EN_Q: What is a long chain of mountains called?
+HI_A: पर्वतमाला
+EN_A: Mountain range
+
+Q4
+HI_Q: पहाड़ और पर्वत में क्या अंतर है?
+EN_Q: What is the difference between a hill and a mountain?
+HI_A: पहाड़ छोटे होते हैं, पर्वत ऊँचे
+EN_A: Hills are smaller, mountains are higher
+
+Q5
+HI_Q: समतल भूमि को क्या कहते हैं?
+EN_Q: What do we call flat land?
+HI_A: मैदान
+EN_A: Plain
+
+Q6
+HI_Q: नदी के किनारे की उपजाऊ भूमि क्या कहलाती है?
+EN_Q: What is the fertile land near rivers called?
+HI_A: मैदान या समभूमि
+EN_A: Plain
+
+Q7
+HI_Q: रेगिस्तान कैसा स्थलरूप है?
+EN_Q: What type of landform is a desert?
+HI_A: बहुत सूखा और रेत वाला क्षेत्र
+EN_A: Very dry and sandy area
+
+Q8
+HI_Q: पठार क्या होता है?
+EN_Q: What is a plateau?
+HI_A: ऊँचा और समतल क्षेत्र
+EN_A: A high flat area
+
+Q9
+HI_Q: घाटी क्या होती है?
+EN_Q: What is a valley?
+HI_A: दो पहाड़ों के बीच का नीचा क्षेत्र
+EN_A: Low land between mountains
+
+Q10
+HI_Q: नदी क्या है?
+EN_Q: What is a river?
+HI_A: बहता हुआ पानी
+EN_A: Flowing water
+
+Q11
+HI_Q: झील क्या होती है?
+EN_Q: What is a lake?
+HI_A: चारों ओर भूमि से घिरा पानी
+EN_A: Water surrounded by land
+
+Q12
+HI_Q: समुद्र और महासागर में क्या अंतर है?
+EN_Q: What is the difference between a sea and an ocean?
+HI_A: महासागर बड़ा होता है, समुद्र छोटा
+EN_A: Ocean is larger, sea is smaller
+
+Q13
+HI_Q: द्वीप क्या होता है?
+EN_Q: What is an island?
+HI_A: चारों ओर पानी से घिरी भूमि
+EN_A: Land surrounded by water
+
+Q14
+HI_Q: प्रायद्वीप क्या होता है?
+EN_Q: What is a peninsula?
+HI_A: तीन ओर पानी से घिरी भूमि
+EN_A: Land surrounded by water on three sides
+
+Q15
+HI_Q: झरना क्या होता है?
+EN_Q: What is a waterfall?
+HI_A: ऊँचाई से गिरता हुआ पानी
+EN_A: Water falling from a height
+
+Q16
+HI_Q: ज्वालामुखी क्या है?
+EN_Q: What is a volcano?
+HI_A: पृथ्वी के अंदर से लावा निकलने का स्थान
+EN_A: An opening where lava comes out from Earth
+
+Q17
+HI_Q: समुद्र तट क्या होता है?
+EN_Q: What is a seashore?
+HI_A: जहाँ भूमि और समुद्र मिलते हैं
+EN_A: Where land meets the sea
+
+Q18
+HI_Q: गुफा क्या होती है?
+EN_Q: What is a cave?
+HI_A: पहाड़ या चट्टान के अंदर की खाली जगह
+EN_A: A hollow space inside a rock or mountain
+
+Q19
+HI_Q: हिमनद (Glacier) क्या है?
+EN_Q: What is a glacier?
+HI_A: धीरे-धीरे चलने वाली बर्फ की बड़ी चादर
+EN_A: A large slow-moving mass of ice
+
+Q20
+HI_Q: डेल्टा क्या होता है?
+EN_Q: What is a delta?
+HI_A: जहाँ नदी समुद्र में मिलते समय कई धाराओं में बंटती है
+EN_A: Where a river splits into branches before meeting the sea
+
+Q21
+HI_Q: मैदान खेती के लिए क्यों अच्छे होते हैं?
+EN_Q: Why are plains good for farming?
+HI_A: क्योंकि भूमि समतल और उपजाऊ होती है
+EN_A: Because the land is flat and fertile
+
+Q22
+HI_Q: पहाड़ी क्षेत्रों में मौसम कैसा होता है?
+EN_Q: What is the climate like in hilly areas?
+HI_A: ठंडा
+EN_A: Cold
+
+Q23
+HI_Q: रेगिस्तान में पानी कम क्यों होता है?
+EN_Q: Why is there very little water in deserts?
+HI_A: बहुत कम वर्षा होती है
+EN_A: Very little rainfall
+
+Q24
+HI_Q: समुद्र का पानी कैसा होता है?
+EN_Q: What is sea water like?
+HI_A: खारा
+EN_A: Salty
+
+Q25
+HI_Q: स्थलरूपों को जानना क्यों जरूरी है?
+EN_Q: Why is it important to learn about landforms?
+HI_A: पृथ्वी को समझने के लिए
+EN_A: To understand the Earth better
+
+[WATER_ANIMALS_SECTION]
+[BILINGUAL_GK_TOPIC_WATER_ANIMALS]
+
+Q1
+HI_Q: मछलियाँ कहाँ रहती हैं?
+EN_Q: Where do fish live?
+HI_A: पानी में
+EN_A: In water
+
+Q2
+HI_Q: मछलियाँ किससे सांस लेती हैं?
+EN_Q: How do fish breathe?
+HI_A: गलफड़ों से
+EN_A: With gills
+
+Q3
+HI_Q: दुनिया का सबसे बड़ा समुद्री जानवर कौन है?
+EN_Q: Which is the largest sea animal in the world?
+HI_A: नीली व्हेल
+EN_A: Blue whale
+
+Q4
+HI_Q: डॉल्फिन किस प्रकार का जानवर है?
+EN_Q: What type of animal is a dolphin?
+HI_A: स्तनपायी (मेमल)
+EN_A: Mammal
+
+Q5
+HI_Q: ऑक्टोपस के कितने हाथ (भुजाएँ) होते हैं?
+EN_Q: How many arms does an octopus have?
+HI_A: आठ
+EN_A: Eight
+
+Q6
+HI_Q: समुद्र में रहने वाली बड़ी मछली कौन सी है?
+EN_Q: Name a very big fish found in the sea.
+HI_A: व्हेल शार्क
+EN_A: Whale shark
+
+Q7
+HI_Q: मेंढक पानी और जमीन दोनों पर रह सकता है क्या?
+EN_Q: Can a frog live both in water and on land?
+HI_A: हाँ
+EN_A: Yes
+
+Q8
+HI_Q: कछुआ कहाँ रहता है?
+EN_Q: Where does a turtle live?
+HI_A: पानी और जमीन दोनों पर
+EN_A: Both in water and on land
+
+Q9
+HI_Q: केकड़ा कैसे चलता है?
+EN_Q: How does a crab walk?
+HI_A: तिरछा (साइड में)
+EN_A: Sideways
+
+Q10
+HI_Q: स्टारफिश (समुद्री तारा) किस प्रकार के जीव हैं?
+EN_Q: What type of creature is a starfish?
+HI_A: समुद्री जीव
+EN_A: Sea animal
+
+Q11
+HI_Q: जेलीफ़िश का शरीर कैसा होता है?
+EN_Q: What is the body of a jellyfish like?
+HI_A: नरम और पारदर्शी
+EN_A: Soft and transparent
+
+Q12
+HI_Q: समुद्री घोड़ा किसे कहते हैं?
+EN_Q: What do we call a seahorse?
+HI_A: एक छोटी समुद्री मछली
+EN_A: A small sea fish
+
+Q13
+HI_Q: शार्क किस प्रकार की मछली है?
+EN_Q: What type of fish is a shark?
+HI_A: मांसाहारी
+EN_A: Carnivorous
+
+Q14
+HI_Q: डॉल्फिन किसके लिए जानी जाती है?
+EN_Q: What are dolphins known for?
+HI_A: बुद्धिमानी और खेलना
+EN_A: Intelligence and playfulness
+
+Q15
+HI_Q: व्हेल मछली है या स्तनपायी?
+EN_Q: Is a whale a fish or a mammal?
+HI_A: स्तनपायी
+EN_A: Mammal
+
+Q16
+HI_Q: ऑक्टोपस किससे खुद की रक्षा करता है?
+EN_Q: How does an octopus protect itself?
+HI_A: स्याही छोड़कर
+EN_A: By releasing ink
+
+17
+HI_Q: समुद्र की सबसे खतरनाक मछलियों में से एक कौन सी है?
+EN_Q: Name one of the most dangerous sea fish.
+HI_A: शार्क
+EN_A: Shark
+
+Q18
+HI_Q: झींगा (श्रिम्प) कहाँ पाया जाता है?
+EN_Q: Where is shrimp found?
+HI_A: समुद्र और नदियों में
+EN_A: In seas and rivers
+
+Q19
+HI_Q: समुद्री कछुआ कहाँ अंडे देता है?
+EN_Q: Where does a sea turtle lay eggs?
+HI_A: समुद्र तट की रेत में
+EN_A: In sand on the beach
+
+Q20
+HI_Q: जल में रहने वाले जानवरों को क्या कहते हैं?
+EN_Q: What do we call animals that live in water?
+HI_A: जलीय जीव
+EN_A: Aquatic animals
+
+Q21
+HI_Q: मछलियों का शरीर किससे ढका होता है?
+EN_Q: What covers the body of most fish?
+HI_A: शल्क (स्केल्स)
+EN_A: Scales
+
+Q22
+HI_Q: डॉल्फिन सांस लेने के लिए कहाँ आती है?
+EN_Q: Where does a dolphin come to breathe?
+HI_A: पानी की सतह पर
+EN_A: To the water surface
+
+Q23
+HI_Q: सील (Seal) किस प्रकार का जानवर है?
+EN_Q: What type of animal is a seal?
+HI_A: समुद्री स्तनपायी
+EN_A: Marine mammal
+
+Q24
+HI_Q: जल प्रदूषण से किसे नुकसान होता है?
+EN_Q: Who gets harmed due to water pollution?
+HI_A: जलीय जीव
+EN_A: Aquatic animals
+
+Q25
+HI_Q: हमें समुद्र और नदियों को साफ क्यों रखना चाहिए?
+EN_Q: Why should we keep seas and rivers clean?
+HI_A: जलीय जीवों की सुरक्षा के लिए
+EN_A: To protect aquatic life

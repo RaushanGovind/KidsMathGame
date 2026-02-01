@@ -1,0 +1,151 @@
+[BILINGUAL_GK_TOPIC_OCCUPATIONS]
+
+Q1
+HI_Q: डॉक्टर क्या करते हैं?
+EN_Q: What does a doctor do?
+HI_A: बीमार लोगों का इलाज करते हैं
+EN_A: Treat sick people
+
+Q2
+HI_Q: शिक्षक का काम क्या है?
+EN_Q: What is the job of a teacher?
+HI_A: बच्चों को पढ़ाना
+EN_A: Teaching children
+
+Q3
+HI_Q: किसान क्या उगाता है?
+EN_Q: What does a farmer grow?
+HI_A: फसल
+EN_A: Crops
+
+Q4
+HI_Q: पुलिस अधिकारी क्या करते हैं?
+EN_Q: What does a police officer do?
+HI_A: कानून और व्यवस्था बनाए रखते हैं
+EN_A: Maintain law and order
+
+Q5
+HI_Q: फायरमैन क्या करते हैं?
+EN_Q: What does a firefighter do?
+HI_A: आग बुझाते हैं
+EN_A: Puts out fires
+
+Q6
+HI_Q: नर्स किसकी मदद करती है?
+EN_Q: Who does a nurse help?
+HI_A: डॉक्टर और मरीजों की
+EN_A: Doctors and patients
+
+Q7
+HI_Q: ड्राइवर क्या करता है?
+EN_Q: What does a driver do?
+HI_A: वाहन चलाता है
+EN_A: Drives vehicles
+
+Q8
+HI_Q: पायलट क्या उड़ाता है?
+EN_Q: What does a pilot fly?
+HI_A: हवाई जहाज
+EN_A: Airplane
+
+Q9
+HI_Q: रसोइया क्या करता है?
+EN_Q: What does a cook do?
+HI_A: खाना बनाता है
+EN_A: Cooks food
+
+Q10
+HI_Q: बढ़ई क्या बनाता है?
+EN_Q: What does a carpenter make?
+HI_A: लकड़ी का फर्नीचर
+EN_A: Wooden furniture
+
+Q11
+HI_Q: दर्जी क्या करता है?
+EN_Q: What does a tailor do?
+HI_A: कपड़े सिलता है
+EN_A: Stitches clothes
+
+Q12
+HI_Q: नाई क्या करता है?
+EN_Q: What does a barber do?
+HI_A: बाल काटता है
+EN_A: Cuts hair
+
+Q13
+HI_Q: इंजीनियर क्या बनाता है?
+EN_Q: What does an engineer build?
+HI_A: मशीनें और इमारतें
+EN_A: Machines and buildings
+
+Q14
+HI_Q: वैज्ञानिक क्या करते हैं?
+EN_Q: What does a scientist do?
+HI_A: खोज और अनुसंधान
+EN_A: Research and discoveries
+
+Q15
+HI_Q: डाकिया क्या देता है?
+EN_Q: What does a postman deliver?
+HI_A: चिट्ठियाँ और पार्सल
+EN_A: Letters and parcels
+
+Q16
+HI_Q: दुकानदार क्या करता है?
+EN_Q: What does a shopkeeper do?
+HI_A: सामान बेचता है
+EN_A: Sells goods
+
+Q17
+HI_Q: सैनिक का काम क्या है?
+EN_Q: What does a soldier do?
+HI_A: देश की रक्षा
+EN_A: Protects the country
+
+Q18
+HI_Q: माली क्या करता है?
+EN_Q: What does a gardener do?
+HI_A: पौधे उगाता और देखभाल करता है
+EN_A: Grows and cares for plants
+
+Q19
+HI_Q: पत्रकार क्या करता है?
+EN_Q: What does a journalist do?
+HI_A: समाचार लिखता और बताता है
+EN_A: Reports and writes news
+
+Q20
+HI_Q: कलाकार क्या करता है?
+EN_Q: What does an artist do?
+HI_A: चित्र बनाता या कला रचता है
+EN_A: Creates art and paintings
+
+Q21
+HI_Q: बस कंडक्टर क्या करता है?
+EN_Q: What does a bus conductor do?
+HI_A: टिकट देता है
+EN_A: Gives tickets
+
+Q22
+HI_Q: मैकेनिक क्या ठीक करता है?
+EN_Q: What does a mechanic repair?
+HI_A: वाहन और मशीनें
+EN_A: Vehicles and machines
+
+Q23
+HI_Q: वकील क्या करते हैं?
+EN_Q: What does a lawyer do?
+HI_A: अदालत में केस लड़ते हैं
+EN_A: Fights cases in court
+
+Q24
+HI_Q: बैंक कर्मचारी क्या करते हैं?
+EN_Q: What does a bank employee do?
+HI_A: पैसों का लेन-देन संभालता है
+EN_A: Handles money transactions
+
+Q25
+HI_Q: हमें सभी पेशों का सम्मान क्यों करना चाहिए?
+EN_Q: Why should we respect all occupations?
+HI_A: क्योंकि हर काम समाज के लिए जरूरी है
+EN_A: Because every job is important for society

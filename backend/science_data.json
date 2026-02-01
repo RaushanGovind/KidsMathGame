@@ -1,0 +1,416 @@
+{
+    "physics_basics": [
+        {
+            "id": 1,
+            "en_q": "What is the study of matter, energy, and force?",
+            "hi_q": "पदार्थ, ऊर्जा और बल के अध्ययन को क्या कहते हैं?",
+            "en_a": "Physics",
+            "hi_a": "भौतिकी"
+        },
+        {
+            "id": 2,
+            "en_q": "What pushes or pulls an object?",
+            "hi_q": "किसी वस्तु को धकेलने या खींचने को क्या कहते हैं?",
+            "en_a": "Force",
+            "hi_a": "बल"
+        },
+        {
+            "id": 3,
+            "en_q": "Everything around us that has weight is called?",
+            "hi_q": "हमारे आसपास की हर चीज़ जिसका वजन होता है, उसे क्या कहते हैं?",
+            "en_a": "Matter",
+            "hi_a": "पदार्थ"
+        }
+    ],
+    "electricity": [
+        {
+            "id": 1,
+            "en_q": "What runs fans, TVs, and computers?",
+            "hi_q": "पंखा, टीवी और कंप्यूटर किससे चलते हैं?",
+            "en_a": "Electricity",
+            "hi_a": "बिजली"
+        },
+        {
+            "id": 2,
+            "en_q": "Can we touch switches with wet hands?",
+            "hi_q": "क्या हमें गीले हाथों से स्विच छूना चाहिए?",
+            "en_a": "No",
+            "hi_a": "नहीं"
+        },
+        {
+            "id": 3,
+            "en_q": "What is the path through which electricity flows?",
+            "hi_q": "उस रास्ते को क्या कहते हैं जिससे बिजली बहती है?",
+            "en_a": "Circuit",
+            "hi_a": "परिपथ"
+        }
+    ],
+    "energy": [
+        {
+            "id": 1,
+            "en_q": "What is the ability to do work?",
+            "hi_q": "काम करने की क्षमता को क्या कहते हैं?",
+            "en_a": "Energy",
+            "hi_a": "ऊर्जा"
+        },
+        {
+            "id": 2,
+            "en_q": "What is the main source of energy for Earth?",
+            "hi_q": "पृथ्वी के लिए ऊर्जा का मुख्य स्रोत क्या है?",
+            "en_a": "Sun",
+            "hi_a": "सूरज"
+        },
+        {
+            "id": 3,
+            "en_q": "Which energy do we get from a battery?",
+            "hi_q": "बैटरी से हमें कौन सी ऊर्जा मिलती है?",
+            "en_a": "Chemical Energy",
+            "hi_a": "रासायनिक ऊर्जा"
+        }
+    ],
+    "magnets": [
+        {
+            "id": 1,
+            "en_q": "What does a magnet attract?",
+            "hi_q": "चुंबक किसे अपनी ओर खींचता है?",
+            "en_a": "Iron",
+            "hi_a": "लोहा"
+        },
+        {
+            "id": 2,
+            "en_q": "How many poles does a magnet have?",
+            "hi_q": "एक चुंबक के कितने ध्रुव (poles) होते हैं?",
+            "en_a": "Two",
+            "hi_a": "दो"
+        },
+        {
+            "id": 3,
+            "en_q": "Same poles of magnets ____ each other.",
+            "hi_q": "चुंबक के समान ध्रुव एक-दूसरे को ____ करते हैं।",
+            "en_a": "Repel",
+            "hi_a": "प्रतिकर्षित"
+        }
+    ],
+    "sound": [
+        {
+            "id": 1,
+            "en_q": "How is sound produced?",
+            "hi_q": "ध्वनि (आवाज़) कैसे उत्पन्न होती है?",
+            "en_a": "Vibrations",
+            "hi_a": "कंपन"
+        },
+        {
+            "id": 2,
+            "en_q": "Can sound travel through water?",
+            "hi_q": "क्या आवाज़ पानी के अंदर चल सकती है?",
+            "en_a": "Yes",
+            "hi_a": "हाँ"
+        },
+        {
+            "id": 3,
+            "en_q": "What do we use to hear sound?",
+            "hi_q": "हम आवाज़ सुनने के लिए क्या उपयोग करते हैं?",
+            "en_a": "Ears",
+            "hi_a": "कान"
+        }
+    ],
+    "heat": [
+        {
+            "id": 1,
+            "en_q": "What is the main natural source of heat?",
+            "hi_q": "गर्मी का मुख्य प्राकृतिक स्रोत क्या है?",
+            "en_a": "Sun",
+            "hi_a": "सूरज"
+        },
+        {
+            "id": 2,
+            "en_q": "Which tool measures temperature?",
+            "hi_q": "तापमान मापने के लिए किस उपकरण का उपयोग किया जाता है?",
+            "en_a": "Thermometer",
+            "hi_a": "थर्मामीटर"
+        },
+        {
+            "id": 3,
+            "en_q": "Does heat flow from hot to cold or cold to hot?",
+            "hi_q": "गर्मी गर्म से ठंडी की ओर बहती है या ठंडी से गर्म की ओर?",
+            "en_a": "Hot to Cold",
+            "hi_a": "गर्म से ठंडी"
+        }
+    ],
+    "gravity": [
+        {
+            "id": 1,
+            "en_q": "What pulls everything towards the Earth?",
+            "hi_q": "वह क्या है जो हर चीज़ को पृथ्वी की ओर खींचता है?",
+            "en_a": "Gravity",
+            "hi_a": "गुरुत्वाकर्षण"
+        },
+        {
+            "id": 2,
+            "en_q": "Who discovered gravity?",
+            "hi_q": "गुरुत्वाकर्षण की खोज किसने की थी?",
+            "en_a": "Isaac Newton",
+            "hi_a": "आइजैक न्यूटन"
+        },
+        {
+            "id": 3,
+            "en_q": "Is there gravity in space?",
+            "hi_q": "क्या अंतरिक्ष में गुरुत्वाकर्षण होता है?",
+            "en_a": "Very little",
+            "hi_a": "बहुत कम"
+        }
+    ],
+    "simple_machines": [
+        {
+            "id": 1,
+            "en_q": "What makes our work easier with less force?",
+            "hi_q": "कम बल में काम आसान बनाने वाली चीज़ को क्या कहते हैं?",
+            "en_a": "Simple Machine",
+            "hi_a": "सरल मशीन"
+        },
+        {
+            "id": 2,
+            "en_q": "A pulley helps to ____ heavy things.",
+            "hi_q": "पुली भारी चीज़ों को ____ में मदद करती है।",
+            "en_a": "Lift",
+            "hi_a": "उठाने"
+        },
+        {
+            "id": 3,
+            "en_q": "Is a scissor a simple machine?",
+            "hi_q": "क्या कैंची एक सरल मशीन है?",
+            "en_a": "Yes",
+            "hi_a": "हाँ"
+        }
+    ],
+    "light": [
+        {
+            "id": 1,
+            "en_q": "What helps us see things?",
+            "hi_q": "हमें चीज़ें देखने में क्या मदद करता है?",
+            "en_a": "Light",
+            "hi_a": "प्रकाश"
+        },
+        {
+            "id": 2,
+            "en_q": "When light is blocked, what is formed?",
+            "hi_q": "जब रोशनी रुकती है, तो क्या बनता है?",
+            "en_a": "Shadow",
+            "hi_a": "छाया"
+        },
+        {
+            "id": 3,
+            "en_q": "Does light travel in straight lines or curves?",
+            "hi_q": "प्रकाश सीधी रेखा में चलता है या घुमावदार?",
+            "en_a": "Straight lines",
+            "hi_a": "सीधी रेखा"
+        }
+    ],
+    "atoms": [
+        {
+            "id": 1,
+            "en_q": "What are the smallest building blocks of matter?",
+            "hi_q": "पदार्थ के सबसे छोटे कण क्या कहलाते हैं?",
+            "en_a": "Atoms",
+            "hi_a": "परमाणु"
+        },
+        {
+            "id": 2,
+            "en_q": "What is at the center of an atom?",
+            "hi_q": "परमाणु के बीच में क्या होता है?",
+            "en_a": "Nucleus",
+            "hi_a": "केंद्रक"
+        },
+        {
+            "id": 3,
+            "en_q": "Which particles move around the nucleus?",
+            "hi_q": "केंद्रक के चारों ओर कौन से कण घूमते हैं?",
+            "en_a": "Electrons",
+            "hi_a": "इलेक्ट्रॉन"
+        }
+    ],
+    "elements": [
+        {
+            "id": 1,
+            "en_q": "What consists of only one kind of atom?",
+            "hi_q": "जो केवल एक ही प्रकार के परमाणुओं से बना हो उसे क्या कहते हैं?",
+            "en_a": "Element",
+            "hi_a": "तत्व"
+        },
+        {
+            "id": 2,
+            "en_q": "Symbol 'O' stands for which element?",
+            "hi_q": "'O' किस तत्व का चिन्ह है?",
+            "en_a": "Oxygen",
+            "hi_a": "ऑक्सीजन"
+        },
+        {
+            "id": 3,
+            "en_q": "Which element is found in water along with oxygen?",
+            "hi_q": "पानी में ऑक्सीजन के साथ कौन सा तत्व पाया जाता है?",
+            "en_a": "Hydrogen",
+            "hi_a": "हाइड्रोजन"
+        }
+    ],
+    "acids_bases": [
+        {
+            "id": 1,
+            "en_q": "Which substances taste sour?",
+            "hi_q": "कौन से पदार्थ खट्टे होते हैं?",
+            "en_a": "Acids",
+            "hi_a": "अम्ल"
+        },
+        {
+            "id": 2,
+            "en_q": "Which substances feel slippery like soap?",
+            "hi_q": "कौन से पदार्थ साबुन जैसे चिकने होते हैं?",
+            "en_a": "Bases",
+            "hi_a": "क्षार"
+        },
+        {
+            "id": 3,
+            "en_q": "Acids turn Blue Litmus paper into which color?",
+            "hi_q": "अम्ल नीले लिटमस पेपर को किस रंग में बदल देते हैं?",
+            "en_a": "Red",
+            "hi_a": "लाल"
+        }
+    ],
+    "chemistry_basics": [
+        {
+            "id": 1,
+            "en_q": "What are the three states of matter?",
+            "hi_q": "पदार्थ की तीन अवस्थाएँ कौन सी हैं?",
+            "en_a": "Solid, Liquid, Gas",
+            "hi_a": "ठोस, द्रव, गैस"
+        },
+        {
+            "id": 2,
+            "en_q": "Is ice a solid, liquid, or gas?",
+            "hi_q": "बर्फ ठोस है, द्रव है या गैस?",
+            "en_a": "Solid",
+            "hi_a": "ठोस"
+        },
+        {
+            "id": 3,
+            "en_q": "What do we call it when paper turns into ash?",
+            "hi_q": "जब कागज जलकर राख बन जाता है, तो उसे क्या कहते हैं?",
+            "en_a": "Chemical Change",
+            "hi_a": "रासायनिक परिवर्तन"
+        }
+    ],
+    "biology_basics": [
+        {
+            "id": 1,
+            "en_q": "What is the study of living things?",
+            "hi_q": "जीवित चीज़ों के अध्ययन को क्या कहते हैं?",
+            "en_a": "Biology",
+            "hi_a": "जीव विज्ञान"
+        },
+        {
+            "id": 2,
+            "en_q": "Do plants make their own food?",
+            "hi_q": "क्या पौधे अपना भोजन खुद बनाते हैं?",
+            "en_a": "Yes",
+            "hi_a": "हाँ"
+        },
+        {
+            "id": 3,
+            "en_q": "What is the natural home of a living thing called?",
+            "hi_q": "किसी जीव के प्राकृतिक घर को क्या कहते हैं?",
+            "en_a": "Habitat",
+            "hi_a": "आवास"
+        }
+    ],
+    "plants_parts": [
+        {
+            "id": 1,
+            "en_q": "Which part of the plant grows under the soil?",
+            "hi_q": "पौधे का कौन सा भाग मिट्टी के नीचे उगता है?",
+            "en_a": "Roots",
+            "hi_a": "जड़ें"
+        },
+        {
+            "id": 2,
+            "en_q": "Which part makes food for the plant using sunlight?",
+            "hi_q": "पौधे का कौन सा भाग धूप का उपयोग करके भोजन बनाता है?",
+            "en_a": "Leaves",
+            "hi_a": "पत्तियाँ"
+        },
+        {
+            "id": 3,
+            "en_q": "Which part supports the plant and carries water?",
+            "hi_q": "पौधे का कौन सा हिस्सा उसे सहारा देता है और पानी पहुँचाता है?",
+            "en_a": "Stem",
+            "hi_a": "तना"
+        }
+    ],
+    "human_body_organs": [
+        {
+            "id": 1,
+            "en_q": "Which organ pumps blood?",
+            "hi_q": "कौन सा अंग खून पंप करता है?",
+            "en_a": "Heart",
+            "hi_a": "हृदय"
+        },
+        {
+            "id": 2,
+            "en_q": "Which organ helps us think?",
+            "hi_q": "कौन सा अंग हमें सोचने में मदद करता है?",
+            "en_a": "Brain",
+            "hi_a": "मस्तिष्क"
+        },
+        {
+            "id": 3,
+            "en_q": "Which organ helps us breathe?",
+            "hi_q": "कौन सा अंग हमें सांस लेने में मदद करता है?",
+            "en_a": "Lungs",
+            "hi_a": "फेफड़े"
+        }
+    ],
+    "plants_need": [
+        {
+            "id": 1,
+            "en_q": "What do plants need from the sky to grow?",
+            "hi_q": "पौधों को बढ़ने के लिए आसमान से क्या चाहिए?",
+            "en_a": "Sunlight",
+            "hi_a": "धूप"
+        },
+        {
+            "id": 2,
+            "en_q": "What do plants take from soil?",
+            "hi_q": "पौधे मिट्टी से क्या लेते हैं?",
+            "en_a": "Nutrients & Water",
+            "hi_a": "पोषक तत्व और पानी"
+        },
+        {
+            "id": 3,
+            "en_q": "Do plants need air?",
+            "hi_q": "क्या पौधों को हवा की ज़रूरत होती है?",
+            "en_a": "Yes",
+            "hi_a": "हाँ"
+        }
+    ],
+    "living_nonliving": [
+        {
+            "id": 1,
+            "en_q": "Is a cat a living thing?",
+            "hi_q": "क्या बिल्ली एक जीवित चीज़ है?",
+            "en_a": "Yes",
+            "hi_a": "हाँ"
+        },
+        {
+            "id": 2,
+            "en_q": "Do non-living things breathe?",
+            "hi_q": "क्या निर्जीव चीज़ें सांस लेती हैं?",
+            "en_a": "No",
+            "hi_a": "नहीं"
+        },
+        {
+            "id": 3,
+            "en_q": "Can living things grow?",
+            "hi_q": "क्या जीवित चीज़ें बढ़ सकती हैं?",
+            "en_a": "Yes",
+            "hi_a": "हाँ"
+        }
+    ]
+}

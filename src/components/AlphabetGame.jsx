@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronLeft } from 'lucide-react';
 import { speak } from '../utils/speech';
 
 function AlphabetGame({ onBack }) {
@@ -22,37 +23,90 @@ function AlphabetGame({ onBack }) {
 
     const handleLetterClick = (item) => {
         setSelectedLetter(item);
-        speak(`${item.letter} is for ${item.word}`, 'en-US', 1.0);
+        speak(`${item.letter} is for ${item.word}`, 'en-IN');
     };
 
     if (loading) return <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2rem' }}>Loading...</div>;
 
     return (
-        <div className="game-container" style={{
+        <div className="game-container mobile-padding-md" style={{
             display: 'flex', flexDirection: 'column', alignItems: 'center',
             width: '100%', padding: '20px', minHeight: '100vh',
-            background: 'linear-gradient(135deg, #FFEBEE 0%, #FFCDD2 100%)'
+            background: 'linear-gradient(135deg, #FFF1F2 0%, #FFE4E6 100%)'
         }}>
 
             {/* Header */}
-            <div style={{ width: '100%', maxWidth: '1000px', display: 'flex', justifyContent: 'space-between', marginBottom: '30px', alignItems: 'center' }}>
-                <button onClick={onBack} style={{
-                    padding: '12px 24px',
-                    background: 'white',
-                    color: '#2C3E50',
-                    fontWeight: '900',
-                    fontSize: '1.1rem',
-                    borderRadius: '15px',
-                    boxShadow: '0 4px 0 #BDC3C7',
-                    border: '2px solid #ECF0F1',
-                    cursor: 'pointer'
+            <div
+                className="mobile-header-stack"
+                style={{
+                    width: '100%',
+                    maxWidth: '1200px',
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    marginBottom: '30px',
+                    alignItems: 'center',
+                    position: 'relative'
+                }}
+            >
+                <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="back-btn"
+                    onClick={onBack}
+                    style={{
+                        padding: '10px 20px',
+                        background: 'white',
+                        color: '#9F1239',
+                        fontWeight: '800',
+                        fontSize: '0.9rem',
+                        borderRadius: '12px',
+                        boxShadow: '0 4px 6px -1px rgba(0,0,0,0.1)',
+                        border: '1px solid #FFE4E6',
+                        cursor: 'pointer',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '8px',
+                        zIndex: 10,
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.5px'
+                    }}
+                >
+                    <ChevronLeft size={18} /> Menu
+                </motion.button>
+
+                <div className="title-container" style={{
+                    position: 'absolute',
+                    width: '100%',
+                    textAlign: 'center',
+                    pointerEvents: 'none',
+                    left: 0
                 }}>
-                    ⬅ MENU
-                </button>
-                <div style={{ fontSize: '2.5rem', fontWeight: '900', color: '#C0392B', textShadow: '2px 2px 0px rgba(255,255,255,0.5)' }}>
-                    ABC LEARNING
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                        <span style={{
+                            fontSize: '0.75rem',
+                            fontWeight: '900',
+                            color: '#E11D48',
+                            letterSpacing: '2px',
+                            textTransform: 'uppercase',
+                            marginBottom: '2px'
+                        }}>
+                            Alphabet Zone
+                        </span>
+                        <h1
+                            className="mobile-text-lg"
+                            style={{
+                                margin: 0,
+                                fontSize: '1.8rem',
+                                color: '#881337',
+                                fontWeight: '900',
+                                lineHeight: 1
+                            }}
+                        >
+                            LEARN ABC
+                        </h1>
+                    </div>
                 </div>
-                <div style={{ width: '80px' }}></div> {/* Spacer */}
+                <div style={{ width: '100px' }} className="mobile-hide"></div>
             </div>
 
             {/* Grid */}
@@ -117,7 +171,7 @@ function AlphabetGame({ onBack }) {
                             exit={{ scale: 0.5, rotate: 10 }}
                             onClick={(e) => {
                                 e.stopPropagation();
-                                speak(`${selectedLetter.letter} is for ${selectedLetter.word}`, 'en-US', 1.0);
+                                speak(`${selectedLetter.letter} is for ${selectedLetter.word}`, 'en-IN', 1.0);
                             }}
                             style={{
                                 background: 'white',

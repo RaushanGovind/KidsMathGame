@@ -59,7 +59,7 @@ function HindiStoriesGame({ onBack }) {
             {/* Header */}
             <div style={{ width: '100%', maxWidth: '800px', display: 'flex', justifyContent: 'space-between', marginBottom: '30px', alignItems: 'center' }}>
                 <button onClick={handleBack} style={{ padding: '12px 24px', background: 'white', color: '#2C3E50', fontWeight: '1000', borderRadius: '15px', border: '2px solid #F1F5F9', boxShadow: '0 4px 0 #CBD5E1', cursor: 'pointer', fontSize: '1.1rem' }}>⬅ BACK</button>
-                <h1 style={{ fontSize: '2rem', fontWeight: '1000', color: '#D35400', margin: 0, fontFamily: 'serif' }}>
+                <h1 className="hindi-text" style={{ fontSize: '2rem', fontWeight: '1000', color: '#D35400', margin: 0 }}>
                     {selectedStory ? "कहानी (Story)" : "हिंदी कहानियाँ"}
                 </h1>
                 <div style={{ width: '80px', visibility: 'hidden' }}></div>
@@ -104,7 +104,7 @@ function HindiStoriesGame({ onBack }) {
                                     {story.icon}
                                 </div>
                                 <div style={{ flex: 1 }}>
-                                    <h3 style={{ fontSize: '1.4rem', margin: 0, color: '#1E293B', fontWeight: '900', fontFamily: 'serif' }}>{story.title}</h3>
+                                    <h3 className="hindi-text" style={{ fontSize: '1.4rem', margin: 0, color: '#1E293B', fontWeight: '900' }}>{story.title}</h3>
                                     <span style={{ fontSize: '0.9rem', color: '#64748B', fontWeight: '700' }}>देखें कहानी ➡</span>
                                 </div>
                             </motion.button>
@@ -131,14 +131,13 @@ function HindiStoriesGame({ onBack }) {
                     >
                         <div style={{ textAlign: 'center' }}>
                             <div style={{ fontSize: '5rem', marginBottom: '10px' }}>{selectedStory.icon}</div>
-                            <h2 style={{ fontSize: '2.5rem', fontWeight: '1000', color: '#1E293B', margin: 0, fontFamily: 'serif' }}>{selectedStory.title}</h2>
+                            <h2 className="hindi-text" style={{ fontSize: '2.5rem', fontWeight: '1000', color: '#1E293B', margin: 0 }}>{selectedStory.title}</h2>
                         </div>
 
-                        <div style={{
+                        <div className="hindi-text" style={{
                             fontSize: '1.6rem',
                             lineHeight: '1.8',
                             color: '#334155',
-                            fontFamily: 'serif',
                             textAlign: 'justify',
                             background: '#FFFBEB',
                             padding: '30px',
@@ -158,7 +157,7 @@ function HindiStoriesGame({ onBack }) {
                             gap: '5px'
                         }}>
                             <span style={{ fontWeight: '1000', color: '#047857', fontSize: '1.2rem' }}>सीख (Moral):</span>
-                            <p style={{ margin: 0, fontSize: '1.4rem', fontWeight: '800', color: '#b86739ff', fontFamily: 'serif' }}>
+                            <p className="hindi-text" style={{ margin: 0, fontSize: '1.4rem', fontWeight: '800', color: '#b86739ff' }}>
                                 {selectedStory.moral}
                             </p>
                         </div>

@@ -1,0 +1,1268 @@
+BILINGUAL_GK_DATA_BATCH_4 = {
+    'buildings': [
+        {
+            'id': 1,
+            'hi_q': "कौन वह जगह है जहाँ परिवार रहता है। यह हमें सुरक्षित और आरामदायक रखता है। ?",
+            'en_q': "Which place where a family lives. It keeps us safe and comfortable.?",
+            'hi_a': "घर",
+            'en_a': "House"
+        },
+        {
+            'id': 2,
+            'hi_q': "कौन वह जगह है जहाँ बच्चे पढ़ते हैं। यहाँ शिक्षक पढ़ाते हैं। ?",
+            'en_q': "What is a place where children learn. Teachers teach students here.?",
+            'hi_a': "स्कूल",
+            'en_a': "School"
+        },
+        {
+            'id': 3,
+            'hi_q': "कौन वह जगह है जहाँ बीमार लोगों का इलाज होता है। यहाँ डॉक्टर और नर्स काम करते हैं। ?",
+            'en_q': "Which place where sick people get treatment. Doctors and nurses work here.?",
+            'hi_a': "अस्पताल",
+            'en_a': "Hospital"
+        },
+        {
+            'id': 4,
+            'hi_q': "कौन वह जगह है जहाँ लोग काम करते हैं। ?",
+            'en_q': "Which place where people work.?",
+            'hi_a': "कार्यालय",
+            'en_a': "Office"
+        },
+        {
+            'id': 5,
+            'hi_q': "कौन वह जगह है जहाँ हम चीजें खरीदते हैं। ?",
+            'en_q': "Which place where we buy things.?",
+            'hi_a': "दुकान",
+            'en_a': "Shop"
+        },
+        {
+            'id': 6,
+            'hi_q': "कौन हमारे पैसे सुरक्षित रखता है। ?",
+            'en_q': "What is keeps our money safe.?",
+            'hi_a': "बैंक",
+            'en_a': "Bank"
+        },
+        {
+            'id': 7,
+            'hi_q': "कौन चिट्ठियाँ और पार्सल भेजता है। ?",
+            'en_q': "What is sends letters and parcels.?",
+            'hi_a': "डाकघर",
+            'en_a': "Post Office"
+        },
+        {
+            'id': 8,
+            'hi_q': "यहाँ पुलिस काम करती है ताकि हम सुरक्षित रहें।  (कौन?)",
+            'en_q': "What is Police officers work here to keep us safe. ?",
+            'hi_a': "पुलिस स्टेशन",
+            'en_a': "Police Station"
+        },
+        {
+            'id': 9,
+            'hi_q': "अग्निशामक यहाँ रहते हैं और आग बुझाने जाते हैं। इमारतें कैसे बनती हैं इमारतें ईंट, सीमेंट, रेत और लोहे से बनती हैं। इंजीनियर और मजदूर इन्हें बनाने में मदद करते हैं। घर, स्कूल, अस्पताल — buildings help me and you! दुकान, बैंक, दफ्तर — buildings big and small!  (कौन?)",
+            'en_q': "What is Firefighters stay here and go to put out fires. 🏗️ HOW BUILDINGS ARE MADE Buildings are made with bricks, cement, sand, and steel. Engineers and workers help build them. House and school, hospital too, Shops and banks and offices tall, ?",
+            'hi_a': "अग्निशमन केंद्र",
+            'en_a': "Fire Station"
+        },
+    ],
+    'good_manners': [
+        {
+            'id': 1,
+            'hi_q': "कुछ मांगते समय “कृपया” कहते हैं।  (कौन?)",
+            'en_q': "What is We say “please” when asking for something.?",
+            'hi_a': "कृपया बोलें",
+            'en_a': ""
+        },
+        {
+            'id': 2,
+            'hi_q': "जब कोई मदद करे तो “धन्यवाद” कहते हैं।  (कौन?)",
+            'en_q': "What is We say “thank you” when someone helps us.?",
+            'hi_a': "धन्यवाद कहें",
+            'en_a': ""
+        },
+        {
+            'id': 3,
+            'hi_q': "हम “गुड मॉर्निंग” या “नमस्ते” कहते हैं।  (कौन?)",
+            'en_q': "What is We say “Good morning” or “Namaste”. ?",
+            'hi_a': "नमस्ते करें",
+            'en_a': "Greet Others"
+        },
+        {
+            'id': 4,
+            'hi_q': "हम खिलौने और खाना दोस्तों के साथ बाँटते हैं।  (कौन?)",
+            'en_q': "What is We share toys and food with friends. ?",
+            'hi_a': "साझा करें",
+            'en_a': "Share With Others"
+        },
+        {
+            'id': 5,
+            'hi_q': "हमें कचरा जमीन पर नहीं फेंकना चाहिए।  (कौन?)",
+            'en_q': "What is We should not throw garbage on the ground. ?",
+            'hi_a': "सफाई रखें",
+            'en_a': "Keep Things Clean"
+        },
+        {
+            'id': 6,
+            'hi_q': "जब किसी को मदद की जरूरत हो तो मदद करें।  (कौन?)",
+            'en_q': "What is We should help others when they need help. ?",
+            'hi_a': "दयालु बनें",
+            'en_a': "Be Kind"
+        },
+        {
+            'id': 7,
+            'hi_q': "हमें चिल्लाना या बुरे शब्द नहीं बोलने चाहिए।  (कौन?)",
+            'en_q': "What is We should not shout or use bad words. ?",
+            'hi_a': "विनम्रता से बोलें",
+            'en_a': "Speak Politely"
+        },
+        {
+            'id': 8,
+            'hi_q': "खाँसते या छींकते समय कौन। ?",
+            'en_q': "What is while coughing or sneezing.?",
+            'hi_a': "मुँह ढकें",
+            'en_a': "Cover Your Mouth"
+        },
+        {
+            'id': 9,
+            'hi_q': "माता-पिता, शिक्षक और बड़ों का सम्मान करें। अच्छे व्यवहार क्यों ज़रूरी हैं अच्छे व्यवहार से सभी खुश रहते हैं। ये हमें अच्छे दोस्त बनाने में मदद करते हैं। कृपया और धन्यवाद — manners show the way! मदद करो, बाँटो प्यार — good manners everywhere!  (कौन?)",
+            'en_q': "What is Respect parents, teachers, and elders. 🌟 WHY GOOD MANNERS ARE IMPORTANT Good manners make everyone happy. They help us make good friends. Please and thank you, smile each day, Help and share, be kind and fair, ?",
+            'hi_a': "बड़ों की बात सुनें",
+            'en_a': "Listen to Elders"
+        },
+    ],
+    'water_animals': [
+        {
+            'id': 1,
+            'hi_q': "मछलियों के पास तैरने के लिए पंख और पूंछ होती है। वे गलफड़ों से सांस लेती हैं।  (कौन?)",
+            'en_q': "Which animal have fins and tails to swim. They breathe through gills.?",
+            'hi_a': "मछली",
+            'en_a': "Fish"
+        },
+        {
+            'id': 2,
+            'hi_q': "कौन दोस्ताना और बुद्धिमान जानवर हैं। वे समुद्र में रहती हैं। ?",
+            'en_q': "Which animal s are friendly and intelligent animals. They live in the sea.?",
+            'hi_a': "डॉल्फ़िन",
+            'en_a': "Dolphin"
+        },
+        {
+            'id': 3,
+            'hi_q': "कौन समुद्र के सबसे बड़े जानवर हैं। वे स्तनधारी होते हैं। ?",
+            'en_q': "Which animal s are the largest animals in the ocean. They are mammals.?",
+            'hi_a': "व्हेल",
+            'en_a': "Whale"
+        },
+        {
+            'id': 4,
+            'hi_q': "कौन की आठ भुजाएँ होती हैं। यह अपना रंग बदल सकता है। ?",
+            'en_q': "Which animal has eight arms. It can change its color.?",
+            'hi_a': "ऑक्टोपस",
+            'en_a': "Octopus"
+        },
+        {
+            'id': 5,
+            'hi_q': "कौन तारे जैसी दिखती है। यह समुद्र के तल में रहती है। ?",
+            'en_q': "Which animal looks like a star. It lives at the bottom of the sea.?",
+            'hi_a': "स्टारफिश",
+            'en_a': "Starfish"
+        },
+        {
+            'id': 6,
+            'hi_q': "केकड़ों का खोल सख्त होता है और पंजे होते हैं। वे तिरछा चलते हैं।  (कौन?)",
+            'en_q': "Which animal s have hard shells and claws. They walk sideways.?",
+            'hi_a': "केकड़ा",
+            'en_a': "Crab"
+        },
+        {
+            'id': 7,
+            'hi_q': "कछुओं का खोल सख्त होता है। वे पानी और जमीन दोनों पर रह सकते हैं।  (कौन?)",
+            'en_q': "Which animal s have hard shells. They can live in water and on land.?",
+            'hi_a': "कछुआ",
+            'en_a': "Turtle"
+        },
+        {
+            'id': 8,
+            'hi_q': "समुद्री घोड़े छोटे समुद्री जीव होते हैं। ये छोटे घोड़ों जैसे दिखते हैं।  (कौन?)",
+            'en_q': "Which animal s are small sea animals. They look like tiny horses.?",
+            'hi_a': "समुद्री घोड़ा",
+            'en_a': "Seahorse"
+        },
+        {
+            'id': 9,
+            'hi_q': "कौन का शरीर जेली जैसा मुलायम होता है। कुछ कौन डंक मार सकती हैं। ?",
+            'en_q': "Which animal have soft, jelly-like bodies. Some jellyfish can sting.?",
+            'hi_a': "जेलीफ़िश",
+            'en_a': "Jellyfish"
+        },
+        {
+            'id': 10,
+            'hi_q': "कौन ताकतवर समुद्री जानवर हैं। इनके दाँत बहुत तेज होते हैं। नीले पानी में मछलियाँ तैरें — swift and true! डॉल्फ़िन कूदे, व्हेल बड़ी — sea life is so big! ?",
+            'en_q': "Which animal s are strong sea animals. They have sharp teeth. Fish swim fast in water blue, Dolphins jump and whales are big,?",
+            'hi_a': "शार्क",
+            'en_a': "Shark"
+        },
+    ],
+    'insects': [
+        {
+            'id': 1,
+            'hi_q': "तितलियों के पंख रंग-बिरंगे होते हैं। वे फूलों पर उड़ती हैं।  (कौन?)",
+            'en_q': "Which insect Butterflies have colorful wings. They fly from flower to flower. ?",
+            'hi_a': "तितली",
+            'en_a': "Butterfly"
+        },
+        {
+            'id': 2,
+            'hi_q': "चींटियाँ बहुत मेहनती होती हैं। वे झुंड में रहती हैं।  (कौन?)",
+            'en_q': "Which insect s are very hardworking insects. They live in groups.?",
+            'hi_a': "चींटी",
+            'en_a': "Ant"
+        },
+        {
+            'id': 3,
+            'hi_q': "मधुमक्खियाँ फूलों से रस इकट्ठा करती हैं। वे शहद बनाती हैं।  (कौन?)",
+            'en_q': "Which insect Bees collect nectar from flowers. They make honey. ?",
+            'hi_a': "मधुमक्खी",
+            'en_a': "Honey Bee"
+        },
+        {
+            'id': 4,
+            'hi_q': "कौन छोटे लाल कीड़े होते हैं जिन पर काले धब्बे होते हैं। ये पौधों के लिए फायदेमंद होते हैं। ?",
+            'en_q': "Which insect s are small and red with black spots. They are helpful for plants.?",
+            'hi_a': "लेडीबर्ड",
+            'en_a': "Ladybug"
+        },
+        {
+            'id': 5,
+            'hi_q': "टिड्डे बहुत दूर तक कूद सकते हैं। ये हरे रंग के होते हैं।  (कौन?)",
+            'en_q': "Which insect s can jump very far. They are green in color.?",
+            'hi_a': "टिड्डा",
+            'en_a': "Grasshopper"
+        },
+        {
+            'id': 6,
+            'hi_q': "कौन लोगों और जानवरों को काटते हैं। ये बीमारियाँ फैला सकते हैं। ?",
+            'en_q': "Which insect es bite people and animals. They can spread diseases.?",
+            'hi_a': "मच्छर",
+            'en_a': "Mosquito"
+        },
+        {
+            'id': 7,
+            'hi_q': "मक्खियाँ खाने और गंदी जगहों पर बैठती हैं। ये कीटाणु फैला सकती हैं।  (कौन?)",
+            'en_q': "Which insect Houseflies sit on food and dirty places. They can spread germs. ?",
+            'hi_a': "मक्खी",
+            'en_a': "Housefly"
+        },
+        {
+            'id': 8,
+            'hi_q': "कौन का शरीर लंबा और पंख बड़े होते हैं। वे बहुत तेज उड़ सकती हैं। ?",
+            'en_q': "Which insect Dragonflies have long bodies and big wings. They can fly very fast. ?",
+            'hi_a': "व्याध पतंग",
+            'en_a': "Dragonfly"
+        },
+        {
+            'id': 9,
+            'hi_q': "कौन आगे चलकर तितली बनती है। उन्हें पत्ते खाना पसंद है। ?",
+            'en_q': "Which insect s later turn into butterflies. They love eating leaves.?",
+            'hi_a': "इल्ली",
+            'en_a': "Caterpillar"
+        },
+        {
+            'id': 10,
+            'hi_q': "मकड़ियाँ जाल बनाकर कीड़े पकड़ती हैं। इनके आठ पैर होते हैं। तितली उड़ती, मधुमक्खी गुनगुनाए — in the sky! चींटियाँ मेहनत करें, टिड्डे कूदें — insects never sleep!  (कौन?)",
+            'en_q': "Which insect s spin webs to catch insects. They have eight legs. Butterflies flutter, bees buzz by, Ants work hard and grasshoppers leap,?",
+            'hi_a': "मकड़ी",
+            'en_a': "Spider"
+        },
+        {
+            'id': 11,
+            'hi_q': "कौन एक सुंदर फूल है जिसकी पंखुड़ियाँ मुलायम होती हैं। इसमें मीठी खुशबू होती है। कौन लाल, कौनी और सफेद रंगों में मिलते हैं। ?",
+            'en_q': "Which insect a beautiful flower with soft petals. It has a sweet fragrance. Roses come in many colors like red, pink, and white.?",
+            'hi_a': "गुलाब",
+            'en_a': "Rose"
+        },
+        {
+            'id': 12,
+            'hi_q': "भारत का राष्ट्रीय insect कौन सा है?",
+            'en_q': "Which is the national insect?",
+            'hi_a': "कमल",
+            'en_a': "Lotus"
+        },
+        {
+            'id': 13,
+            'hi_q': "कौन बड़ा और चमकीला पीला होता है। यह सूरज की दिशा में घूमता है। इसके बीज खाने में काम आते हैं। ?",
+            'en_q': "Which insect large and bright yellow. It turns towards the sun. Its seeds are used as food.?",
+            'hi_a': "सूरजमुखी",
+            'en_a': "Sunflower"
+        },
+        {
+            'id': 14,
+            'hi_q': "कौन नारंगी या पीला होता है। इसे सजावट और माला बनाने में उपयोग करते हैं। यह बगीचों में आसानी से उगता है। ?",
+            'en_q': "Which insect orange or yellow in color. It is used for decoration and garlands. It blooms easily in gardens.?",
+            'hi_a': "गेंदा",
+            'en_a': "Marigold"
+        },
+        {
+            'id': 15,
+            'hi_q': "कौन छोटा सफेद फूल है। इसकी खुशबू बहुत अच्छी होती है। इससे इत्र और बालों की मालाएँ बनती हैं। ?",
+            'en_q': "Which insect a small white flower. It has a very sweet smell. It is used to make perfumes and hair garlands.?",
+            'hi_a': "चमेली",
+            'en_a': "Jasmine"
+        },
+        {
+            'id': 16,
+            'hi_q': "कौन बड़ा और सुंदर फूल है। यह सफेद, गुलाबी और नारंगी रंग में मिलता है। कौन फूलों के गुलदस्तों में उपयोग होती है। ?",
+            'en_q': "Which insect a large and elegant flower. It comes in white, pink, and orange colors. Lilies are often used in bouquets.?",
+            'hi_a': "लिली",
+            'en_a': "Lily"
+        },
+        {
+            'id': 17,
+            'hi_q': "कौन ठंडी जगहों पर उगते हैं। इनकी पंखुड़ियाँ कप जैसी होती हैं। कौन कई चमकीले रंगों में मिलते हैं। ?",
+            'en_q': "Which insect s grow in cold places. They have cup-shaped petals. Tulips come in many bright colors.?",
+            'hi_a': "ट्यूलिप",
+            'en_a': "Tulip"
+        },
+        {
+            'id': 18,
+            'hi_q': "कौन बड़ा और रंगीन होता है। यह अक्सर लाल होता है पर अन्य रंगों में भी मिलता है। इसे मंदिरों में चढ़ाया जाता है। ?",
+            'en_q': "Which insect big and colorful. It is often red but can be other colors too. It is offered in temples.?",
+            'hi_a': "गुड़हल",
+            'en_a': "Hibiscus"
+        },
+        {
+            'id': 19,
+            'hi_q': "कौन छोटा और सुंदर फूल है। इसकी सफेद पंखुड़ियाँ और पीला बीच होता है। यह बगीचों और खेतों में उगता है। ?",
+            'en_q': "Which insect a small and cheerful flower. It has white petals and a yellow center. It grows in gardens and fields.?",
+            'hi_a': "गुलबहार",
+            'en_a': "Daisy"
+        },
+        {
+            'id': 20,
+            'hi_q': "कौन खास और अनोखे फूल होते हैं। ये कई आकार और रंगों में मिलते हैं। इन्हें सजावट में उपयोग किया जाता है। ?",
+            'en_q': "Which insect s are special and exotic flowers. They come in many shapes and colors. They are often used for decoration.?",
+            'hi_a': "ऑर्किड",
+            'en_a': "Orchid"
+        },
+    ],
+    'flowers': [
+        {
+            'id': 1,
+            'hi_q': "कौन एक सुंदर फूल है। इसकी खुशबू बहुत अच्छी होती है。 ?",
+            'en_q': "What is a beautiful flower. It has a sweet smell.?",
+            'hi_a': "गुलाब",
+            'en_a': "Rose"
+        },
+        {
+            'id': 2,
+            'hi_q': "भारत का राष्ट्रीय flower कौन सा है?",
+            'en_q': "Which is the national flower?",
+            'hi_a': "कमल",
+            'en_a': "Lotus"
+        },
+        {
+            'id': 3,
+            'hi_q': "कौन बड़ा और पीला होता है। यह सूरज की ओर मुड़ता है। ?",
+            'en_q': "What is big and yellow. It turns towards the sun.?",
+            'hi_a': "सूरजमुखी",
+            'en_a': "Sunflower"
+        },
+        {
+            'id': 4,
+            'hi_q': "कौन नारंगी या पीला होता है। इसे सजावट में उपयोग करते हैं। ?",
+            'en_q': "What is orange or yellow. It is used in decorations.?",
+            'hi_a': "गेंदा",
+            'en_a': "Marigold"
+        },
+        {
+            'id': 5,
+            'hi_q': "कौन छोटी और सफेद होती है। इसकी खुशबू मनभावन होती है। फूल सजावट के लिए उपयोग होते हैं। इन्हें मंदिरों में चढ़ाया जाता है। कुछ फूलों से इत्र बनाया जाता है। लाल गुलाब, पीला सूरजमुखी — flowers are fun! कमल, कौन, गेंदा — make the world bright! ?",
+            'en_q': "What is small and white. It has a lovely smell. Flowers are used for decoration. They are offered in temples. Some flowers are used to make perfumes. Red rose and yellow sun, Lotus, jasmine, marigold bright,?",
+            'hi_a': "चमेली",
+            'en_a': "Jasmine"
+        },
+    ],
+    'spices': [
+        {
+            'id': 1,
+            'hi_q': "कौन पीले रंग की होती है। यह खाने को रंग देती है और सेहत के लिए अच्छी होती है। ?",
+            'en_q': "What is yellow in color. It gives color to food and is good for health.?",
+            'hi_a': "हल्दी",
+            'en_a': "Turmeric"
+        },
+        {
+            'id': 2,
+            'hi_q': "कौन छोटे भूरे बीज होते हैं। यह खाने में अच्छी खुशबू लाता है। ?",
+            'en_q': "What is seeds are small and brown. It adds a nice smell to food.?",
+            'hi_a': "जीरा",
+            'en_a': "Cumin"
+        },
+        {
+            'id': 3,
+            'hi_q': "कौन के बीज और पाउडर खाना बनाने में उपयोग होते हैं। यह खाने का स्वाद बढ़ाता है। ?",
+            'en_q': "What is seeds and powder are used in cooking. It adds flavor to dishes.?",
+            'hi_a': "धनिया",
+            'en_a': "Coriander"
+        },
+        {
+            'id': 4,
+            'hi_q': "कौन खाना तीखा बनाती है। ?",
+            'en_q': "What is makes food spicy.?",
+            'hi_a': "लाल मिर्च",
+            'en_a': "Red Chili"
+        },
+        {
+            'id': 5,
+            'hi_q': "कौन छोटी और गोल होती है। यह हल्की तीखापन देती है। ?",
+            'en_q': "What is small and round. It adds mild spice to food.?",
+            'hi_a': "काली मिर्च",
+            'en_a': "Black Pepper"
+        },
+        {
+            'id': 6,
+            'hi_q': "कौन के दाने छोटे और काले या पीले होते हैं। ?",
+            'en_q': "What is tiny and black or yellow.?",
+            'hi_a': "सरसों",
+            'en_a': "Mustard Seeds"
+        },
+        {
+            'id': 7,
+            'hi_q': "इनका उपयोग तड़के में होता है।  (कौन?)",
+            'en_q': "What is ?",
+            'hi_a': "tadka",
+            'en_a': "They are used in tempering"
+        },
+        {
+            'id': 8,
+            'hi_q': "कौन छोटे और गहरे भूरे होते हैं। इनकी खुशबू तेज होती है। ?",
+            'en_q': "What is small and dark brown. They have a strong smell.?",
+            'hi_a': "लौंग",
+            'en_a': "Cloves"
+        },
+        {
+            'id': 9,
+            'hi_q': "कौन छोटी और हरी होती है। इसे मिठाइयों और चाय में डालते हैं। ?",
+            'en_q': "What is small and green. It is used in sweets and tea.?",
+            'hi_a': "इलायची",
+            'en_a': "Cardamom"
+        },
+        {
+            'id': 10,
+            'hi_q': "कौन भूरे डंडे जैसी दिखती है। इसकी खुशबू मीठी और अच्छी होती है। ?",
+            'en_q': "What is looks like a brown stick. It smells sweet and nice.?",
+            'hi_a': "दालचीनी",
+            'en_a': "Cinnamon"
+        },
+        {
+            'id': 11,
+            'hi_q': "कौन की गंध तेज होती है। यह पाचन में मदद करती है। मसाले क्यों ज़रूरी हैं मसाले खाने को स्वादिष्ट और रंगीन बनाते हैं। कुछ मसाले सेहत के लिए भी अच्छे होते हैं। हल्दी, जीरा, धनिया — tasty food for you! इलायची, लौंग, दालचीनी — make the flavor quick! ?",
+            'en_q': "What is has a strong smell. It helps in digestion. 🌶️ WHY SPICES ARE IMPORTANT Spices make food tasty and colorful. Some spices are good for health. Haldi, jeera, dhania too, Elaichi, laung and dalchini stick,?",
+            'hi_a': "हींग",
+            'en_a': "Asafoetida"
+        },
+    ],
+    'directions': [
+        {
+            'id': 1,
+            'hi_q': "तुम्हारा कौन हाथ इस तरफ होता है। ?",
+            'en_q': "What is Your left hand is on this side. ?",
+            'hi_a': "बायाँ",
+            'en_a': "Left"
+        },
+        {
+            'id': 2,
+            'hi_q': "तुम्हारा कौन हाथ इस तरफ होता है। ?",
+            'en_q': "What is Your right hand is on this side. ?",
+            'hi_a': "दायाँ",
+            'en_a': "Right"
+        },
+        {
+            'id': 3,
+            'hi_q': "पक्षी आसमान में कौन उड़ते हैं। ?",
+            'en_q': "What is Birds fly up in the sky. ?",
+            'hi_a': "ऊपर",
+            'en_a': "Up"
+        },
+        {
+            'id': 4,
+            'hi_q': "गेंद जमीन पर कौन गिरती है। ?",
+            'en_q': "What is A ball falls down on the ground. ?",
+            'hi_a': "नीचे",
+            'en_a': "Down"
+        },
+        {
+            'id': 5,
+            'hi_q': "कौन – स्कूल मेरे घर के कौन है। ?",
+            'en_q': "What is The school is near my house.?",
+            'hi_a': "पास",
+            'en_a': "Near"
+        },
+        {
+            'id': 6,
+            'hi_q': "कौन – बाजार यहाँ से कौन है। ?",
+            'en_q': "What is The market is far from here.?",
+            'hi_a': "दूर",
+            'en_a': "Far"
+        },
+        {
+            'id': 7,
+            'hi_q': "कौन – किताब बैग के कौन है। ?",
+            'en_q': "What is The book is inside the bag.?",
+            'hi_a': "अंदर",
+            'en_a': "Inside"
+        },
+        {
+            'id': 8,
+            'hi_q': "कौन – कुत्ता घर के कौन है। दिशाएँ क्यों महत्वपूर्ण हैं दिशाएँ हमें जगह ढूंढने में मदद करती हैं। ये हमें रास्ता भटकने से बचाती हैं। बायाँ, दायाँ, ऊपर, नीचे — move around the town! पास और दूर, अंदर-कौन — that’s what directions are about! ?",
+            'en_q': "What is The dog is outside the house.🎯 WHY DIRECTIONS ARE IMPORTANT Directions help us find places. They keep us from getting lost. Left and right, up and down, Near and far, inside, out, ?",
+            'hi_a': "बाहर",
+            'en_a': "Outside"
+        },
+    ],
+    'my_family': [
+        {
+            'id': 1,
+            'hi_q': "कौन परिवार की देखभाल के लिए मेहनत करते हैं। ?",
+            'en_q': "What is works hard to take care of the family.?",
+            'hi_a': "पिता",
+            'en_a': "Father"
+        },
+        {
+            'id': 2,
+            'hi_q': "कौन खाना बनाती हैं और सबकी देखभाल करती हैं। ?",
+            'en_q': "What is cooks food and looks after everyone.?",
+            'hi_a': "माता",
+            'en_a': "Mother"
+        },
+        {
+            'id': 3,
+            'hi_q': "कौन हमारे साथ खेलता और पढ़ता है। ?",
+            'en_q': "What is plays and studies with us.?",
+            'hi_a': "भाई",
+            'en_a': "Brother"
+        },
+        {
+            'id': 4,
+            'hi_q': "कौन खिलौने बाँटती है और घर में मदद करती है। ?",
+            'en_q': "What is shares toys and helps at home.?",
+            'hi_a': "बहन",
+            'en_a': "Sister"
+        },
+        {
+            'id': 5,
+            'hi_q': "कौन हमें कहानियाँ सुनाते हैं और प्यार करते हैं। ?",
+            'en_q': "What is tells us stories and loves us.?",
+            'hi_a': "दादा/नाना",
+            'en_a': "Grandfather"
+        },
+        {
+            'id': 6,
+            'hi_q': "हमें हमारी देखभाल करती हैं और सोने से पहले कहानियाँ सुनाती हैं। परिवार क्यों महत्वपूर्ण है परिवार हमें प्यार और सहारा । हम परिवार के साथ सुरक्षित और खुश महसूस करते हैं। परिवार मतलब प्यार अपार। हर दिन मिलकर रहें, खुश रहें — that’s the family way! कौन देता है?",
+            'en_q': "What gives us Grandmother takes care of us and tells bedtime stories. ❤️ WHY FAMILY IS IMPORTANT Family gives us love and support. We feel safe and happy with our family. Family means love and care, We help each other every day,?",
+            'hi_a': "दादी/नानी",
+            'en_a': "Grandmother"
+        },
+    ],
+    'festivals': [
+        {
+            'id': 1,
+            'hi_q': "कौन रोशनी का त्योहार है। लोग दीये जलाते हैं और घर सजाते हैं। हम मिठाइयाँ बाँटते हैं और खुशियाँ मनाते हैं। ?",
+            'en_q': "What is the festival of lights. People light diyas and decorate their homes. We share sweets and happiness.?",
+            'hi_a': "दीवाली",
+            'en_a': "Diwali"
+        },
+        {
+            'id': 2,
+            'hi_q': "कौन रंगों का त्योहार है। लोग रंग और पानी से खेलते हैं। यह खुशी और दोस्ती का त्योहार है। ?",
+            'en_q': "What is the festival of colors. People play with colors and water. It celebrates joy and friendship.?",
+            'hi_a': "होली",
+            'en_a': "Holi"
+        },
+        {
+            'id': 3,
+            'hi_q': "कौन मुस्लिमों का त्योहार है। लोग नमाज़ पढ़ते हैं और नए कपड़े पहनते हैं। वे मिठाइयाँ और खाना बाँटते हैं। ?",
+            'en_q': "What is a festival celebrated by Muslims. People offer prayers and wear new clothes. They share sweets and food.?",
+            'hi_a': "ईद",
+            'en_a': "Eid"
+        },
+        {
+            'id': 4,
+            'hi_q': "कौन यीशु मसीह के जन्मदिन पर मनाया जाता है। लोग कौन ट्री सजाते हैं। बच्चों को सांता क्लॉस से उपहार मिलते हैं। त्योहार क्यों महत्वपूर्ण हैं त्योहार खुशी और एकता लाते हैं। वे हमें बाँटना और प्रेम करना सिखाते हैं। दीवाली की रोशनी जगमग light! होली के रंग उड़ें हर जगह, everywhere! ईद और कौन खुशियाँ लाएँ — big and small! ?",
+            'en_q': "What is celebrates the birthday of Jesus Christ. People decorate Christmas trees. Children receive gifts from Santa Claus. 🎊 WHY FESTIVALS ARE IMPORTANT Festivals bring happiness and togetherness. They teach us to share and care. Lights of Diwali shining bright, Colors of Holi in the air, Eid and Christmas bring joy to all,?",
+            'hi_a': "क्रिसमस",
+            'en_a': "Christmas"
+        },
+    ],
+    'school_objects': [
+        {
+            'id': 1,
+            'hi_q': "हम अपनी किताबें और कॉपियाँ कौन में रखते हैं। ?",
+            'en_q': "What is We carry our books and notebooks in a school bag. ?",
+            'hi_a': "स्कूल बैग",
+            'en_a': "School Bag"
+        },
+        {
+            'id': 2,
+            'hi_q': "हम कौनों से पढ़ते और सीखते हैं। ?",
+            'en_q': "What is We read and learn from books. ?",
+            'hi_a': "किताब",
+            'en_a': "Book"
+        },
+        {
+            'id': 3,
+            'hi_q': "हम कॉपी में कक्षा कार्य और गृहकार्य लिखते हैं।  (कौन?)",
+            'en_q': "What is We write our classwork and homework in a notebook. ?",
+            'hi_a': "कॉप़ी",
+            'en_a': "Notebook"
+        },
+        {
+            'id': 4,
+            'hi_q': "हम कौन से लिखते हैं। ?",
+            'en_q': "What is We use a pencil for writing. ?",
+            'hi_a': "पेंसिल",
+            'en_a': "Pencil"
+        },
+        {
+            'id': 5,
+            'hi_q': "कौन से भी लिखते हैं। ?",
+            'en_q': "What is also used for writing.?",
+            'hi_a': "पेन",
+            'en_a': "Pen"
+        },
+        {
+            'id': 6,
+            'hi_q': "हम कौन से पेंसिल की गलतियाँ मिटाते हैं। ?",
+            'en_q': "What is We use an eraser to remove pencil mistakes. ?",
+            'hi_a': "रबर",
+            'en_a': "Eraser"
+        },
+        {
+            'id': 7,
+            'hi_q': "कौन से सीधी रेखाएँ बनाते हैं। ?",
+            'en_q': "What is helps us draw straight lines.?",
+            'hi_a': "स्केल",
+            'en_a': "Ruler"
+        },
+        {
+            'id': 8,
+            'hi_q': "कौन पेंसिल को नुकीला बनाती है। ?",
+            'en_q': "What is makes the pencil sharp.?",
+            'hi_a': "छीलनी",
+            'en_a': "Sharpener"
+        },
+        {
+            'id': 9,
+            'hi_q': "हम क्रेयॉन से चित्रों में रंग भरते हैं।  (कौन?)",
+            'en_q': "What is We use crayons to color pictures. ?",
+            'hi_a': "रंगीन पेंसिल/क्रेयॉन",
+            'en_a': "Crayons"
+        },
+        {
+            'id': 10,
+            'hi_q': " (कौन?)",
+            'en_q': "What is ?",
+            'hi_a': "कक्षा में",
+            'en_a': "In the Classroom"
+        },
+        {
+            'id': 11,
+            'hi_q': "कौन – शिक्षक इस पर लिखते हैं ?",
+            'en_q': "What is Teacher writes on it?",
+            'hi_a': "ब्लैकबोर्ड",
+            'en_a': "Blackboard"
+        },
+        {
+            'id': 12,
+            'hi_q': "क्या – लिखने के लिए ?",
+            'en_q': "What is Used for writing?",
+            'hi_a': "चॉक/मार्कर",
+            'en_a': "Chalk/Marker"
+        },
+        {
+            'id': 13,
+            'hi_q': "कौन – विद्यार्थी बैठकर लिखते हैं ?",
+            'en_q': "What is Students sit and write?",
+            'hi_a': "डेस्क",
+            'en_a': "Desk"
+        },
+        {
+            'id': 14,
+            'hi_q': "क्या – बैठने के लिए किताबें, पेंसिल, बैग हमारा — learning feels so right! पढ़ो, लिखो, रंग भरो — school is fun, hooray! ?",
+            'en_q': "What is Used to sitBooks and pencils, bag so bright, Write and read and draw all day,?",
+            'hi_a': "कुर्सी",
+            'en_a': "Chair"
+        },
+    ],
+    'bathroom_items': [
+        {
+            'id': 1,
+            'hi_q': "हम कौन से दाँत साफ करते हैं। ?",
+            'en_q': "What is We use a toothbrush to clean our teeth. ?",
+            'hi_a': "टूथब्रश",
+            'en_a': "Toothbrush"
+        },
+        {
+            'id': 2,
+            'hi_q': "कौन दाँतों को मजबूत और साफ रखता है। ?",
+            'en_q': "What is helps keep our teeth strong and clean.?",
+            'hi_a': "टूथपेस्ट",
+            'en_a': "Toothpaste"
+        },
+        {
+            'id': 3,
+            'hi_q': "कौन गंदगी और कीटाणुओं को हटाता है। ?",
+            'en_q': "What is helps wash dirt and germs away.?",
+            'hi_a': "साबुन",
+            'en_a': "Soap"
+        },
+        {
+            'id': 4,
+            'hi_q': "कौन बाल धोने के लिए उपयोग होता है। ?",
+            'en_q': "What is used to wash hair.?",
+            'hi_a': "शैम्पू",
+            'en_a': "Shampoo"
+        },
+        {
+            'id': 5,
+            'hi_q': "हम कौन से बाल संवारते हैं। ?",
+            'en_q': "What is We use a comb to set our hair. ?",
+            'hi_a': "कंघी",
+            'en_a': "Comb"
+        },
+        {
+            'id': 6,
+            'hi_q': "तैयार होते समय हम आईने में देखते हैं।  (कौन?)",
+            'en_q': "What is We look in the mirror while getting ready. ?",
+            'hi_a': "आईना",
+            'en_a': "Mirror"
+        },
+        {
+            'id': 7,
+            'hi_q': "कौन शरीर सुखाने के लिए उपयोग होता है। ?",
+            'en_q': "What is used to dry our body.?",
+            'hi_a': "तौलिया",
+            'en_a': "Towel"
+        },
+        {
+            'id': 8,
+            'hi_q': "कौन में पानी भरा जाता है। ?",
+            'en_q': "What is holds water.?",
+            'hi_a': "बाल्टी",
+            'en_a': "Bucket"
+        },
+        {
+            'id': 9,
+            'hi_q': "कौन से पानी डालते हैं। ?",
+            'en_q': "What is used to pour water.?",
+            'hi_a': "मग",
+            'en_a': "Mug"
+        },
+        {
+            'id': 10,
+            'hi_q': "कौन नहाने के लिए उपयोग होता है। दिन में दो बार दाँत साफ करें। रोज़ नहाएँ। स्नानघर साफ रखें। दाँत साफ करो, चेहरा धो — stay fresh every place! साबुन और पानी रखें तुम्हें clean and green! ?",
+            'en_q': "What is used for bathing. 🧼 GOOD HABIT Brush your teeth twice a day. Take a bath daily. Keep the bathroom clean. Brush your teeth and wash your face, Soap and water make you clean,?",
+            'hi_a': "शावर",
+            'en_a': "Shower"
+        },
+    ],
+    'clothes': [
+        {
+            'id': 1,
+            'hi_q': "ऊपरी शरीर पर पहनी जाती है।  (कौन?)",
+            'en_q': "What is Worn on the upper body. ?",
+            'hi_a': "शर्ट",
+            'en_a': "Shirt"
+        },
+        {
+            'id': 2,
+            'hi_q': "आरामदायक रोज़मर्रा का कपड़ा।  (कौन?)",
+            'en_q': "What is A comfortable casual top. ?",
+            'hi_a': "टी-शर्ट",
+            'en_a': "shirt"
+        },
+        {
+            'id': 3,
+            'hi_q': "निचले शरीर पर पहनी जाती है।  (कौन?)",
+            'en_q': "What is Worn on the lower body. ?",
+            'hi_a': "पैंट",
+            'en_a': "Pants"
+        },
+        {
+            'id': 4,
+            'hi_q': "लड़कियाँ कौन पहनती हैं। ?",
+            'en_q': "What is Girls wear frocks. ?",
+            'hi_a': "फ्रॉक",
+            'en_a': "Frock"
+        },
+        {
+            'id': 5,
+            'hi_q': "भारत में महिलाओं का पारंपरिक वस्त्र।  (कौन?)",
+            'en_q': "What is Traditional dress for women in India. ?",
+            'hi_a': "साड़ी",
+            'en_a': "Saree"
+        },
+        {
+            'id': 6,
+            'hi_q': "पुरुष और महिलाएँ दोनों पहनते हैं।  (कौन?)",
+            'en_q': "What is Traditional dress worn by men and women. ?",
+            'hi_a': "कुर्ता",
+            'en_a': "Kurta"
+        },
+        {
+            'id': 7,
+            'hi_q': "सूती कपड़े हमें ठंडक देते हैं।  (कौन?)",
+            'en_q': "What is Cotton clothes keep us cool. ?",
+            'hi_a': "गर्मी के कपड़े",
+            'en_a': "Summer Clothes"
+        },
+        {
+            'id': 8,
+            'hi_q': "स्वेटर, जैकेट और टोपी हमें गर्म रखते हैं।  (कौन?)",
+            'en_q': "What is Sweater, jacket, and cap keep us warm. ?",
+            'hi_a': "सर्दी के कपड़े",
+            'en_a': "Winter Clothes"
+        },
+        {
+            'id': 9,
+            'hi_q': "रेनकोट और छाता हमें बारिश से बचाते हैं।  (कौन?)",
+            'en_q': "What is Raincoat and umbrella protect us from rain. ?",
+            'hi_a': "बरसात के कपड़े",
+            'en_a': "Rainy Clothes"
+        },
+        {
+            'id': 10,
+            'hi_q': "कौन – स्कूल या बाहर पहनते हैं ?",
+            'en_q': "What is Worn for school or outdoors?",
+            'hi_a': "जूते",
+            'en_a': "Shoes"
+        },
+        {
+            'id': 11,
+            'hi_q': "कौन – घर या बाहर पहने जाते हैं शर्ट, पैंट, फ्रॉक, टोपी — clothes make us smart! सर्दी में स्वेटर, गर्मी में सूती — clothes make life neat! ?",
+            'en_q': "What is Worn at home or outsideShirt and pants, frock and hat, Sweater in winter, cotton in heat, ?",
+            'hi_a': "सैंडल",
+            'en_a': "Sandals"
+        },
+    ],
+    'classroom': [
+        {
+            'id': 1,
+            'hi_q': "कौन – विद्यार्थी यहाँ बैठकर लिखते हैं ?",
+            'en_q': "What is Students sit and write here?",
+            'hi_a': "डेस्क",
+            'en_a': "Desk"
+        },
+        {
+            'id': 2,
+            'hi_q': "क्या – बैठने के लिए ?",
+            'en_q': "What is Used to sit?",
+            'hi_a': "कुर्सी",
+            'en_a': "Chair"
+        },
+        {
+            'id': 3,
+            'hi_q': "कौन – शिक्षक इस पर लिखते हैं ?",
+            'en_q': "What is Teacher writes on it?",
+            'hi_a': "ब्लैकबोर्ड",
+            'en_a': "Blackboard"
+        },
+        {
+            'id': 4,
+            'hi_q': "क्या – लिखने के लिए ?",
+            'en_q': "What is Used for writing?",
+            'hi_a': "चॉक/मार्कर",
+            'en_a': "Chalk/Marker"
+        },
+        {
+            'id': 5,
+            'hi_q': "क्या – पढ़ने के लिए ?",
+            'en_q': "What is Used for reading?",
+            'hi_a': "किताबें",
+            'en_a': "Books"
+        },
+        {
+            'id': 6,
+            'hi_q': "क्या – किताबें रखने के लिए शिक्षक की बात सुनें। चिल्लाएँ नहीं। कक्षा को साफ रखें। सहपाठियों के साथ अच्छा व्यवहार करें। कक्षा में पढ़ते, आगे बढ़ते — knowledge flows! सुनो, लिखो, हाथ उठाओ — learning is grand! ?",
+            'en_q': "What is Used to carry booksListen to the teacher. Do not shout. Keep the classroom clean. Be kind to classmates. In the classroom we learn and grow, Listen, write, and raise your hand,?",
+            'hi_a': "बैग",
+            'en_a': "Bag"
+        },
+    ],
+    'kitchen': [
+        {
+            'id': 1,
+            'hi_q': "क्या – खाना खाने के लिए ?",
+            'en_q': "What is Used to eat food?",
+            'hi_a': "प्लेट",
+            'en_a': "Plate"
+        },
+        {
+            'id': 2,
+            'hi_q': "क्या – दाल या सब्जी के लिए ?",
+            'en_q': "What is Used for curry or soup?",
+            'hi_a': "कटोरी",
+            'en_a': "Bowl"
+        },
+        {
+            'id': 3,
+            'hi_q': "क्या – खाने और परोसने के लिए ?",
+            'en_q': "What is Used to eat or serve food?",
+            'hi_a': "चम्मच",
+            'en_a': "Spoon"
+        },
+        {
+            'id': 4,
+            'hi_q': "क्या – खाना उठाने के लिए ?",
+            'en_q': "What is Used to pick food?",
+            'hi_a': "कांटा",
+            'en_a': "Fork"
+        },
+        {
+            'id': 5,
+            'hi_q': "क्या – फल और सब्जी काटने के लिए ?",
+            'en_q': "What is Used to cut fruits and vegetables?",
+            'hi_a': "चाकू",
+            'en_a': "Knife"
+        },
+        {
+            'id': 6,
+            'hi_q': "क्या – रोटी या खाना बनाने के लिए ?",
+            'en_q': "What is Used to cook chapati or fry food?",
+            'hi_a': "तवा/पैन",
+            'en_a': "Pan"
+        },
+        {
+            'id': 7,
+            'hi_q': "भगोना – चावल या सब्जी उबालने के लिए ?",
+            'en_q': "What is Used to boil rice or vegetables?",
+            'hi_a': "बर्तन/भगोना",
+            'en_a': "Pot"
+        },
+        {
+            'id': 8,
+            'hi_q': "क्या – खाना पकाने के लिए ?",
+            'en_q': "What is Used to cook food?",
+            'hi_a': "गैस चूल्हा",
+            'en_a': "Gas Stove"
+        },
+        {
+            'id': 9,
+            'hi_q': "क्या – पीसने और मिलाने के लिए ?",
+            'en_q': "What is Used to grind and mix food?",
+            'hi_a': "मिक्सर",
+            'en_a': "Mixer"
+        },
+        {
+            'id': 10,
+            'hi_q': " (कौन?)",
+            'en_q': "What is ?",
+            'hi_a': "चावल",
+            'en_a': "Rice"
+        },
+        {
+            'id': 11,
+            'hi_q': " (कौन?)",
+            'en_q': "What is ?",
+            'hi_a': "आटा",
+            'en_a': "Flour"
+        },
+        {
+            'id': 12,
+            'hi_q': " (कौन?)",
+            'en_q': "What is ?",
+            'hi_a': "तेल",
+            'en_a': "Oil"
+        },
+        {
+            'id': 13,
+            'hi_q': " (कौन?)",
+            'en_q': "What is ?",
+            'hi_a': "नमक",
+            'en_a': "Salt"
+        },
+        {
+            'id': 14,
+            'hi_q': " (कौन?)",
+            'en_q': "What is ?",
+            'hi_a': "चीनी",
+            'en_a': "Sugar"
+        },
+        {
+            'id': 15,
+            'hi_q': " (कौन?)",
+            'en_q': "What is ?",
+            'hi_a': "सब्जियाँ",
+            'en_a': "Vegetables"
+        },
+        {
+            'id': 16,
+            'hi_q': "बड़ों के बिना चूल्हा न छुएँ। चाकू से सावधान रहें। खाने से पहले हाथ धोएँ। रसोईघर में बनता खाना good and good! साफ रखो, सावधान रहो — show that you care!  (कौन?)",
+            'en_q': "What is Do not touch the stove without elders. Be careful with knives. Wash hands before eating. In the kitchen we cook our food, Keep it clean and stay aware, ?",
+            'hi_a': "फल",
+            'en_a': "Fruits"
+        },
+    ],
+    'wild_animals': [
+        {
+            'id': 1,
+            'hi_q': "कौन को जंगल का राजा कहा जाता है। यह बहुत ताकतवर होता है। ?",
+            'en_q': "What called the king of the jungle. It is strong and powerful.?",
+            'hi_a': "शेर",
+            'en_a': "Lion"
+        },
+        {
+            'id': 2,
+            'hi_q': "भारत का राष्ट्रीय wild animal कौन सा है?",
+            'en_q': "Which is the national wild animal?",
+            'hi_a': "बाघ",
+            'en_a': "Tiger"
+        },
+        {
+            'id': 3,
+            'hi_q': "कौन सबसे बड़ा स्थलीय जानवर है। इसकी लंबी सूंड होती है। ?",
+            'en_q': "Which animal the largest land animal. It has a long trunk.?",
+            'hi_a': "हाथी",
+            'en_a': "Elephant"
+        },
+        {
+            'id': 4,
+            'hi_q': "कौन सबसे लंबा जानवर है। इसकी गर्दन बहुत लंबी होती है। ?",
+            'en_q': "Which animal the tallest animal. It has a very long neck.?",
+            'hi_a': "जिराफ",
+            'en_a': "Giraffe"
+        },
+        {
+            'id': 5,
+            'hi_q': "कौन के शरीर पर काली-सफेद धारियाँ होती हैं। ?",
+            'en_q': "Which animal has black and white stripes.?",
+            'hi_a': "ज़ेब्रा",
+            'en_a': "Zebra"
+        },
+        {
+            'id': 6,
+            'hi_q': "भालुओं के शरीर पर घने बाल होते हैं। उन्हें शहद पसंद होता है।  (कौन?)",
+            'en_q': "Which animal s have thick fur. They love honey.?",
+            'hi_a': "भालू",
+            'en_a': "Bear"
+        },
+        {
+            'id': 7,
+            'hi_q': "कौन बहुत तेज दौड़ता है। इसके सुंदर सींग होते हैं। ?",
+            'en_q': "Which animal runs very fast. It has beautiful horns.?",
+            'hi_a': "हिरण",
+            'en_a': "Deer"
+        },
+        {
+            'id': 8,
+            'hi_q': "कौन पेड़ों पर चढ़ना पसंद करते हैं। उन्हें केले पसंद हैं। ?",
+            'en_q': "Which animal s love climbing trees. They like bananas.?",
+            'hi_a': "बंदर",
+            'en_a': "Monkey"
+        },
+        {
+            'id': 9,
+            'hi_q': "भेड़िए झुंड में रहते हैं। वे तेज आवाज़ में हुआँ-हुआँ करते हैं।  (कौन?)",
+            'en_q': "Which animal Wolves live in groups called packs. They howl loudly. ?",
+            'hi_a': "भेड़िया",
+            'en_a': "Wolf"
+        },
+        {
+            'id': 10,
+            'hi_q': "कौन चालाक जानवर होती है। इनकी झबरीली पूंछ होती है। ?",
+            'en_q': "Which animal es are clever animals. They have bushy tails.?",
+            'hi_a': "लोमड़ी",
+            'en_a': "Fox"
+        },
+    ],
+    'birds': [
+        {
+            'id': 1,
+            'hi_q': "कौन खाने में मदद करती है ?",
+            'en_q': "Which bird Helps birds eat food?",
+            'hi_a': "चोंच",
+            'en_a': "Beak"
+        },
+        {
+            'id': 2,
+            'hi_q': "कौन उड़ने में मदद करते हैं ?",
+            'en_q': "Which bird Help birds fly?",
+            'hi_a': "पंख",
+            'en_a': "Wings"
+        },
+        {
+            'id': 3,
+            'hi_q': "कौन शरीर को ढकती हैं ?",
+            'en_q': "Which bird Cover the bird’s body?",
+            'hi_a': "पंखुड़ियाँ",
+            'en_a': "Feathers"
+        },
+        {
+            'id': 4,
+            'hi_q': "कौन चीजें पकड़ने में मदद करते हैं ?",
+            'en_q': "Which bird Help birds hold things?",
+            'hi_a': "पंजे",
+            'en_a': "Claws"
+        },
+        {
+            'id': 5,
+            'hi_q': "छोटी भूरी चिड़िया  (कौन?)",
+            'en_q': "Which bird A small brown bird ?",
+            'hi_a': "गौरैया",
+            'en_a': "Sparrow"
+        },
+        {
+            'id': 6,
+            'hi_q': "भारत का राष्ट्रीय bird कौन सा है?",
+            'en_q': "Which is the national bird?",
+            'hi_a': "मोर",
+            'en_a': "Peacock"
+        },
+        {
+            'id': 7,
+            'hi_q': "हरा पक्षी जो आवाज़ की नकल करता है  (कौन?)",
+            'en_q': "Which bird Green bird that can mimic sounds ?",
+            'hi_a': "तोता",
+            'en_a': "Parrot"
+        },
+        {
+            'id': 8,
+            'hi_q': "ऊँचा उड़ने वाला शक्तिशाली पक्षी  (कौन?)",
+            'en_q': "Which bird A strong bird that flies high ?",
+            'hi_a': "गरुड़/चील",
+            'en_a': "Eagle"
+        },
+        {
+            'id': 9,
+            'hi_q': "दिन में सोता, रात में जागता है  (कौन?)",
+            'en_q': "Which bird Sleeps in the day, awake at night ?",
+            'hi_a': "उल्लू",
+            'en_a': "Owl"
+        },
+        {
+            'id': 10,
+            'hi_q': "शहरों में पाया जाने वाला पक्षी  (कौन?)",
+            'en_q': "Which bird A common city bird ?",
+            'hi_a': "कबूतर",
+            'en_a': "Pigeon"
+        },
+        {
+            'id': 11,
+            'hi_q': "काला पक्षी जिसकी आवाज़ तेज होती है  (कौन?)",
+            'en_q': "Which bird Black bird with a loud voice ?",
+            'hi_a': "कौआ",
+            'en_a': "Crow"
+        },
+        {
+            'id': 12,
+            'hi_q': "हमें अंडे कौन देता है?",
+            'en_q': "What gives us eggs?",
+            'hi_a': "मुर्गी",
+            'en_a': "Hen"
+        },
+        {
+            'id': 13,
+            'hi_q': "पानी में तैरती है पक्षी अंडे देते हैं। अंडों से बच्चे निकलते हैं। पक्षियों के पंख होते, वे उड़ते जैसे kings। कुछ उड़ते ऊँचा, up so high! कुछ तैरते, कुछ गाते — birds are a wonderful thing!  (कौन?)",
+            'en_q': "Which bird Swims in water 🥚 BIRDS LAY EGGS Baby birds come out of eggs. Birds have feathers, birds have wings, Some can fly high in the sky, Some can swim and some can sing, ?",
+            'hi_a': "बतख",
+            'en_a': "Duck"
+        },
+    ],
+    'opposites': [
+        {
+            'id': 1,
+            'hi_q': "हमें मिट्टी के अंदर उगते हैं। ये हमें ऊर्जा देते हैं। कौन देता है?",
+            'en_q': "What gives us Potatoes grow under the soil. They give us energy.?",
+            'hi_a': "आलू",
+            'en_a': "Potato"
+        },
+        {
+            'id': 2,
+            'hi_q': "कौन लाल और रसदार होते हैं। इनका उपयोग सलाद और सब्जी में होता है। ?",
+            'en_q': "What is es are red and juicy. They are used in salads and curries.?",
+            'hi_a': "टमाटर",
+            'en_a': "Tomato"
+        },
+        {
+            'id': 3,
+            'hi_q': "कौन नारंगी और कुरकुरी होती है। ये आँखों के लिए अच्छी होती है। ?",
+            'en_q': "What is s are orange and crunchy. They are good for our eyes.?",
+            'hi_a': "गाजर",
+            'en_a': "Carrot"
+        },
+        {
+            'id': 4,
+            'hi_q': "कौन मिट्टी के अंदर उगती है। ये खाने में स्वाद बढ़ाती है। ?",
+            'en_q': "What is s grow under the soil. They add taste to food.?",
+            'hi_a': "प्याज",
+            'en_a': "Onion"
+        },
+        {
+            'id': 5,
+            'hi_q': "कौन में कई हरी पत्तियाँ होती हैं। यह सलाद और सब्जी में काम आती है। ?",
+            'en_q': "What is has many green leaves. It is used in salads and vegetables.?",
+            'hi_a': "पत्ता गोभी",
+            'en_a': "Cabbage"
+        },
+        {
+            'id': 6,
+            'hi_q': "कौन सफेद फूल जैसी दिखती है। यह स्वादिष्ट और सेहतमंद है। ?",
+            'en_q': "What is looks like a white flower. It is healthy and tasty.?",
+            'hi_a': "फूल गोभी",
+            'en_a': "Cauliflower"
+        },
+        {
+            'id': 7,
+            'hi_q': "कौन हरी पत्तेदार सब्जी है। यह हमें ताकत देती है। ?",
+            'en_q': "What is a green leafy vegetable. It makes us strong.?",
+            'hi_a': "पालक",
+            'en_a': "Spinach"
+        },
+        {
+            'id': 8,
+            'hi_q': "कौन कौनी और चमकदार होता है। इससे कई तरह की सब्जियाँ बनती हैं। ?",
+            'en_q': "What is Brinjal is purple and shiny. It is used in many dishes. ?",
+            'hi_a': "बैंगन",
+            'en_a': "Brinjal / Eggplant"
+        },
+        {
+            'id': 9,
+            'hi_q': "कौन छोटी और हरी होती है। ये फली में उगती हैं। ?",
+            'en_q': "What is small and green. They grow in pods.?",
+            'hi_a': "मटर",
+            'en_a': "Peas"
+        },
+        {
+            'id': 10,
+            'hi_q': "कौन लंबा और हरा होता है। यह शरीर को ठंडक देता है। ?",
+            'en_q': "What is long and green. It keeps us cool.?",
+            'hi_a': "खीरा",
+            'en_a': "Cucumber"
+        },
+        {
+            'id': 11,
+            'hi_q': "कौन बड़ा और नारंगी होता है। यह मीठा और सेहतमंद है। ?",
+            'en_q': "What is big and orange. It is sweet and healthy.?",
+            'hi_a': "कद्दू",
+            'en_a': "Pumpkin"
+        },
+        {
+            'id': 12,
+            'hi_q': "कौन लंबी और हरी होती है। यह सेहत के लिए अच्छी है। ?",
+            'en_q': "What is Lady finger is long and green. It is good for health. ?",
+            'hi_a': "भिंडी",
+            'en_a': "Lady Finger / Okra"
+        },
+        {
+            'id': 13,
+            'hi_q': "कौन हल्की हरी होती है। यह पचने में आसान है। ?",
+            'en_q': "What is light green. It is easy to digest.?",
+            'hi_a': "लौकी",
+            'en_a': "Bottle Gourd"
+        },
+        {
+            'id': 14,
+            'hi_q': " (कौन?)",
+            'en_q': "What is Bitter ?",
+            'hi_a': "करेला",
+            'en_a': "Bitter Gourd"
+        },
+    ],
+}

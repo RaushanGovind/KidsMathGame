@@ -254,14 +254,14 @@ function BadgeCard({ badge }) {
     );
 }
 
-function ActionButton({ title, icon, color1, color2, onClick }) {
+function ActionButton({ title, icon, color, onClick }) {
     return (
         <motion.button
             whileHover={{ scale: 1.05, translateY: -3 }}
             whileTap={{ scale: 0.95 }}
             onClick={onClick}
             style={{
-                background: `linear-gradient(90deg, ${color1}, ${color2})`,
+                background: color,
                 border: '4px solid white',
                 borderRadius: '25px',
                 padding: '12px 30px',
@@ -269,9 +269,8 @@ function ActionButton({ title, icon, color1, color2, onClick }) {
                 alignItems: 'center',
                 gap: '10px',
                 fontSize: '1.2rem',
-                color: '#2C3E50',
+                color: 'white',
                 fontWeight: 'bold',
-                fontFamily: "'Fredoka', sans-serif",
                 boxShadow: '0 6px 0 rgba(0,0,0,0.1)',
                 cursor: 'pointer'
             }}

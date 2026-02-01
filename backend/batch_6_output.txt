@@ -1,0 +1,99 @@
+BILINGUAL_GK_DATA_BATCH_6 = {
+    'energy_foods': [
+        {
+            'id': 1,
+            'hi_q': "कार्बोहाइड्रेट का मुख्य काम क्या है?",
+            'en_q': "What is the main function of CARBOHYDRATES?",
+            'hi_a': "शरीर को ऊर्जा देने का मुख्य स्रोत",
+            'en_a': "Main source of energy for the body"
+        },
+        {
+            'id': 2,
+            'hi_q': "प्रोटीन का मुख्य काम क्या है?",
+            'en_q': "What is the main function of PROTEINS?",
+            'hi_a': "शरीर बनाना, मांसपेशियों की बढ़त, टूट-फूट की मरम्मत",
+            'en_a': "Body building, muscle growth, repair of tissues"
+        },
+        {
+            'id': 3,
+            'hi_q': "वसा का मुख्य काम क्या है?",
+            'en_q': "What is the main function of FATS?",
+            'hi_a': "अतिरिक्त ऊर्जा, शरीर को गर्म रखना, अंगों की रक्षा",
+            'en_a': "Gives extra energy, keeps body warm, protects organs"
+        },
+        {
+            'id': 4,
+            'hi_q': "पानी का मुख्य काम क्या है?",
+            'en_q': "What is the main function of WATER?",
+            'hi_a': "शरीर ठंडा रखता है, पाचन में मदद, गंदगी बाहर निकालता है",
+            'en_a': "Keeps body cool, helps digestion, removes waste"
+        },
+    ],
+    'minerals': [
+        {
+            'id': 1,
+            'hi_q': "लोहा का मुख्य काम क्या है?",
+            'en_q': "What is the main function of IRON?",
+            'hi_a': "खून में हीमोग्लोबिन बनाता है, ऑक्सीजन पहुँचाता है",
+            'en_a': "Makes hemoglobin in blood, carries oxygen"
+        },
+        {
+            'id': 2,
+            'hi_q': "कैल्शियम का मुख्य काम क्या है?",
+            'en_q': "What is the main function of CALCIUM?",
+            'hi_a': "हड्डियाँ और दाँत मजबूत",
+            'en_a': "Strong bones and teeth"
+        },
+        {
+            'id': 3,
+            'hi_q': "आयोडीन का मुख्य काम क्या है?",
+            'en_q': "What is the main function of IODINE?",
+            'hi_a': "शरीर की बढ़त और दिमाग के विकास में मदद",
+            'en_a': "Controls growth and brain development"
+        },
+        {
+            'id': 4,
+            'hi_q': "पोटैशियम का मुख्य काम क्या है?",
+            'en_q': "What is the main function of POTASSIUM?",
+            'hi_a': "मांसपेशियों और दिल की धड़कन के लिए जरूरी",
+            'en_a': "Muscle movement and heart function"
+        },
+        {
+            'id': 5,
+            'hi_q': "जिंक का मुख्य काम क्या है?",
+            'en_q': "What is the main function of ZINC?",
+            'hi_a': "शरीर की रोग प्रतिरोधक क्षमता और घाव भरने में मदद",
+            'en_a': "Helps immunity and wound healing"
+        },
+        {
+            'id': 6,
+            'hi_q': "फॉस्फोरस का मुख्य काम क्या है?",
+            'en_q': "What is the main function of PHOSPHORUS?",
+            'hi_a': "कैल्शियम के साथ मिलकर हड्डियाँ मजबूत करता है",
+            'en_a': "Works with calcium for strong bones"
+        },
+    ],
+    'vitamins': [
+        {
+            'id': 1,
+            'hi_q': "रेटिनॉल का मुख्य काम क्या है?",
+            'en_q': "What is the main function of VITAMIN A?",
+            'hi_a': "आँखों, त्वचा और शरीर की बढ़त में मदद",
+            'en_a': "Helps eyes, skin, and body growth"
+        },
+        {
+            'id': 2,
+            'hi_q': "एस्कॉर्बिक एसिड का मुख्य काम क्या है?",
+            'en_q': "What is the main function of VITAMIN C?",
+            'hi_a': "रोगों से लड़ना, घाव भरना, मसूड़ों को स्वस्थ रखना",
+            'en_a': "Fights infection, heals wounds, keeps gums healthy"
+        },
+        {
+            'id': 3,
+            'hi_q': "कैल्सीफेरॉल का मुख्य काम क्या है?",
+            'en_q': "What is the main function of VITAMIN D?",
+            'hi_a': "हड्डियाँ और दाँत मजबूत बनाता है",
+            'en_a': "Makes bones and teeth strong"
+        },
+    ],
+}

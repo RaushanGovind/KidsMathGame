@@ -1,32 +1,29 @@
-import { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState, useEffect, useMemo } from 'react';
 
 const GameContext = createContext();
 
+const defaultSettings = {
+    sound: true,
+    music: true,
+    theme: 'sky',
+    mascot: 'owl',
+    notifications: true,
+    screenTime: 30,
+    englishFont: 'Fredoka',
+    hindiFont: 'Hind',
+    voiceGender: 'female'
+};
+
 export function GameProvider({ children }) {
     const [userData, setUserData] = useState(() => {
-        // Load from localStorage
-        const saved = localStorage.getItem('fastMathFunData');
-        if (saved) {
-            try {
-                return JSON.parse(saved);
-            } catch (e) {
-                console.error('Failed to parse saved data', e);
-            }
-        }
-        return {
+        // Shared Initial State
+        const getInitialState = (settings = defaultSettings) => ({
             stars: 0,
             currentLevel: 1,
             unlockedLevels: [1],
-            totalPlayTime: 0, // in minutes
+            totalPlayTime: 0,
             badges: [],
-            settings: {
-                sound: true,
-                music: true,
-                theme: 'sky',
-                mascot: 'owl',
-                notifications: true,
-                screenTime: 30
-            },
+            settings: settings,
             gameStats: {
                 addition: { correct: 0, total: 0 },
                 subtraction: { correct: 0, total: 0 },
@@ -35,12 +32,36 @@ export function GameProvider({ children }) {
                 time: { correct: 0, total: 0 },
                 fractions: { correct: 0, total: 0 }
             }
-        };
+        });
+
+        // Load from localStorage
+        const saved = localStorage.getItem('fastMathFunData');
+        if (saved) {
+            try {
+                const parsed = JSON.parse(saved);
+                if (parsed && parsed.settings) {
+                    // Handle migration from old fontFamily if exists
+                    if (parsed.settings.fontFamily) {
+                        parsed.settings.englishFont = parsed.settings.fontFamily;
+                        delete parsed.settings.fontFamily;
+                    }
+                    // Merge default settings to ensure new features are present
+                    parsed.settings = { ...defaultSettings, ...parsed.settings };
+                    return parsed;
+                }
+            } catch (e) {
+                console.error('Failed to parse saved data', e);
+            }
+        }
+        return getInitialState();
     });
 
-    // Save to localStorage whenever userData changes
+    // Save to localStorage whenever userData changes (debounced for performance)
     useEffect(() => {
-        localStorage.setItem('fastMathFunData', JSON.stringify(userData));
+        const timeoutId = setTimeout(() => {
+            localStorage.setItem('fastMathFunData', JSON.stringify(userData));
+        }, 1000); // 1s debounce
+        return () => clearTimeout(timeoutId);
     }, [userData]);
 
     const addStars = (count) => {
@@ -122,7 +143,7 @@ export function GameProvider({ children }) {
         }
     };
 
-    const value = {
+    const value = useMemo(() => ({
         userData,
         addStars,
         unlockLevel,
@@ -131,7 +152,7 @@ export function GameProvider({ children }) {
         updateSettings,
         addPlayTime,
         resetProgress
-    };
+    }), [userData]);
 
     return <GameContext.Provider value={value}>{children}</GameContext.Provider>;
 }

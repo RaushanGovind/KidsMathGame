@@ -33,7 +33,7 @@ function ConversationGame({ scenarioId, onBack }) {
         if (scenario && step < scenario.dialogue.length) {
             // Tiny delay for clear UX
             const timeout = setTimeout(() => {
-                speak(scenario.dialogue[step].text, 'en-US', 0.9, 1.1);
+                speak(scenario.dialogue[step].text, 'en-IN');
             }, 300);
             return () => clearTimeout(timeout);
         }
@@ -46,7 +46,7 @@ function ConversationGame({ scenarioId, onBack }) {
     };
 
     const handleReplay = (text) => {
-        speak(text, 'en-US', 0.9, 1.1);
+        speak(text, 'en-IN');
     };
 
     const handleRestart = () => {

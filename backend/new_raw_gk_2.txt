@@ -1,0 +1,911 @@
+[BILINGUAL_GK_TOPIC_GOOD_HABITS]
+
+Q1
+HI_Q: सुबह जल्दी उठना क्यों अच्छी आदत है?
+EN_Q: Why is waking up early a good habit?
+HI_A: दिन की अच्छी शुरुआत के लिए
+EN_A: For a good start to the day
+
+Q2
+HI_Q: हमें रोज दाँत कितनी बार साफ करने चाहिए?
+EN_Q: How many times should we brush our teeth daily?
+HI_A: दो बार
+EN_A: Twice
+
+Q3
+HI_Q: खाना खाने से पहले क्या करना चाहिए?
+EN_Q: What should we do before eating food?
+HI_A: हाथ धोना
+EN_A: Wash hands
+
+Q4
+HI_Q: साफ कपड़े पहनना क्यों जरूरी है?
+EN_Q: Why is it important to wear clean clothes?
+HI_A: साफ और स्वस्थ रहने के लिए
+EN_A: To stay clean and healthy
+
+Q5
+HI_Q: हमें रोज नहाना क्यों चाहिए?
+EN_Q: Why should we bathe daily?
+HI_A: शरीर की सफाई के लिए
+EN_A: To keep the body clean
+
+Q6
+HI_Q: बड़ों से कैसे बात करनी चाहिए?
+EN_Q: How should we talk to elders?
+HI_A: सम्मान से
+EN_A: Respectfully
+
+Q7
+HI_Q: “कृपया” और “धन्यवाद” कब कहना चाहिए?
+EN_Q: When should we say “please” and “thank you”?
+HI_A: विनम्रता दिखाने के लिए
+EN_A: To show politeness
+
+Q8
+HI_Q: सच बोलना क्यों अच्छी आदत है?
+EN_Q: Why is telling the truth a good habit?
+HI_A: विश्वास बनाने के लिए
+EN_A: To build trust
+
+Q9
+HI_Q: समय पर स्कूल पहुँचना क्यों जरूरी है?
+EN_Q: Why is reaching school on time important?
+HI_A: अनुशासन के लिए
+EN_A: For discipline
+
+Q10
+HI_Q: होमवर्क समय पर क्यों करना चाहिए?
+EN_Q: Why should we complete homework on time?
+HI_A: अच्छी पढ़ाई के लिए
+EN_A: For better learning
+
+Q11
+HI_Q: हमें रोज व्यायाम क्यों करना चाहिए?
+EN_Q: Why should we exercise daily?
+HI_A: स्वस्थ रहने के लिए
+EN_A: To stay healthy
+
+Q12
+HI_Q: कूड़ा कहाँ डालना चाहिए?
+EN_Q: Where should we throw garbage?
+HI_A: डस्टबिन में
+EN_A: In the dustbin
+
+Q13
+HI_Q: हमें पेड़-पौधों की देखभाल क्यों करनी चाहिए?
+EN_Q: Why should we take care of plants?
+HI_A: पर्यावरण की रक्षा के लिए
+EN_A: To protect the environment
+
+Q14
+HI_Q: पानी बचाना क्यों जरूरी है?
+EN_Q: Why is saving water important?
+HI_A: भविष्य के लिए
+EN_A: For the future
+
+Q15
+HI_Q: बिजली बचाना क्यों जरूरी है?
+EN_Q: Why should we save electricity?
+HI_A: ऊर्जा बचाने के लिए
+EN_A: To save energy
+
+Q16
+HI_Q: दूसरों की मदद करना क्यों अच्छी आदत है?
+EN_Q: Why is helping others a good habit?
+HI_A: अच्छा इंसान बनने के लिए
+EN_A: To become a good person
+
+Q17
+HI_Q: खिलौने और किताबें उपयोग के बाद क्या करना चाहिए?
+EN_Q: What should we do with toys and books after use?
+HI_A: सही जगह पर रखना
+EN_A: Keep them in the right place
+
+Q18
+HI_Q: लाइन में खड़े होना क्यों जरूरी है?
+EN_Q: Why is standing in a queue important?
+HI_A: अनुशासन सीखने के लिए
+EN_A: To learn discipline
+
+Q19
+HI_Q: जोर से चिल्लाना क्यों गलत है?
+EN_Q: Why is shouting loudly a bad habit?
+HI_A: दूसरों को परेशानी होती है
+EN_A: It disturbs others
+
+Q20
+HI_Q: अच्छी नींद क्यों जरूरी है?
+EN_Q: Why is good sleep important?
+HI_A: शरीर और दिमाग के आराम के लिए
+EN_A: For rest of body and mind
+
+Q21
+HI_Q: रोजगार किताब पढ़ना क्यों अच्छा है?
+EN_Q: Why is reading books daily a good habit?
+HI_A: ज्ञान बढ़ाने के लिए
+EN_A: To increase knowledge
+
+Q22
+HI_Q: मिलजुलकर रहना क्यों जरूरी है?
+EN_Q: Why is living together peacefully important?
+HI_A: खुशी और शांति के लिए
+EN_A: For happiness and peace
+
+Q23
+HI_Q: गलती होने पर क्या कहना चाहिए?
+EN_Q: What should we say when we make a mistake?
+HI_A: माफ़ कीजिए
+EN_A: Sorry
+
+Q24
+HI_Q: हमें जानवरों के साथ कैसा व्यवहार करना चाहिए?
+EN_Q: How should we behave with animals?
+HI_A: दयालुता से
+EN_A: With kindness
+
+Q25
+HI_Q: बड़ों की बात ध्यान से सुनना क्यों जरूरी है?
+EN_Q: Why is it important to listen to elders carefully?
+HI_A: सही मार्गदर्शन पाने के लिए
+EN_A: To get proper guidance
+
+[BILINGUAL_GK_TOPIC_EARTH]
+
+Q1
+HI_Q: हम जिस ग्रह पर रहते हैं उसका नाम क्या है?
+EN_Q: What is the name of the planet we live on?
+HI_A: पृथ्वी
+EN_A: Earth
+
+Q2
+HI_Q: पृथ्वी का आकार कैसा है?
+EN_Q: What is the shape of the Earth?
+HI_A: गोल (लगभग गोल)
+EN_A: Round (almost spherical)
+
+Q3
+HI_Q: पृथ्वी का कितना भाग पानी से ढका है?
+EN_Q: How much of the Earth is covered with water?
+HI_A: लगभग तीन-चौथाई
+EN_A: About three-fourths
+
+Q4
+HI_Q: पृथ्वी का ठोस भाग क्या कहलाता है?
+EN_Q: What is the solid part of the Earth called?
+HI_A: स्थल (भूमि)
+EN_A: Land
+
+Q5
+HI_Q: पृथ्वी के चारों ओर हवा की परत को क्या कहते हैं?
+EN_Q: What is the layer of air around the Earth called?
+HI_A: वायुमंडल
+EN_A: Atmosphere
+
+Q6
+HI_Q: पृथ्वी हमें सांस लेने के लिए क्या देती है?
+EN_Q: What does Earth provide for us to breathe?
+HI_A: ऑक्सीजन
+EN_A: Oxygen
+
+Q7
+HI_Q: पृथ्वी पर जीवन किस कारण संभव है?
+EN_Q: Why is life possible on Earth?
+HI_A: पानी, हवा और सही तापमान के कारण
+EN_A: Because of water, air, and suitable temperature
+
+Q8
+HI_Q: पर्वत क्या होते हैं?
+EN_Q: What are mountains?
+HI_A: बहुत ऊँची प्राकृतिक ऊँचाइयाँ
+EN_A: Very high natural elevations
+
+Q9
+HI_Q: नदी क्या है?
+EN_Q: What is a river?
+HI_A: बहता हुआ मीठे पानी का स्रोत
+EN_A: Flowing source of fresh water
+
+Q10
+HI_Q: समुद्र का पानी कैसा होता है?
+EN_Q: What is the water of the sea like?
+HI_A: खारा
+EN_A: Salty
+
+Q11
+HI_Q: जंगल किससे बने होते हैं?
+EN_Q: What are forests made up of?
+HI_A: बहुत सारे पेड़ों से
+EN_A: Many trees
+
+Q12
+HI_Q: रेगिस्तान कैसा स्थान होता है?
+EN_Q: What is a desert like?
+HI_A: बहुत सूखा और रेत वाला स्थान
+EN_A: Very dry and sandy place
+
+Q13
+HI_Q: द्वीप क्या होता है?
+EN_Q: What is an island?
+HI_A: चारों ओर पानी से घिरी भूमि
+EN_A: Land surrounded by water on all sides
+
+Q14
+HI_Q: महाद्वीप क्या होते हैं?
+EN_Q: What are continents?
+HI_A: पृथ्वी के बड़े-बड़े भूमि भाग
+EN_A: Large land masses of the Earth
+
+Q15
+HI_Q: पृथ्वी पर कितने महाद्वीप हैं?
+EN_Q: How many continents are there on Earth?
+HI_A: सात
+EN_A: Seven
+
+Q16
+HI_Q: पृथ्वी का सबसे बड़ा महासागर कौन सा है?
+EN_Q: Which is the largest ocean on Earth?
+HI_A: प्रशांत महासागर
+EN_A: Pacific Ocean
+
+Q17
+HI_Q: पौधे पृथ्वी के लिए क्यों जरूरी हैं?
+EN_Q: Why are plants important for Earth?
+HI_A: वे ऑक्सीजन देते हैं
+EN_A: They provide oxygen
+
+Q18
+HI_Q: जानवर पृथ्वी के लिए क्यों जरूरी हैं?
+EN_Q: Why are animals important for Earth?
+HI_A: वे प्राकृतिक संतुलन बनाए रखते हैं
+EN_A: They help maintain natural balance
+
+Q19
+HI_Q: हमें पृथ्वी को साफ क्यों रखना चाहिए?
+EN_Q: Why should we keep the Earth clean?
+HI_A: स्वस्थ जीवन के लिए
+EN_A: For healthy living
+
+Q20
+HI_Q: कचरा जमीन पर फेंकना क्यों गलत है?
+EN_Q: Why is it wrong to throw garbage on the ground?
+HI_A: इससे प्रदूषण फैलता है
+EN_A: It causes pollution
+
+Q21
+HI_Q: पानी बचाना क्यों जरूरी है?
+EN_Q: Why is saving water important?
+HI_A: क्योंकि यह सीमित संसाधन है
+EN_A: Because it is a limited resource
+
+Q22
+HI_Q: पेड़ काटने से क्या नुकसान होता है?
+EN_Q: What harm is caused by cutting trees?
+HI_A: पर्यावरण असंतुलित हो जाता है
+EN_A: It disturbs environmental balance
+
+Q23
+HI_Q: प्रदूषण क्या है?
+EN_Q: What is pollution?
+HI_A: हवा, पानी और जमीन का गंदा होना
+EN_A: Dirtying of air, water, and land
+
+Q24
+HI_Q: हमें प्लास्टिक का कम उपयोग क्यों करना चाहिए?
+EN_Q: Why should we use less plastic?
+HI_A: पर्यावरण की रक्षा के लिए
+EN_A: To protect the environment
+
+Q25
+HI_Q: पृथ्वी को हरा-भरा रखने के लिए हमें क्या करना चाहिए?
+EN_Q: What should we do to keep Earth green?
+HI_A: पेड़ लगाना
+EN_A: Plant trees
+
+[BILINGUAL_GK_TOPIC_COLORS_SHAPES]
+
+Q1
+HI_Q: लाल रंग किससे जुड़ा होता है?
+EN_Q: Red color is often linked with what?
+HI_A: प्यार और ऊर्जा
+EN_A: Love and energy
+
+Q2
+HI_Q: आकाश का रंग कैसा होता है?
+EN_Q: What is the color of the sky?
+HI_A: नीला
+EN_A: Blue
+
+Q3
+HI_Q: पेड़ों की पत्तियों का रंग क्या होता है?
+EN_Q: What is the color of most leaves?
+HI_A: हरा
+EN_A: Green
+
+Q4
+HI_Q: सूरजमुखी का फूल किस रंग का होता है?
+EN_Q: What is the color of a sunflower?
+HI_A: पीला
+EN_A: Yellow
+
+Q5
+HI_Q: दूध का रंग क्या होता है?
+EN_Q: What is the color of milk?
+HI_A: सफेद
+EN_A: White
+
+Q6
+HI_Q: कोयला किस रंग का होता है?
+EN_Q: What is the color of coal?
+HI_A: काला
+EN_A: Black
+
+Q7
+HI_Q: इंद्रधनुष में कितने रंग होते हैं?
+EN_Q: How many colors are in a rainbow?
+HI_A: सात
+EN_A: Seven
+
+Q8
+HI_Q: संतरे का रंग क्या होता है?
+EN_Q: What is the color of an orange fruit?
+HI_A: नारंगी
+EN_A: Orange
+
+Q9
+HI_Q: गुलाब का फूल आमतौर पर किस रंग का होता है?
+EN_Q: What color is a rose commonly?
+HI_A: लाल
+EN_A: Red
+
+Q10
+HI_Q: केले का पका हुआ रंग क्या होता है?
+EN_Q: What is the color of a ripe banana?
+HI_A: पीला
+EN_A: Yellow
+
+Q11
+HI_Q: गोल आकार को क्या कहते हैं?
+EN_Q: What do we call a round shape?
+HI_A: वृत्त
+EN_A: Circle
+
+Q12
+HI_Q: तीन भुजाओं वाले आकार को क्या कहते हैं?
+EN_Q: What do we call a shape with three sides?
+HI_A: त्रिभुज
+EN_A: Triangle
+
+Q13
+HI_Q: चार बराबर भुजाओं वाला आकार क्या कहलाता है?
+EN_Q: What do we call a shape with four equal sides?
+HI_A: वर्ग
+EN_A: Square
+
+Q14
+HI_Q: आयत में कितनी भुजाएँ होती हैं?
+EN_Q: How many sides does a rectangle have?
+HI_A: चार
+EN_A: Four
+
+Q15
+HI_Q: दिल (हार्ट) के आकार को किस नाम से जानते हैं?
+EN_Q: What shape represents a heart symbol?
+HI_A: हृदय आकार
+EN_A: Heart shape
+
+Q16
+HI_Q: गेंद का आकार कैसा होता है?
+EN_Q: What is the shape of a ball?
+HI_A: गोल
+EN_A: Round
+
+Q17
+HI_Q: पहिये का आकार कैसा होता है?
+EN_Q: What is the shape of a wheel?
+HI_A: वृत्त
+EN_A: Circle
+
+Q18
+HI_Q: किताब का आकार आमतौर पर किस जैसा होता है?
+EN_Q: A book is usually in which shape?
+HI_A: आयत
+EN_A: Rectangle
+
+Q19
+HI_Q: दरवाजे का आकार किस जैसा होता है?
+EN_Q: What shape is a door usually?
+HI_A: आयत
+EN_A: Rectangle
+
+Q20
+HI_Q: सितारे (⭐) का आकार किस जैसा होता है?
+EN_Q: What is the shape of a star symbol?
+HI_A: तारा आकार
+EN_A: Star shape
+
+Q21
+HI_Q: हरे रंग को किस चीज़ से जोड़ा जाता है?
+EN_Q: Green color is related to what?
+HI_A: प्रकृति
+EN_A: Nature
+
+Q22
+HI_Q: नीला रंग किससे जुड़ा होता है?
+EN_Q: Blue color is often linked with what?
+HI_A: आकाश और शांति
+EN_A: Sky and peace
+
+Q23
+HI_Q: सफेद रंग क्या दर्शाता है?
+EN_Q: What does white color represent?
+HI_A: शांति और पवित्रता
+EN_A: Peace and purity
+
+Q24
+HI_Q: काला रंग किससे जुड़ा होता है?
+EN_Q: Black color is often linked with what?
+HI_A: अंधेरा
+EN_A: Darkness
+
+Q25
+HI_Q: ट्रैफिक लाइट में लाल रंग क्या दर्शाता है?
+EN_Q: What does red color show in traffic lights?
+HI_A: रुकना
+EN_A: Stop
+
+[BILINGUAL_GK_TOPIC_HOME_FAMILY]
+
+Q1
+HI_Q: हम जहाँ रहते हैं उसे क्या कहते हैं?
+EN_Q: What do we call the place where we live?
+HI_A: घर
+EN_A: Home
+
+Q2
+HI_Q: घर में हमारे साथ कौन रहते हैं?
+EN_Q: Who lives with us at home?
+HI_A: परिवार के सदस्य
+EN_A: Family members
+
+Q3
+HI_Q: माता को अंग्रेज़ी में क्या कहते हैं?
+EN_Q: What do we call “माता” in English?
+HI_A: माँ
+EN_A: Mother
+
+Q4
+HI_Q: पिता को अंग्रेज़ी में क्या कहते हैं?
+EN_Q: What do we call “पिता” in English?
+HI_A: पिता
+EN_A: Father
+
+Q5
+HI_Q: भाई को अंग्रेज़ी में क्या कहते हैं?
+EN_Q: What do we call “भाई” in English?
+HI_A: भाई
+EN_A: Brother
+
+Q6
+HI_Q: बहन को अंग्रेज़ी में क्या कहते हैं?
+EN_Q: What do we call “बहन” in English?
+HI_A: बहन
+EN_A: Sister
+
+Q7
+HI_Q: दादा-दादी किस पीढ़ी से होते हैं?
+EN_Q: Grandparents belong to which generation?
+HI_A: बड़ी पीढ़ी
+EN_A: Elder generation
+
+Q8
+HI_Q: परिवार हमें क्या सिखाता है?
+EN_Q: What does family teach us?
+HI_A: प्यार और संस्कार
+EN_A: Love and values
+
+Q9
+HI_Q: घर का खाना कौन बनाता है?
+EN_Q: Who usually cooks food at home?
+HI_A: परिवार का सदस्य (अक्सर माँ)
+EN_A: A family member (often mother)
+
+Q10
+HI_Q: घर को साफ रखना क्यों जरूरी है?
+EN_Q: Why is it important to keep our home clean?
+HI_A: स्वस्थ रहने के लिए
+EN_A: To stay healthy
+
+Q11
+HI_Q: हम घर में कहाँ सोते हैं?
+EN_Q: Where do we sleep at home?
+HI_A: शयनकक्ष (बेडरूम) में
+EN_A: In the bedroom
+
+Q12
+HI_Q: हम घर में कहाँ खाना खाते हैं?
+EN_Q: Where do we eat food at home?
+HI_A: भोजन कक्ष या रसोई में
+EN_A: In the dining area or kitchen
+
+Q13
+HI_Q: मेहमान आने पर हमें क्या करना चाहिए?
+EN_Q: What should we do when guests come home?
+HI_A: उनका स्वागत करना
+EN_A: Welcome them
+
+Q14
+HI_Q: हमें बड़ों की मदद क्यों करनी चाहिए?
+EN_Q: Why should we help elders at home?
+HI_A: सम्मान और जिम्मेदारी के लिए
+EN_A: For respect and responsibility
+
+Q15
+HI_Q: घर में इस्तेमाल होने वाली बिजली हमें क्या देती है?
+EN_Q: What does electricity at home provide us?
+HI_A: रोशनी और उपकरण चलाने की शक्ति
+EN_A: Light and power for appliances
+
+Q16
+HI_Q: रसोई घर किस काम के लिए होता है?
+EN_Q: What is the kitchen used for?
+HI_A: खाना बनाने के लिए
+EN_A: For cooking food
+
+Q17
+HI_Q: बाथरूम किस काम के लिए होता है?
+EN_Q: What is a bathroom used for?
+HI_A: नहाने और सफाई के लिए
+EN_A: For bathing and cleaning
+
+Q18
+HI_Q: ड्राइंग रूम में आमतौर पर क्या होता है?
+EN_Q: What is usually found in a drawing room?
+HI_A: सोफा और मेहमानों के बैठने की जगह
+EN_A: Sofa and seating for guests
+
+Q19
+HI_Q: हमें घर के सामान का ध्यान क्यों रखना चाहिए?
+EN_Q: Why should we take care of things at home?
+HI_A: जिम्मेदार बनने के लिए
+EN_A: To be responsible
+
+Q20
+HI_Q: परिवार में मिलजुलकर रहने से क्या होता है?
+EN_Q: What happens when family members live together happily?
+HI_A: खुशी और शांति रहती है
+EN_A: There is happiness and peace
+
+Q21
+HI_Q: त्योहार परिवार के साथ मनाने से क्या होता है?
+EN_Q: What happens when we celebrate festivals with family?
+HI_A: प्यार और एकता बढ़ती है
+EN_A: Love and unity increase
+
+Q22
+HI_Q: हमें अपने छोटे भाई-बहनों के साथ कैसा व्यवहार करना चाहिए?
+EN_Q: How should we behave with younger siblings?
+HI_A: प्यार और देखभाल से
+EN_A: With love and care
+
+Q23
+HI_Q: घर में नियमों का पालन क्यों करना चाहिए?
+EN_Q: Why should we follow rules at home?
+HI_A: अनुशासन के लिए
+EN_A: For discipline
+
+Q24
+HI_Q: अपने माता-पिता का सम्मान क्यों करना चाहिए?
+EN_Q: Why should we respect our parents?
+HI_A: वे हमारी देखभाल करते हैं
+EN_A: They take care of us
+
+Q25
+HI_Q: परिवार हमें मुश्किल समय में क्या देता है?
+EN_Q: What does family give us in difficult times?
+HI_A: सहारा और प्यार
+EN_A: Support and love
+
+[BILINGUAL_GK_TOPIC_DIRECTIONS]
+
+Q1
+HI_Q: कुल कितनी मुख्य दिशाएँ होती हैं?
+EN_Q: How many main directions are there?
+HI_A: चार
+EN_A: Four
+
+Q2
+HI_Q: सूरज किस दिशा से उगता है?
+EN_Q: From which direction does the Sun rise?
+HI_A: पूर्व
+EN_A: East
+
+Q3
+HI_Q: सूरज किस दिशा में डूबता है?
+EN_Q: In which direction does the Sun set?
+HI_A: पश्चिम
+EN_A: West
+
+Q4
+HI_Q: उत्तर दिशा को अंग्रेज़ी में क्या कहते हैं?
+EN_Q: What is North called in Hindi?
+HI_A: उत्तर
+EN_A: North
+
+Q5
+HI_Q: दक्षिण दिशा को अंग्रेज़ी में क्या कहते हैं?
+EN_Q: What is South called in Hindi?
+HI_A: दक्षिण
+EN_A: South
+
+Q6
+HI_Q: पूर्व दिशा को अंग्रेज़ी में क्या कहते हैं?
+EN_Q: What is East called in Hindi?
+HI_A: पूर्व
+EN_A: East
+
+Q7
+HI_Q: पश्चिम दिशा को अंग्रेज़ी में क्या कहते हैं?
+EN_Q: What is West called in Hindi?
+HI_A: पश्चिम
+EN_A: West
+
+Q8
+HI_Q: नक्शे में ऊपर की दिशा कौन सी मानी जाती है?
+EN_Q: Which direction is shown at the top of most maps?
+HI_A: उत्तर
+EN_A: North
+
+Q9
+HI_Q: नक्शे में नीचे की दिशा कौन सी होती है?
+EN_Q: Which direction is shown at the bottom of a map?
+HI_A: दक्षिण
+EN_A: South
+
+Q10
+HI_Q: दाएँ हाथ की ओर कौन सी दिशा होती है जब हम उत्तर की ओर देखते हैं?
+EN_Q: When facing North, which direction is on your right?
+HI_A: पूर्व
+EN_A: East
+
+Q11
+HI_Q: बाएँ हाथ की ओर कौन सी दिशा होती है जब हम उत्तर की ओर देखते हैं?
+EN_Q: When facing North, which direction is on your left?
+HI_A: पश्चिम
+EN_A: West
+
+Q12
+HI_Q: कंपास किसलिए उपयोग किया जाता है?
+EN_Q: What is a compass used for?
+HI_A: दिशा जानने के लिए
+EN_A: To find directions
+
+Q13
+HI_Q: कंपास की सुई हमेशा किस दिशा की ओर इशारा करती है?
+EN_Q: Which direction does a compass needle point to?
+HI_A: उत्तर
+EN_A: North
+
+Q14
+HI_Q: चार मुख्य दिशाओं के अलावा बीच की दिशाओं को क्या कहते हैं?
+EN_Q: What are the directions between main directions called?
+HI_A: उप-दिशाएँ
+EN_A: Intermediate directions
+
+Q15
+HI_Q: उत्तर और पूर्व के बीच की दिशा क्या कहलाती है?
+EN_Q: What is the direction between North and East called?
+HI_A: उत्तर-पूर्व
+EN_A: North-East
+
+Q16
+HI_Q: दक्षिण और पूर्व के बीच की दिशा क्या कहलाती है?
+EN_Q: What is the direction between South and East called?
+HI_A: दक्षिण-पूर्व
+EN_A: South-East
+
+Q17
+HI_Q: दक्षिण और पश्चिम के बीच की दिशा क्या कहलाती है?
+EN_Q: What is the direction between South and West called?
+HI_A: दक्षिण-पश्चिम
+EN_A: South-West
+
+Q18
+HI_Q: उत्तर और पश्चिम के बीच की दिशा क्या कहलाती है?
+EN_Q: What is the direction between North and West called?
+HI_A: उत्तर-पश्चिम
+EN_A: North-West
+
+Q19
+HI_Q: दिशा जानना क्यों जरूरी है?
+EN_Q: Why is it important to know directions?
+HI_A: सही रास्ता खोजने के लिए
+EN_A: To find the correct path
+
+Q20
+HI_Q: यात्रा करते समय दिशा जानने में कौन मदद करता है?
+EN_Q: What helps us know directions while traveling?
+HI_A: नक्शा या कंपास
+EN_A: Map or compass
+
+Q21
+HI_Q: सुबह के समय सूरज किस दिशा में दिखाई देता है?
+EN_Q: In the morning, in which direction is the Sun seen?
+HI_A: पूर्व
+EN_A: East
+
+Q22
+HI_Q: शाम के समय सूरज किस दिशा में दिखाई देता है?
+EN_Q: In the evening, in which direction is the Sun seen?
+HI_A: पश्चिम
+EN_A: West
+
+Q23
+HI_Q: यदि आप पूर्व की ओर चल रहे हैं तो आपकी पीठ किस दिशा की ओर होगी?
+EN_Q: If you walk towards East, which direction is behind you?
+HI_A: पश्चिम
+EN_A: West
+
+Q24
+HI_Q: यदि आप दक्षिण की ओर देख रहे हैं तो आपका दायाँ हाथ किस दिशा की ओर होगा?
+EN_Q: If you are facing South, which direction is on your right?
+HI_A: पश्चिम
+EN_A: West
+
+25
+HI_Q: यदि आप पश्चिम की ओर देख रहे हैं तो आपका बायाँ हाथ किस दिशा की ओर होगा?
+EN_Q: If you are facing West, which direction is on your left?
+HI_A: दक्षिण
+EN_A: South
+
+[BILINGUAL_GK_TOPIC_CONTINENTS]
+
+Q1
+HI_Q: महाद्वीप क्या होते हैं?
+EN_Q: What are continents?
+HI_A: पृथ्वी के बहुत बड़े भूमि भाग
+EN_A: Very large land masses on Earth
+
+Q2
+HI_Q: पृथ्वी पर कुल कितने महाद्वीप हैं?
+EN_Q: How many continents are there on Earth?
+HI_A: सात
+EN_A: Seven
+
+Q3
+HI_Q: एशिया किस प्रकार का महाद्वीप है?
+EN_Q: What type of continent is Asia?
+HI_A: सबसे बड़ा महाद्वीप
+EN_A: The largest continent
+
+Q4
+HI_Q: भारत किस महाद्वीप में स्थित है?
+EN_Q: In which continent is India located?
+HI_A: एशिया
+EN_A: Asia
+
+Q5
+HI_Q: अफ्रीका किस लिए प्रसिद्ध है?
+EN_Q: What is Africa famous for?
+HI_A: जंगल और वन्यजीव
+EN_A: Forests and wildlife
+
+Q6
+HI_Q: विश्व का सबसे ठंडा महाद्वीप कौन सा है?
+EN_Q: Which is the coldest continent in the world?
+HI_A: अंटार्कटिका
+EN_A: Antarctica
+
+Q7
+HI_Q: अंटार्कटिका में कौन रहते हैं?
+EN_Q: Who lives in Antarctica?
+HI_A: वहाँ स्थायी लोग नहीं रहते, केवल वैज्ञानिक
+EN_A: No permanent residents, only scientists
+
+Q8
+HI_Q: यूरोप किस लिए जाना जाता है?
+EN_Q: What is Europe known for?
+HI_A: कई विकसित देशों के लिए
+EN_A: Many developed countries
+
+Q9
+HI_Q: उत्तर अमेरिका में कौन सा प्रसिद्ध देश है?
+EN_Q: Name a famous country in North America.
+HI_A: संयुक्त राज्य अमेरिका
+EN_A: United States of America
+
+Q10
+HI_Q: दक्षिण अमेरिका किस जंगल के लिए प्रसिद्ध है?
+EN_Q: South America is famous for which forest?
+HI_A: अमेज़न वर्षावन
+EN_A: Amazon Rainforest
+
+Q11
+HI_Q: ऑस्ट्रेलिया महाद्वीप की खास बात क्या है?
+EN_Q: What is special about Australia as a continent?
+HI_A: यह सबसे छोटा महाद्वीप है
+EN_A: It is the smallest continent
+
+Q12
+HI_Q: ऑस्ट्रेलिया एक देश भी है क्या?
+EN_Q: Is Australia also a country?
+HI_A: हाँ
+EN_A: Yes
+
+Q13
+HI_Q: अफ्रीका में किस प्रकार के जानवर अधिक पाए जाते हैं?
+EN_Q: What kind of animals are commonly found in Africa?
+HI_A: जंगली जानवर जैसे शेर, हाथी
+EN_A: Wild animals like lions and elephants
+
+Q14
+HI_Q: एशिया में दुनिया की सबसे बड़ी आबादी रहती है क्या?
+EN_Q: Does Asia have the largest population in the world?
+HI_A: हाँ
+EN_A: Yes
+
+Q15
+HI_Q: यूरोप और एशिया को मिलाकर किस नाम से जाना जाता है?
+EN_Q: What are Europe and Asia together called?
+HI_A: यूरेशिया
+EN_A: Eurasia
+
+Q16
+HI_Q: कौन सा महाद्वीप केवल बर्फ से ढका रहता है?
+EN_Q: Which continent is mostly covered with ice?
+HI_A: अंटार्कटिका
+EN_A: Antarctica
+
+Q17
+HI_Q: दक्षिण अमेरिका में कौन सी लंबी पर्वतमाला है?
+EN_Q: Which long mountain range is in South America?
+HI_A: एंडीज पर्वत
+EN_A: Andes Mountains
+
+Q18
+HI_Q: उत्तर अमेरिका में प्रसिद्ध जलप्रपात कौन सा है?
+EN_Q: Which famous waterfall is in North America?
+HI_A: नियाग्रा जलप्रपात
+EN_A: Niagara Falls
+
+Q19
+HI_Q: एशिया में दुनिया की सबसे ऊँची पर्वत चोटी कौन सी है?
+EN_Q: Which is the highest mountain peak in Asia?
+HI_A: माउंट एवरेस्ट
+EN_A: Mount Everest
+
+Q20
+HI_Q: अफ्रीका में सबसे लंबी नदी कौन सी है?
+EN_Q: Which is the longest river in Africa?
+HI_A: नील नदी
+EN_A: Nile River
+
+Q21
+HI_Q: किस महाद्वीप में सबसे कम लोग रहते हैं?
+EN_Q: Which continent has the least population?
+HI_A: अंटार्कटिका
+EN_A: Antarctica
+
+Q22
+HI_Q: किस महाद्वीप को “डार्क कॉन्टिनेंट” भी कहा जाता था?
+EN_Q: Which continent was once called the “Dark Continent”?
+HI_A: अफ्रीका
+EN_A: Africa
+
+Q23
+HI_Q: ऑस्ट्रेलिया के आसपास के छोटे द्वीपों को किस क्षेत्र में गिना जाता है?
+EN_Q: The small islands around Australia are part of which region?
+HI_A: ओशिनिया
+EN_A: Oceania
+
+Q24
+HI_Q: यूरोप किस महासागर के पास स्थित है?
+EN_Q: Europe is located near which ocean?
+HI_A: अटलांटिक महासागर
+EN_A: Atlantic Ocean
+
+Q25
+HI_Q: महाद्वीपों को जानना क्यों जरूरी है?
+EN_Q: Why is it important to learn about continents?
+HI_A: दुनिया को समझने के लिए
+EN_A: To understand the world better

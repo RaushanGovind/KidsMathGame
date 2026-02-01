@@ -1,0 +1,1055 @@
+    'good_habits': [
+        {
+                "id": 1,
+                "hi_q": "सुबह जल्दी उठना क्यों अच्छी आदत है?",
+                "en_q": "Why is waking up early a good habit?",
+                "hi_a": "दिन की अच्छी शुरुआत के लिए",
+                "en_a": "For a good start to the day"
+        },
+        {
+                "id": 2,
+                "hi_q": "हमें रोज दाँत कितनी बार साफ करने चाहिए?",
+                "en_q": "How many times should we brush our teeth daily?",
+                "hi_a": "दो बार",
+                "en_a": "Twice"
+        },
+        {
+                "id": 3,
+                "hi_q": "खाना खाने से पहले क्या करना चाहिए?",
+                "en_q": "What should we do before eating food?",
+                "hi_a": "हाथ धोना",
+                "en_a": "Wash hands"
+        },
+        {
+                "id": 4,
+                "hi_q": "साफ कपड़े पहनना क्यों जरूरी है?",
+                "en_q": "Why is it important to wear clean clothes?",
+                "hi_a": "साफ और स्वस्थ रहने के लिए",
+                "en_a": "To stay clean and healthy"
+        },
+        {
+                "id": 5,
+                "hi_q": "हमें रोज नहाना क्यों चाहिए?",
+                "en_q": "Why should we bathe daily?",
+                "hi_a": "शरीर की सफाई के लिए",
+                "en_a": "To keep the body clean"
+        },
+        {
+                "id": 6,
+                "hi_q": "बड़ों से कैसे बात करनी चाहिए?",
+                "en_q": "How should we talk to elders?",
+                "hi_a": "सम्मान से",
+                "en_a": "Respectfully"
+        },
+        {
+                "id": 7,
+                "hi_q": "“कृपया” और “धन्यवाद” कब कहना चाहिए?",
+                "en_q": "When should we say “please” and “thank you”?",
+                "hi_a": "विनम्रता दिखाने के लिए",
+                "en_a": "To show politeness"
+        },
+        {
+                "id": 8,
+                "hi_q": "सच बोलना क्यों अच्छी आदत है?",
+                "en_q": "Why is telling the truth a good habit?",
+                "hi_a": "विश्वास बनाने के लिए",
+                "en_a": "To build trust"
+        },
+        {
+                "id": 9,
+                "hi_q": "समय पर स्कूल पहुँचना क्यों जरूरी है?",
+                "en_q": "Why is reaching school on time important?",
+                "hi_a": "अनुशासन के लिए",
+                "en_a": "For discipline"
+        },
+        {
+                "id": 10,
+                "hi_q": "होमवर्क समय पर क्यों करना चाहिए?",
+                "en_q": "Why should we complete homework on time?",
+                "hi_a": "अच्छी पढ़ाई के लिए",
+                "en_a": "For better learning"
+        },
+        {
+                "id": 11,
+                "hi_q": "हमें रोज व्यायाम क्यों करना चाहिए?",
+                "en_q": "Why should we exercise daily?",
+                "hi_a": "स्वस्थ रहने के लिए",
+                "en_a": "To stay healthy"
+        },
+        {
+                "id": 12,
+                "hi_q": "कूड़ा कहाँ डालना चाहिए?",
+                "en_q": "Where should we throw garbage?",
+                "hi_a": "डस्टबिन में",
+                "en_a": "In the dustbin"
+        },
+        {
+                "id": 13,
+                "hi_q": "हमें पेड़-पौधों की देखभाल क्यों करनी चाहिए?",
+                "en_q": "Why should we take care of plants?",
+                "hi_a": "पर्यावरण की रक्षा के लिए",
+                "en_a": "To protect the environment"
+        },
+        {
+                "id": 14,
+                "hi_q": "पानी बचाना क्यों जरूरी है?",
+                "en_q": "Why is saving water important?",
+                "hi_a": "भविष्य के लिए",
+                "en_a": "For the future"
+        },
+        {
+                "id": 15,
+                "hi_q": "बिजली बचाना क्यों जरूरी है?",
+                "en_q": "Why should we save electricity?",
+                "hi_a": "ऊर्जा बचाने के लिए",
+                "en_a": "To save energy"
+        },
+        {
+                "id": 16,
+                "hi_q": "दूसरों की मदद करना क्यों अच्छी आदत है?",
+                "en_q": "Why is helping others a good habit?",
+                "hi_a": "अच्छा इंसान बनने के लिए",
+                "en_a": "To become a good person"
+        },
+        {
+                "id": 17,
+                "hi_q": "खिलौने और किताबें उपयोग के बाद क्या करना चाहिए?",
+                "en_q": "What should we do with toys and books after use?",
+                "hi_a": "सही जगह पर रखना",
+                "en_a": "Keep them in the right place"
+        },
+        {
+                "id": 18,
+                "hi_q": "लाइन में खड़े होना क्यों जरूरी है?",
+                "en_q": "Why is standing in a queue important?",
+                "hi_a": "अनुशासन सीखने के लिए",
+                "en_a": "To learn discipline"
+        },
+        {
+                "id": 19,
+                "hi_q": "जोर से चिल्लाना क्यों गलत है?",
+                "en_q": "Why is shouting loudly a bad habit?",
+                "hi_a": "दूसरों को परेशानी होती है",
+                "en_a": "It disturbs others"
+        },
+        {
+                "id": 20,
+                "hi_q": "अच्छी नींद क्यों जरूरी है?",
+                "en_q": "Why is good sleep important?",
+                "hi_a": "शरीर और दिमाग के आराम के लिए",
+                "en_a": "For rest of body and mind"
+        },
+        {
+                "id": 21,
+                "hi_q": "रोजगार किताब पढ़ना क्यों अच्छा है?",
+                "en_q": "Why is reading books daily a good habit?",
+                "hi_a": "ज्ञान बढ़ाने के लिए",
+                "en_a": "To increase knowledge"
+        },
+        {
+                "id": 22,
+                "hi_q": "मिलजुलकर रहना क्यों जरूरी है?",
+                "en_q": "Why is living together peacefully important?",
+                "hi_a": "खुशी और शांति के लिए",
+                "en_a": "For happiness and peace"
+        },
+        {
+                "id": 23,
+                "hi_q": "गलती होने पर क्या कहना चाहिए?",
+                "en_q": "What should we say when we make a mistake?",
+                "hi_a": "माफ़ कीजिए",
+                "en_a": "Sorry"
+        },
+        {
+                "id": 24,
+                "hi_q": "हमें जानवरों के साथ कैसा व्यवहार करना चाहिए?",
+                "en_q": "How should we behave with animals?",
+                "hi_a": "दयालुता से",
+                "en_a": "With kindness"
+        },
+        {
+                "id": 25,
+                "hi_q": "बड़ों की बात ध्यान से सुनना क्यों जरूरी है?",
+                "en_q": "Why is it important to listen to elders carefully?",
+                "hi_a": "सही मार्गदर्शन पाने के लिए",
+                "en_a": "To get proper guidance"
+        }
+],
+    'earth': [
+        {
+                "id": 1,
+                "hi_q": "हम जिस ग्रह पर रहते हैं उसका नाम क्या है?",
+                "en_q": "What is the name of the planet we live on?",
+                "hi_a": "पृथ्वी",
+                "en_a": "Earth"
+        },
+        {
+                "id": 2,
+                "hi_q": "पृथ्वी का आकार कैसा है?",
+                "en_q": "What is the shape of the Earth?",
+                "hi_a": "गोल (लगभग गोल)",
+                "en_a": "Round (almost spherical)"
+        },
+        {
+                "id": 3,
+                "hi_q": "पृथ्वी का कितना भाग पानी से ढका है?",
+                "en_q": "How much of the Earth is covered with water?",
+                "hi_a": "लगभग तीन-चौथाई",
+                "en_a": "About three-fourths"
+        },
+        {
+                "id": 4,
+                "hi_q": "पृथ्वी का ठोस भाग क्या कहलाता है?",
+                "en_q": "What is the solid part of the Earth called?",
+                "hi_a": "स्थल (भूमि)",
+                "en_a": "Land"
+        },
+        {
+                "id": 5,
+                "hi_q": "पृथ्वी के चारों ओर हवा की परत को क्या कहते हैं?",
+                "en_q": "What is the layer of air around the Earth called?",
+                "hi_a": "वायुमंडल",
+                "en_a": "Atmosphere"
+        },
+        {
+                "id": 6,
+                "hi_q": "पृथ्वी हमें सांस लेने के लिए क्या देती है?",
+                "en_q": "What does Earth provide for us to breathe?",
+                "hi_a": "ऑक्सीजन",
+                "en_a": "Oxygen"
+        },
+        {
+                "id": 7,
+                "hi_q": "पृथ्वी पर जीवन किस कारण संभव है?",
+                "en_q": "Why is life possible on Earth?",
+                "hi_a": "पानी, हवा और सही तापमान के कारण",
+                "en_a": "Because of water, air, and suitable temperature"
+        },
+        {
+                "id": 8,
+                "hi_q": "पर्वत क्या होते हैं?",
+                "en_q": "What are mountains?",
+                "hi_a": "बहुत ऊँची प्राकृतिक ऊँचाइयाँ",
+                "en_a": "Very high natural elevations"
+        },
+        {
+                "id": 9,
+                "hi_q": "नदी क्या है?",
+                "en_q": "What is a river?",
+                "hi_a": "बहता हुआ मीठे पानी का स्रोत",
+                "en_a": "Flowing source of fresh water"
+        },
+        {
+                "id": 10,
+                "hi_q": "समुद्र का पानी कैसा होता है?",
+                "en_q": "What is the water of the sea like?",
+                "hi_a": "खारा",
+                "en_a": "Salty"
+        },
+        {
+                "id": 11,
+                "hi_q": "जंगल किससे बने होते हैं?",
+                "en_q": "What are forests made up of?",
+                "hi_a": "बहुत सारे पेड़ों से",
+                "en_a": "Many trees"
+        },
+        {
+                "id": 12,
+                "hi_q": "रेगिस्तान कैसा स्थान होता है?",
+                "en_q": "What is a desert like?",
+                "hi_a": "बहुत सूखा और रेत वाला स्थान",
+                "en_a": "Very dry and sandy place"
+        },
+        {
+                "id": 13,
+                "hi_q": "द्वीप क्या होता है?",
+                "en_q": "What is an island?",
+                "hi_a": "चारों ओर पानी से घिरी भूमि",
+                "en_a": "Land surrounded by water on all sides"
+        },
+        {
+                "id": 14,
+                "hi_q": "महाद्वीप क्या होते हैं?",
+                "en_q": "What are continents?",
+                "hi_a": "पृथ्वी के बड़े-बड़े भूमि भाग",
+                "en_a": "Large land masses of the Earth"
+        },
+        {
+                "id": 15,
+                "hi_q": "पृथ्वी पर कितने महाद्वीप हैं?",
+                "en_q": "How many continents are there on Earth?",
+                "hi_a": "सात",
+                "en_a": "Seven"
+        },
+        {
+                "id": 16,
+                "hi_q": "पृथ्वी का सबसे बड़ा महासागर कौन सा है?",
+                "en_q": "Which is the largest ocean on Earth?",
+                "hi_a": "प्रशांत महासागर",
+                "en_a": "Pacific Ocean"
+        },
+        {
+                "id": 17,
+                "hi_q": "पौधे पृथ्वी के लिए क्यों जरूरी हैं?",
+                "en_q": "Why are plants important for Earth?",
+                "hi_a": "वे ऑक्सीजन देते हैं",
+                "en_a": "They provide oxygen"
+        },
+        {
+                "id": 18,
+                "hi_q": "जानवर पृथ्वी के लिए क्यों जरूरी हैं?",
+                "en_q": "Why are animals important for Earth?",
+                "hi_a": "वे प्राकृतिक संतुलन बनाए रखते हैं",
+                "en_a": "They help maintain natural balance"
+        },
+        {
+                "id": 19,
+                "hi_q": "हमें पृथ्वी को साफ क्यों रखना चाहिए?",
+                "en_q": "Why should we keep the Earth clean?",
+                "hi_a": "स्वस्थ जीवन के लिए",
+                "en_a": "For healthy living"
+        },
+        {
+                "id": 20,
+                "hi_q": "कचरा जमीन पर फेंकना क्यों गलत है?",
+                "en_q": "Why is it wrong to throw garbage on the ground?",
+                "hi_a": "इससे प्रदूषण फैलता है",
+                "en_a": "It causes pollution"
+        },
+        {
+                "id": 21,
+                "hi_q": "पानी बचाना क्यों जरूरी है?",
+                "en_q": "Why is saving water important?",
+                "hi_a": "क्योंकि यह सीमित संसाधन है",
+                "en_a": "Because it is a limited resource"
+        },
+        {
+                "id": 22,
+                "hi_q": "पेड़ काटने से क्या नुकसान होता है?",
+                "en_q": "What harm is caused by cutting trees?",
+                "hi_a": "पर्यावरण असंतुलित हो जाता है",
+                "en_a": "It disturbs environmental balance"
+        },
+        {
+                "id": 23,
+                "hi_q": "प्रदूषण क्या है?",
+                "en_q": "What is pollution?",
+                "hi_a": "हवा, पानी और जमीन का गंदा होना",
+                "en_a": "Dirtying of air, water, and land"
+        },
+        {
+                "id": 24,
+                "hi_q": "हमें प्लास्टिक का कम उपयोग क्यों करना चाहिए?",
+                "en_q": "Why should we use less plastic?",
+                "hi_a": "पर्यावरण की रक्षा के लिए",
+                "en_a": "To protect the environment"
+        },
+        {
+                "id": 25,
+                "hi_q": "पृथ्वी को हरा-भरा रखने के लिए हमें क्या करना चाहिए?",
+                "en_q": "What should we do to keep Earth green?",
+                "hi_a": "पेड़ लगाना",
+                "en_a": "Plant trees"
+        }
+],
+    'colors_shapes': [
+        {
+                "id": 1,
+                "hi_q": "लाल रंग किससे जुड़ा होता है?",
+                "en_q": "Red color is often linked with what?",
+                "hi_a": "प्यार और ऊर्जा",
+                "en_a": "Love and energy"
+        },
+        {
+                "id": 2,
+                "hi_q": "आकाश का रंग कैसा होता है?",
+                "en_q": "What is the color of the sky?",
+                "hi_a": "नीला",
+                "en_a": "Blue"
+        },
+        {
+                "id": 3,
+                "hi_q": "पेड़ों की पत्तियों का रंग क्या होता है?",
+                "en_q": "What is the color of most leaves?",
+                "hi_a": "हरा",
+                "en_a": "Green"
+        },
+        {
+                "id": 4,
+                "hi_q": "सूरजमुखी का फूल किस रंग का होता है?",
+                "en_q": "What is the color of a sunflower?",
+                "hi_a": "पीला",
+                "en_a": "Yellow"
+        },
+        {
+                "id": 5,
+                "hi_q": "दूध का रंग क्या होता है?",
+                "en_q": "What is the color of milk?",
+                "hi_a": "सफेद",
+                "en_a": "White"
+        },
+        {
+                "id": 6,
+                "hi_q": "कोयला किस रंग का होता है?",
+                "en_q": "What is the color of coal?",
+                "hi_a": "काला",
+                "en_a": "Black"
+        },
+        {
+                "id": 7,
+                "hi_q": "इंद्रधनुष में कितने रंग होते हैं?",
+                "en_q": "How many colors are in a rainbow?",
+                "hi_a": "सात",
+                "en_a": "Seven"
+        },
+        {
+                "id": 8,
+                "hi_q": "संतरे का रंग क्या होता है?",
+                "en_q": "What is the color of an orange fruit?",
+                "hi_a": "नारंगी",
+                "en_a": "Orange"
+        },
+        {
+                "id": 9,
+                "hi_q": "गुलाब का फूल आमतौर पर किस रंग का होता है?",
+                "en_q": "What color is a rose commonly?",
+                "hi_a": "लाल",
+                "en_a": "Red"
+        },
+        {
+                "id": 10,
+                "hi_q": "केले का पका हुआ रंग क्या होता है?",
+                "en_q": "What is the color of a ripe banana?",
+                "hi_a": "पीला",
+                "en_a": "Yellow"
+        },
+        {
+                "id": 11,
+                "hi_q": "गोल आकार को क्या कहते हैं?",
+                "en_q": "What do we call a round shape?",
+                "hi_a": "वृत्त",
+                "en_a": "Circle"
+        },
+        {
+                "id": 12,
+                "hi_q": "तीन भुजाओं वाले आकार को क्या कहते हैं?",
+                "en_q": "What do we call a shape with three sides?",
+                "hi_a": "त्रिभुज",
+                "en_a": "Triangle"
+        },
+        {
+                "id": 13,
+                "hi_q": "चार बराबर भुजाओं वाला आकार क्या कहलाता है?",
+                "en_q": "What do we call a shape with four equal sides?",
+                "hi_a": "वर्ग",
+                "en_a": "Square"
+        },
+        {
+                "id": 14,
+                "hi_q": "आयत में कितनी भुजाएँ होती हैं?",
+                "en_q": "How many sides does a rectangle have?",
+                "hi_a": "चार",
+                "en_a": "Four"
+        },
+        {
+                "id": 15,
+                "hi_q": "दिल (हार्ट) के आकार को किस नाम से जानते हैं?",
+                "en_q": "What shape represents a heart symbol?",
+                "hi_a": "हृदय आकार",
+                "en_a": "Heart shape"
+        },
+        {
+                "id": 16,
+                "hi_q": "गेंद का आकार कैसा होता है?",
+                "en_q": "What is the shape of a ball?",
+                "hi_a": "गोल",
+                "en_a": "Round"
+        },
+        {
+                "id": 17,
+                "hi_q": "पहिये का आकार कैसा होता है?",
+                "en_q": "What is the shape of a wheel?",
+                "hi_a": "वृत्त",
+                "en_a": "Circle"
+        },
+        {
+                "id": 18,
+                "hi_q": "किताब का आकार आमतौर पर किस जैसा होता है?",
+                "en_q": "A book is usually in which shape?",
+                "hi_a": "आयत",
+                "en_a": "Rectangle"
+        },
+        {
+                "id": 19,
+                "hi_q": "दरवाजे का आकार किस जैसा होता है?",
+                "en_q": "What shape is a door usually?",
+                "hi_a": "आयत",
+                "en_a": "Rectangle"
+        },
+        {
+                "id": 20,
+                "hi_q": "सितारे (⭐) का आकार किस जैसा होता है?",
+                "en_q": "What is the shape of a star symbol?",
+                "hi_a": "तारा आकार",
+                "en_a": "Star shape"
+        },
+        {
+                "id": 21,
+                "hi_q": "हरे रंग को किस चीज़ से जोड़ा जाता है?",
+                "en_q": "Green color is related to what?",
+                "hi_a": "प्रकृति",
+                "en_a": "Nature"
+        },
+        {
+                "id": 22,
+                "hi_q": "नीला रंग किससे जुड़ा होता है?",
+                "en_q": "Blue color is often linked with what?",
+                "hi_a": "आकाश और शांति",
+                "en_a": "Sky and peace"
+        },
+        {
+                "id": 23,
+                "hi_q": "सफेद रंग क्या दर्शाता है?",
+                "en_q": "What does white color represent?",
+                "hi_a": "शांति और पवित्रता",
+                "en_a": "Peace and purity"
+        },
+        {
+                "id": 24,
+                "hi_q": "काला रंग किससे जुड़ा होता है?",
+                "en_q": "Black color is often linked with what?",
+                "hi_a": "अंधेरा",
+                "en_a": "Darkness"
+        },
+        {
+                "id": 25,
+                "hi_q": "ट्रैफिक लाइट में लाल रंग क्या दर्शाता है?",
+                "en_q": "What does red color show in traffic lights?",
+                "hi_a": "रुकना",
+                "en_a": "Stop"
+        }
+],
+    'home_family': [
+        {
+                "id": 1,
+                "hi_q": "हम जहाँ रहते हैं उसे क्या कहते हैं?",
+                "en_q": "What do we call the place where we live?",
+                "hi_a": "घर",
+                "en_a": "Home"
+        },
+        {
+                "id": 2,
+                "hi_q": "घर में हमारे साथ कौन रहते हैं?",
+                "en_q": "Who lives with us at home?",
+                "hi_a": "परिवार के सदस्य",
+                "en_a": "Family members"
+        },
+        {
+                "id": 3,
+                "hi_q": "माता को अंग्रेज़ी में क्या कहते हैं?",
+                "en_q": "What do we call “माता” in English?",
+                "hi_a": "माँ",
+                "en_a": "Mother"
+        },
+        {
+                "id": 4,
+                "hi_q": "पिता को अंग्रेज़ी में क्या कहते हैं?",
+                "en_q": "What do we call “पिता” in English?",
+                "hi_a": "पिता",
+                "en_a": "Father"
+        },
+        {
+                "id": 5,
+                "hi_q": "भाई को अंग्रेज़ी में क्या कहते हैं?",
+                "en_q": "What do we call “भाई” in English?",
+                "hi_a": "भाई",
+                "en_a": "Brother"
+        },
+        {
+                "id": 6,
+                "hi_q": "बहन को अंग्रेज़ी में क्या कहते हैं?",
+                "en_q": "What do we call “बहन” in English?",
+                "hi_a": "बहन",
+                "en_a": "Sister"
+        },
+        {
+                "id": 7,
+                "hi_q": "दादा-दादी किस पीढ़ी से होते हैं?",
+                "en_q": "Grandparents belong to which generation?",
+                "hi_a": "बड़ी पीढ़ी",
+                "en_a": "Elder generation"
+        },
+        {
+                "id": 8,
+                "hi_q": "परिवार हमें क्या सिखाता है?",
+                "en_q": "What does family teach us?",
+                "hi_a": "प्यार और संस्कार",
+                "en_a": "Love and values"
+        },
+        {
+                "id": 9,
+                "hi_q": "घर का खाना कौन बनाता है?",
+                "en_q": "Who usually cooks food at home?",
+                "hi_a": "परिवार का सदस्य (अक्सर माँ)",
+                "en_a": "A family member (often mother)"
+        },
+        {
+                "id": 10,
+                "hi_q": "घर को साफ रखना क्यों जरूरी है?",
+                "en_q": "Why is it important to keep our home clean?",
+                "hi_a": "स्वस्थ रहने के लिए",
+                "en_a": "To stay healthy"
+        },
+        {
+                "id": 11,
+                "hi_q": "हम घर में कहाँ सोते हैं?",
+                "en_q": "Where do we sleep at home?",
+                "hi_a": "शयनकक्ष (बेडरूम) में",
+                "en_a": "In the bedroom"
+        },
+        {
+                "id": 12,
+                "hi_q": "हम घर में कहाँ खाना खाते हैं?",
+                "en_q": "Where do we eat food at home?",
+                "hi_a": "भोजन कक्ष या रसोई में",
+                "en_a": "In the dining area or kitchen"
+        },
+        {
+                "id": 13,
+                "hi_q": "मेहमान आने पर हमें क्या करना चाहिए?",
+                "en_q": "What should we do when guests come home?",
+                "hi_a": "उनका स्वागत करना",
+                "en_a": "Welcome them"
+        },
+        {
+                "id": 14,
+                "hi_q": "हमें बड़ों की मदद क्यों करनी चाहिए?",
+                "en_q": "Why should we help elders at home?",
+                "hi_a": "सम्मान और जिम्मेदारी के लिए",
+                "en_a": "For respect and responsibility"
+        },
+        {
+                "id": 15,
+                "hi_q": "घर में इस्तेमाल होने वाली बिजली हमें क्या देती है?",
+                "en_q": "What does electricity at home provide us?",
+                "hi_a": "रोशनी और उपकरण चलाने की शक्ति",
+                "en_a": "Light and power for appliances"
+        },
+        {
+                "id": 16,
+                "hi_q": "रसोई घर किस काम के लिए होता है?",
+                "en_q": "What is the kitchen used for?",
+                "hi_a": "खाना बनाने के लिए",
+                "en_a": "For cooking food"
+        },
+        {
+                "id": 17,
+                "hi_q": "बाथरूम किस काम के लिए होता है?",
+                "en_q": "What is a bathroom used for?",
+                "hi_a": "नहाने और सफाई के लिए",
+                "en_a": "For bathing and cleaning"
+        },
+        {
+                "id": 18,
+                "hi_q": "ड्राइंग रूम में आमतौर पर क्या होता है?",
+                "en_q": "What is usually found in a drawing room?",
+                "hi_a": "सोफा और मेहमानों के बैठने की जगह",
+                "en_a": "Sofa and seating for guests"
+        },
+        {
+                "id": 19,
+                "hi_q": "हमें घर के सामान का ध्यान क्यों रखना चाहिए?",
+                "en_q": "Why should we take care of things at home?",
+                "hi_a": "जिम्मेदार बनने के लिए",
+                "en_a": "To be responsible"
+        },
+        {
+                "id": 20,
+                "hi_q": "परिवार में मिलजुलकर रहने से क्या होता है?",
+                "en_q": "What happens when family members live together happily?",
+                "hi_a": "खुशी और शांति रहती है",
+                "en_a": "There is happiness and peace"
+        },
+        {
+                "id": 21,
+                "hi_q": "त्योहार परिवार के साथ मनाने से क्या होता है?",
+                "en_q": "What happens when we celebrate festivals with family?",
+                "hi_a": "प्यार और एकता बढ़ती है",
+                "en_a": "Love and unity increase"
+        },
+        {
+                "id": 22,
+                "hi_q": "हमें अपने छोटे भाई-बहनों के साथ कैसा व्यवहार करना चाहिए?",
+                "en_q": "How should we behave with younger siblings?",
+                "hi_a": "प्यार और देखभाल से",
+                "en_a": "With love and care"
+        },
+        {
+                "id": 23,
+                "hi_q": "घर में नियमों का पालन क्यों करना चाहिए?",
+                "en_q": "Why should we follow rules at home?",
+                "hi_a": "अनुशासन के लिए",
+                "en_a": "For discipline"
+        },
+        {
+                "id": 24,
+                "hi_q": "अपने माता-पिता का सम्मान क्यों करना चाहिए?",
+                "en_q": "Why should we respect our parents?",
+                "hi_a": "वे हमारी देखभाल करते हैं",
+                "en_a": "They take care of us"
+        },
+        {
+                "id": 25,
+                "hi_q": "परिवार हमें मुश्किल समय में क्या देता है?",
+                "en_q": "What does family give us in difficult times?",
+                "hi_a": "सहारा और प्यार",
+                "en_a": "Support and love"
+        }
+],
+    'directions': [
+        {
+                "id": 1,
+                "hi_q": "कुल कितनी मुख्य दिशाएँ होती हैं?",
+                "en_q": "How many main directions are there?",
+                "hi_a": "चार",
+                "en_a": "Four"
+        },
+        {
+                "id": 2,
+                "hi_q": "सूरज किस दिशा से उगता है?",
+                "en_q": "From which direction does the Sun rise?",
+                "hi_a": "पूर्व",
+                "en_a": "East"
+        },
+        {
+                "id": 3,
+                "hi_q": "सूरज किस दिशा में डूबता है?",
+                "en_q": "In which direction does the Sun set?",
+                "hi_a": "पश्चिम",
+                "en_a": "West"
+        },
+        {
+                "id": 4,
+                "hi_q": "उत्तर दिशा को अंग्रेज़ी में क्या कहते हैं?",
+                "en_q": "What is North called in Hindi?",
+                "hi_a": "उत्तर",
+                "en_a": "North"
+        },
+        {
+                "id": 5,
+                "hi_q": "दक्षिण दिशा को अंग्रेज़ी में क्या कहते हैं?",
+                "en_q": "What is South called in Hindi?",
+                "hi_a": "दक्षिण",
+                "en_a": "South"
+        },
+        {
+                "id": 6,
+                "hi_q": "पूर्व दिशा को अंग्रेज़ी में क्या कहते हैं?",
+                "en_q": "What is East called in Hindi?",
+                "hi_a": "पूर्व",
+                "en_a": "East"
+        },
+        {
+                "id": 7,
+                "hi_q": "पश्चिम दिशा को अंग्रेज़ी में क्या कहते हैं?",
+                "en_q": "What is West called in Hindi?",
+                "hi_a": "पश्चिम",
+                "en_a": "West"
+        },
+        {
+                "id": 8,
+                "hi_q": "नक्शे में ऊपर की दिशा कौन सी मानी जाती है?",
+                "en_q": "Which direction is shown at the top of most maps?",
+                "hi_a": "उत्तर",
+                "en_a": "North"
+        },
+        {
+                "id": 9,
+                "hi_q": "नक्शे में नीचे की दिशा कौन सी होती है?",
+                "en_q": "Which direction is shown at the bottom of a map?",
+                "hi_a": "दक्षिण",
+                "en_a": "South"
+        },
+        {
+                "id": 10,
+                "hi_q": "दाएँ हाथ की ओर कौन सी दिशा होती है जब हम उत्तर की ओर देखते हैं?",
+                "en_q": "When facing North, which direction is on your right?",
+                "hi_a": "पूर्व",
+                "en_a": "East"
+        },
+        {
+                "id": 11,
+                "hi_q": "बाएँ हाथ की ओर कौन सी दिशा होती है जब हम उत्तर की ओर देखते हैं?",
+                "en_q": "When facing North, which direction is on your left?",
+                "hi_a": "पश्चिम",
+                "en_a": "West"
+        },
+        {
+                "id": 12,
+                "hi_q": "कंपास किसलिए उपयोग किया जाता है?",
+                "en_q": "What is a compass used for?",
+                "hi_a": "दिशा जानने के लिए",
+                "en_a": "To find directions"
+        },
+        {
+                "id": 13,
+                "hi_q": "कंपास की सुई हमेशा किस दिशा की ओर इशारा करती है?",
+                "en_q": "Which direction does a compass needle point to?",
+                "hi_a": "उत्तर",
+                "en_a": "North"
+        },
+        {
+                "id": 14,
+                "hi_q": "चार मुख्य दिशाओं के अलावा बीच की दिशाओं को क्या कहते हैं?",
+                "en_q": "What are the directions between main directions called?",
+                "hi_a": "उप-दिशाएँ",
+                "en_a": "Intermediate directions"
+        },
+        {
+                "id": 15,
+                "hi_q": "उत्तर और पूर्व के बीच की दिशा क्या कहलाती है?",
+                "en_q": "What is the direction between North and East called?",
+                "hi_a": "उत्तर-पूर्व",
+                "en_a": "North-East"
+        },
+        {
+                "id": 16,
+                "hi_q": "दक्षिण और पूर्व के बीच की दिशा क्या कहलाती है?",
+                "en_q": "What is the direction between South and East called?",
+                "hi_a": "दक्षिण-पूर्व",
+                "en_a": "South-East"
+        },
+        {
+                "id": 17,
+                "hi_q": "दक्षिण और पश्चिम के बीच की दिशा क्या कहलाती है?",
+                "en_q": "What is the direction between South and West called?",
+                "hi_a": "दक्षिण-पश्चिम",
+                "en_a": "South-West"
+        },
+        {
+                "id": 18,
+                "hi_q": "उत्तर और पश्चिम के बीच की दिशा क्या कहलाती है?",
+                "en_q": "What is the direction between North and West called?",
+                "hi_a": "उत्तर-पश्चिम",
+                "en_a": "North-West"
+        },
+        {
+                "id": 19,
+                "hi_q": "दिशा जानना क्यों जरूरी है?",
+                "en_q": "Why is it important to know directions?",
+                "hi_a": "सही रास्ता खोजने के लिए",
+                "en_a": "To find the correct path"
+        },
+        {
+                "id": 20,
+                "hi_q": "यात्रा करते समय दिशा जानने में कौन मदद करता है?",
+                "en_q": "What helps us know directions while traveling?",
+                "hi_a": "नक्शा या कंपास",
+                "en_a": "Map or compass"
+        },
+        {
+                "id": 21,
+                "hi_q": "सुबह के समय सूरज किस दिशा में दिखाई देता है?",
+                "en_q": "In the morning, in which direction is the Sun seen?",
+                "hi_a": "पूर्व",
+                "en_a": "East"
+        },
+        {
+                "id": 22,
+                "hi_q": "शाम के समय सूरज किस दिशा में दिखाई देता है?",
+                "en_q": "In the evening, in which direction is the Sun seen?",
+                "hi_a": "पश्चिम",
+                "en_a": "West"
+        },
+        {
+                "id": 23,
+                "hi_q": "यदि आप पूर्व की ओर चल रहे हैं तो आपकी पीठ किस दिशा की ओर होगी?",
+                "en_q": "If you walk towards East, which direction is behind you?",
+                "hi_a": "पश्चिम",
+                "en_a": "West"
+        },
+        {
+                "id": 24,
+                "hi_q": "यदि आप पश्चिम की ओर देख रहे हैं तो आपका बायाँ हाथ किस दिशा की ओर होगा?",
+                "en_q": "If you are facing West, which direction is on your left?",
+                "hi_a": "दक्षिण",
+                "en_a": "South"
+        }
+],
+    'continents': [
+        {
+                "id": 1,
+                "hi_q": "महाद्वीप क्या होते हैं?",
+                "en_q": "What are continents?",
+                "hi_a": "पृथ्वी के बहुत बड़े भूमि भाग",
+                "en_a": "Very large land masses on Earth"
+        },
+        {
+                "id": 2,
+                "hi_q": "पृथ्वी पर कुल कितने महाद्वीप हैं?",
+                "en_q": "How many continents are there on Earth?",
+                "hi_a": "सात",
+                "en_a": "Seven"
+        },
+        {
+                "id": 3,
+                "hi_q": "एशिया किस प्रकार का महाद्वीप है?",
+                "en_q": "What type of continent is Asia?",
+                "hi_a": "सबसे बड़ा महाद्वीप",
+                "en_a": "The largest continent"
+        },
+        {
+                "id": 4,
+                "hi_q": "भारत किस महाद्वीप में स्थित है?",
+                "en_q": "In which continent is India located?",
+                "hi_a": "एशिया",
+                "en_a": "Asia"
+        },
+        {
+                "id": 5,
+                "hi_q": "अफ्रीका किस लिए प्रसिद्ध है?",
+                "en_q": "What is Africa famous for?",
+                "hi_a": "जंगल और वन्यजीव",
+                "en_a": "Forests and wildlife"
+        },
+        {
+                "id": 6,
+                "hi_q": "विश्व का सबसे ठंडा महाद्वीप कौन सा है?",
+                "en_q": "Which is the coldest continent in the world?",
+                "hi_a": "अंटार्कटिका",
+                "en_a": "Antarctica"
+        },
+        {
+                "id": 7,
+                "hi_q": "अंटार्कटिका में कौन रहते हैं?",
+                "en_q": "Who lives in Antarctica?",
+                "hi_a": "वहाँ स्थायी लोग नहीं रहते, केवल वैज्ञानिक",
+                "en_a": "No permanent residents, only scientists"
+        },
+        {
+                "id": 8,
+                "hi_q": "यूरोप किस लिए जाना जाता है?",
+                "en_q": "What is Europe known for?",
+                "hi_a": "कई विकसित देशों के लिए",
+                "en_a": "Many developed countries"
+        },
+        {
+                "id": 9,
+                "hi_q": "उत्तर अमेरिका में कौन सा प्रसिद्ध देश है?",
+                "en_q": "Name a famous country in North America.",
+                "hi_a": "संयुक्त राज्य अमेरिका",
+                "en_a": "United States of America"
+        },
+        {
+                "id": 10,
+                "hi_q": "दक्षिण अमेरिका किस जंगल के लिए प्रसिद्ध है?",
+                "en_q": "South America is famous for which forest?",
+                "hi_a": "अमेज़न वर्षावन",
+                "en_a": "Amazon Rainforest"
+        },
+        {
+                "id": 11,
+                "hi_q": "ऑस्ट्रेलिया महाद्वीप की खास बात क्या है?",
+                "en_q": "What is special about Australia as a continent?",
+                "hi_a": "यह सबसे छोटा महाद्वीप है",
+                "en_a": "It is the smallest continent"
+        },
+        {
+                "id": 12,
+                "hi_q": "ऑस्ट्रेलिया एक देश भी है क्या?",
+                "en_q": "Is Australia also a country?",
+                "hi_a": "हाँ",
+                "en_a": "Yes"
+        },
+        {
+                "id": 13,
+                "hi_q": "अफ्रीका में किस प्रकार के जानवर अधिक पाए जाते हैं?",
+                "en_q": "What kind of animals are commonly found in Africa?",
+                "hi_a": "जंगली जानवर जैसे शेर, हाथी",
+                "en_a": "Wild animals like lions and elephants"
+        },
+        {
+                "id": 14,
+                "hi_q": "एशिया में दुनिया की सबसे बड़ी आबादी रहती है क्या?",
+                "en_q": "Does Asia have the largest population in the world?",
+                "hi_a": "हाँ",
+                "en_a": "Yes"
+        },
+        {
+                "id": 15,
+                "hi_q": "यूरोप और एशिया को मिलाकर किस नाम से जाना जाता है?",
+                "en_q": "What are Europe and Asia together called?",
+                "hi_a": "यूरेशिया",
+                "en_a": "Eurasia"
+        },
+        {
+                "id": 16,
+                "hi_q": "कौन सा महाद्वीप केवल बर्फ से ढका रहता है?",
+                "en_q": "Which continent is mostly covered with ice?",
+                "hi_a": "अंटार्कटिका",
+                "en_a": "Antarctica"
+        },
+        {
+                "id": 17,
+                "hi_q": "दक्षिण अमेरिका में कौन सी लंबी पर्वतमाला है?",
+                "en_q": "Which long mountain range is in South America?",
+                "hi_a": "एंडीज पर्वत",
+                "en_a": "Andes Mountains"
+        },
+        {
+                "id": 18,
+                "hi_q": "उत्तर अमेरिका में प्रसिद्ध जलप्रपात कौन सा है?",
+                "en_q": "Which famous waterfall is in North America?",
+                "hi_a": "नियाग्रा जलप्रपात",
+                "en_a": "Niagara Falls"
+        },
+        {
+                "id": 19,
+                "hi_q": "एशिया में दुनिया की सबसे ऊँची पर्वत चोटी कौन सी है?",
+                "en_q": "Which is the highest mountain peak in Asia?",
+                "hi_a": "माउंट एवरेस्ट",
+                "en_a": "Mount Everest"
+        },
+        {
+                "id": 20,
+                "hi_q": "अफ्रीका में सबसे लंबी नदी कौन सी है?",
+                "en_q": "Which is the longest river in Africa?",
+                "hi_a": "नील नदी",
+                "en_a": "Nile River"
+        },
+        {
+                "id": 21,
+                "hi_q": "किस महाद्वीप में सबसे कम लोग रहते हैं?",
+                "en_q": "Which continent has the least population?",
+                "hi_a": "अंटार्कटिका",
+                "en_a": "Antarctica"
+        },
+        {
+                "id": 22,
+                "hi_q": "किस महाद्वीप को “डार्क कॉन्टिनेंट” भी कहा जाता था?",
+                "en_q": "Which continent was once called the “Dark Continent”?",
+                "hi_a": "अफ्रीका",
+                "en_a": "Africa"
+        },
+        {
+                "id": 23,
+                "hi_q": "ऑस्ट्रेलिया के आसपास के छोटे द्वीपों को किस क्षेत्र में गिना जाता है?",
+                "en_q": "The small islands around Australia are part of which region?",
+                "hi_a": "ओशिनिया",
+                "en_a": "Oceania"
+        },
+        {
+                "id": 24,
+                "hi_q": "यूरोप किस महासागर के पास स्थित है?",
+                "en_q": "Europe is located near which ocean?",
+                "hi_a": "अटलांटिक महासागर",
+                "en_a": "Atlantic Ocean"
+        },
+        {
+                "id": 25,
+                "hi_q": "महाद्वीपों को जानना क्यों जरूरी है?",
+                "en_q": "Why is it important to learn about continents?",
+                "hi_a": "दुनिया को समझने के लिए",
+                "en_a": "To understand the world better"
+        }
+],

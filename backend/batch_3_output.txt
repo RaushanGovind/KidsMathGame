@@ -1,0 +1,514 @@
+BILINGUAL_GK_DATA_UPDATE = {
+    'animals': [
+        {
+            'id': 1,
+            'hi_q': "कौन सा जानवर घर की रखवाली करता है?",
+            'en_q': "Which animal guards the house?",
+            'hi_a': "कुत्ता",
+            'en_a': "Dog"
+        },
+        {
+            'id': 2,
+            'hi_q': "कौन सा जानवर चूहे पकड़ती है?",
+            'en_q': "Which animal catches rats?",
+            'hi_a': "बिल्ली",
+            'en_a': "Cat"
+        },
+        {
+            'id': 3,
+            'hi_q': "कौन सा जानवर हमें दूध देती है?",
+            'en_q': "Which animal gives us milk?",
+            'hi_a': "गाय",
+            'en_a': "Cow"
+        },
+        {
+            'id': 4,
+            'hi_q': "कौन सा जानवर दूध और मांस देती है?",
+            'en_q': "Which animal gives milk and meat?",
+            'hi_a': "बकरी",
+            'en_a': "Goat"
+        },
+        {
+            'id': 5,
+            'hi_q': "कौन सा जानवर जंगल का राजा है?",
+            'en_q': "Which animal is king of the jungle?",
+            'hi_a': "शेर",
+            'en_a': "Lion"
+        },
+        {
+            'id': 6,
+            'hi_q': "कौन सा जानवर एक ताकतवर जंगली जानवर है?",
+            'en_q': "Which animal is a strong wild animal?",
+            'hi_a': "बाघ",
+            'en_a': "Tiger"
+        },
+        {
+            'id': 7,
+            'hi_q': "कौन सा जानवर सबसे बड़ा स्थलीय जानवर है?",
+            'en_q': "Which animal is the largest land animal?",
+            'hi_a': "हाथी",
+            'en_a': "Elephant"
+        },
+        {
+            'id': 8,
+            'hi_q': "कौन सा जानवर पेड़ों पर चढ़ना पसंद करता है?",
+            'en_q': "Which animal loves climbing trees?",
+            'hi_a': "बंदर",
+            'en_a': "Monkey"
+        },
+        {
+            'id': 9,
+            'hi_q': "कौन सा जानवर खेत जोतने में मदद करता है?",
+            'en_q': "Which animal is helps in ploughing fields?",
+            'hi_a': "बैल",
+            'en_a': "Ox"
+        },
+        {
+            'id': 10,
+            'hi_q': "कौन सा जानवर सवारी और सामान ढोने में काम आता है?",
+            'en_q': "Which animal is used for riding and carrying loads?",
+            'hi_a': "घोड़ा",
+            'en_a': "Horse"
+        },
+        {
+            'id': 11,
+            'hi_q': "कौन सा जानवर पानी में तैरती है?",
+            'en_q': "Which animal swims in water?",
+            'hi_a': "मछली",
+            'en_a': "Fish"
+        },
+        {
+            'id': 12,
+            'hi_q': "कौन सा जानवर समुद्र का सबसे बड़ा जानवर है?",
+            'en_q': "Which animal is the largest sea animal?",
+            'hi_a': "व्हेल",
+            'en_a': "Whale"
+        },
+        {
+            'id': 13,
+            'hi_q': "कौन सा जानवर एक दोस्ताना समुद्री जानवर है?",
+            'en_q': "Which animal is a friendly sea animal?",
+            'hi_a': "डॉल्फ़िन",
+            'en_a': "Dolphin"
+        },
+        {
+            'id': 14,
+            'hi_q': "कौन सा जानवर हरा पक्षी है जो आवाज़ की नकल कर सकता है?",
+            'en_q': "Which animal is green bird that can mimic sounds?",
+            'hi_a': "तोता",
+            'en_a': "Parrot"
+        },
+        {
+            'id': 15,
+            'hi_q': "कौन सा जानवर भारत का राष्ट्रीय पक्षी है?",
+            'en_q': "Which animal is national bird of india?",
+            'hi_a': "मोर",
+            'en_a': "Peacock"
+        },
+    ],
+    'transport': [
+        {
+            'id': 1,
+            'hi_q': "कौन सा वाहन परिवारों द्वारा यात्रा के लिए उपयोग की जाती है?",
+            'en_q': "What is used by families for travel?",
+            'hi_a': "कार",
+            'en_a': "Car"
+        },
+        {
+            'id': 2,
+            'hi_q': "कौन सा वाहन कई लोगों को ले जाती है?",
+            'en_q': "Who carries many people?",
+            'hi_a': "बस",
+            'en_a': "Bus"
+        },
+        {
+            'id': 3,
+            'hi_q': "कौन सा वाहन पटरियों पर चलती है?",
+            'en_q': "Who runs on railway tracks?",
+            'hi_a': "रेलगाड़ी",
+            'en_a': "Train"
+        },
+        {
+            'id': 4,
+            'hi_q': "कौन सा वाहन दो पहियों वाला वाहन है?",
+            'en_q': "Which vehicle is a two-wheel vehicle?",
+            'hi_a': "साइकिल",
+            'en_a': "Bicycle"
+        },
+        {
+            'id': 5,
+            'hi_q': "कौन सा वाहन छोटा जल वाहन है?",
+            'en_q': "Which vehicle is small water vehicle?",
+            'hi_a': "नाव",
+            'en_a': "Boat"
+        },
+        {
+            'id': 6,
+            'hi_q': "कौन सा वाहन बड़ा जल वाहन है?",
+            'en_q': "Which vehicle is big water vehicle?",
+            'hi_a': "जहाज",
+            'en_a': "Ship"
+        },
+        {
+            'id': 7,
+            'hi_q': "कौन सा वाहन लंबी दूरी तय करने का सबसे तेज़ साधन है?",
+            'en_q': "Which vehicle is fastest way to travel long distances?",
+            'hi_a': "हवाई जहाज",
+            'en_a': "Aeroplane"
+        },
+        {
+            'id': 8,
+            'hi_q': "कौन सा वाहन छोटी जगहों पर भी उतर सकता है?",
+            'en_q': "Which vehicle is can land in small areas?",
+            'hi_a': "हेलीकॉप्टर",
+            'en_a': "Helicopter"
+        },
+    ],
+    'landforms': [
+        {
+            'id': 1,
+            'hi_q': "स्थलरूप (Landforms) क्या होते हैं?",
+            'en_q': "What are landforms?",
+            'hi_a': "पृथ्वी की सतह के अलग-अलग प्राकृतिक आकार",
+            'en_a': "Different natural shapes on the Earth's surface"
+        },
+        {
+            'id': 2,
+            'hi_q': "बहुत ऊँची भूमि को क्या कहते हैं?",
+            'en_q': "What do we call very high land?",
+            'hi_a': "पर्वत",
+            'en_a': "Mountain"
+        },
+        {
+            'id': 3,
+            'hi_q': "पर्वतों की लंबी श्रृंखला को क्या कहते हैं?",
+            'en_q': "What is a long chain of mountains called?",
+            'hi_a': "पर्वतमाला",
+            'en_a': "Mountain range"
+        },
+        {
+            'id': 4,
+            'hi_q': "पहाड़ और पर्वत में क्या अंतर है?",
+            'en_q': "What is the difference between a hill and a mountain?",
+            'hi_a': "पहाड़ छोटे होते हैं, पर्वत ऊँचे",
+            'en_a': "Hills are smaller, mountains are higher"
+        },
+        {
+            'id': 5,
+            'hi_q': "समतल भूमि को क्या कहते हैं?",
+            'en_q': "What do we call flat land?",
+            'hi_a': "मैदान",
+            'en_a': "Plain"
+        },
+        {
+            'id': 6,
+            'hi_q': "नदी के किनारे की उपजाऊ भूमि क्या कहलाती है?",
+            'en_q': "What is the fertile land near rivers called?",
+            'hi_a': "मैदान या समभूमि",
+            'en_a': "Plain"
+        },
+        {
+            'id': 7,
+            'hi_q': "रेगिस्तान कैसा स्थलरूप है?",
+            'en_q': "What type of landform is a desert?",
+            'hi_a': "बहुत सूखा और रेत वाला क्षेत्र",
+            'en_a': "Very dry and sandy area"
+        },
+        {
+            'id': 8,
+            'hi_q': "पठार क्या होता है?",
+            'en_q': "What is a plateau?",
+            'hi_a': "ऊँचा और समतल क्षेत्र",
+            'en_a': "A high flat area"
+        },
+        {
+            'id': 9,
+            'hi_q': "घाटी क्या होती है?",
+            'en_q': "What is a valley?",
+            'hi_a': "दो पहाड़ों के बीच का नीचा क्षेत्र",
+            'en_a': "Low land between mountains"
+        },
+        {
+            'id': 10,
+            'hi_q': "नदी क्या है?",
+            'en_q': "What is a river?",
+            'hi_a': "बहता हुआ पानी",
+            'en_a': "Flowing water"
+        },
+        {
+            'id': 11,
+            'hi_q': "झील क्या होती है?",
+            'en_q': "What is a lake?",
+            'hi_a': "चारों ओर भूमि से घिरा पानी",
+            'en_a': "Water surrounded by land"
+        },
+        {
+            'id': 12,
+            'hi_q': "समुद्र और महासागर में क्या अंतर है?",
+            'en_q': "What is the difference between a sea and an ocean?",
+            'hi_a': "महासागर बड़ा होता है, समुद्र छोटा",
+            'en_a': "Ocean is larger, sea is smaller"
+        },
+        {
+            'id': 13,
+            'hi_q': "द्वीप क्या होता है?",
+            'en_q': "What is an island?",
+            'hi_a': "चारों ओर पानी से घिरी भूमि",
+            'en_a': "Land surrounded by water"
+        },
+        {
+            'id': 14,
+            'hi_q': "प्रायद्वीप क्या होता है?",
+            'en_q': "What is a peninsula?",
+            'hi_a': "तीन ओर पानी से घिरी भूमि",
+            'en_a': "Land surrounded by water on three sides"
+        },
+        {
+            'id': 15,
+            'hi_q': "झरना क्या होता है?",
+            'en_q': "What is a waterfall?",
+            'hi_a': "ऊँचाई से गिरता हुआ पानी",
+            'en_a': "Water falling from a height"
+        },
+        {
+            'id': 16,
+            'hi_q': "ज्वालामुखी क्या है?",
+            'en_q': "What is a volcano?",
+            'hi_a': "पृथ्वी के अंदर से लावा निकलने का स्थान",
+            'en_a': "An opening where lava comes out from Earth"
+        },
+        {
+            'id': 17,
+            'hi_q': "समुद्र तट क्या होता है?",
+            'en_q': "What is a seashore?",
+            'hi_a': "जहाँ भूमि और समुद्र मिलते हैं",
+            'en_a': "Where land meets the sea"
+        },
+        {
+            'id': 18,
+            'hi_q': "गुफा क्या होती है?",
+            'en_q': "What is a cave?",
+            'hi_a': "पहाड़ या चट्टान के अंदर की खाली जगह",
+            'en_a': "A hollow space inside a rock or mountain"
+        },
+        {
+            'id': 19,
+            'hi_q': "हिमनद (Glacier) क्या है?",
+            'en_q': "What is a glacier?",
+            'hi_a': "धीरे-धीरे चलने वाली बर्फ की बड़ी चादर",
+            'en_a': "A large slow-moving mass of ice"
+        },
+        {
+            'id': 20,
+            'hi_q': "डेल्टा क्या होता है?",
+            'en_q': "What is a delta?",
+            'hi_a': "जहाँ नदी समुद्र में मिलते समय कई धाराओं में बंटती है",
+            'en_a': "Where a river splits into branches before meeting the sea"
+        },
+        {
+            'id': 21,
+            'hi_q': "मैदान खेती के लिए क्यों अच्छे होते हैं?",
+            'en_q': "Why are plains good for farming?",
+            'hi_a': "क्योंकि भूमि समतल और उपजाऊ होती है",
+            'en_a': "Because the land is flat and fertile"
+        },
+        {
+            'id': 22,
+            'hi_q': "पहाड़ी क्षेत्रों में मौसम कैसा होता है?",
+            'en_q': "What is the climate like in hilly areas?",
+            'hi_a': "ठंडा",
+            'en_a': "Cold"
+        },
+        {
+            'id': 23,
+            'hi_q': "रेगिस्तान में पानी कम क्यों होता है?",
+            'en_q': "Why is there very little water in deserts?",
+            'hi_a': "बहुत कम वर्षा होती है",
+            'en_a': "Very little rainfall"
+        },
+        {
+            'id': 24,
+            'hi_q': "समुद्र का पानी कैसा होता है?",
+            'en_q': "What is sea water like?",
+            'hi_a': "खारा",
+            'en_a': "Salty"
+        },
+        {
+            'id': 25,
+            'hi_q': "स्थलरूपों को जानना क्यों जरूरी है?",
+            'en_q': "Why is it important to learn about landforms?",
+            'hi_a': "पृथ्वी को समझने के लिए",
+            'en_a': "To understand the Earth better"
+        },
+    ],
+    'water_animals': [
+        {
+            'id': 1,
+            'hi_q': "मछलियाँ कहाँ रहती हैं?",
+            'en_q': "Where do fish live?",
+            'hi_a': "पानी में",
+            'en_a': "In water"
+        },
+        {
+            'id': 2,
+            'hi_q': "मछलियाँ किससे सांस लेती हैं?",
+            'en_q': "How do fish breathe?",
+            'hi_a': "गलफड़ों से",
+            'en_a': "With gills"
+        },
+        {
+            'id': 3,
+            'hi_q': "दुनिया का सबसे बड़ा समुद्री जानवर कौन है?",
+            'en_q': "Which is the largest sea animal in the world?",
+            'hi_a': "नीली व्हेल",
+            'en_a': "Blue whale"
+        },
+        {
+            'id': 4,
+            'hi_q': "डॉल्फिन किस प्रकार का जानवर है?",
+            'en_q': "What type of animal is a dolphin?",
+            'hi_a': "स्तनपायी (मेमल)",
+            'en_a': "Mammal"
+        },
+        {
+            'id': 5,
+            'hi_q': "ऑक्टोपस के कितने हाथ (भुजाएँ) होते हैं?",
+            'en_q': "How many arms does an octopus have?",
+            'hi_a': "आठ",
+            'en_a': "Eight"
+        },
+        {
+            'id': 6,
+            'hi_q': "समुद्र में रहने वाली बड़ी मछली कौन सी है?",
+            'en_q': "Name a very big fish found in the sea.",
+            'hi_a': "व्हेल शार्क",
+            'en_a': "Whale shark"
+        },
+        {
+            'id': 7,
+            'hi_q': "मेंढक पानी और जमीन दोनों पर रह सकता है क्या?",
+            'en_q': "Can a frog live both in water and on land?",
+            'hi_a': "हाँ",
+            'en_a': "Yes"
+        },
+        {
+            'id': 8,
+            'hi_q': "कछुआ कहाँ रहता है?",
+            'en_q': "Where does a turtle live?",
+            'hi_a': "पानी और जमीन दोनों पर",
+            'en_a': "Both in water and on land"
+        },
+        {
+            'id': 9,
+            'hi_q': "केकड़ा कैसे चलता है?",
+            'en_q': "How does a crab walk?",
+            'hi_a': "तिरछा (साइड में)",
+            'en_a': "Sideways"
+        },
+        {
+            'id': 10,
+            'hi_q': "स्टारफिश (समुद्री तारा) किस प्रकार के जीव हैं?",
+            'en_q': "What type of creature is a starfish?",
+            'hi_a': "समुद्री जीव",
+            'en_a': "Sea animal"
+        },
+        {
+            'id': 11,
+            'hi_q': "जेलीफ़िश का शरीर कैसा होता है?",
+            'en_q': "What is the body of a jellyfish like?",
+            'hi_a': "नरम और पारदर्शी",
+            'en_a': "Soft and transparent"
+        },
+        {
+            'id': 12,
+            'hi_q': "समुद्री घोड़ा किसे कहते हैं?",
+            'en_q': "What do we call a seahorse?",
+            'hi_a': "एक छोटी समुद्री मछली",
+            'en_a': "A small sea fish"
+        },
+        {
+            'id': 13,
+            'hi_q': "शार्क किस प्रकार की मछली है?",
+            'en_q': "What type of fish is a shark?",
+            'hi_a': "मांसाहारी",
+            'en_a': "Carnivorous"
+        },
+        {
+            'id': 14,
+            'hi_q': "डॉल्फिन किसके लिए जानी जाती है?",
+            'en_q': "What are dolphins known for?",
+            'hi_a': "बुद्धिमानी और खेलना",
+            'en_a': "Intelligence and playfulness"
+        },
+        {
+            'id': 15,
+            'hi_q': "व्हेल मछली है या स्तनपायी?",
+            'en_q': "Is a whale a fish or a mammal?",
+            'hi_a': "स्तनपायी",
+            'en_a': "Mammal"
+        },
+        {
+            'id': 16,
+            'hi_q': "ऑक्टोपस किससे खुद की रक्षा करता है?",
+            'en_q': "How does an octopus protect itself?",
+            'hi_a': "स्याही छोड़कर",
+            'en_a': "By releasing ink"
+        },
+        {
+            'id': 17,
+            'hi_q': "झींगा (श्रिम्प) कहाँ पाया जाता है?",
+            'en_q': "Where is shrimp found?",
+            'hi_a': "समुद्र और नदियों में",
+            'en_a': "In seas and rivers"
+        },
+        {
+            'id': 18,
+            'hi_q': "समुद्री कछुआ कहाँ अंडे देता है?",
+            'en_q': "Where does a sea turtle lay eggs?",
+            'hi_a': "समुद्र तट की रेत में",
+            'en_a': "In sand on the beach"
+        },
+        {
+            'id': 19,
+            'hi_q': "जल में रहने वाले जानवरों को क्या कहते हैं?",
+            'en_q': "What do we call animals that live in water?",
+            'hi_a': "जलीय जीव",
+            'en_a': "Aquatic animals"
+        },
+        {
+            'id': 20,
+            'hi_q': "मछलियों का शरीर किससे ढका होता है?",
+            'en_q': "What covers the body of most fish?",
+            'hi_a': "शल्क (स्केल्स)",
+            'en_a': "Scales"
+        },
+        {
+            'id': 21,
+            'hi_q': "डॉल्फिन सांस लेने के लिए कहाँ आती है?",
+            'en_q': "Where does a dolphin come to breathe?",
+            'hi_a': "पानी की सतह पर",
+            'en_a': "To the water surface"
+        },
+        {
+            'id': 22,
+            'hi_q': "सील (Seal) किस प्रकार का जानवर है?",
+            'en_q': "What type of animal is a seal?",
+            'hi_a': "समुद्री स्तनपायी",
+            'en_a': "Marine mammal"
+        },
+        {
+            'id': 23,
+            'hi_q': "जल प्रदूषण से किसे नुकसान होता है?",
+            'en_q': "Who gets harmed due to water pollution?",
+            'hi_a': "जलीय जीव",
+            'en_a': "Aquatic animals"
+        },
+        {
+            'id': 24,
+            'hi_q': "हमें समुद्र और नदियों को साफ क्यों रखना चाहिए?",
+            'en_q': "Why should we keep seas and rivers clean?",
+            'hi_a': "जलीय जीवों की सुरक्षा के लिए",
+            'en_a': "To protect aquatic life"
+        },
+    ],
+}

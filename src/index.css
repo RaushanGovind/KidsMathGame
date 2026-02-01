@@ -1,8 +1,37 @@
-@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700;900&display=swap');
+:root {
+  --font-family-fredoka: 'Fredoka', sans-serif;
+  --font-family-jolly: 'Jolly Lodger', cursive;
+  --font-family-slackey: 'Slackey', cursive;
+  --font-family-boogaloo: 'Boogaloo', cursive;
+  --font-family-bubblegum: 'Bubblegum Sans', cursive;
+  --font-family-chewy: 'Chewy', cursive;
+  --font-family-comic: 'Comic Neue', cursive;
+  --font-family-patrick: 'Patrick Hand', cursive;
+  --font-family-schoolbell: 'Schoolbell', cursive;
+  --font-family-balsamiq: 'Balsamiq Sans', cursive;
+
+  --font-family-hind: 'Hind', sans-serif;
+  --font-family-kalam: 'Kalam', cursive;
+  --font-family-amita: 'Amita', cursive;
+  --font-family-rajdhani: 'Rajdhani', sans-serif;
+  --font-family-khand: 'Khand', sans-serif;
+  --font-family-rozha: 'Rozha One', serif;
+  --font-family-martel: 'Martel', serif;
+  --font-family-karma: 'Karma', serif;
+  --font-family-gotu: 'Gotu', sans-serif;
+  --font-family-modak: 'Modak', cursive;
+
+  --active-english-font: var(--font-family-fredoka, sans-serif);
+  --active-hindi-font: var(--font-family-hind, sans-serif);
+}
+
+/* Hindi Content Targeter */
+.hindi-text,
+[lang="hi"] {
+  font-family: var(--active-hindi-font) !important;
+}
 
 :root {
-  --font-family: 'Fredoka', sans-serif;
-
   /* Palette 🎨 - Reimagined for Premium Feel */
   --color-sky-blue: #3498DB;
   --color-sky-light: #F0F7FF;
@@ -33,13 +62,22 @@
 }
 
 body {
-  font-family: var(--font-family);
+  font-family: var(--active-english-font);
   background: var(--bg-gradient);
   color: var(--color-text-dark);
   min-height: 100vh;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
-  background-attachment: fixed;
+  /* background-attachment: fixed; removed for performance */
+  scroll-behavior: auto;
+  transform: translateZ(0);
+  /* Hardware acceleration for faster scrolling */
+  will-change: transform;
+}
+
+/* Optimization for scrolling */
+html {
+  scroll-padding-top: 100px;
 }
 
 /* Glass Panel Optimizations */
@@ -63,7 +101,7 @@ h3 {
 
 /* Premium Button Architecture */
 button {
-  font-family: var(--font-family);
+  font-family: var(--active-english-font);
   cursor: pointer;
   border: none;
   border-radius: 20px;
@@ -128,4 +166,84 @@ input:focus {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #95a5a6;
+}
+
+/* Mobile Responsiveness Utilities */
+@media (max-width: 768px) {
+  .mobile-stack {
+    flex-direction: column !important;
+  }
+
+  .mobile-grid-1 {
+    grid-template-columns: 1fr !important;
+  }
+
+  .mobile-text-sm {
+    font-size: 1.1rem !important;
+  }
+
+  .mobile-text-md {
+    font-size: 1.4rem !important;
+  }
+
+  .mobile-text-lg {
+    font-size: 1.8rem !important;
+  }
+
+  .mobile-padding-sm {
+    padding: 15px !important;
+  }
+
+  .mobile-padding-md {
+    padding: 25px !important;
+  }
+
+  .mobile-gap-sm {
+    gap: 10px !important;
+  }
+
+  .mobile-full-width {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .mobile-no-border-left {
+    border-left: none !important;
+    border-top: 2px solid #BDC3C7 !important;
+    padding-left: 0 !important;
+    padding-top: 20px !important;
+    margin-top: 10px !important;
+  }
+
+  .mobile-margin-top-sm {
+    margin-top: 10px !important;
+  }
+
+  /* Specific fix for headers where title overlaps back button */
+  .mobile-header-stack {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 15px !important;
+    padding-top: 20px !important;
+  }
+
+  .mobile-header-stack .title-container {
+    position: static !important;
+    pointer-events: auto !important;
+  }
+
+  .mobile-header-stack .back-btn {
+    align-self: flex-start !important;
+  }
+
+  /* Fix for very small screens */
+  .mobile-grid-1 {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Prevent horizontal scroll */
+  body {
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+  }
 }

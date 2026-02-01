@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronLeft } from 'lucide-react';
 import { playSound as playAppSound } from '../utils/sounds';
 import { speak } from '../utils/speech';
 
@@ -92,40 +93,95 @@ function MentalMathGame({ onBack }) {
     const currentQuizData = gameData.quizzes[String(level)];
 
     return (
-        <div className="game-container" style={{
+        <div style={{
             display: 'flex', flexDirection: 'column', alignItems: 'center',
-            width: '100%', minHeight: '100vh',
-            background: '#F4F6F7',
-            padding: '20px'
+            minHeight: '100vh', padding: '20px', background: '#F8FAFC'
         }}>
 
             {/* Header */}
-            <div style={{ width: '100%', maxWidth: '1000px', display: 'flex', justifyContent: 'space-between', marginBottom: '20px', alignItems: 'center' }}>
-                <button onClick={onBack} style={{ padding: '12px 24px', background: 'white', color: '#2C3E50', fontWeight: '900', fontSize: '1.1rem', borderRadius: '15px', border: '2px solid #ECF0F1', cursor: 'pointer' }}>⬅ MENU</button>
-                <div style={{ fontSize: '2rem', fontWeight: '900', color: '#2C3E50', display: 'flex', alignItems: 'center', gap: '10px' }}>
-                    <span>⚡</span>
-                    <div style={{ display: 'flex', gap: '10px' }}>
+            <div
+                className="mobile-header-stack"
+                style={{
+                    width: '100%',
+                    maxWidth: '1200px',
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    marginBottom: '30px',
+                    alignItems: 'center',
+                    position: 'relative'
+                }}
+            >
+                <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="back-btn"
+                    onClick={onBack}
+                    style={{
+                        padding: '10px 20px',
+                        background: 'white',
+                        color: '#475569',
+                        fontWeight: '800',
+                        fontSize: '0.9rem',
+                        borderRadius: '12px',
+                        boxShadow: '0 4px 6px -1px rgba(0,0,0,0.1)',
+                        border: '1px solid #E2E8F0',
+                        cursor: 'pointer',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '8px',
+                        zIndex: 10,
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.5px'
+                    }}
+                >
+                    <ChevronLeft size={18} /> Menu
+                </motion.button>
+
+                <div
+                    className="title-container"
+                    style={{
+                        position: 'absolute',
+                        width: '100%',
+                        textAlign: 'center',
+                        pointerEvents: 'none',
+                        left: 0
+                    }}
+                >
+                    <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', justifyContent: 'center', pointerEvents: 'auto' }}>
                         {[1, 2, 3].map(lvl => (
-                            <button
+                            <motion.button
                                 key={lvl}
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
                                 onClick={() => handleLevelChange(lvl)}
                                 style={{
-                                    padding: '8px 16px', borderRadius: '15px', border: 'none',
-                                    background: level === lvl ? (lvl === 1 ? '#F1C40F' : lvl === 2 ? '#E67E22' : '#9B59B6') : '#BDC3C7',
-                                    color: 'white', fontWeight: 'bold', cursor: 'pointer'
+                                    padding: '6px 16px',
+                                    borderRadius: '12px',
+                                    border: '1px solid',
+                                    borderColor: level === lvl ? 'transparent' : '#E2E8F0',
+                                    background: level === lvl ? '#3B82F6' : 'white',
+                                    color: level === lvl ? 'white' : '#64748B',
+                                    fontWeight: '900',
+                                    cursor: 'pointer',
+                                    fontSize: '0.8rem',
+                                    textTransform: 'uppercase',
+                                    letterSpacing: '1px',
+                                    boxShadow: level === lvl ? '0 4px 6px -1px rgba(59, 130, 246, 0.4)' : 'none'
                                 }}>
                                 Lvl {lvl}
-                            </button>
+                            </motion.button>
                         ))}
                     </div>
                 </div>
+
+                <div style={{ width: '100px' }} className="mobile-hide"></div>
             </div>
 
             {/* Mode Selection */}
             {!showResult && (
-                <div style={{ display: 'flex', gap: '15px', marginBottom: '30px' }}>
-                    <button onClick={() => setMode('learn')} style={{ padding: '12px 25px', background: mode === 'learn' ? '#3498DB' : 'white', color: mode === 'learn' ? 'white' : '#7F8C8D', borderRadius: '25px', border: 'none', fontSize: '1.2rem', fontWeight: 'bold', cursor: 'pointer', boxShadow: '0 4px 10px rgba(0,0,0,0.1)' }}>Learn 🧠</button>
-                    <button onClick={() => setMode('quiz')} style={{ padding: '12px 25px', background: mode === 'quiz' ? '#2ECC71' : 'white', color: mode === 'quiz' ? 'white' : '#7F8C8D', borderRadius: '25px', border: 'none', fontSize: '1.2rem', fontWeight: 'bold', cursor: 'pointer', boxShadow: '0 4px 10px rgba(0,0,0,0.1)' }}>Practice 🎯</button>
+                <div style={{ display: 'flex', gap: '10px', marginBottom: '30px', flexWrap: 'wrap', justifyContent: 'center' }}>
+                    <button onClick={() => setMode('learn')} style={{ padding: '10px 20px', background: mode === 'learn' ? '#3498DB' : 'white', color: mode === 'learn' ? 'white' : '#7F8C8D', borderRadius: '25px', border: 'none', fontSize: '1.1rem', fontWeight: 'bold', cursor: 'pointer', boxShadow: '0 4px 10px rgba(0,0,0,0.1)' }}>Learn 🧠</button>
+                    <button onClick={() => setMode('quiz')} style={{ padding: '10px 20px', background: mode === 'quiz' ? '#2ECC71' : 'white', color: mode === 'quiz' ? 'white' : '#7F8C8D', borderRadius: '25px', border: 'none', fontSize: '1.1rem', fontWeight: 'bold', cursor: 'pointer', boxShadow: '0 4px 10px rgba(0,0,0,0.1)' }}>Practice 🎯</button>
                 </div>
             )}
 
@@ -203,7 +259,7 @@ function MentalMathGame({ onBack }) {
                             {currentQuizData[quizIndex].question}
                         </div>
 
-                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '15px' }}>
+                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))', gap: '15px', width: '100%' }}>
                             {currentQuizData[quizIndex].options.map((option, idx) => (
                                 <motion.button
                                     key={idx}

@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-app = FastAPI(title="Kids Math Game API")
+app = FastAPI(title="Kids Hero API")
 
 # Enable CORS
 app.add_middleware(

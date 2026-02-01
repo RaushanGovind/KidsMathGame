@@ -1,0 +1,151 @@
+[BILINGUAL_GK_TOPIC_TIME]
+
+Q1
+HI_Q: समय मापने के लिए किस यंत्र का उपयोग होता है?
+EN_Q: Which device is used to measure time?
+HI_A: घड़ी
+EN_A: Clock
+
+Q2
+HI_Q: एक दिन में कितने घंटे होते हैं?
+EN_Q: How many hours are there in a day?
+HI_A: 24
+EN_A: 24
+
+Q3
+HI_Q: एक घंटे में कितने मिनट होते हैं?
+EN_Q: How many minutes are there in one hour?
+HI_A: 60
+EN_A: 60
+
+Q4
+HI_Q: एक मिनट में कितने सेकंड होते हैं?
+EN_Q: How many seconds are there in one minute?
+HI_A: 60
+EN_A: 60
+
+Q5
+HI_Q: दिन और रात मिलकर क्या बनाते हैं?
+EN_Q: What do day and night together make?
+HI_A: एक दिन
+EN_A: One day
+
+Q6
+HI_Q: सुबह का समय कब होता है?
+EN_Q: When is morning time?
+HI_A: सूर्योदय के बाद
+EN_A: After sunrise
+
+Q7
+HI_Q: दोपहर कब होती है?
+EN_Q: When is afternoon?
+HI_A: दिन के बीच का समय
+EN_A: Middle of the day
+
+Q8
+HI_Q: शाम का समय कब होता है?
+EN_Q: When is evening?
+HI_A: सूरज ढलने का समय
+EN_A: When the sun sets
+
+Q9
+HI_Q: रात कब होती है?
+EN_Q: When is night?
+HI_A: सूरज डूबने के बाद
+EN_A: After sunset
+
+Q10
+HI_Q: सप्ताह में कितने दिन होते हैं?
+EN_Q: How many days are there in a week?
+HI_A: 7
+EN_A: 7
+
+Q11
+HI_Q: सप्ताह का पहला दिन कौन सा है?
+EN_Q: Which is the first day of the week?
+HI_A: सोमवार
+EN_A: Monday
+
+Q12
+HI_Q: सप्ताह का आखिरी दिन कौन सा है?
+EN_Q: Which is the last day of the week?
+HI_A: रविवार
+EN_A: Sunday
+
+Q13
+HI_Q: एक महीने में लगभग कितने दिन होते हैं?
+EN_Q: About how many days are there in a month?
+HI_A: 30 या 31
+EN_A: 30 or 31
+
+Q14
+HI_Q: साल में कितने महीने होते हैं?
+EN_Q: How many months are there in a year?
+HI_A: 12
+EN_A: 12
+
+Q15
+HI_Q: एक साल में कितने दिन होते हैं?
+EN_Q: How many days are there in a year?
+HI_A: 365
+EN_A: 365
+
+Q16
+HI_Q: लीप वर्ष में कितने दिन होते हैं?
+EN_Q: How many days are there in a leap year?
+HI_A: 366
+EN_A: 366
+
+Q17
+HI_Q: घड़ी की छोटी सुई क्या दिखाती है?
+EN_Q: What does the short hand of a clock show?
+HI_A: घंटे
+EN_A: Hours
+
+Q18
+HI_Q: घड़ी की लंबी सुई क्या दिखाती है?
+EN_Q: What does the long hand of a clock show?
+HI_A: मिनट
+EN_A: Minutes
+
+Q19
+HI_Q: अलार्म घड़ी किस काम आती है?
+EN_Q: What is an alarm clock used for?
+HI_A: समय पर जगाने के लिए
+EN_A: To wake us up on time
+
+Q20
+HI_Q: कैलेंडर किस काम आता है?
+EN_Q: What is a calendar used for?
+HI_A: तारीख और दिन देखने के लिए
+EN_A: To see dates and days
+
+Q21
+HI_Q: सुबह स्कूल जाने का समय किस भाग में आता है?
+EN_Q: School time in the morning comes under which part of the day?
+HI_A: सुबह
+EN_A: Morning
+
+Q22
+HI_Q: रात को सोने का समय किस भाग में आता है?
+EN_Q: Sleeping time at night comes under which part of the day?
+HI_A: रात
+EN_A: Night
+
+Q23
+HI_Q: "कल" शब्द किस समय को दर्शाता है?
+EN_Q: What time does the word "tomorrow/yesterday" refer to?
+HI_A: आज से पहले या बाद का दिन (संदर्भ पर निर्भर)
+EN_A: The day before or after today (depending on context)
+
+Q24
+HI_Q: समय पर काम करने की आदत को क्या कहते हैं?
+EN_Q: What do we call the habit of doing things on time?
+HI_A: समय की पाबंदी
+EN_A: Punctuality
+
+Q25
+HI_Q: समय की कद्र करना क्यों जरूरी है?
+EN_Q: Why is valuing time important?
+HI_A: सफलता और अनुशासन के लिए
+EN_A: For success and discipline

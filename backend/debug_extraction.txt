@@ -1,0 +1,35 @@
+Block 1: CARBOHYDRATES
+  Total lines: 12
+  Function found at line 1: Function:
+  Next line: Main source of energy for the body
+
+Block 2: PROTEINS
+  Total lines: 10
+  Function found at line 1: Function:
+  Next line: Body building, muscle growth, repair of tissues
+
+Block 3: FATS
+  Total lines: 12
+  Function found at line 1: Function:
+  Next line: Gives extra energy, keeps body warm, protects organs
+
+Block 4: WATER
+  Total lines: 7
+  Function found at line 1: Function:
+  Next line: Keeps body cool, helps digestion, removes waste
+
+Block 7: IRON
+  Total lines: 9
+  Function found at line 1: Function:
+  Next line: Makes hemoglobin in blood, carries oxygen
+
+Block 8: CALCIUM
+  Total lines: 9
+  Function found at line 1: Function:
+  Next line: Strong bones and teeth
+
+Block 9: IODINE
+  Total lines: 9
+  Function found at line 1: Function:
+  Next line: Controls growth and brain development
+

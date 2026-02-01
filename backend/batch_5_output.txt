@@ -1,0 +1,494 @@
+BILINGUAL_GK_DATA_BATCH_5 = {
+    'classroom_rules': [
+        {
+            'id': 1,
+            'hi_q': "नियम: अपनी सीट पर शांत होकर बैठो। दूसरों को परेशान न करो।",
+            'en_q': "Rule: Sit calmly on your seat. Do not push or disturb others.",
+            'hi_a': "सीधे बैठो",
+            'en_a': "SIT PROPERLY"
+        },
+        {
+            'id': 2,
+            'hi_q': "नियम: बोलने से पहले हाथ उठाओ। शिक्षक के बुलाने का इंतजार करो।",
+            'en_q': "Rule: Raise your hand before speaking. Wait for teacher to call your name.",
+            'hi_a': "हाथ उठाकर बोलो",
+            'en_a': "✋ RAISE YOUR HAND"
+        },
+        {
+            'id': 3,
+            'hi_q': "नियम: जब शिक्षक या दोस्त बोलें तो ध्यान से सुनो।",
+            'en_q': "Rule: Listen when teacher or friends are speaking.",
+            'hi_a': "ध्यान से सुनो",
+            'en_a': "LISTEN CAREFULLY"
+        },
+        {
+            'id': 4,
+            'hi_q': "नियम: कक्षा में धीरे बोलो। कक्षा पढ़ाई की जगह है।",
+            'en_q': "Rule: Use soft voice in class. Classroom is a place for learning.",
+            'hi_a': "शोर मत करो",
+            'en_a': "DO NOT SHOUT"
+        },
+        {
+            'id': 5,
+            'hi_q': "नियम: किताबें और पेंसिल साझा करो। लड़ाई मत करो।",
+            'en_q': "Rule: Share books and pencils. Do not fight.",
+            'hi_a': "दोस्तों के साथ अच्छा व्यवहार",
+            'en_a': "BE KIND TO FRIENDS"
+        },
+        {
+            'id': 6,
+            'hi_q': "नियम: कचरा डस्टबिन में डालो। अपनी डेस्क साफ रखो।",
+            'en_q': "Rule: Throw waste in dustbin. Keep desk neat and tidy.",
+            'hi_a': "कक्षा साफ रखो",
+            'en_a': "KEEP CLASSROOM CLEAN"
+        },
+        {
+            'id': 7,
+            'hi_q': "नियम: कक्षा कार्य और गृहकार्य पूरा करो।",
+            'en_q': "Rule: Finish classwork and homework.",
+            'hi_a': "काम समय पर करो",
+            'en_a': "DO YOUR WORK ON TIME"
+        },
+        {
+            'id': 8,
+            'hi_q': "नियम: कक्षा के अंदर धीरे चलो।",
+            'en_q': "Rule: Walk slowly inside classroom.",
+            'hi_a': "दौड़ो मत",
+            'en_a': "WALK, DON’T RUN"
+        },
+        {
+            'id': 9,
+            'hi_q': "नियम: विनम्रता से मदद माँगो।",
+            'en_q': "Rule: Say: \"Teacher, please help me.\"",
+            'hi_a': "विनम्रता से मदद माँगो",
+            'en_a': "ASK FOR HELP POLITELY"
+        },
+        {
+            'id': 10,
+            'hi_q': "नियम: अभिवादन करो और धन्यवाद कहो। शिक्षक की बात मानो।",
+            'en_q': "Rule: Say \"Good Morning\" and \"Thank You\". Listen and follow instructions.",
+            'hi_a': "शिक्षक का सम्मान करो",
+            'en_a': "RESPECT YOUR TEACHER"
+        },
+        {
+            'id': 11,
+            'hi_q': "नियम: \"मैं दयालु, शांत और सीखने के लिए तैयार रहूँगा/रहूँगी।\"",
+            'en_q': "Rule: \"I will be kind, quiet, and ready to learn.\"",
+            'hi_a': "",
+            'en_a': "CLASSROOM PROMISE"
+        },
+    ],
+    'good_manners__etiquette': [
+        {
+            'id': 1,
+            'hi_q': "नियम: कुछ माँगते समय \"कृपया\" कहें।",
+            'en_q': "Rule: Use \"please\" when asking for something. Example: \"Please give me water.\"",
+            'hi_a': "कृपया",
+            'en_a': "SAY \"PLEASE\""
+        },
+        {
+            'id': 2,
+            'hi_q': "नियम: जब कोई मदद करे तो धन्यवाद कहें।",
+            'en_q': "Rule: Say thank you when someone helps you. Example: \"Thank you for helping me.\"",
+            'hi_a': "धन्यवाद",
+            'en_a': "SAY \"THANK YOU\""
+        },
+        {
+            'id': 3,
+            'hi_q': "नियम: गलती होने पर माफ़ी माँगें।",
+            'en_q': "Rule: Say sorry when you make a mistake. Example: \"Sorry, I broke the pencil.\"",
+            'hi_a': "माफ़ कीजिए",
+            'en_a': "SAY \"SORRY\""
+        },
+        {
+            'id': 4,
+            'hi_q': "नियम: बड़ों को नमस्ते या प्रणाम करें।",
+            'en_q': "Rule: Say \"Good Morning\", \"Namaste\", or \"Hello\".",
+            'hi_a': "नमस्ते / अभिवादन",
+            'en_a': "GREET PEOPLE"
+        },
+        {
+            'id': 5,
+            'hi_q': "नियम: धक्का न दें, बीच में न बोलें। कक्षा में हाथ उठाकर बोलें।",
+            'en_q': "Rule: Do not push or interrupt. Raise your hand in class.",
+            'hi_a': "अपनी बारी का इंतजार करें",
+            'en_a': "WAIT FOR YOUR TURN"
+        },
+        {
+            'id': 6,
+            'hi_q': "नियम: खाने से पहले हाथ धोएँ, धीरे खाएँ, भोजन बर्बाद न करें।",
+            'en_q': "Rule: ✔ Wash hands before eating ✔ Eat slowly ✔ Do not talk with food in mouth ✔ Do not waste food",
+            'hi_a': "खाने के शिष्टाचार",
+            'en_a': "️ TABLE MANNERS"
+        },
+        {
+            'id': 7,
+            'hi_q': "नियम: दोस्तों के साथ चीजें बाँटें।",
+            'en_q': "Rule: Share toys and things with friends. Sharing makes everyone happy 😊",
+            'hi_a': "साझा करना",
+            'en_a': "SHARING"
+        },
+        {
+            'id': 8,
+            'hi_q': "नियम: चिल्लाकर बात न करें। मीठे शब्द बोलें।",
+            'en_q': "Rule: Do not shout. Use kind words.",
+            'hi_a': "विनम्रता से बोलें",
+            'en_a': "️ SPEAK POLITELY"
+        },
+        {
+            'id': 9,
+            'hi_q': "नियम: कचरा डस्टबिन में डालें। कमरा और कक्षा साफ रखें।",
+            'en_q': "Rule: Throw garbage in the dustbin. Keep your room and classroom clean.",
+            'hi_a': "साफ-सफाई",
+            'en_a': "CLEANLINESS"
+        },
+        {
+            'id': 10,
+            'hi_q': "नियम: माता-पिता और शिक्षक की बात मानें। जरूरत पड़ने पर बड़ों की मदद करें।",
+            'en_q': "Rule: Listen to parents and teachers. Help elders when needed.",
+            'hi_a': "बड़ों का सम्मान",
+            'en_a': "RESPECT ELDERS"
+        },
+        {
+            'id': 11,
+            'hi_q': "नियम: जानवरों को चोट न पहुँचाएँ।",
+            'en_q': "Rule: Do not hurt animals.",
+            'hi_a': "जानवरों के साथ दया",
+            'en_a': "BE KIND TO ANIMALS"
+        },
+        {
+            'id': 12,
+            'hi_q': "नियम: \"दूसरों के साथ वैसा ही व्यवहार करो जैसा तुम अपने लिए चाहते हो।\"",
+            'en_q': "Rule: \"Treat others the way you want to be treated.\"",
+            'hi_a': "",
+            'en_a': "GOLDEN RULE"
+        },
+    ],
+    'farming_words': [
+        {
+            'id': 1,
+            'hi_q': "कौन/क्या है: फसल उगाने और पशु पालने वाला व्यक्ति।?",
+            'en_q': "Who/What is: A person who grows crops and raises animals.?",
+            'hi_a': "किसान",
+            'en_a': "FARMER"
+        },
+        {
+            'id': 2,
+            'hi_q': "कौन/क्या है: खेती के काम में उपयोग होने वाली गाड़ी।?",
+            'en_q': "Who/What is: A vehicle used for farming work.?",
+            'hi_a': "ट्रैक्टर",
+            'en_a': "TRACTOR"
+        },
+        {
+            'id': 3,
+            'hi_q': "कौन/क्या है: छोटा भाग जिससे नया पौधा उगता है।?",
+            'en_q': "Who/What is: Small part of a plant that grows into a new plant.?",
+            'hi_a': "बीज",
+            'en_a': "SEED"
+        },
+        {
+            'id': 4,
+            'hi_q': "कौन/क्या है: खेत में उगाई जाने वाली खाद्य फसल।?",
+            'en_q': "Who/What is: Plants grown on a farm for food.?",
+            'hi_a': "फसल",
+            'en_a': "CROP"
+        },
+        {
+            'id': 5,
+            'hi_q': "कौन/क्या है: बादलों से गिरने वाला पानी जो फसल उगने में मदद करता है।?",
+            'en_q': "Who/What is: Water from clouds that helps crops grow.?",
+            'hi_a': "बारिश",
+            'en_a': "️ RAIN"
+        },
+        {
+            'id': 6,
+            'hi_q': "कौन/क्या है: फसलों को पानी देना।?",
+            'en_q': "Who/What is: Supplying water to crops.?",
+            'hi_a': "सिंचाई",
+            'en_a': "IRRIGATION"
+        },
+        {
+            'id': 7,
+            'hi_q': "कौन/क्या है: मिट्टी जिसमें पौधे उगते हैं।?",
+            'en_q': "Who/What is: Earth in which plants grow.?",
+            'hi_a': "मिट्टी",
+            'en_a': "SOIL"
+        },
+        {
+            'id': 8,
+            'hi_q': "कौन/क्या है: तैयार फसल को काटना और इकट्ठा करना।?",
+            'en_q': "Who/What is: Cutting and collecting crops when ready.?",
+            'hi_a': "कटाई",
+            'en_a': "HARVEST"
+        },
+        {
+            'id': 9,
+            'hi_q': "कौन/क्या है: वह जमीन जहाँ खेती और पशुपालन होता है।?",
+            'en_q': "Who/What is: Land used for growing crops and animals.?",
+            'hi_a': "खेत",
+            'en_a': "FARM"
+        },
+        {
+            'id': 10,
+            'hi_q': "कौन/क्या है: दूध देने वाला पशु।?",
+            'en_q': "Who/What is: Farm animal that gives milk.?",
+            'hi_a': "गाय",
+            'en_a': "COW"
+        },
+        {
+            'id': 11,
+            'hi_q': "कौन/क्या है: दूध और मांस देती है।?",
+            'en_q': "Who/What is: Gives milk and meat.?",
+            'hi_a': "बकरी",
+            'en_a': "GOAT"
+        },
+        {
+            'id': 12,
+            'hi_q': "कौन/क्या है: अंडे देती है।?",
+            'en_q': "Who/What is: Lays eggs.?",
+            'hi_a': "मुर्गी",
+            'en_a': "HEN"
+        },
+        {
+            'id': 13,
+            'hi_q': "कौन/क्या है: आटा बनाने वाला अनाज।?",
+            'en_q': "Who/What is: A grain used to make flour and bread.?",
+            'hi_a': "गेहूं",
+            'en_a': "WHEAT"
+        },
+        {
+            'id': 14,
+            'hi_q': "कौन/क्या है: मुख्य खाद्यान्न।?",
+            'en_q': "Who/What is: Main food grain in many countries.?",
+            'hi_a': "चावल",
+            'en_a': "RICE"
+        },
+        {
+            'id': 15,
+            'hi_q': "कौन/क्या है: तेल देने वाला पौधा।?",
+            'en_q': "Who/What is: Plant that gives oil seeds.?",
+            'hi_a': "सूरजमुखी",
+            'en_a': "SUNFLOWER"
+        },
+        {
+            'id': 16,
+            'hi_q': "कौन/क्या है: जहाँ किसान फसल बेचते हैं।?",
+            'en_q': "Who/What is: Place where farmers sell crops.?",
+            'hi_a': "बाज़ार",
+            'en_a': "MARKET"
+        },
+        {
+            'id': 17,
+            'hi_q': "कौन/क्या है: अनाज या पशुओं को रखने की जगह।?",
+            'en_q': "Who/What is: Place where grains or animals are kept.?",
+            'hi_a': "गोदाम",
+            'en_a': "BARN"
+        },
+        {
+            'id': 18,
+            'hi_q': "कौन/क्या है: पौधों को भोजन बनाने में मदद करती है।?",
+            'en_q': "Who/What is: Helps plants make food.?",
+            'hi_a': "धूप",
+            'en_a': "SUNLIGHT"
+        },
+        {
+            'id': 19,
+            'hi_q': "कौन/क्या है: पौधों को बढ़ने के लिए हवा चाहिए।?",
+            'en_q': "Who/What is: Plants need air to grow.?",
+            'hi_a': "हवा",
+            'en_a': "AIR"
+        },
+    ],
+    'solar_system__kids_learning': [
+        {
+            'id': 1,
+            'hi_q': "कथन: 'Hello! I am the Sun 🌞' - मैं कौन हूँ?",
+            'en_q': "I say: 'Hello! I am the Sun 🌞' - Who am I?",
+            'hi_a': "Sun",
+            'en_a': "Sun"
+        },
+        {
+            'id': 2,
+            'hi_q': "कथन: 'I am Earth’s Moon 🌙' - मैं कौन हूँ?",
+            'en_q': "I say: 'I am Earth’s Moon 🌙' - Who am I?",
+            'hi_a': "Moon",
+            'en_a': "Moon"
+        },
+        {
+            'id': 3,
+            'hi_q': "कथन: 'Take care of Earth 🌍' - मैं कौन हूँ?",
+            'en_q': "I say: 'Take care of Earth 🌍' - Who am I?",
+            'hi_a': "Sun",
+            'en_a': "Sun"
+        },
+    ],
+    'globe__continents__kids_learning': [
+        {
+            'id': 1,
+            'hi_q': "कथन: 'Hello kids! I am the Earth 🌍' - मैं कौन हूँ?",
+            'en_q': "I say: 'Hello kids! I am the Earth 🌍' - Who am I?",
+            'hi_a': "Globe",
+            'en_a': "Globe"
+        },
+        {
+            'id': 2,
+            'hi_q': "कथन: 'Most of me is covered with water!' - मैं कौन हूँ?",
+            'en_q': "I say: 'Most of me is covered with water!' - Who am I?",
+            'hi_a': "Globe",
+            'en_a': "Globe"
+        },
+        {
+            'id': 3,
+            'hi_q': "कथन: 'We live in Asia!' - मैं कौन हूँ?",
+            'en_q': "I say: 'We live in Asia!' - Who am I?",
+            'hi_a': "Globe",
+            'en_a': "Globe"
+        },
+        {
+            'id': 4,
+            'hi_q': "कथन: 'Take care of me. I am your home!' - मैं कौन हूँ?",
+            'en_q': "I say: 'Take care of me. I am your home!' - Who am I?",
+            'hi_a': "Globe",
+            'en_a': "Globe"
+        },
+    ],
+    'teacher__kids_learning': [
+        {
+            'id': 1,
+            'hi_q': "कथन: 'Good morning, children!' - मैं कौन हूँ?",
+            'en_q': "I say: 'Good morning, children!' - Who am I?",
+            'hi_a': "Teacher",
+            'en_a': "Teacher"
+        },
+        {
+            'id': 2,
+            'hi_q': "कथन: 'Today we will learn letters and numbers!' - मैं कौन हूँ?",
+            'en_q': "I say: 'Today we will learn letters and numbers!' - Who am I?",
+            'hi_a': "Teacher",
+            'en_a': "Teacher"
+        },
+        {
+            'id': 3,
+            'hi_q': "कथन: 'Yes, dear?' - मैं कौन हूँ?",
+            'en_q': "I say: 'Yes, dear?' - Who am I?",
+            'hi_a': "Teacher",
+            'en_a': "Teacher"
+        },
+        {
+            'id': 4,
+            'hi_q': "कथन: 'Learning can be fun too!' - मैं कौन हूँ?",
+            'en_q': "I say: 'Learning can be fun too!' - Who am I?",
+            'hi_a': "Teacher",
+            'en_a': "Teacher"
+        },
+        {
+            'id': 5,
+            'hi_q': "कथन: 'We must share and be kind.' - मैं कौन हूँ?",
+            'en_q': "I say: 'We must share and be kind.' - Who am I?",
+            'hi_a': "Teacher",
+            'en_a': "Teacher"
+        },
+        {
+            'id': 6,
+            'hi_q': "कथन: 'Excellent work!' - मैं कौन हूँ?",
+            'en_q': "I say: 'Excellent work!' - Who am I?",
+            'hi_a': "Teacher",
+            'en_a': "Teacher"
+        },
+        {
+            'id': 7,
+            'hi_q': "कथन: 'See you tomorrow!' - मैं कौन हूँ?",
+            'en_q': "I say: 'See you tomorrow!' - Who am I?",
+            'hi_a': "Teacher",
+            'en_a': "Teacher"
+        },
+    ],
+    'doctor_visit__kids_learning': [
+        {
+            'id': 1,
+            'hi_q': "कथन: 'Hello! I am here to help you feel better 😊' - मैं कौन हूँ?",
+            'en_q': "I say: 'Hello! I am here to help you feel better 😊' - Who am I?",
+            'hi_a': "Doctor",
+            'en_a': "Doctor"
+        },
+        {
+            'id': 2,
+            'hi_q': "कथन: 'Don’t worry, I will only check you.' - मैं कौन हूँ?",
+            'en_q': "I say: 'Don’t worry, I will only check you.' - Who am I?",
+            'hi_a': "Doctor",
+            'en_a': "Doctor"
+        },
+        {
+            'id': 3,
+            'hi_q': "कथन: 'I am listening to your heartbeat. Thump thump!' - मैं कौन हूँ?",
+            'en_q': "I say: 'I am listening to your heartbeat. Thump thump!' - Who am I?",
+            'hi_a': "Doctor",
+            'en_a': "Doctor"
+        },
+        {
+            'id': 4,
+            'hi_q': "कथन: 'Just checking if you have fever.' - मैं कौन हूँ?",
+            'en_q': "I say: 'Just checking if you have fever.' - Who am I?",
+            'hi_a': "Doctor",
+            'en_a': "Doctor"
+        },
+        {
+            'id': 5,
+            'hi_q': "कथन: 'Say Aaaa… very good!' - मैं कौन हूँ?",
+            'en_q': "I say: 'Say Aaaa… very good!' - Who am I?",
+            'hi_a': "Doctor",
+            'en_a': "Doctor"
+        },
+        {
+            'id': 6,
+            'hi_q': "कथन: 'Take this medicine and rest. You will feel better soon.' - मैं कौन हूँ?",
+            'en_q': "I say: 'Take this medicine and rest. You will feel better soon.' - Who am I?",
+            'hi_a': "Doctor",
+            'en_a': "Doctor"
+        },
+        {
+            'id': 7,
+            'hi_q': "कथन: 'Eat healthy food and drink water!' - मैं कौन हूँ?",
+            'en_q': "I say: 'Eat healthy food and drink water!' - Who am I?",
+            'hi_a': "Doctor",
+            'en_a': "Doctor"
+        },
+        {
+            'id': 8,
+            'hi_q': "कथन: 'These habits keep you strong!' - मैं कौन हूँ?",
+            'en_q': "I say: 'These habits keep you strong!' - Who am I?",
+            'hi_a': "Doctor",
+            'en_a': "Doctor"
+        },
+    ],
+    'traffic_light__kids_learning': [
+        {
+            'id': 1,
+            'hi_q': "कथन: 'Hello kids! I help keep everyone safe on the road!' - मैं कौन हूँ?",
+            'en_q': "I say: 'Hello kids! I help keep everyone safe on the road!' - Who am I?",
+            'hi_a': "Traffic Light",
+            'en_a': "Traffic Light"
+        },
+        {
+            'id': 2,
+            'hi_q': "कथन: 'RED means STOP!' - मैं कौन हूँ?",
+            'en_q': "I say: 'RED means STOP!' - Who am I?",
+            'hi_a': "Traffic Light",
+            'en_a': "Traffic Light"
+        },
+        {
+            'id': 3,
+            'hi_q': "कथन: 'YELLOW means WAIT… get ready!' - मैं कौन हूँ?",
+            'en_q': "I say: 'YELLOW means WAIT… get ready!' - Who am I?",
+            'hi_a': "Traffic Light",
+            'en_a': "Traffic Light"
+        },
+        {
+            'id': 4,
+            'hi_q': "कथन: 'GREEN means GO!' - मैं कौन हूँ?",
+            'en_q': "I say: 'GREEN means GO!' - Who am I?",
+            'hi_a': "Traffic Light",
+            'en_a': "Traffic Light"
+        },
+    ],
+}

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronLeft } from 'lucide-react';
 
 // Menu Configuration
 const MENU_STRUCTURE = {
@@ -37,46 +38,79 @@ function ReasoningMenu({ onSelectMode, onBack }) {
         <div style={{ width: '100%', maxWidth: '1200px', margin: '0 auto', padding: '40px 20px' }}>
 
             {/* Header */}
-            <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                marginBottom: '40px',
-                position: 'relative'
-            }}>
-                <button onClick={handleBack} style={{
-                    padding: '12px 24px',
-                    background: 'white',
-                    color: '#2C3E50',
-                    fontWeight: '900',
-                    fontSize: '1.2rem',
-                    borderRadius: '20px',
-                    boxShadow: '0 4px 0 #BDC3C7',
-                    border: '2px solid #ECF0F1',
-                    cursor: 'pointer',
+            <div
+                className="mobile-header-stack"
+                style={{
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '10px',
-                    zIndex: 10
-                }}>
-                    <span>⬅</span> {currentView === 'root' ? 'HOME' : 'BACK'}
-                </button>
+                    marginBottom: '30px',
+                    position: 'relative',
+                    justifyContent: 'space-between'
+                }}
+            >
+                <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="back-btn"
+                    onClick={handleBack}
+                    style={{
+                        padding: '10px 20px',
+                        background: 'white',
+                        color: '#475569',
+                        fontWeight: '800',
+                        fontSize: '0.9rem',
+                        borderRadius: '12px',
+                        boxShadow: '0 4px 6px -1px rgba(0,0,0,0.1)',
+                        border: '1px solid #E2E8F0',
+                        cursor: 'pointer',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '8px',
+                        zIndex: 10,
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.5px'
+                    }}
+                >
+                    <ChevronLeft size={18} /> {currentView === 'root' ? 'Menu' : 'Back'}
+                </motion.button>
 
-                <div style={{
-                    position: 'absolute',
-                    width: '100%',
-                    textAlign: 'center',
-                    pointerEvents: 'none'
-                }}>
-                    <h1 style={{
-                        margin: 0,
-                        fontSize: '3rem',
-                        color: '#2C3E50',
-                        fontWeight: '900',
-                        textShadow: '0 2px 0 rgba(255,255,255,0.5)'
-                    }}>
-                        {getTitle()}
-                    </h1>
+                <div
+                    className="title-container"
+                    style={{
+                        position: 'absolute',
+                        width: '100%',
+                        textAlign: 'center',
+                        pointerEvents: 'none',
+                        left: 0
+                    }}
+                >
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                        <span style={{
+                            fontSize: '0.75rem',
+                            fontWeight: '900',
+                            color: '#94A3B8',
+                            letterSpacing: '2px',
+                            textTransform: 'uppercase',
+                            marginBottom: '2px'
+                        }}>
+                            IQ Booster
+                        </span>
+                        <h1
+                            className="mobile-text-lg"
+                            style={{
+                                margin: 0,
+                                fontSize: '1.8rem',
+                                color: '#1E293B',
+                                fontWeight: '900',
+                                lineHeight: 1
+                            }}
+                        >
+                            REASONING
+                        </h1>
+                    </div>
                 </div>
+
+                <div style={{ width: '100px' }} className="mobile-hide"></div>
             </div>
 
             {/* Grid */}
@@ -87,6 +121,7 @@ function ReasoningMenu({ onSelectMode, onBack }) {
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -20 }}
                     transition={{ duration: 0.2 }}
+                    className="mobile-grid-1"
                     style={{
                         display: 'grid',
                         gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
@@ -96,58 +131,52 @@ function ReasoningMenu({ onSelectMode, onBack }) {
                     {MENU_STRUCTURE[currentView].map((item, index) => (
                         <motion.button
                             key={item.id}
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
+                            initial={{ y: 20, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
                             transition={{ delay: index * 0.05 }}
                             whileHover={{ scale: 1.02, y: -5 }}
                             whileTap={{ scale: 0.98 }}
                             onClick={() => handleItemClick(item)}
                             style={{
-                                background: item.color,
-                                border: 'none',
-                                borderRadius: '30px',
+                                background: 'white',
+                                border: '1px solid #E2E8F0',
+                                borderRadius: '24px',
                                 padding: '30px',
-                                position: 'relative',
-                                overflow: 'hidden',
-                                boxShadow: `0 10px 0 ${item.shadow}`,
-                                cursor: 'pointer',
                                 display: 'flex',
                                 flexDirection: 'column',
                                 alignItems: 'center',
                                 textAlign: 'center',
-                                height: '220px',
-                                justifyContent: 'center'
+                                gap: '15px',
+                                boxShadow: '0 4px 15px rgba(0,0,0,0.03)',
+                                cursor: 'pointer'
                             }}
                         >
-                            {/* Shine Effect */}
                             <div style={{
-                                position: 'absolute',
-                                top: '-50%',
-                                left: '-50%',
-                                width: '200%',
-                                height: '200%',
-                                background: 'linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent)',
-                                transform: 'rotate(45deg)',
-                                pointerEvents: 'none'
-                            }} />
-
-                            <span style={{
-                                fontSize: '5rem',
-                                marginBottom: '15px',
-                                filter: 'drop-shadow(0 4px 0 rgba(0,0,0,0.1))'
+                                fontSize: '4rem',
+                                background: `${item.color}10`,
+                                width: '100px',
+                                height: '100px',
+                                borderRadius: '50%',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center'
                             }}>
                                 {item.icon}
-                            </span>
+                            </div>
 
-                            <span style={{
-                                fontSize: '1.8rem',
-                                fontWeight: '900',
-                                color: 'white',
-                                lineHeight: '1.2',
-                                textShadow: '0 2px 0 rgba(0,0,0,0.1)'
-                            }}>
-                                {item.title}
-                            </span>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
+                                <span style={{
+                                    fontSize: '1.6rem',
+                                    fontWeight: '900',
+                                    color: item.color,
+                                    lineHeight: '1.2'
+                                }}>
+                                    {item.title}
+                                </span>
+                                <span style={{ fontSize: '0.8rem', fontWeight: '800', color: '#64748B', opacity: 0.6, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                                    Play Now
+                                </span>
+                            </div>
                         </motion.button>
                     ))}
                 </motion.div>

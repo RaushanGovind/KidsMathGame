@@ -1,0 +1,151 @@
+[BILINGUAL_GK_TOPIC_BIRDS]
+
+Q1
+HI_Q: पक्षियों के शरीर पर क्या होता है?
+EN_Q: What covers the body of birds?
+HI_A: पंख
+EN_A: Feathers
+
+Q2
+HI_Q: पक्षी किसकी मदद से उड़ते हैं?
+EN_Q: Birds fly with the help of what?
+HI_A: पंख
+EN_A: Wings
+
+Q3
+HI_Q: पक्षियों का घर क्या कहलाता है?
+EN_Q: What is a bird's home called?
+HI_A: घोंसला
+EN_A: Nest
+
+Q4
+HI_Q: पक्षी क्या देते हैं जिससे बच्चे पैदा होते हैं?
+EN_Q: What do birds lay to have babies?
+HI_A: अंडे
+EN_A: Eggs
+
+Q5
+HI_Q: भारत का राष्ट्रीय पक्षी कौन है?
+EN_Q: What is the national bird of India?
+HI_A: मोर
+EN_A: Peacock
+
+Q6
+HI_Q: तोता किस रंग का होता है?
+EN_Q: What is the color of a parrot?
+HI_A: हरा
+EN_A: Green
+
+Q7
+HI_Q: कौन सा पक्षी बोलना सीख सकता है?
+EN_Q: Which bird can learn to talk?
+HI_A: तोता
+EN_A: Parrot
+
+Q8
+HI_Q: कौन सा पक्षी उड़ नहीं सकता?
+EN_Q: Which bird cannot fly?
+HI_A: शुतुरमुर्ग
+EN_A: Ostrich
+
+Q9
+HI_Q: कौन सा पक्षी रात में जागता है?
+EN_Q: Which bird stays awake at night?
+HI_A: उल्लू
+EN_A: Owl
+
+Q10
+HI_Q: कबूतर किस लिए जाना जाता है?
+EN_Q: What is a pigeon known for?
+HI_A: संदेश ले जाने के लिए (पुराने समय में)
+EN_A: Carrying messages (in old times)
+
+Q11
+HI_Q: मुर्गी क्या देती है?
+EN_Q: What does a hen give us?
+HI_A: अंडे
+EN_A: Eggs
+
+Q12
+HI_Q: चील किस प्रकार का पक्षी है?
+EN_Q: What type of bird is an eagle?
+HI_A: शिकारी पक्षी
+EN_A: Bird of prey
+
+Q13
+HI_Q: हंस किस पानी में तैरता है?
+EN_Q: In what does a swan swim?
+HI_A: पानी में
+EN_A: In water
+
+Q14
+HI_Q: कौन सा पक्षी अपने घोंसले में अंडे नहीं देता?
+EN_Q: Which bird does not lay eggs in its own nest?
+HI_A: कोयल
+EN_A: Cuckoo
+
+Q15
+HI_Q: कौआ किस रंग का होता है?
+EN_Q: What is the color of a crow?
+HI_A: काला
+EN_A: Black
+
+Q16
+HI_Q: मोर किस मौसम में नाचता है?
+EN_Q: In which season does a peacock dance?
+HI_A: बारिश के मौसम में
+EN_A: During the rainy season
+
+Q17
+HI_Q: बत्तख कहाँ रहती है?
+EN_Q: Where does a duck live?
+HI_A: पानी और जमीन दोनों पर
+EN_A: Both in water and on land
+
+Q18
+HI_Q: कौन सा छोटा पक्षी फूलों का रस पीता है?
+EN_Q: Which small bird drinks nectar from flowers?
+HI_A: हमिंग बर्ड
+EN_A: Hummingbird
+
+Q19
+HI_Q: पक्षियों की चोंच किस काम आती है?
+EN_Q: What is a bird's beak used for?
+HI_A: खाना खाने के लिए
+EN_A: For eating food
+
+Q20
+HI_Q: पक्षियों के पैर किस काम आते हैं?
+EN_Q: What are birds' legs used for?
+HI_A: चलने और पकड़ने के लिए
+EN_A: For walking and holding
+
+Q21
+HI_Q: प्रवासी पक्षी क्या करते हैं?
+EN_Q: What do migratory birds do?
+HI_A: मौसम के अनुसार स्थान बदलते हैं
+EN_A: Move from one place to another with seasons
+
+Q22
+HI_Q: कौन सा पक्षी बहुत ऊँचा उड़ सकता है?
+EN_Q: Which bird can fly very high?
+HI_A: गिद्ध
+EN_A: Vulture
+
+Q23
+HI_Q: चिड़िया आमतौर पर कहाँ घोंसला बनाती है?
+EN_Q: Where do small birds usually build nests?
+HI_A: पेड़ों पर
+EN_A: On trees
+
+Q24
+HI_Q: पक्षी पर्यावरण के लिए क्यों जरूरी हैं?
+EN_Q: Why are birds important for the environment?
+HI_A: बीज फैलाने और कीड़े खाने के लिए
+EN_A: For spreading seeds and eating insects
+
+Q25
+HI_Q: हमें पक्षियों के साथ कैसा व्यवहार करना चाहिए?
+EN_Q: How should we behave with birds?
+HI_A: दया और सुरक्षा के साथ
+EN_A: With kindness and protection

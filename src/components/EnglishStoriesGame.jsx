@@ -26,7 +26,7 @@ function EnglishStoriesGame({ onBack }) {
     const handleSpeak = (text) => {
         // Clear any ongoing speech
         window.speechSynthesis?.cancel();
-        speak(text, 'en-US', 0.9);
+        speak(text, 'en-IN');
     };
 
     const handleStorySelect = (story) => {
@@ -65,7 +65,7 @@ function EnglishStoriesGame({ onBack }) {
             {/* Header */}
             <div style={{ width: '100%', maxWidth: '800px', display: 'flex', justifyContent: 'space-between', marginBottom: '30px', alignItems: 'center' }}>
                 <button onClick={handleBack} style={{ padding: '12px 24px', background: 'white', color: '#0369A1', fontWeight: '1000', borderRadius: '15px', border: '2px solid #E0F2FE', boxShadow: '0 4px 0 #BAE6FD', cursor: 'pointer', fontSize: '1.1rem' }}>⬅ BACK</button>
-                <h1 style={{ fontSize: '2.5rem', fontWeight: '1000', color: '#0369A1', margin: 0, fontFamily: 'serif' }}>
+                <h1 style={{ fontSize: '2.5rem', fontWeight: '1000', color: '#0369A1', margin: 0 }}>
                     {selectedStory ? "Story Time" : "English Stories"}
                 </h1>
                 <div style={{ width: '80px', visibility: 'hidden' }}></div>
@@ -111,7 +111,7 @@ function EnglishStoriesGame({ onBack }) {
                                     {story.icon}
                                 </div>
                                 <div style={{ flex: 1 }}>
-                                    <h3 style={{ fontSize: '1.5rem', margin: 0, color: '#0C4A6E', fontWeight: '900', fontFamily: 'serif' }}>{story.title}</h3>
+                                    <h3 style={{ fontSize: '1.5rem', margin: 0, color: '#0C4A6E', fontWeight: '900' }}>{story.title}</h3>
                                     <span style={{ fontSize: '0.9rem', color: '#0369A1', fontWeight: '700' }}>Read Story 📚 ➡</span>
                                 </div>
                             </motion.button>
@@ -138,14 +138,13 @@ function EnglishStoriesGame({ onBack }) {
                     >
                         <div style={{ textAlign: 'center' }}>
                             <div style={{ fontSize: '6rem', marginBottom: '10px' }}>{selectedStory.icon}</div>
-                            <h2 style={{ fontSize: '2.8rem', fontWeight: '1000', color: '#0C4A6E', margin: 0, fontFamily: 'serif' }}>{selectedStory.title}</h2>
+                            <h2 style={{ fontSize: '2.8rem', fontWeight: '1000', color: '#0C4A6E', margin: 0 }}>{selectedStory.title}</h2>
                         </div>
 
                         <div style={{
                             fontSize: '1.6rem',
                             lineHeight: '1.8',
                             color: '#1E293B',
-                            fontFamily: 'serif',
                             textAlign: 'justify',
                             background: '#F8FAFC',
                             padding: '35px',
@@ -167,7 +166,7 @@ function EnglishStoriesGame({ onBack }) {
                             boxShadow: '0 5px 15px rgba(20, 184, 166, 0.1)'
                         }}>
                             <span style={{ fontWeight: '1000', color: '#0D9488', fontSize: '1.3rem', textTransform: 'uppercase', letterSpacing: '1px' }}>The Moral:</span>
-                            <p style={{ margin: 0, fontSize: '1.5rem', fontWeight: '800', color: '#0F766E', fontFamily: 'serif', fontStyle: 'italic' }}>
+                            <p style={{ margin: 0, fontSize: '1.5rem', fontWeight: '800', color: '#0F766E', fontStyle: 'italic' }}>
                                 "{selectedStory.moral}"
                             </p>
                         </div>

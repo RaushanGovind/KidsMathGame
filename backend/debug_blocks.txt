@@ -1,0 +1,52 @@
+Total blocks: 23
+
+Block 0:
+  Header: ⚡ ENERGY FOODS – KIDS LEARNING CHART ⚡
+  Lines: 2
+  NO MATCH
+
+Block 1:
+  Header: ━━━━━━
+  Lines: 13
+  NO MATCH
+
+Block 2:
+  Header: ━━━━━━
+  Lines: 11
+  NO MATCH
+
+Block 3:
+  Header: ━━━━━━
+  Lines: 13
+  NO MATCH
+
+Block 4:
+  Header: ━━━━━━
+  Lines: 8
+  NO MATCH
+
+Block 5:
+  Header: ━━━━━━
+  Lines: 6
+  NO MATCH
+
+Block 6:
+  Header: ━━━━━━
+  Lines: 9
+  NO MATCH
+
+Block 7:
+  Header: ━━━━━━
+  Lines: 10
+  NO MATCH
+
+Block 8:
+  Header: ━━━━━━
+  Lines: 10
+  NO MATCH
+
+Block 9:
+  Header: ━━━━━━
+  Lines: 10
+  NO MATCH
+

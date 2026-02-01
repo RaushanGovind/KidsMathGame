@@ -1,0 +1,854 @@
+
+
+🔬 PHYSICS BASICS – Kids Learning
+
+Physics helps us understand how things move, work, and happen around us.
+भौतिक विज्ञान हमें समझाता है कि चीज़ें कैसे चलती हैं और कैसे काम करती हैं।
+
+------------------------------------
+
+🧲 1. Force (बल)
+
+Force means a push or a pull.
+बल का मतलब धक्का या खींचना है।
+
+Examples:
+We push a door to open it.
+दरवाज़ा खोलने के लिए हम धक्का देते हैं।
+
+We pull a drawer to open it.
+दराज खोलने के लिए हम खींचते हैं।
+
+------------------------------------
+
+🏃 2. Motion (गति)
+
+Motion means movement.
+गति का मतलब चलना या हिलना है।
+
+A car moving on the road is motion.
+सड़क पर चलती कार गति है।
+
+------------------------------------
+
+💡 3. Light (प्रकाश)
+
+Light helps us see things.
+प्रकाश हमें चीज़ें देखने में मदद करता है।
+
+The Sun is our main source of light.
+सूरज प्रकाश का मुख्य स्रोत है।
+
+------------------------------------
+
+🧲 4. Magnet (चुंबक)
+
+A magnet can pull iron objects.
+चुंबक लोहे की चीज़ों को खींच सकता है।
+
+Magnets have two poles.
+चुंबक के दो ध्रुव होते हैं।
+
+------------------------------------
+
+🌡️ 5. States of Matter (पदार्थ की अवस्थाएँ)
+
+Solid (ठोस) – Ice, stone  
+Liquid (द्रव) – Water, milk  
+Gas (गैस) – Air, steam  
+
+Everything around us is made of matter.
+हमारे आसपास की हर चीज़ पदार्थ से बनी है।
+
+------------------------------------
+
+🎯 WHY PHYSICS IS IMPORTANT
+भौतिक विज्ञान क्यों ज़रूरी है
+
+Physics helps us understand the world.
+भौतिक विज्ञान हमें दुनिया को समझने में मदद करता है।
+
+------------------------------------
+
+🎵 RHYME
+
+Push or pull, things will move,  
+धक्का या खींचो — motion you prove!
+
+Light to see and magnets play,  
+रोशनी और चुंबक — science every day!
+
+
+⚡ ELECTRICITY – Kids Learning
+
+Electricity is a form of energy that makes many things work.
+बिजली ऊर्जा का एक रूप है जो कई चीज़ों को चलाती है।
+
+------------------------------------
+
+💡 WHAT ELECTRICITY DOES (बिजली क्या करती है)
+
+Electricity gives us light.
+बिजली हमें रोशनी देती है।
+
+Electricity runs fans, TVs, and computers.
+बिजली पंखा, टीवी और कंप्यूटर चलाती है।
+
+------------------------------------
+
+🔋 WHERE ELECTRICITY COMES FROM (बिजली कहाँ से आती है)
+
+Electricity is made in power stations.
+बिजली बिजलीघरों में बनाई जाती है।
+
+It can be made using water, wind, sun, and coal.
+बिजली पानी, हवा, सूरज और कोयले से बनाई जा सकती है।
+
+------------------------------------
+
+🔌 SIMPLE ELECTRIC CIRCUIT (सरल विद्युत परिपथ)
+
+A circuit is a path through which electricity flows.
+परिपथ वह रास्ता है जिससे बिजली बहती है।
+
+Battery → Wire → Bulb = Light
+बैटरी → तार → बल्ब = रोशनी
+
+------------------------------------
+
+⚠️ SAFETY RULES (सुरक्षा नियम)
+
+Do not touch switches with wet hands.
+गीले हाथों से स्विच न छुएँ।
+
+Do not put fingers into electric sockets.
+बिजली के सॉकेट में उंगली न डालें।
+
+------------------------------------
+
+🎯 WHY ELECTRICITY IS IMPORTANT
+बिजली क्यों ज़रूरी है
+
+Electricity makes our life easy and comfortable.
+बिजली हमारे जीवन को आसान और आरामदायक बनाती है।
+
+------------------------------------
+
+🎵 RHYME
+
+Flip the switch and light will glow,  
+स्विच दबाओ — bulb will glow!
+
+Fans will spin and TV play,  
+पंखा चले, टीवी बजे — electricity saves the day!
+
+
+⚡ ENERGY – Kids Learning
+
+Energy is the ability to do work.
+ऊर्जा काम करने की शक्ति है।
+
+We need energy to move, play, and work.
+हमें चलने, खेलने और काम करने के लिए ऊर्जा चाहिए।
+
+------------------------------------
+
+🍎 ENERGY FROM FOOD (भोजन से ऊर्जा)
+
+Food gives us energy.
+भोजन हमें ऊर्जा देता है।
+
+Healthy food makes us strong.
+स्वस्थ भोजन हमें ताकतवर बनाता है।
+
+------------------------------------
+
+☀️ TYPES OF ENERGY SOURCES (ऊर्जा के स्रोत)
+
+1️⃣ Solar Energy (सौर ऊर्जा)
+Energy from the Sun.
+सूरज से मिलने वाली ऊर्जा।
+Solar panels use sunlight to make electricity.
+सोलर पैनल सूरज की रोशनी से बिजली बनाते हैं।
+
+2️⃣ Wind Energy (पवन ऊर्जा)
+Energy from moving air.
+चलती हवा से मिलने वाली ऊर्जा।
+Windmills use wind to produce electricity.
+पवनचक्कियाँ हवा से बिजली बनाती हैं।
+
+3️⃣ Water Energy (जल ऊर्जा)
+Energy from flowing water.
+बहते पानी से मिलने वाली ऊर्जा।
+Dams use water to make electricity.
+बांध पानी से बिजली बनाते हैं।
+
+------------------------------------
+
+🔋 USES OF ENERGY (ऊर्जा के उपयोग)
+
+We use energy to light bulbs.
+हम बल्ब जलाने के लिए ऊर्जा का उपयोग करते हैं।
+
+We use energy to run machines and vehicles.
+हम मशीनें और वाहन चलाने के लिए ऊर्जा का उपयोग करते हैं।
+
+------------------------------------
+
+🎯 WHY ENERGY IS IMPORTANT
+ऊर्जा क्यों ज़रूरी है
+
+Without energy, nothing can work.
+ऊर्जा के बिना कुछ भी काम नहीं कर सकता।
+
+------------------------------------
+
+🎵 RHYME
+
+Sun and wind and water flow,  
+सूरज, हवा, पानी — energy makes things go!
+
+Eat good food and play all day,  
+अच्छा खाना, खेलना-कूदना — energy all the way!
+
+
+🧲 MAGNETS – Kids Learning
+
+A magnet is an object that can pull certain metals.
+चुंबक एक ऐसी वस्तु है जो कुछ धातुओं को अपनी ओर खींचती है।
+
+------------------------------------
+
+🧲 WHAT MAGNETS ATTRACT (चुंबक क्या खींचता है)
+
+Magnets attract iron, nickel, and steel.
+चुंबक लोहा, निकल और स्टील को खींचता है।
+
+Magnets do not attract wood, plastic, or paper.
+चुंबक लकड़ी, प्लास्टिक या कागज़ को नहीं खींचता।
+
+------------------------------------
+
+🧭 POLES OF A MAGNET (चुंबक के ध्रुव)
+
+Every magnet has two poles:
+हर चुंबक के दो ध्रुव होते हैं:
+
+North Pole (उत्तरी ध्रुव)  
+South Pole (दक्षिणी ध्रुव)
+
+Opposite poles attract each other.
+अलग-अलग ध्रुव एक-दूसरे को खींचते हैं।
+
+Same poles push each other away.
+एक जैसे ध्रुव एक-दूसरे को दूर धकेलते हैं।
+
+------------------------------------
+
+🧲 TYPES OF MAGNETS (चुंबक के प्रकार)
+
+Bar Magnet (छड़ी चुंबक)  
+Horseshoe Magnet (घोड़े की नाल जैसा चुंबक)  
+Ring Magnet (छल्ला चुंबक)
+
+------------------------------------
+
+🎯 USES OF MAGNETS (चुंबक के उपयोग)
+
+Magnets are used in compasses.
+चुंबक दिशा सूचक यंत्र (कम्पास) में उपयोग होते हैं।
+
+Magnets are used in speakers and toys.
+चुंबक स्पीकर और खिलौनों में उपयोग होते हैं।
+
+------------------------------------
+
+🎵 RHYME
+
+Magnets pull with magic might,  
+चुंबक खींचे चीज़ें tight!
+
+North and south, a special pair,  
+उत्तर-दक्षिण ध्रुव — attract in air!
+
+
+🔊 SOUND – Kids Learning
+
+Sound is a form of energy that we can hear.
+ध्वनि ऊर्जा का एक रूप है जिसे हम सुन सकते हैं।
+
+------------------------------------
+
+🎶 HOW SOUND IS MADE (ध्वनि कैसे बनती है)
+
+Sound is made when things vibrate.
+जब कोई वस्तु कंपन करती है तो ध्वनि बनती है।
+
+Example:
+When we hit a drum, it vibrates and makes sound.
+जब हम ढोल बजाते हैं तो वह कंपन करता है और आवाज़ निकलती है।
+
+------------------------------------
+
+👂 HOW WE HEAR SOUND (हम ध्वनि कैसे सुनते हैं)
+
+Sound travels through air to our ears.
+ध्वनि हवा के माध्यम से हमारे कानों तक पहुँचती है।
+
+Our ears help us hear different sounds.
+हमारे कान अलग-अलग ध्वनियाँ सुनने में मदद करते हैं।
+
+------------------------------------
+
+📢 TYPES OF SOUNDS (ध्वनि के प्रकार)
+
+Soft Sound (धीमी आवाज़) – Whisper  
+Loud Sound (तेज़ आवाज़) – Drum, horn  
+
+------------------------------------
+
+🚫 NOISE (शोर)
+
+Very loud and unpleasant sound is called noise.
+बहुत तेज और खराब लगने वाली आवाज़ को शोर कहते हैं।
+
+------------------------------------
+
+🎯 WHY SOUND IS IMPORTANT
+ध्वनि क्यों महत्वपूर्ण है
+
+Sound helps us talk, listen, and enjoy music.
+ध्वनि हमें बोलने, सुनने और संगीत का आनंद लेने में मदद करती है।
+
+------------------------------------
+
+🎵 RHYME
+
+Clap your hands and hear the sound,  
+ताली बजाओ — sound goes round!
+
+Soft or loud, high or low,  
+धीमी या तेज — sound we know!
+
+
+🔥 HEAT – Kids Learning
+
+Heat is a form of energy that makes things warm or hot.
+ऊष्मा ऊर्जा का एक रूप है जो चीज़ों को गरम करती है।
+
+------------------------------------
+
+☀️ SOURCES OF HEAT (ऊष्मा के स्रोत)
+
+The Sun is the main source of heat.
+सूरज ऊष्मा का मुख्य स्रोत है।
+
+Fire also gives heat.
+आग भी ऊष्मा देती है।
+
+Electric heaters give heat.
+बिजली के हीटर भी ऊष्मा देते हैं।
+
+------------------------------------
+
+🌡️ EFFECTS OF HEAT (ऊष्मा के प्रभाव)
+
+Heat can make things hot.
+ऊष्मा चीज़ों को गरम करती है।
+
+Heat can melt ice into water.
+ऊष्मा बर्फ को पानी में बदल सकती है।
+
+Heat can boil water into steam.
+ऊष्मा पानी को भाप में बदल सकती है।
+
+------------------------------------
+
+❄️ COLD (ठंड)
+
+When there is less heat, it feels cold.
+जब ऊष्मा कम होती है, तो ठंड लगती है।
+
+We wear woollen clothes in winter to keep warm.
+हम सर्दी में गर्म रहने के लिए ऊनी कपड़े पहनते हैं।
+
+------------------------------------
+
+🎯 WHY HEAT IS IMPORTANT
+ऊष्मा क्यों ज़रूरी है
+
+Heat helps us cook food and keep warm.
+ऊष्मा हमें खाना पकाने और गर्म रहने में मदद करती है।
+
+------------------------------------
+
+🎵 RHYME
+
+Sun so bright, gives us heat,  
+सूरज चमके — warm and sweet!
+
+Ice will melt and water boil,  
+बर्फ पिघले, पानी उबले — heat at work, no toil!
+
+
+🌍 GRAVITY – Kids Learning
+
+Gravity is a force that pulls objects toward the Earth.
+गुरुत्वाकर्षण एक बल है जो चीज़ों को पृथ्वी की ओर खींचता है।
+
+------------------------------------
+
+⬇️ WHAT GRAVITY DOES (गुरुत्वाकर्षण क्या करता है)
+
+When you drop a ball, it falls down.
+जब आप गेंद गिराते हैं, तो वह नीचे गिरती है।
+
+Rain falls from clouds to the ground because of gravity.
+बारिश बादलों से नीचे गिरती है क्योंकि गुरुत्वाकर्षण होता है।
+
+------------------------------------
+
+🌎 EARTH'S GRAVITY (पृथ्वी का गुरुत्वाकर्षण)
+
+The Earth pulls everything towards its center.
+पृथ्वी हर चीज़ को अपने केंद्र की ओर खींचती है।
+
+That is why we do not float in the air.
+इसीलिए हम हवा में तैरते नहीं हैं।
+
+------------------------------------
+
+🌕 GRAVITY ON THE MOON (चाँद पर गुरुत्वाकर्षण)
+
+The Moon has less gravity than Earth.
+चाँद पर पृथ्वी से कम गुरुत्वाकर्षण होता है।
+
+Astronauts can jump higher on the Moon.
+अंतरिक्ष यात्री चाँद पर ज़्यादा ऊँचा कूद सकते हैं।
+
+------------------------------------
+
+🎯 WHY GRAVITY IS IMPORTANT
+गुरुत्वाकर्षण क्यों ज़रूरी है
+
+Gravity keeps us, water, and air on Earth.
+गुरुत्वाकर्षण हमें, पानी और हवा को पृथ्वी पर बनाए रखता है।
+
+------------------------------------
+
+🎵 RHYME
+
+Up you throw, down it will be,  
+ऊपर फेंको, नीचे गिरे — gravity you see!
+
+Earth pulls all, big and small,  
+पृथ्वी खींचे सबको — big and small!
+
+
+⚙️ SIMPLE MACHINES – Kids Learning
+
+Simple machines help us do work easily.
+सरल मशीनें हमें काम आसानी से करने में मदद करती हैं।
+
+------------------------------------
+
+1️⃣ Lever (उत्तोलक)
+A lever helps lift heavy things.
+उत्तोलक भारी चीज़ उठाने में मदद करता है।
+Example: Seesaw (झूला पट्टी)
+
+2️⃣ Pulley (चरखी)
+A pulley helps lift objects using a rope.
+चरखी रस्सी की मदद से चीज़ें उठाती है।
+Example: Drawing water from a well (कुएँ से पानी निकालना)
+
+3️⃣ Wheel and Axle (पहिया और धुरी)
+This helps things move easily.
+यह चीज़ों को आसानी से चलने में मदद करता है।
+Example: Bicycle wheel (साइकिल का पहिया)
+
+4️⃣ Inclined Plane (ढलान)
+A sloping surface used to move things up or down.
+ढलान चीज़ों को ऊपर-नीचे ले जाने में मदद करती है।
+Example: Ramp (रैंप)
+
+5️⃣ Screw (पेच)
+A screw holds things together.
+पेच चीज़ों को जोड़कर रखता है।
+
+6️⃣ Wedge (कील/फाड़ने वाला औज़ार)
+A wedge is used to cut or split objects.
+कील जैसी चीज़ें काटने या फाड़ने में मदद करती हैं।
+Example: Knife (चाकू)
+
+------------------------------------
+
+🎯 WHY SIMPLE MACHINES ARE IMPORTANT
+सरल मशीनें क्यों ज़रूरी हैं
+
+They make work faster and easier.
+ये काम को तेज़ और आसान बनाती हैं।
+
+------------------------------------
+
+🎵 RHYME
+
+Push or pull, lift or slide,  
+धक्का, खींचो, उठाओ — machines by your side!
+
+Wheels roll and levers rise,  
+पहिए घूमें, उत्तोलक उठाएँ — smart and wise!
+
+
+💧 WATER CYCLE – Kids Learning
+
+The water cycle shows how water moves around the Earth.
+जल चक्र बताता है कि पानी पृथ्वी पर कैसे घूमता रहता है।
+
+------------------------------------
+
+☀️ Evaporation (वाष्पीकरण)
+The Sun heats water in rivers, lakes, and oceans.
+सूरज नदियों, झीलों और समुद्र के पानी को गरम करता है।
+Water changes into water vapor and rises into the air.
+पानी भाप बनकर ऊपर उठता है।
+
+☁️ Condensation (संघनन)
+Water vapor cools and forms clouds.
+भाप ठंडी होकर बादल बनाती है।
+
+🌧️ Precipitation (वर्षा)
+Clouds become heavy and water falls as rain.
+बादल भारी होकर बारिश के रूप में पानी गिराते हैं।
+Sometimes it falls as snow or hail.
+कभी-कभी यह बर्फ या ओले के रूप में गिरता है।
+
+🌊 Collection (संग्रह)
+Rainwater collects in rivers, lakes, and oceans.
+बारिश का पानी नदियों, झीलों और समुद्र में जमा होता है।
+Then the cycle starts again.
+फिर जल चक्र दोबारा शुरू होता है।
+
+------------------------------------
+
+🎯 WHY WATER CYCLE IS IMPORTANT
+जल चक्र क्यों ज़रूरी है
+
+The water cycle gives us fresh water.
+जल चक्र हमें ताज़ा पानी देता है।
+It helps plants, animals, and people survive.
+यह पौधों, जानवरों और इंसानों को जीवित रहने में मदद करता है।
+
+------------------------------------
+
+🎵 RHYME
+
+Sun heats water, up it goes,  
+सूरज गरम करे पानी — up it goes!
+
+Clouds form high in the sky,  
+आसमान में बादल बन जाएँ high!
+
+Rain falls down, rivers flow,  
+बारिश गिरे, नदियाँ बहें — round and round we go!
+
+
+🌬️ AIR & WIND – Kids Learning
+
+Air is all around us, but we cannot see it.
+हवा हमारे चारों ओर है, लेकिन हम इसे देख नहीं सकते।
+
+Moving air is called wind.
+चलती हुई हवा को पवन कहते हैं।
+
+------------------------------------
+
+🌫️ AIR (हवा)
+
+Air takes up space.
+हवा जगह घेरती है।
+
+Air helps us breathe.
+हवा हमें सांस लेने में मदद करती है।
+
+Air has weight.
+हवा का भी वजन होता है।
+
+------------------------------------
+
+💨 WIND (पवन)
+
+Wind is moving air.
+पवन चलती हुई हवा है।
+
+Wind can be slow or fast.
+पवन धीमी या तेज हो सकती है।
+
+Strong winds can move trees and kites.
+तेज हवा पेड़ों और पतंगों को हिला सकती है।
+
+------------------------------------
+
+🌾 USES OF WIND (पवन के उपयोग)
+
+Wind helps boats sail.
+हवा नावों को चलने में मदद करती है।
+
+Windmills use wind to make electricity.
+पवनचक्की हवा से बिजली बनाती है।
+
+------------------------------------
+
+🎯 WHY AIR IS IMPORTANT
+हवा क्यों ज़रूरी है
+
+Without air, we cannot live.
+हवा के बिना हम जीवित नहीं रह सकते।
+
+------------------------------------
+
+🎵 RHYME
+
+Air is around but cannot be seen,  
+हवा है चारों ओर — fresh and clean!
+
+When air moves, wind we say,  
+जब हवा चले — wind at play!
+
+
+⛅ WEATHER – Kids Learning
+
+Weather tells us about the condition of the air outside.
+मौसम हमें बाहर की हवा की स्थिति के बारे में बताता है।
+It can change from day to day.
+यह हर दिन बदल सकता है।
+
+------------------------------------
+
+☀️ Sunny (धूप वाला)
+The sun shines brightly in the sky.
+आसमान में सूरज तेज चमकता है।
+It feels hot.
+मौसम गरम लगता है।
+
+🌧️ Rainy (बरसात वाला)
+Clouds bring rain.
+बादल बारिश लाते हैं।
+We use umbrellas and raincoats.
+हम छाता और रेनकोट इस्तेमाल करते हैं।
+
+☁️ Cloudy (बादलों वाला)
+The sky is covered with clouds.
+आसमान बादलों से ढका होता है।
+
+🌬️ Windy (हवादार)
+Strong wind blows.
+तेज हवा चलती है।
+Leaves and kites move in the wind.
+हवा में पत्ते और पतंग उड़ते हैं।
+
+❄️ Snowy (बर्फीला)
+Snow falls in very cold places.
+बहुत ठंडी जगहों पर बर्फ गिरती है।
+Children make snowmen.
+बच्चे बर्फ का पुतला बनाते हैं।
+
+------------------------------------
+
+🎯 WHY WEATHER IS IMPORTANT
+मौसम क्यों महत्वपूर्ण है
+
+Weather helps us decide what clothes to wear.
+मौसम हमें तय करने में मदद करता है कि कौन से कपड़े पहनें।
+
+------------------------------------
+
+🎵 RHYME
+
+Sunny days and rainy nights,  
+धूप वाले दिन, बरसाती रातें — weather brings different sights!
+
+Clouds and wind and snow so white,  
+बादल, हवा और सफेद बर्फ — nature's changing light!
+
+
+🌍 EARTH & GLOBE – Kids Learning
+
+Earth is the planet where we live.
+पृथ्वी वह ग्रह है जहाँ हम रहते हैं।
+It is the third planet from the Sun.
+यह सूर्य से तीसरा ग्रह है।
+
+------------------------------------
+
+🌎 Earth (पृथ्वी)
+
+Earth has land, water, and air.
+पृथ्वी पर जमीन, पानी और हवा है।
+It is called the Blue Planet.
+इसे नीला ग्रह कहा जाता है क्योंकि इसमें बहुत पानी है।
+
+Day and night happen because Earth spins.
+पृथ्वी के घूमने से दिन और रात होते हैं।
+
+------------------------------------
+
+🧭 Globe (ग्लोब)
+
+A globe is a model of the Earth.
+ग्लोब पृथ्वी का मॉडल होता है।
+It shows continents, oceans, and countries.
+यह महाद्वीप, महासागर और देश दिखाता है।
+We use a globe to learn about the world.
+हम दुनिया के बारे में सीखने के लिए ग्लोब का उपयोग करते हैं।
+
+------------------------------------
+
+🌊 Oceans (महासागर)
+Oceans are very big water bodies.
+महासागर बहुत बड़े जल क्षेत्र होते हैं।
+
+🌍 Continents (महाद्वीप)
+Continents are large land areas.
+महाद्वीप बड़े भूभाग होते हैं।
+
+------------------------------------
+
+🎯 WHY EARTH IS SPECIAL
+पृथ्वी क्यों खास है
+
+Earth is the only planet known to have life.
+पृथ्वी ही एकमात्र ग्रह है जहाँ जीवन पाया जाता है।
+
+------------------------------------
+
+🎵 RHYME
+
+Earth is round and spins all day,  
+पृथ्वी गोल है, घूमे दिन-रात — in its own way!
+
+Globe shows land and oceans blue,  
+ग्लोब बताए दुनिया सारी — for me and you!
+
+
+🌎 CONTINENTS – Kids Learning
+
+Continents are very large land areas on Earth.
+महाद्वीप पृथ्वी पर बहुत बड़े भूभाग होते हैं।
+There are seven continents in the world.
+दुनिया में सात महाद्वीप हैं।
+
+------------------------------------
+
+1️⃣ Asia (एशिया)
+Asia is the largest continent.
+एशिया सबसे बड़ा महाद्वीप है।
+India is in Asia.
+भारत एशिया में है।
+
+2️⃣ Africa (अफ्रीका)
+Africa has many wild animals.
+अफ्रीका में कई जंगली जानवर पाए जाते हैं।
+
+3️⃣ North America (उत्तरी अमेरिका)
+Countries like the USA and Canada are here.
+अमेरिका और कनाडा जैसे देश यहाँ हैं।
+
+4️⃣ South America (दक्षिण अमेरिका)
+It has the Amazon rainforest.
+यहाँ अमेज़न वर्षावन है।
+
+5️⃣ Europe (यूरोप)
+Europe has many old countries and cities.
+यूरोप में कई पुराने देश और शहर हैं।
+
+6️⃣ Australia (ऑस्ट्रेलिया)
+Australia is the smallest continent.
+ऑस्ट्रेलिया सबसे छोटा महाद्वीप है।
+
+7️⃣ Antarctica (अंटार्कटिका)
+Antarctica is covered with ice and snow.
+अंटार्कटिका बर्फ और हिम से ढका है।
+No people live there permanently.
+वहाँ कोई स्थायी रूप से नहीं रहता।
+
+------------------------------------
+
+🎵 RHYME
+
+Asia, Africa, Europe too,  
+एशिया, अफ्रीका, यूरोप — continents we know and you!
+
+North and South America wide,  
+उत्तर और दक्षिण अमेरिका — oceans by their side!
+
+Australia small and Antarctica cold,  
+ऑस्ट्रेलिया छोटा, अंटार्कटिका ठंडा — stories of Earth untold!
+
+
+🌍 COUNTRIES – Kids Learning
+
+A country is a place where people live together under one government.
+देश वह जगह है जहाँ लोग एक सरकार के अंतर्गत रहते हैं।
+Each country has its own flag, language, and culture.
+हर देश का अपना झंडा, भाषा और संस्कृति होती है।
+
+------------------------------------
+
+🇮🇳 India (भारत)
+India is our country.
+भारत हमारा देश है।
+Capital: New Delhi (नई दिल्ली)
+
+🇺🇸 United States (अमेरिका)
+The United States is a large country.
+अमेरिका एक बड़ा देश है।
+Capital: Washington, D.C.
+
+🇨🇳 China (चीन)
+China has the largest population in the world.
+चीन की जनसंख्या बहुत अधिक है।
+Capital: Beijing (बीजिंग)
+
+🇯🇵 Japan (जापान)
+Japan is known as the land of the rising sun.
+जापान को उगते सूरज का देश कहा जाता है।
+Capital: Tokyo (टोक्यो)
+
+🇦🇺 Australia (ऑस्ट्रेलिया)
+Australia is also a continent.
+ऑस्ट्रेलिया एक महाद्वीप भी है।
+Capital: Canberra (कैनबरा)
+
+🇫🇷 France (फ्रांस)
+France is famous for the Eiffel Tower.
+फ्रांस एफिल टॉवर के लिए प्रसिद्ध है।
+Capital: Paris (पेरिस)
+
+🇧🇷 Brazil (ब्राज़ील)
+Brazil is known for the Amazon rainforest.
+ब्राज़ील अमेज़न वर्षावन के लिए प्रसिद्ध है।
+Capital: Brasília (ब्रासीलिया)
+
+🇨🇦 Canada (कनाडा)
+Canada is famous for snow and maple leaves.
+कनाडा बर्फ और मेपल पत्तों के लिए प्रसिद्ध है।
+Capital: Ottawa (ओटावा)
+
+------------------------------------
+
+🎯 WHY COUNTRIES ARE IMPORTANT
+देश क्यों महत्वपूर्ण हैं
+
+Countries help people live together with rules and culture.
+देश लोगों को नियम और संस्कृति के साथ मिलकर रहने में मदद करते हैं।
+
+------------------------------------
+
+🎵 RHYME
+
+Countries big and countries small,  
+देश बड़े हों या छोटे — we can learn them all!
+
+Flags fly high in every land,  
+हर देश का झंडा — proud and grand!

@@ -1,3 +1,4 @@
+import React from 'react';
 import { motion } from 'framer-motion';
 
 const menuItems = [
@@ -23,19 +24,23 @@ function Menu({ onSelectMode, onBack }) {
 
             {/* Header: Back & Title */}
             <div style={{ display: 'flex', alignItems: 'center', gap: '30px', marginBottom: '50px' }}>
-                <button onClick={onBack} style={{
-                    padding: '15px 30px',
-                    background: 'white',
-                    color: '#2C3E50',
-                    fontWeight: '900',
-                    fontSize: '1.2rem',
-                    borderRadius: '20px',
-                    boxShadow: '0 4px 0 #bdc3c7',
-                    border: '3px solid #f1f2f6',
-                    cursor: 'pointer'
-                }}>
+                <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={onBack}
+                    style={{
+                        padding: '15px 30px',
+                        background: 'white',
+                        color: '#2C3E50',
+                        fontWeight: '900',
+                        fontSize: '1.2rem',
+                        borderRadius: '20px',
+                        boxShadow: '0 4px 0 #bdc3c7',
+                        border: '3px solid #f1f2f6',
+                        cursor: 'pointer'
+                    }}>
                     ⬅ HOME
-                </button>
+                </motion.button>
                 <div style={{
                     background: 'rgba(255,255,255,0.95)',
                     padding: '20px 40px',

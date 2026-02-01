@@ -76,7 +76,7 @@ function HindiGame({ gameType, onBack }) {
     if (loading) return (
         <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: '#F8FAFC' }}>
             <motion.div animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 1, ease: 'linear' }} style={{ fontSize: '4rem' }}>🕉️</motion.div>
-            <div style={{ fontSize: '1.8rem', fontWeight: '900', color: '#D35400', marginTop: '20px', fontFamily: 'serif' }}>नमस्ते... Loading Content...</div>
+            <div className="hindi-text" style={{ fontSize: '1.8rem', fontWeight: '900', color: '#D35400', marginTop: '20px' }}>नमस्ते... Loading Content...</div>
         </div>
     );
 
@@ -109,13 +109,12 @@ function HindiGame({ gameType, onBack }) {
             }}>
                 <button onClick={onBack} style={{ padding: '12px 24px', background: 'white', color: '#2C3E50', fontWeight: '1000', borderRadius: '15px', border: '2px solid #F1F5F9', boxShadow: '0 4px 0 #CBD5E1', cursor: 'pointer', fontSize: '1.1rem' }}>⬅ BACK</button>
 
-                <h1 style={{
+                <h1 className="hindi-text" style={{
                     fontSize: '2rem',
                     fontWeight: '1000',
                     color: '#D35400',
                     margin: 0,
                     textTransform: 'uppercase',
-                    fontFamily: 'serif',
                     textAlign: 'center'
                 }}>
                     {gameData.title}
@@ -158,12 +157,11 @@ function HindiGame({ gameType, onBack }) {
                     >
                         {/* Word Display */}
                         <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px', width: '100%' }}>
-                            <span style={{
+                            <span className="hindi-text" style={{
                                 fontSize: 'clamp(5rem, 15vw, 10rem)',
                                 fontWeight: '1000',
                                 color: isVarnamala ? '#2E7D32' : '#D35400',
                                 lineHeight: 1.1,
-                                fontFamily: 'serif',
                                 filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.1))',
                                 wordBreak: 'break-word'
                             }}>

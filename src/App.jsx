@@ -1,236 +1,337 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useEffect, useCallback, useMemo, lazy, Suspense } from 'react';
+import { motion } from 'framer-motion';
+import Home from './components/Home';
 import Menu from './components/Menu';
-import Home from './components/Home'; // Import Home
-import AdditionGame from './components/AdditionGame';
-import SubtractionGame from './components/SubtractionGame';
-import MultiplicationGame from './components/MultiplicationGame';
-import DivisionGame from './components/DivisionGame';
-import TimeGame from './components/TimeGame';
-import FractionsGame from './components/FractionsGame';
-import LevelMap from './components/LevelMap'; // Import LevelMap
-import Progress from './components/Progress'; // Import Progress
-import Settings from './components/Settings'; // Import Settings
-import GlobalChallenge from './components/GlobalChallenge';
-import TablesGame from './components/TablesGame';
-import LCMGame from './components/LCMGame';
-import UnitaryMethodGame from './components/UnitaryMethodGame';
-import TimeArithmeticGame from './components/TimeArithmeticGame';
-import DecimalArithmeticGame from './components/DecimalArithmeticGame';
 import EnglishMenu from './components/EnglishMenu';
-import SpellingGame from './components/SpellingGame';
-import AlphabetGame from './components/AlphabetGame';
-import TwoLetterWordsGame from './components/TwoLetterWordsGame';
-import ThreeLetterWordsGame from './components/ThreeLetterWordsGame';
-import FourLetterWordsGame from './components/FourLetterWordsGame';
-import FiveLetterWordsGame from './components/FiveLetterWordsGame';
-import SixLetterWordsGame from './components/SixLetterWordsGame';
-import SevenLetterWordsGame from './components/SevenLetterWordsGame';
-import TwoWordSentencesGame from './components/TwoWordSentencesGame';
-import ThreeWordSentencesGame from './components/ThreeWordSentencesGame';
-import FourWordSentencesGame from './components/FourWordSentencesGame';
-import ActionSentencesGame from './components/ActionSentencesGame';
-import HomeActionsGame from './components/HomeActionsGame';
-import HomeAppliancesGame from './components/HomeAppliancesGame';
-import BasicActionsGame from './components/BasicActionsGame';
-import PhysicalActionsGame from './components/PhysicalActionsGame';
-import SchoolActionsGame from './components/SchoolActionsGame';
-import CommandsActionsGame from './components/CommandsActionsGame';
-import FeelingThinkingGame from './components/FeelingThinkingGame';
-import EncouragementGame from './components/EncouragementGame';
-import PolitePhrasesGame from './components/PolitePhrasesGame';
-import GuestMannersGame from './components/GuestMannersGame';
-import MorningRoutineGame from './components/MorningRoutineGame';
-import PrepositionsGame from './components/PrepositionsGame';
-import VerbsGame from './components/VerbsGame';
-import NounsGame from './components/NounsGame';
-import MentalMathGame from './components/MentalMathGame';
-
-import SingularPluralGame from './components/SingularPluralGame';
-import PronounsGame from './components/PronounsGame';
-import AdverbsGame from './components/AdverbsGame';
-import AdjectivesGame from './components/AdjectivesGame';
-
-import YesNoQuestionsGame from './components/YesNoQuestionsGame';
-import SentenceBuildingGame from './components/SentenceBuildingGame';
-import ConversationGame from './components/ConversationGame';
-import Leaderboard from './components/Leaderboard';
-import WordScrambleGame from './components/WordScrambleGame';
 import ReasoningMenu from './components/ReasoningMenu';
-import ReasoningBasicsGame from './components/ReasoningBasicsGame';
-import LogicPuzzleGame from './components/LogicPuzzleGame';
 import HindiMenu from './components/HindiMenu';
-import HindiGame from './components/HindiGame';
-import HindiStoriesGame from './components/HindiStoriesGame';
-import EnglishStoriesGame from './components/EnglishStoriesGame';
+import BilingualGKGame from './components/BilingualGKGame';
+import { GameProvider, useGame } from './context/GameContext';
 
-import { GameProvider } from './context/GameContext';
+// Math Games
+const AdditionGame = lazy(() => import('./components/AdditionGame'));
+const SubtractionGame = lazy(() => import('./components/SubtractionGame'));
+const MultiplicationGame = lazy(() => import('./components/MultiplicationGame'));
+const DivisionGame = lazy(() => import('./components/DivisionGame'));
+const FractionsGame = lazy(() => import('./components/FractionsGame'));
+const LCMGame = lazy(() => import('./components/LCMGame'));
+const MentalMathGame = lazy(() => import('./components/MentalMathGame'));
+const TablesGame = lazy(() => import('./components/TablesGame'));
+const TimeArithmeticGame = lazy(() => import('./components/TimeArithmeticGame'));
+const TimeGame = lazy(() => import('./components/TimeGame'));
+const UnitaryMethodGame = lazy(() => import('./components/UnitaryMethodGame'));
+const DecimalArithmeticGame = lazy(() => import('./components/DecimalArithmeticGame'));
+const Leaderboard = lazy(() => import('./components/Leaderboard'));
+const LevelMap = lazy(() => import('./components/LevelMap'));
 
-function App() {
-  const [currentMode, setCurrentMode] = useState('home'); // Default to home
+// Reasoning Games
+const ReasoningBasicsGame = lazy(() => import('./components/ReasoningBasicsGame'));
+const LogicPuzzleGame = lazy(() => import('./components/LogicPuzzleGame'));
+
+// Hindi Games
+const HindiGame = lazy(() => import('./components/HindiGame'));
+const HindiStoriesGame = lazy(() => import('./components/HindiStoriesGame'));
+
+// English Games
+const AlphabetGame = lazy(() => import('./components/AlphabetGame'));
+const SpellingGame = lazy(() => import('./components/SpellingGame'));
+const WordScrambleGame = lazy(() => import('./components/WordScrambleGame'));
+const EnglishStoriesGame = lazy(() => import('./components/EnglishStoriesGame'));
+const TwoLetterWordsGame = lazy(() => import('./components/TwoLetterWordsGame'));
+const ThreeLetterWordsGame = lazy(() => import('./components/ThreeLetterWordsGame'));
+const FourLetterWordsGame = lazy(() => import('./components/FourLetterWordsGame'));
+const FiveLetterWordsGame = lazy(() => import('./components/FiveLetterWordsGame'));
+const SixLetterWordsGame = lazy(() => import('./components/SixLetterWordsGame'));
+const SevenLetterWordsGame = lazy(() => import('./components/SevenLetterWordsGame'));
+const SentenceBuildingGame = lazy(() => import('./components/SentenceBuildingGame'));
+const ThreeWordSentencesGame = lazy(() => import('./components/ThreeWordSentencesGame'));
+const FourWordSentencesGame = lazy(() => import('./components/FourWordSentencesGame'));
+const ActionSentencesGame = lazy(() => import('./components/ActionSentencesGame'));
+const HomeActionsGame = lazy(() => import('./components/HomeActionsGame'));
+const BasicActionsGame = lazy(() => import('./components/BasicActionsGame'));
+const PhysicalActionsGame = lazy(() => import('./components/PhysicalActionsGame'));
+const SchoolActionsGame = lazy(() => import('./components/SchoolActionsGame'));
+const HomeAppliancesGame = lazy(() => import('./components/HomeAppliancesGame'));
+const CommandsActionsGame = lazy(() => import('./components/CommandsActionsGame'));
+const FeelingThinkingGame = lazy(() => import('./components/FeelingThinkingGame'));
+const EncouragementGame = lazy(() => import('./components/EncouragementGame'));
+const PolitePhrasesGame = lazy(() => import('./components/PolitePhrasesGame'));
+const GuestMannersGame = lazy(() => import('./components/GuestMannersGame'));
+const MorningRoutineGame = lazy(() => import('./components/MorningRoutineGame'));
+const PrepositionsGame = lazy(() => import('./components/PrepositionsGame'));
+const VerbsGame = lazy(() => import('./components/VerbsGame'));
+const NounsGame = lazy(() => import('./components/NounsGame'));
+const SingularPluralGame = lazy(() => import('./components/SingularPluralGame'));
+const PronounsGame = lazy(() => import('./components/PronounsGame'));
+const AdverbsGame = lazy(() => import('./components/AdverbsGame'));
+const AdjectivesGame = lazy(() => import('./components/AdjectivesGame'));
+const YesNoQuestionsGame = lazy(() => import('./components/YesNoQuestionsGame'));
+const ConversationGame = lazy(() => import('./components/ConversationGame'));
+const Settings = lazy(() => import('./components/Settings'));
+
+// Basic Header
+// Premium Header
+// Premium Header
+const GlobalHeader = ({ stars, level, onShowSettings }) => (
+  <div style={{
+    position: 'fixed', top: 0, left: 0, right: 0,
+    height: '70px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    padding: '0 20px',
+    zIndex: 2000,
+    background: 'rgba(255, 255, 255, 0.7)',
+    backdropFilter: 'blur(15px)',
+    borderBottom: '1px solid rgba(255, 255, 255, 0.3)',
+    boxShadow: '0 4px 15px rgba(0,0,0,0.03)'
+  }}>
+    {/* App Name / Logo */}
+    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+      <div style={{
+        width: '40px', height: '40px', background: 'linear-gradient(45deg, #3498DB, #2ECC71)',
+        borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center',
+        fontSize: '1.5rem', boxShadow: '0 4px 10px rgba(52, 152, 219, 0.3)'
+      }}>
+        🚀
+      </div>
+      <div>
+        <h1 style={{
+          fontSize: '1.2rem', margin: 0, color: '#2C3E50',
+          letterSpacing: '1px', textTransform: 'uppercase',
+          background: 'linear-gradient(45deg, #2C3E50, #3498DB)',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+          fontWeight: 900
+        }}>
+          Kids Hero
+        </h1>
+        <div style={{ fontSize: '0.65rem', fontWeight: 800, color: '#94A3B8', marginTop: '-4px' }}>
+          LEARN & PLAY
+        </div>
+      </div>
+    </div>
+
+    {/* Right Side Controls */}
+    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+      <div style={{
+        background: 'white',
+        padding: '6px 15px',
+        borderRadius: '20px',
+        boxShadow: '0 4px 15px rgba(0,0,0,0.05)',
+        display: 'flex',
+        alignItems: 'center',
+        gap: '12px',
+        border: '1px solid #F1F5F9'
+      }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+          <span style={{ fontSize: '1rem' }}>⭐</span>
+          <span style={{ fontWeight: '900', color: '#1E293B' }}>{stars}</span>
+        </div>
+        <div style={{ width: '1px', height: '20px', background: '#E2E8F0' }}></div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+          <span style={{ fontSize: '0.7rem', fontWeight: '900', color: '#64748B' }}>LVL</span>
+          <span style={{ fontWeight: '900', color: '#3498DB' }}>{level}</span>
+        </div>
+      </div>
+
+      <motion.div
+        whileHover={{ scale: 1.1, rotate: 15 }}
+        whileTap={{ scale: 0.9 }}
+        onClick={onShowSettings}
+        style={{
+          background: 'white',
+          padding: '10px',
+          borderRadius: '15px',
+          boxShadow: '0 4px 15px rgba(0,0,0,0.08)',
+          cursor: 'pointer',
+          border: '1px solid #F1F5F9',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          color: '#64748B'
+        }}
+      >
+        <span style={{ fontSize: '1.2rem' }}>⚙️</span>
+      </motion.div>
+    </div>
+  </div>
+);
+
+function AppContent() {
+  const [currentMode, setCurrentMode] = useState('home');
+  const [showSettings, setShowSettings] = useState(false);
+  const context = useGame();
+  const userData = context?.userData;
+
+  const navigate = useCallback((mode) => {
+    setCurrentMode(mode);
+  }, []);
+
+  useEffect(() => {
+    if (userData?.settings) {
+      document.documentElement.style.setProperty('--active-english-font', `var(--font-family-${userData.settings.englishFont.toLowerCase()})`);
+      document.documentElement.style.setProperty('--active-hindi-font', `var(--font-family-${userData.settings.hindiFont.toLowerCase()})`);
+    }
+  }, [userData?.settings?.englishFont, userData?.settings?.hindiFont]);
+
+  if (!userData) {
+    return (
+      <div style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#f8fafc' }}>
+        <h2 style={{ color: '#64748b' }}>Initializing Game Data...</h2>
+      </div>
+    );
+  }
 
   const renderContent = () => {
     switch (currentMode) {
       case 'home':
-        return <Home onNavigate={setCurrentMode} />;
-      case 'settings':
-        return <Settings onBack={() => setCurrentMode('home')} />;
-      case 'progress':
-        return <Progress onNavigate={setCurrentMode} onBack={() => setCurrentMode('menu')} />;
-      case 'levelmap':
-        return <LevelMap onBack={() => setCurrentMode('menu')} onSelectLevel={(id) => alert(`Level ${id} Selected!`)} />;
+        return <Home onNavigate={navigate} />;
       case 'menu':
-        return <Menu onSelectMode={setCurrentMode} onBack={() => setCurrentMode('home')} />;
-      case 'addition':
-        return <AdditionGame onBack={() => setCurrentMode('menu')} />;
-      case 'subtraction':
-        return <SubtractionGame onBack={() => setCurrentMode('menu')} />;
-      case 'multiplication':
-        return <MultiplicationGame onBack={() => setCurrentMode('menu')} />;
-      case 'division':
-        return <DivisionGame onBack={() => setCurrentMode('menu')} />;
-      case 'time':
-        return <TimeGame onBack={() => setCurrentMode('menu')} />;
-      case 'fractions':
-        return <FractionsGame onBack={() => setCurrentMode('menu')} />;
-      case 'global':
-        return <GlobalChallenge onBack={() => setCurrentMode('menu')} />;
-      case 'tables':
-        return <TablesGame onBack={() => setCurrentMode('menu')} />;
-      case 'lcm':
-        return <LCMGame onBack={() => setCurrentMode('menu')} />;
-      case 'unitary':
-        return <UnitaryMethodGame onBack={() => setCurrentMode('menu')} />;
-      case 'timearithmetic':
-        return <TimeArithmeticGame onBack={() => setCurrentMode('menu')} />;
-      case 'decimals':
-        return <DecimalArithmeticGame onBack={() => setCurrentMode('menu')} />;
+        return <Menu onSelectMode={navigate} onBack={() => navigate('home')} />;
       case 'english-menu':
-        return <EnglishMenu onSelectMode={(mode) => setCurrentMode(mode)} onBack={() => setCurrentMode('home')} />;
+        return <EnglishMenu onSelectMode={navigate} onBack={() => navigate('home')} />;
       case 'reasoning-menu':
-        return <ReasoningMenu onSelectMode={(mode) => setCurrentMode(mode)} onBack={() => setCurrentMode('home')} />;
-      case 'reasoning-basics':
-        return <ReasoningBasicsGame onBack={() => setCurrentMode('reasoning-menu')} />;
-      case 'logic-puzzles':
-        return <LogicPuzzleGame onBack={() => setCurrentMode('reasoning-menu')} />;
+        return <ReasoningMenu onSelectMode={navigate} onBack={() => navigate('home')} />;
       case 'hindi-menu':
-        return <HindiMenu onSelectMode={setCurrentMode} onBack={() => setCurrentMode('home')} />;
-      case 'hindi-varnamala':
-        return <HindiGame gameType="varnamala" onBack={() => setCurrentMode('hindi-menu')} />;
-      case 'hindi-2-letter':
-        return <HindiGame gameType="hindi-2-letter" onBack={() => setCurrentMode('hindi-menu')} />;
-      case 'hindi-3-letter':
-        return <HindiGame gameType="hindi-3-letter" onBack={() => setCurrentMode('hindi-menu')} />;
-      case 'hindi-stories':
-        return <HindiStoriesGame onBack={() => setCurrentMode('hindi-menu')} />;
-      case 'mentalmath':
-        return <MentalMathGame onBack={() => setCurrentMode('menu')} />;
-      case 'spelling':
-        return <SpellingGame onBack={() => setCurrentMode('english-menu')} />;
-      case 'wordscramble':
-        return <WordScrambleGame onBack={() => setCurrentMode('english-menu')} />;
-      case 'english-stories':
-        return <EnglishStoriesGame onBack={() => setCurrentMode('english-menu')} />;
-      case 'alphabet':
-        return <AlphabetGame onBack={() => setCurrentMode('english-menu')} />;
-      case 'twoletter':
-        return <TwoLetterWordsGame onBack={() => setCurrentMode('english-menu')} />;
-      case 'threeletter':
-        return <ThreeLetterWordsGame onBack={() => setCurrentMode('english-menu')} />;
-      case 'fourletter':
-        return <FourLetterWordsGame onBack={() => setCurrentMode('english-menu')} />;
-      case 'fiveletter':
-        return <FiveLetterWordsGame onBack={() => setCurrentMode('english-menu')} />;
-      case 'sixletter':
-        return <SixLetterWordsGame onBack={() => setCurrentMode('english-menu')} />;
-      case 'sevenletter':
-        return <SevenLetterWordsGame onBack={() => setCurrentMode('english-menu')} />;
-      case 'twowordsentences':
-        return <TwoWordSentencesGame onBack={() => setCurrentMode('english-menu')} />;
-      case 'threewordsentences':
-        return <ThreeWordSentencesGame onBack={() => setCurrentMode('english-menu')} />;
-      case 'fourwordsentences':
-        return <FourWordSentencesGame onBack={() => setCurrentMode('english-menu')} />;
-      case 'actionsentences':
-        return <ActionSentencesGame onBack={() => setCurrentMode('english-menu')} />;
-      case 'homeactions':
-        return <HomeActionsGame onBack={() => setCurrentMode('english-menu')} />;
-      case 'homeappliances':
-        return <HomeAppliancesGame onBack={() => setCurrentMode('english-menu')} />;
-      case 'basicactions':
-        return <BasicActionsGame onBack={() => setCurrentMode('english-menu')} />;
-      case 'physicalactions':
-        return <PhysicalActionsGame onBack={() => setCurrentMode('english-menu')} />;
-      case 'schoolactions':
-        return <SchoolActionsGame onBack={() => setCurrentMode('english-menu')} />;
-      case 'commandsactions':
-        return <CommandsActionsGame onBack={() => setCurrentMode('english-menu')} />;
-      case 'feelingthinking':
-        return <FeelingThinkingGame onBack={() => setCurrentMode('english-menu')} />;
-      case 'encouragement':
-        return <EncouragementGame onBack={() => setCurrentMode('english-menu')} />;
-      case 'politephrases':
-        return <PolitePhrasesGame onBack={() => setCurrentMode('english-menu')} />;
-      case 'guestmanners':
-        return <GuestMannersGame onBack={() => setCurrentMode('english-menu')} />;
-      case 'morningroutine':
-        return <MorningRoutineGame onBack={() => setCurrentMode('english-menu')} />;
-      case 'prepositions':
-        return <PrepositionsGame onBack={() => setCurrentMode('english-menu')} />;
-      case 'verbs':
-        return <VerbsGame onBack={() => setCurrentMode('english-menu')} />;
+        return <HindiMenu onSelectMode={navigate} onBack={() => navigate('home')} />;
+      case 'bilingual_gk': return <BilingualGKGame onBack={() => navigate('home')} subject="gk" />;
+      case 'physics': return <BilingualGKGame onBack={() => navigate('home')} subject="physics" />;
+      case 'chemistry': return <BilingualGKGame onBack={() => navigate('home')} subject="chemistry" />;
+      case 'biology': return <BilingualGKGame onBack={() => navigate('home')} subject="biology" />;
 
-      case 'nouns':
-        return <NounsGame onBack={() => setCurrentMode('english-menu')} />;
-      case 'singularplural':
-        return <SingularPluralGame onBack={() => setCurrentMode('english-menu')} />;
-      case 'pronouns':
-        return <PronounsGame onBack={() => setCurrentMode('english-menu')} />;
-      case 'adverbs':
-        return <AdverbsGame onBack={() => setCurrentMode('english-menu')} />;
-      case 'adjectives':
-        return <AdjectivesGame onBack={() => setCurrentMode('english-menu')} />;
-      case 'yesnoquestions':
-        return <YesNoQuestionsGame onBack={() => setCurrentMode('english-menu')} />;
-      case 'sentencebuilder':
-        return <SentenceBuildingGame onBack={() => setCurrentMode('english-menu')} />;
-      case 'conv_school':
-        return <ConversationGame scenarioId="school" onBack={() => setCurrentMode('english-menu')} />;
-      case 'conv_mom':
-        return <ConversationGame scenarioId="mom" onBack={() => setCurrentMode('english-menu')} />;
-      case 'conv_sister':
-        return <ConversationGame scenarioId="sister" onBack={() => setCurrentMode('english-menu')} />;
-      case 'conv_friend':
-        return <ConversationGame scenarioId="friend" onBack={() => setCurrentMode('english-menu')} />;
-      case 'leaderboard':
-        return <Leaderboard onBack={() => setCurrentMode('menu')} />;
+      // Math Games Routing
+      case 'addition': return <AdditionGame onBack={() => navigate('menu')} />;
+      case 'subtraction': return <SubtractionGame onBack={() => navigate('menu')} />;
+      case 'multiplication': return <MultiplicationGame onBack={() => navigate('menu')} />;
+      case 'division': return <DivisionGame onBack={() => navigate('menu')} />;
+      case 'fractions': return <FractionsGame onBack={() => navigate('menu')} />;
+      case 'lcm': return <LCMGame onBack={() => navigate('menu')} />;
+      case 'mentalmath': return <MentalMathGame onBack={() => navigate('menu')} />;
+      case 'tables': return <TablesGame onBack={() => navigate('menu')} />;
+      case 'time': return <TimeGame onBack={() => navigate('menu')} />;
+      case 'timearithmetic': return <TimeArithmeticGame onBack={() => navigate('menu')} />;
+      case 'unitary': return <UnitaryMethodGame onBack={() => navigate('menu')} />;
+      case 'decimals': return <DecimalArithmeticGame onBack={() => navigate('menu')} />;
+      case 'leaderboard': return <Leaderboard onBack={() => navigate('menu')} />;
+      case 'levelmap': return <LevelMap onBack={() => navigate('menu')} />;
+
+      // Reasoning Games
+      case 'reasoning-basics': return <ReasoningBasicsGame onBack={() => navigate('reasoning-menu')} />;
+      case 'logic-puzzles': return <LogicPuzzleGame onBack={() => navigate('reasoning-menu')} />;
+
+      // Hindi Games
+      case 'hindi-varnamala': return <HindiGame gameType="varnamala" onBack={() => navigate('hindi-menu')} />;
+      case 'hindi-2-letter': return <HindiGame gameType="hindi-2-letter" onBack={() => navigate('hindi-menu')} />;
+      case 'hindi-3-letter': return <HindiGame gameType="hindi-3-letter" onBack={() => navigate('hindi-menu')} />;
+      case 'hindi-stories': return <HindiStoriesGame onBack={() => navigate('hindi-menu')} />;
+
+      // English Games Routing
+      case 'alphabet': return <AlphabetGame onBack={() => navigate('english-menu')} />;
+      case 'spelling': return <SpellingGame onBack={() => navigate('english-menu')} />;
+      case 'wordscramble': return <WordScrambleGame onBack={() => navigate('english-menu')} />;
+      case 'english-stories': return <EnglishStoriesGame onBack={() => navigate('english-menu')} />;
+      case 'twoletter': return <TwoLetterWordsGame onBack={() => navigate('english-menu')} />;
+      case 'threeletter': return <ThreeLetterWordsGame onBack={() => navigate('english-menu')} />;
+      case 'fourletter': return <FourLetterWordsGame onBack={() => navigate('english-menu')} />;
+      case 'fiveletter': return <FiveLetterWordsGame onBack={() => navigate('english-menu')} />;
+      case 'sixletter': return <SixLetterWordsGame onBack={() => navigate('english-menu')} />;
+      case 'sevenletter': return <SevenLetterWordsGame onBack={() => navigate('english-menu')} />;
+      case 'sentences': return <SentenceBuildingGame onBack={() => navigate('english-menu')} />;
+      case 'sentencebuilder': return <SentenceBuildingGame onBack={() => navigate('english-menu')} />;
+      case 'threewordsentences': return <ThreeWordSentencesGame onBack={() => navigate('english-menu')} />;
+      case 'fourwordsentences': return <FourWordSentencesGame onBack={() => navigate('english-menu')} />;
+      case 'actionsentences': return <ActionSentencesGame onBack={() => navigate('english-menu')} />;
+      case 'homeactions': return <HomeActionsGame onBack={() => navigate('english-menu')} />;
+      case 'basicactions': return <BasicActionsGame onBack={() => navigate('english-menu')} />;
+      case 'physicalactions': return <PhysicalActionsGame onBack={() => navigate('english-menu')} />;
+      case 'schoolactions': return <SchoolActionsGame onBack={() => navigate('english-menu')} />;
+      case 'homeappliances': return <HomeAppliancesGame onBack={() => navigate('english-menu')} />;
+      case 'commandsactions': return <CommandsActionsGame onBack={() => navigate('english-menu')} />;
+      case 'feelingthinking': return <FeelingThinkingGame onBack={() => navigate('english-menu')} />;
+      case 'encouragement': return <EncouragementGame onBack={() => navigate('english-menu')} />;
+      case 'politephrases': return <PolitePhrasesGame onBack={() => navigate('english-menu')} />;
+      case 'guestmanners': return <GuestMannersGame onBack={() => navigate('english-menu')} />;
+      case 'morningroutine': return <MorningRoutineGame onBack={() => navigate('english-menu')} />;
+      case 'prepositions': return <PrepositionsGame onBack={() => navigate('english-menu')} />;
+      case 'verbs': return <VerbsGame onBack={() => navigate('english-menu')} />;
+      case 'nouns': return <NounsGame onBack={() => navigate('english-menu')} />;
+      case 'singularplural': return <SingularPluralGame onBack={() => navigate('english-menu')} />;
+      case 'pronouns': return <PronounsGame onBack={() => navigate('english-menu')} />;
+      case 'adverbs': return <AdverbsGame onBack={() => navigate('english-menu')} />;
+      case 'adjectives': return <AdjectivesGame onBack={() => navigate('english-menu')} />;
+      case 'yesnoquestions': return <YesNoQuestionsGame onBack={() => navigate('english-menu')} />;
+
+      // Conversations
+      case 'conv_school': return <ConversationGame scenarioId="school" onBack={() => navigate('english-menu')} />;
+      case 'conv_mom': return <ConversationGame scenarioId="mom" onBack={() => navigate('english-menu')} />;
+      case 'conv_sister': return <ConversationGame scenarioId="sister" onBack={() => navigate('english-menu')} />;
+      case 'conv_friend': return <ConversationGame scenarioId="friend" onBack={() => navigate('english-menu')} />;
+
+      case 'settings':
+        setShowSettings(true);
+        setCurrentMode('home');
+        return <Home onNavigate={navigate} />;
+
       default:
-        return <Home onNavigate={setCurrentMode} />;
+        return (
+          <div style={{ padding: '20px', textAlign: 'center' }}>
+            <h2>Game Mode: {currentMode}</h2>
+            <p>Game content for "{currentMode}" will be loaded here.</p>
+            <button
+              onClick={() => navigate('home')}
+              style={{
+                padding: '10px 20px',
+                background: '#3498DB',
+                color: 'white',
+                border: 'none',
+                borderRadius: '10px',
+                cursor: 'pointer'
+              }}
+            >
+              Back to Home
+            </button>
+          </div>
+        );
     }
   };
 
   return (
-    <GameProvider>
-      <div className="app-container" style={{ padding: '0px', maxWidth: '100vw', margin: '0 auto', minHeight: '100vh', overflowX: 'hidden' }}>
-        {/* Header removal: Home screen has its own title now. We might want a smaller header for game modes or just keep games as is. 
-            The 'Kids Math Adventure' header in existing App.jsx was nice but 'Fast Math Fun' replaces it on Home.
-            Games have their own back buttons. Menu has its own header now too.
-            Let's remove the global header to avoid clutter.
-        */}
+    <div style={{
+      minHeight: '100vh',
+      background: '#f8fafc',
+      fontFamily: 'sans-serif',
+      overflowX: 'hidden',
+      position: 'relative'
+    }}>
+      <GlobalHeader
+        stars={userData.stars}
+        level={userData.currentLevel}
+        onShowSettings={() => setShowSettings(true)}
+      />
 
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentMode}
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -20 }}
-            transition={{ duration: 0.3 }}
-            style={{ width: '100%' }}
-          >
-            {renderContent()}
-          </motion.div>
-        </AnimatePresence>
+      <div style={{
+        paddingTop: '90px',
+        paddingBottom: '40px',
+        WebkitOverflowScrolling: 'touch' // Smooth scroll on iOS
+      }}>
+        <Suspense fallback={
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '50vh' }}>
+            <div className="loader">Loading Game...</div>
+          </div>
+        }>
+          {renderContent()}
+          {showSettings && <Settings onClose={() => setShowSettings(false)} />}
+        </Suspense>
       </div>
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <GameProvider>
+      <AppContent />
     </GameProvider>
   );
 }

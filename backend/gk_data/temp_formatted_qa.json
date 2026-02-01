@@ -1,0 +1,761 @@
+{
+    "human_body": [
+        {
+            "id": 1,
+            "hi_q": "हमारे शरीर में खून कौन पंप करता है?",
+            "en_q": "Which organ pumps blood in our body?",
+            "hi_a": "हृदय",
+            "en_a": "Heart"
+        },
+        {
+            "id": 2,
+            "hi_q": "हम किस अंग से सांस लेते हैं?",
+            "en_q": "Which organ helps us breathe?",
+            "hi_a": "फेफड़े",
+            "en_a": "Lungs"
+        },
+        {
+            "id": 3,
+            "hi_q": "हम किस अंग से सोचते हैं?",
+            "en_q": "Which organ helps us think?",
+            "hi_a": "मस्तिष्क",
+            "en_a": "Brain"
+        },
+        {
+            "id": 4,
+            "hi_q": "हम किस अंग से देखते हैं?",
+            "en_q": "Which organ do we use to see?",
+            "hi_a": "आँखें",
+            "en_a": "Eyes"
+        },
+        {
+            "id": 5,
+            "hi_q": "हम किस अंग से सुनते हैं?",
+            "en_q": "Which organ do we use to hear?",
+            "hi_a": "कान",
+            "en_a": "Ears"
+        },
+        {
+            "id": 6,
+            "hi_q": "हम किस अंग से स्वाद लेते हैं?",
+            "en_q": "Which organ helps us taste?",
+            "hi_a": "जीभ",
+            "en_a": "Tongue"
+        },
+        {
+            "id": 7,
+            "hi_q": "हम किस अंग से सूंघते हैं?",
+            "en_q": "Which organ helps us smell?",
+            "hi_a": "नाक",
+            "en_a": "Nose"
+        },
+        {
+            "id": 8,
+            "hi_q": "हमारे शरीर की सबसे कठोर चीज क्या है?",
+            "en_q": "What is the hardest substance in our body?",
+            "hi_a": "दाँत",
+            "en_a": "Teeth"
+        },
+        {
+            "id": 9,
+            "hi_q": "एक वयस्क इंसान के कितने दाँत होते हैं?",
+            "en_q": "How many teeth does an adult human have?",
+            "hi_a": "32",
+            "en_a": "32"
+        },
+        {
+            "id": 10,
+            "hi_q": "हमारे शरीर में कितनी हड्डियाँ होती हैं?",
+            "en_q": "How many bones are there in the human body?",
+            "hi_a": "206",
+            "en_a": "206"
+        },
+        {
+            "id": 11,
+            "hi_q": "शरीर का सबसे बड़ा अंग कौन सा है?",
+            "en_q": "What is the largest organ of the human body?",
+            "hi_a": "त्वचा",
+            "en_a": "Skin"
+        },
+        {
+            "id": 12,
+            "hi_q": "खून का रंग लाल क्यों होता है?",
+            "en_q": "Why is blood red?",
+            "hi_a": "हीमोग्लोबिन के कारण",
+            "en_a": "Because of hemoglobin"
+        },
+        {
+            "id": 13,
+            "hi_q": "मांसपेशियाँ किस काम आती हैं?",
+            "en_q": "What do muscles help us do?",
+            "hi_a": "शरीर को हिलाने में",
+            "en_a": "To move the body"
+        },
+        {
+            "id": 14,
+            "hi_q": "हड्डियाँ किस काम आती हैं?",
+            "en_q": "What do bones do?",
+            "hi_a": "शरीर को आकार और सहारा देती हैं",
+            "en_a": "Give shape and support to the body"
+        },
+        {
+            "id": 15,
+            "hi_q": "हमारी उंगलियों में हड्डियाँ होती हैं क्या?",
+            "en_q": "Do our fingers have bones?",
+            "hi_a": "हाँ",
+            "en_a": "Yes"
+        },
+        {
+            "id": 16,
+            "hi_q": "हमें रोज दाँत क्यों साफ करने चाहिए?",
+            "en_q": "Why should we brush our teeth daily?",
+            "hi_a": "दाँतों को साफ और स्वस्थ रखने के लिए",
+            "en_a": "To keep teeth clean and healthy"
+        },
+        {
+            "id": 17,
+            "hi_q": "हमें रोज नहाना क्यों चाहिए?",
+            "en_q": "Why should we bathe daily?",
+            "hi_a": "शरीर को साफ रखने के लिए",
+            "en_a": "To keep the body clean"
+        },
+        {
+            "id": 18,
+            "hi_q": "साफ हाथ क्यों जरूरी हैं?",
+            "en_q": "Why are clean hands important?",
+            "hi_a": "कीटाणुओं से बचने के लिए",
+            "en_a": "To avoid germs"
+        },
+        {
+            "id": 19,
+            "hi_q": "स्वस्थ रहने के लिए हमें क्या खाना चाहिए?",
+            "en_q": "What should we eat to stay healthy?",
+            "hi_a": "संतुलित आहार",
+            "en_a": "Balanced diet"
+        },
+        {
+            "id": 20,
+            "hi_q": "दूध पीने से कौन सा अंग मजबूत होता है?",
+            "en_q": "Drinking milk makes which part strong?",
+            "hi_a": "हड्डियाँ",
+            "en_a": "Bones"
+        },
+        {
+            "id": 21,
+            "hi_q": "गाजर खाने से कौन सा अंग फायदा पाता है?",
+            "en_q": "Eating carrots is good for which organ?",
+            "hi_a": "आँखें",
+            "en_a": "Eyes"
+        },
+        {
+            "id": 22,
+            "hi_q": "व्यायाम करने से क्या फायदा होता है?",
+            "en_q": "What is the benefit of exercise?",
+            "hi_a": "शरीर मजबूत और स्वस्थ रहता है",
+            "en_a": "Body becomes strong and healthy"
+        },
+        {
+            "id": 23,
+            "hi_q": "हमें कितनी बार हाथ धोने चाहिए?",
+            "en_q": "How many times should we wash our hands?",
+            "hi_a": "खाने से पहले और शौच के बाद",
+            "en_a": "Before eating and after using the toilet"
+        },
+        {
+            "id": 24,
+            "hi_q": "नींद क्यों जरूरी है?",
+            "en_q": "Why is sleep important?",
+            "hi_a": "शरीर और दिमाग को आराम देने के लिए",
+            "en_a": "To give rest to body and brain"
+        },
+        {
+            "id": 25,
+            "hi_q": "हमारा दिल कहाँ स्थित होता है?",
+            "en_q": "Where is the heart located in the body?",
+            "hi_a": "छाती के अंदर",
+            "en_a": "Inside the chest"
+        }
+    ],
+    "weather": [
+        {
+            "id": 1,
+            "hi_q": "मौसम क्या होता है?",
+            "en_q": "What is weather?",
+            "hi_a": "किसी स्थान की दिन-प्रतिदिन की हवा, तापमान और बारिश की स्थिति",
+            "en_a": "The day-to-day condition of air, temperature, and rain at a place"
+        },
+        {
+            "id": 2,
+            "hi_q": "बारिश किससे होती है?",
+            "en_q": "What causes rain?",
+            "hi_a": "बादलों से",
+            "en_a": "From clouds"
+        },
+        {
+            "id": 3,
+            "hi_q": "बादल किससे बने होते हैं?",
+            "en_q": "What are clouds made of?",
+            "hi_a": "पानी की बूंदों और बर्फ के कणों से",
+            "en_a": "Tiny water droplets and ice particles"
+        },
+        {
+            "id": 4,
+            "hi_q": "गरज के साथ आसमान में चमक को क्या कहते हैं?",
+            "en_q": "What do we call the bright flash in the sky during thunder?",
+            "hi_a": "बिजली (तड़ित)",
+            "en_a": "Lightning"
+        },
+        {
+            "id": 5,
+            "hi_q": "तेज हवा को क्या कहते हैं?",
+            "en_q": "What is strong moving air called?",
+            "hi_a": "तूफान",
+            "en_a": "Storm"
+        },
+        {
+            "id": 6,
+            "hi_q": "बहुत ठंडा मौसम किस ऋतु में होता है?",
+            "en_q": "In which season is the weather very cold?",
+            "hi_a": "सर्दी (शीत ऋतु)",
+            "en_a": "Winter"
+        },
+        {
+            "id": 7,
+            "hi_q": "बहुत गर्म मौसम किस ऋतु में होता है?",
+            "en_q": "In which season is the weather very hot?",
+            "hi_a": "गर्मी (ग्रीष्म ऋतु)",
+            "en_a": "Summer"
+        },
+        {
+            "id": 8,
+            "hi_q": "फूल खिलने का मौसम कौन सा है?",
+            "en_q": "Which season is known for blooming flowers?",
+            "hi_a": "वसंत ऋतु",
+            "en_a": "Spring season"
+        },
+        {
+            "id": 9,
+            "hi_q": "फसल काटने का मौसम कौन सा होता है?",
+            "en_q": "Which season is known for harvesting crops?",
+            "hi_a": "शरद ऋतु",
+            "en_a": "Autumn"
+        },
+        {
+            "id": 10,
+            "hi_q": "इंद्रधनुष कब दिखाई देता है?",
+            "en_q": "When can we see a rainbow?",
+            "hi_a": "बारिश के बाद जब सूरज निकलता है",
+            "en_a": "After rain when the sun shines"
+        },
+        {
+            "id": 11,
+            "hi_q": "थर्मामीटर किसे मापता है?",
+            "en_q": "What does a thermometer measure?",
+            "hi_a": "तापमान",
+            "en_a": "Temperature"
+        },
+        {
+            "id": 12,
+            "hi_q": "बहुत तेज बारिश को क्या कहते हैं?",
+            "en_q": "What do we call very heavy rain?",
+            "hi_a": "मूसलाधार बारिश",
+            "en_a": "Heavy rainfall"
+        },
+        {
+            "id": 13,
+            "hi_q": "बर्फ गिरने को क्या कहते हैं?",
+            "en_q": "What is falling snow called?",
+            "hi_a": "हिमपात",
+            "en_a": "Snowfall"
+        },
+        {
+            "id": 14,
+            "hi_q": "ओले क्या होते हैं?",
+            "en_q": "What are hailstones?",
+            "hi_a": "बर्फ के छोटे-छोटे गोले",
+            "en_a": "Small balls of ice"
+        },
+        {
+            "id": 15,
+            "hi_q": "मौसम की जानकारी देने वाले को क्या कहते हैं?",
+            "en_q": "What do we call a person who studies weather?",
+            "hi_a": "मौसम वैज्ञानिक",
+            "en_a": "Meteorologist"
+        },
+        {
+            "id": 16,
+            "hi_q": "मौसम की भविष्यवाणी को क्या कहते हैं?",
+            "en_q": "What is predicting the weather called?",
+            "hi_a": "मौसम पूर्वानुमान",
+            "en_a": "Weather forecast"
+        },
+        {
+            "id": 17,
+            "hi_q": "बहुत तेज हवा और बारिश वाले तूफान को क्या कहते हैं?",
+            "en_q": "What is a storm with very strong winds and rain called?",
+            "hi_a": "चक्रवात",
+            "en_a": "Cyclone"
+        },
+        {
+            "id": 18,
+            "hi_q": "सूखा क्या होता है?",
+            "en_q": "What is a drought?",
+            "hi_a": "लंबे समय तक बारिश न होना",
+            "en_a": "No rain for a long time"
+        },
+        {
+            "id": 19,
+            "hi_q": "कोहरा कब बनता है?",
+            "en_q": "When does fog form?",
+            "hi_a": "ठंडी हवा में जलवाष्प के कारण",
+            "en_a": "When water vapor condenses in cold air"
+        },
+        {
+            "id": 20,
+            "hi_q": "धूप वाले दिन को क्या कहते हैं?",
+            "en_q": "What do we call a day full of sunshine?",
+            "hi_a": "धूप वाला दिन",
+            "en_a": "Sunny day"
+        },
+        {
+            "id": 21,
+            "hi_q": "बादल छाए रहने वाले दिन को क्या कहते हैं?",
+            "en_q": "What do we call a day full of clouds?",
+            "hi_a": "बादलों वाला दिन",
+            "en_a": "Cloudy day"
+        },
+        {
+            "id": 22,
+            "hi_q": "हवा किस दिशा से किस दिशा में चलती है?",
+            "en_q": "In which direction does wind move?",
+            "hi_a": "अधिक दबाव से कम दबाव की ओर",
+            "en_a": "From high pressure to low pressure"
+        },
+        {
+            "id": 23,
+            "hi_q": "मानसून क्या होता है?",
+            "en_q": "What is monsoon?",
+            "hi_a": "मौसम की वह हवा जो बहुत बारिश लाती है",
+            "en_a": "Seasonal winds that bring heavy rain"
+        },
+        {
+            "id": 24,
+            "hi_q": "भारत में मानसून कब आता है?",
+            "en_q": "When does monsoon usually arrive in India?",
+            "hi_a": "जून से सितंबर",
+            "en_a": "June to September"
+        },
+        {
+            "id": 25,
+            "hi_q": "मौसम बदलने का मुख्य कारण क्या है?",
+            "en_q": "What is the main reason for change in weather?",
+            "hi_a": "सूर्य की गर्मी और हवा की चाल",
+            "en_a": "Sun’s heat and movement of air"
+        }
+    ],
+    "community_helpers": [
+        {
+            "id": 1,
+            "hi_q": "डॉक्टर का काम क्या होता है?",
+            "en_q": "What does a doctor do?",
+            "hi_a": "बीमार लोगों का इलाज करता है",
+            "en_a": "Treats sick people"
+        },
+        {
+            "id": 2,
+            "hi_q": "नर्स किसकी मदद करती है?",
+            "en_q": "Who does a nurse help?",
+            "hi_a": "डॉक्टर और मरीजों की",
+            "en_a": "Doctors and patients"
+        },
+        {
+            "id": 3,
+            "hi_q": "शिक्षक क्या करते हैं?",
+            "en_q": "What does a teacher do?",
+            "hi_a": "बच्चों को पढ़ाते हैं",
+            "en_a": "Teaches children"
+        },
+        {
+            "id": 4,
+            "hi_q": "पुलिस का काम क्या है?",
+            "en_q": "What is the job of the police?",
+            "hi_a": "कानून और व्यवस्था बनाए रखना",
+            "en_a": "Maintain law and order"
+        },
+        {
+            "id": 5,
+            "hi_q": "फायरमैन (अग्निशामक) क्या करता है?",
+            "en_q": "What does a firefighter do?",
+            "hi_a": "आग बुझाता है",
+            "en_a": "Puts out fires"
+        },
+        {
+            "id": 6,
+            "hi_q": "डाकिया क्या लाता है?",
+            "en_q": "What does a postman deliver?",
+            "hi_a": "चिट्ठियाँ और पार्सल",
+            "en_a": "Letters and parcels"
+        },
+        {
+            "id": 7,
+            "hi_q": "किसान क्या उगाता है?",
+            "en_q": "What does a farmer grow?",
+            "hi_a": "अनाज, फल और सब्जियाँ",
+            "en_a": "Grains, fruits, and vegetables"
+        },
+        {
+            "id": 8,
+            "hi_q": "चालक (ड्राइवर) क्या करता है?",
+            "en_q": "What does a driver do?",
+            "hi_a": "वाहन चलाता है",
+            "en_a": "Drives vehicles"
+        },
+        {
+            "id": 9,
+            "hi_q": "सफाई कर्मचारी क्या काम करता है?",
+            "en_q": "What does a sanitation worker do?",
+            "hi_a": "सफाई रखता है",
+            "en_a": "Keeps the surroundings clean"
+        },
+        {
+            "id": 10,
+            "hi_q": "सैनिक का काम क्या है?",
+            "en_q": "What does a soldier do?",
+            "hi_a": "देश की रक्षा करता है",
+            "en_a": "Protects the country"
+        },
+        {
+            "id": 11,
+            "hi_q": "इंजीनियर क्या बनाता है?",
+            "en_q": "What does an engineer build?",
+            "hi_a": "मशीनें, पुल, इमारतें",
+            "en_a": "Machines, bridges, buildings"
+        },
+        {
+            "id": 12,
+            "hi_q": "बढ़ई क्या बनाता है?",
+            "en_q": "What does a carpenter make?",
+            "hi_a": "लकड़ी का फर्नीचर",
+            "en_a": "Wooden furniture"
+        },
+        {
+            "id": 13,
+            "hi_q": "दर्जी क्या करता है?",
+            "en_q": "What does a tailor do?",
+            "hi_a": "कपड़े सिलता है",
+            "en_a": "Stitches clothes"
+        },
+        {
+            "id": 14,
+            "hi_q": "नाई क्या करता है?",
+            "en_q": "What does a barber do?",
+            "hi_a": "बाल काटता है",
+            "en_a": "Cuts hair"
+        },
+        {
+            "id": 15,
+            "hi_q": "रसोइया क्या करता है?",
+            "en_q": "What does a cook do?",
+            "hi_a": "खाना बनाता है",
+            "en_a": "Cooks food"
+        },
+        {
+            "id": 16,
+            "hi_q": "माली क्या करता है?",
+            "en_q": "What does a gardener do?",
+            "hi_a": "पौधे लगाता और उनकी देखभाल करता है",
+            "en_a": "Plants and takes care of plants"
+        },
+        {
+            "id": 17,
+            "hi_q": "पायलट क्या उड़ाता है?",
+            "en_q": "What does a pilot fly?",
+            "hi_a": "हवाई जहाज",
+            "en_a": "Airplane"
+        },
+        {
+            "id": 18,
+            "hi_q": "बस कंडक्टर क्या करता है?",
+            "en_q": "What does a bus conductor do?",
+            "hi_a": "टिकट देता है",
+            "en_a": "Gives tickets"
+        },
+        {
+            "id": 19,
+            "hi_q": "दुकानदार क्या करता है?",
+            "en_q": "What does a shopkeeper do?",
+            "hi_a": "सामान बेचता है",
+            "en_a": "Sells goods"
+        },
+        {
+            "id": 20,
+            "hi_q": "डॉक्टर कहाँ काम करता है?",
+            "en_q": "Where does a doctor work?",
+            "hi_a": "अस्पताल या क्लिनिक में",
+            "en_a": "In a hospital or clinic"
+        },
+        {
+            "id": 21,
+            "hi_q": "शिक्षक कहाँ पढ़ाते हैं?",
+            "en_q": "Where do teachers teach?",
+            "hi_a": "स्कूल में",
+            "en_a": "In a school"
+        },
+        {
+            "id": 22,
+            "hi_q": "पुलिस कहाँ काम करती है?",
+            "en_q": "Where do police officers work?",
+            "hi_a": "पुलिस स्टेशन में",
+            "en_a": "At a police station"
+        },
+        {
+            "id": 23,
+            "hi_q": "फायर स्टेशन में कौन काम करता है?",
+            "en_q": "Who works at a fire station?",
+            "hi_a": "फायरमैन",
+            "en_a": "Firefighters"
+        },
+        {
+            "id": 24,
+            "hi_q": "अस्पताल में मरीजों की देखभाल कौन करता है?",
+            "en_q": "Who takes care of patients in a hospital?",
+            "hi_a": "नर्स",
+            "en_a": "Nurse"
+        },
+        {
+            "id": 25,
+            "hi_q": "हमें इन सामुदायिक सहायकों का सम्मान क्यों करना चाहिए?",
+            "en_q": "Why should we respect community helpers?",
+            "hi_a": "क्योंकि वे हमारी मदद करते हैं",
+            "en_a": "Because they help us"
+        }
+    ],
+    "school_life": [
+        {
+            "id": 1,
+            "hi_q": "हम स्कूल क्यों जाते हैं?",
+            "en_q": "Why do we go to school?",
+            "hi_a": "पढ़ने और सीखने के लिए",
+            "en_a": "To study and learn"
+        },
+        {
+            "id": 2,
+            "hi_q": "स्कूल में पढ़ाने वाले को क्या कहते हैं?",
+            "en_q": "What do we call a person who teaches in school?",
+            "hi_a": "शिक्षक / अध्यापक",
+            "en_a": "Teacher"
+        },
+        {
+            "id": 3,
+            "hi_q": "स्कूल में पढ़ने वाले बच्चों को क्या कहते हैं?",
+            "en_q": "What do we call children who study in school?",
+            "hi_a": "विद्यार्थी / छात्र",
+            "en_a": "Students"
+        },
+        {
+            "id": 4,
+            "hi_q": "स्कूल में पढ़ाई कहाँ होती है?",
+            "en_q": "Where does learning take place in school?",
+            "hi_a": "कक्षा में",
+            "en_a": "In the classroom"
+        },
+        {
+            "id": 5,
+            "hi_q": "किताबों को रखने के लिए क्या उपयोग करते हैं?",
+            "en_q": "What do we use to keep our books?",
+            "hi_a": "स्कूल बैग",
+            "en_a": "School bag"
+        },
+        {
+            "id": 6,
+            "hi_q": "लिखने के लिए हम क्या उपयोग करते हैं?",
+            "en_q": "What do we use for writing?",
+            "hi_a": "पेन या पेंसिल",
+            "en_a": "Pen or pencil"
+        },
+        {
+            "id": 7,
+            "hi_q": "ब्लैकबोर्ड/व्हाइटबोर्ड पर कौन लिखता है?",
+            "en_q": "Who writes on the blackboard/whiteboard?",
+            "hi_a": "शिक्षक",
+            "en_a": "Teacher"
+        }
+    ],
+    "food_nutrition": [
+        {
+            "id": 1,
+            "hi_q": "हमें भोजन क्यों करना चाहिए?",
+            "en_q": "Why do we need to eat food?",
+            "hi_a": "ऊर्जा पाने के लिए",
+            "en_a": "To get energy"
+        },
+        {
+            "id": 2,
+            "hi_q": "स्वस्थ रहने के लिए हमें कैसा भोजन करना चाहिए?",
+            "en_q": "What kind of food should we eat to stay healthy?",
+            "hi_a": "संतुलित आहार",
+            "en_a": "Balanced diet"
+        },
+        {
+            "id": 3,
+            "hi_q": "चावल और रोटी हमें क्या देते हैं?",
+            "en_q": "What do rice and chapati give us?",
+            "hi_a": "ऊर्जा",
+            "en_a": "Energy"
+        },
+        {
+            "id": 4,
+            "hi_q": "दाल और बीन्स किसके अच्छे स्रोत हैं?",
+            "en_q": "Pulses and beans are good sources of what?",
+            "hi_a": "प्रोटीन",
+            "en_a": "Protein"
+        },
+        {
+            "id": 5,
+            "hi_q": "दूध में कौन सा पोषक तत्व अधिक होता है?",
+            "en_q": "Which nutrient is rich in milk?",
+            "hi_a": "कैल्शियम",
+            "en_a": "Calcium"
+        },
+        {
+            "id": 6,
+            "hi_q": "फल और सब्जियाँ हमें क्या देती हैं?",
+            "en_q": "What do fruits and vegetables give us?",
+            "hi_a": "विटामिन और खनिज",
+            "en_a": "Vitamins and minerals"
+        },
+        {
+            "id": 7,
+            "hi_q": "गाजर किस विटामिन के लिए जानी जाती है?",
+            "en_q": "Carrot is rich in which vitamin?",
+            "hi_a": "विटामिन A",
+            "en_a": "Vitamin A"
+        },
+        {
+            "id": 8,
+            "hi_q": "नींबू किस विटामिन का अच्छा स्रोत है?",
+            "en_q": "Lemon is a good source of which vitamin?",
+            "hi_a": "विटामिन C",
+            "en_a": "Vitamin C"
+        },
+        {
+            "id": 9,
+            "hi_q": "पानी पीना क्यों जरूरी है?",
+            "en_q": "Why is drinking water important?",
+            "hi_a": "शरीर को हाइड्रेट रखने के लिए",
+            "en_a": "To keep the body hydrated"
+        },
+        {
+            "id": 10,
+            "hi_q": "हमें रोज कितने समय पर खाना खाना चाहिए?",
+            "en_q": "How often should we eat meals daily?",
+            "hi_a": "नियमित समय पर",
+            "en_a": "At regular times"
+        },
+        {
+            "id": 11,
+            "hi_q": "सुबह का नाश्ता क्यों जरूरी है?",
+            "en_q": "Why is breakfast important?",
+            "hi_a": "दिन की शुरुआत के लिए ऊर्जा देता है",
+            "en_a": "Gives energy to start the day"
+        },
+        {
+            "id": 12,
+            "hi_q": "जंक फूड ज्यादा खाने से क्या होता है?",
+            "en_q": "What happens if we eat too much junk food?",
+            "hi_a": "स्वास्थ्य खराब हो सकता है",
+            "en_a": "It can harm our health"
+        },
+        {
+            "id": 13,
+            "hi_q": "हरी पत्तेदार सब्जियाँ क्यों खानी चाहिए?",
+            "en_q": "Why should we eat green leafy vegetables?",
+            "hi_a": "शरीर को ताकत और खून बढ़ाने के लिए",
+            "en_a": "To build strength and improve blood"
+        },
+        {
+            "id": 14,
+            "hi_q": "अंडा किसका अच्छा स्रोत है?",
+            "en_q": "Egg is a good source of what?",
+            "hi_a": "प्रोटीन",
+            "en_a": "Protein"
+        },
+        {
+            "id": 15,
+            "hi_q": "दही खाने से क्या फायदा होता है?",
+            "en_q": "What is the benefit of eating curd?",
+            "hi_a": "पाचन अच्छा रहता है",
+            "en_a": "Helps in digestion"
+        },
+        {
+            "id": 16,
+            "hi_q": "मेवे (Dry fruits) हमें क्या देते हैं?",
+            "en_q": "What do dry fruits give us?",
+            "hi_a": "ऊर्जा और पोषक तत्व",
+            "en_a": "Energy and nutrients"
+        },
+        {
+            "id": 17,
+            "hi_q": "ज्यादा मीठा खाने से क्या हो सकता है?",
+            "en_q": "What can happen if we eat too many sweets?",
+            "hi_a": "दाँत खराब हो सकते हैं",
+            "en_a": "Teeth can get damaged"
+        },
+        {
+            "id": 18,
+            "hi_q": "साफ भोजन क्यों जरूरी है?",
+            "en_q": "Why is clean food important?",
+            "hi_a": "बीमारियों से बचने के लिए",
+            "en_a": "To avoid diseases"
+        },
+        {
+            "id": 19,
+            "hi_q": "खाने से पहले हाथ क्यों धोने चाहिए?",
+            "en_q": "Why should we wash hands before eating?",
+            "hi_a": "कीटाणुओं से बचने के लिए",
+            "en_a": "To avoid germs"
+        },
+        {
+            "id": 20,
+            "hi_q": "फल खाने का सबसे अच्छा समय कौन सा है?",
+            "en_q": "What is the best time to eat fruits?",
+            "hi_a": "सुबह या दिन में",
+            "en_a": "Morning or daytime"
+        },
+        {
+            "id": 21,
+            "hi_q": "शरीर को बढ़ने के लिए किसकी जरूरत होती है?",
+            "en_q": "What does the body need for growth?",
+            "hi_a": "प्रोटीन",
+            "en_a": "Protein"
+        },
+        {
+            "id": 22,
+            "hi_q": "कौन सा पेय हमें ताजगी देता है और शरीर के लिए जरूरी है?",
+            "en_q": "Which drink refreshes us and is essential for the body?",
+            "hi_a": "पानी",
+            "en_a": "Water"
+        },
+        {
+            "id": 23,
+            "hi_q": "ज्यादा तला हुआ भोजन क्यों नहीं खाना चाहिए?",
+            "en_q": "Why should we avoid eating too much fried food?",
+            "hi_a": "स्वास्थ्य के लिए हानिकारक है",
+            "en_a": "It is harmful to health"
+        },
+        {
+            "id": 24,
+            "hi_q": "हमें रोज कितनी बार फल और सब्जियाँ खानी चाहिए?",
+            "en_q": "How often should we eat fruits and vegetables?",
+            "hi_a": "रोजाना",
+            "en_a": "Every day"
+        },
+        {
+            "id": 25,
+            "hi_q": "स्वस्थ भोजन करने से क्या फायदा होता है?",
+            "en_q": "What is the benefit of eating healthy food?",
+            "hi_a": "शरीर मजबूत और स्वस्थ रहता है",
+            "en_a": "The body stays strong and healthy"
+        }
+    ]
+}

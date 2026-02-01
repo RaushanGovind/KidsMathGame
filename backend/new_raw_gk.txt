@@ -1,0 +1,651 @@
+[BILINGUAL_GK_TOPIC_HUMAN_BODY]
+
+Q1
+HI_Q: हमारे शरीर में खून कौन पंप करता है?
+EN_Q: Which organ pumps blood in our body?
+HI_A: हृदय
+EN_A: Heart
+
+Q2
+HI_Q: हम किस अंग से सांस लेते हैं?
+EN_Q: Which organ helps us breathe?
+HI_A: फेफड़े
+EN_A: Lungs
+
+Q3
+HI_Q: हम किस अंग से सोचते हैं?
+EN_Q: Which organ helps us think?
+HI_A: मस्तिष्क
+EN_A: Brain
+
+Q4
+HI_Q: हम किस अंग से देखते हैं?
+EN_Q: Which organ do we use to see?
+HI_A: आँखें
+EN_A: Eyes
+
+Q5
+HI_Q: हम किस अंग से सुनते हैं?
+EN_Q: Which organ do we use to hear?
+HI_A: कान
+EN_A: Ears
+
+Q6
+HI_Q: हम किस अंग से स्वाद लेते हैं?
+EN_Q: Which organ helps us taste?
+HI_A: जीभ
+EN_A: Tongue
+
+Q7
+HI_Q: हम किस अंग से सूंघते हैं?
+EN_Q: Which organ helps us smell?
+HI_A: नाक
+EN_A: Nose
+
+Q8
+HI_Q: हमारे शरीर की सबसे कठोर चीज क्या है?
+EN_Q: What is the hardest substance in our body?
+HI_A: दाँत
+EN_A: Teeth
+
+Q9
+HI_Q: एक वयस्क इंसान के कितने दाँत होते हैं?
+EN_Q: How many teeth does an adult human have?
+HI_A: 32
+EN_A: 32
+
+Q10
+HI_Q: हमारे शरीर में कितनी हड्डियाँ होती हैं?
+EN_Q: How many bones are there in the human body?
+HI_A: 206
+EN_A: 206
+
+Q11
+HI_Q: शरीर का सबसे बड़ा अंग कौन सा है?
+EN_Q: What is the largest organ of the human body?
+HI_A: त्वचा
+EN_A: Skin
+
+Q12
+HI_Q: खून का रंग लाल क्यों होता है?
+EN_Q: Why is blood red?
+HI_A: हीमोग्लोबिन के कारण
+EN_A: Because of hemoglobin
+
+Q13
+HI_Q: मांसपेशियाँ किस काम आती हैं?
+EN_Q: What do muscles help us do?
+HI_A: शरीर को हिलाने में
+EN_A: To move the body
+
+Q14
+HI_Q: हड्डियाँ किस काम आती हैं?
+EN_Q: What do bones do?
+HI_A: शरीर को आकार और सहारा देती हैं
+EN_A: Give shape and support to the body
+
+Q15
+HI_Q: हमारी उंगलियों में हड्डियाँ होती हैं क्या?
+EN_Q: Do our fingers have bones?
+HI_A: हाँ
+EN_A: Yes
+
+Q16
+HI_Q: हमें रोज दाँत क्यों साफ करने चाहिए?
+EN_Q: Why should we brush our teeth daily?
+HI_A: दाँतों को साफ और स्वस्थ रखने के लिए
+EN_A: To keep teeth clean and healthy
+
+Q17
+HI_Q: हमें रोज नहाना क्यों चाहिए?
+EN_Q: Why should we bathe daily?
+HI_A: शरीर को साफ रखने के लिए
+EN_A: To keep the body clean
+
+Q18
+HI_Q: साफ हाथ क्यों जरूरी हैं?
+EN_Q: Why are clean hands important?
+HI_A: कीटाणुओं से बचने के लिए
+EN_A: To avoid germs
+
+Q19
+HI_Q: स्वस्थ रहने के लिए हमें क्या खाना चाहिए?
+EN_Q: What should we eat to stay healthy?
+HI_A: संतुलित आहार
+EN_A: Balanced diet
+
+Q20
+HI_Q: दूध पीने से कौन सा अंग मजबूत होता है?
+EN_Q: Drinking milk makes which part strong?
+HI_A: हड्डियाँ
+EN_A: Bones
+
+Q21
+HI_Q: गाजर खाने से कौन सा अंग फायदा पाता है?
+EN_Q: Eating carrots is good for which organ?
+HI_A: आँखें
+EN_A: Eyes
+
+Q22
+HI_Q: व्यायाम करने से क्या फायदा होता है?
+EN_Q: What is the benefit of exercise?
+HI_A: शरीर मजबूत और स्वस्थ रहता है
+EN_A: Body becomes strong and healthy
+
+Q23
+HI_Q: हमें कितनी बार हाथ धोने चाहिए?
+EN_Q: How many times should we wash our hands?
+HI_A: खाने से पहले और शौच के बाद
+EN_A: Before eating and after using the toilet
+
+Q24
+HI_Q: नींद क्यों जरूरी है?
+EN_Q: Why is sleep important?
+HI_A: शरीर और दिमाग को आराम देने के लिए
+EN_A: To give rest to body and brain
+
+Q25
+HI_Q: हमारा दिल कहाँ स्थित होता है?
+EN_Q: Where is the heart located in the body?
+HI_A: छाती के अंदर
+EN_A: Inside the chest
+
+[BILINGUAL_GK_TOPIC_WEATHER]
+
+Q1
+HI_Q: मौसम क्या होता है?
+EN_Q: What is weather?
+HI_A: किसी स्थान की दिन-प्रतिदिन की हवा, तापमान और बारिश की स्थिति
+EN_A: The day-to-day condition of air, temperature, and rain at a place
+
+Q2
+HI_Q: बारिश किससे होती है?
+EN_Q: What causes rain?
+HI_A: बादलों से
+EN_A: From clouds
+
+Q3
+HI_Q: बादल किससे बने होते हैं?
+EN_Q: What are clouds made of?
+HI_A: पानी की बूंदों और बर्फ के कणों से
+EN_A: Tiny water droplets and ice particles
+
+Q4
+HI_Q: गरज के साथ आसमान में चमक को क्या कहते हैं?
+EN_Q: What do we call the bright flash in the sky during thunder?
+HI_A: बिजली (तड़ित)
+EN_A: Lightning
+
+Q5
+HI_Q: तेज हवा को क्या कहते हैं?
+EN_Q: What is strong moving air called?
+HI_A: तूफान
+EN_A: Storm
+
+Q6
+HI_Q: बहुत ठंडा मौसम किस ऋतु में होता है?
+EN_Q: In which season is the weather very cold?
+HI_A: सर्दी (शीत ऋतु)
+EN_A: Winter
+
+Q7
+HI_Q: बहुत गर्म मौसम किस ऋतु में होता है?
+EN_Q: In which season is the weather very hot?
+HI_A: गर्मी (ग्रीष्म ऋतु)
+EN_A: Summer
+
+Q8
+HI_Q: फूल खिलने का मौसम कौन सा है?
+EN_Q: Which season is known for blooming flowers?
+HI_A: वसंत ऋतु
+EN_A: Spring season
+
+Q9
+HI_Q: फसल काटने का मौसम कौन सा होता है?
+EN_Q: Which season is known for harvesting crops?
+HI_A: शरद ऋतु
+EN_A: Autumn
+
+Q10
+HI_Q: इंद्रधनुष कब दिखाई देता है?
+EN_Q: When can we see a rainbow?
+HI_A: बारिश के बाद जब सूरज निकलता है
+EN_A: After rain when the sun shines
+
+Q11
+HI_Q: थर्मामीटर किसे मापता है?
+EN_Q: What does a thermometer measure?
+HI_A: तापमान
+EN_A: Temperature
+
+Q12
+HI_Q: बहुत तेज बारिश को क्या कहते हैं?
+EN_Q: What do we call very heavy rain?
+HI_A: मूसलाधार बारिश
+EN_A: Heavy rainfall
+
+Q13
+HI_Q: बर्फ गिरने को क्या कहते हैं?
+EN_Q: What is falling snow called?
+HI_A: हिमपात
+EN_A: Snowfall
+
+Q14
+HI_Q: ओले क्या होते हैं?
+EN_Q: What are hailstones?
+HI_A: बर्फ के छोटे-छोटे गोले
+EN_A: Small balls of ice
+
+Q15
+HI_Q: मौसम की जानकारी देने वाले को क्या कहते हैं?
+EN_Q: What do we call a person who studies weather?
+HI_A: मौसम वैज्ञानिक
+EN_A: Meteorologist
+
+Q16
+HI_Q: मौसम की भविष्यवाणी को क्या कहते हैं?
+EN_Q: What is predicting the weather called?
+HI_A: मौसम पूर्वानुमान
+EN_A: Weather forecast
+
+Q17
+HI_Q: बहुत तेज हवा और बारिश वाले तूफान को क्या कहते हैं?
+EN_Q: What is a storm with very strong winds and rain called?
+HI_A: चक्रवात
+EN_A: Cyclone
+
+Q18
+HI_Q: सूखा क्या होता है?
+EN_Q: What is a drought?
+HI_A: लंबे समय तक बारिश न होना
+EN_A: No rain for a long time
+
+Q19
+HI_Q: कोहरा कब बनता है?
+EN_Q: When does fog form?
+HI_A: ठंडी हवा में जलवाष्प के कारण
+EN_A: When water vapor condenses in cold air
+
+Q20
+HI_Q: धूप वाले दिन को क्या कहते हैं?
+EN_Q: What do we call a day full of sunshine?
+HI_A: धूप वाला दिन
+EN_A: Sunny day
+
+Q21
+HI_Q: बादल छाए रहने वाले दिन को क्या कहते हैं?
+EN_Q: What do we call a day full of clouds?
+HI_A: बादलों वाला दिन
+EN_A: Cloudy day
+
+Q22
+HI_Q: हवा किस दिशा से किस दिशा में चलती है?
+EN_Q: In which direction does wind move?
+HI_A: अधिक दबाव से कम दबाव की ओर
+EN_A: From high pressure to low pressure
+
+Q23
+HI_Q: मानसून क्या होता है?
+EN_Q: What is monsoon?
+HI_A: मौसम की वह हवा जो बहुत बारिश लाती है
+EN_A: Seasonal winds that bring heavy rain
+
+Q24
+HI_Q: भारत में मानसून कब आता है?
+EN_Q: When does monsoon usually arrive in India?
+HI_A: जून से सितंबर
+EN_A: June to September
+
+Q25
+HI_Q: मौसम बदलने का मुख्य कारण क्या है?
+EN_Q: What is the main reason for change in weather?
+HI_A: सूर्य की गर्मी और हवा की चाल
+EN_A: Sun’s heat and movement of air
+
+[BILINGUAL_GK_TOPIC_COMMUNITY_HELPERS]
+
+Q1
+HI_Q: डॉक्टर का काम क्या होता है?
+EN_Q: What does a doctor do?
+HI_A: बीमार लोगों का इलाज करता है
+EN_A: Treats sick people
+
+Q2
+HI_Q: नर्स किसकी मदद करती है?
+EN_Q: Who does a nurse help?
+HI_A: डॉक्टर और मरीजों की
+EN_A: Doctors and patients
+
+Q3
+HI_Q: शिक्षक क्या करते हैं?
+EN_Q: What does a teacher do?
+HI_A: बच्चों को पढ़ाते हैं
+EN_A: Teaches children
+
+Q4
+HI_Q: पुलिस का काम क्या है?
+EN_Q: What is the job of the police?
+HI_A: कानून और व्यवस्था बनाए रखना
+EN_A: Maintain law and order
+
+Q5
+HI_Q: फायरमैन (अग्निशामक) क्या करता है?
+EN_Q: What does a firefighter do?
+HI_A: आग बुझाता है
+EN_A: Puts out fires
+
+Q6
+HI_Q: डाकिया क्या लाता है?
+EN_Q: What does a postman deliver?
+HI_A: चिट्ठियाँ और पार्सल
+EN_A: Letters and parcels
+
+Q7
+HI_Q: किसान क्या उगाता है?
+EN_Q: What does a farmer grow?
+HI_A: अनाज, फल और सब्जियाँ
+EN_A: Grains, fruits, and vegetables
+
+Q8
+HI_Q: चालक (ड्राइवर) क्या करता है?
+EN_Q: What does a driver do?
+HI_A: वाहन चलाता है
+EN_A: Drives vehicles
+
+Q9
+HI_Q: सफाई कर्मचारी क्या काम करता है?
+EN_Q: What does a sanitation worker do?
+HI_A: सफाई रखता है
+EN_A: Keeps the surroundings clean
+
+Q10
+HI_Q: सैनिक का काम क्या है?
+EN_Q: What does a soldier do?
+HI_A: देश की रक्षा करता है
+EN_A: Protects the country
+
+Q11
+HI_Q: इंजीनियर क्या बनाता है?
+EN_Q: What does an engineer build?
+HI_A: मशीनें, पुल, इमारतें
+EN_A: Machines, bridges, buildings
+
+Q12
+HI_Q: बढ़ई क्या बनाता है?
+EN_Q: What does a carpenter make?
+HI_A: लकड़ी का फर्नीचर
+EN_A: Wooden furniture
+
+Q13
+HI_Q: दर्जी क्या करता है?
+EN_Q: What does a tailor do?
+HI_A: कपड़े सिलता है
+EN_A: Stitches clothes
+
+Q14
+HI_Q: नाई क्या करता है?
+EN_Q: What does a barber do?
+HI_A: बाल काटता है
+EN_A: Cuts hair
+
+Q15
+HI_Q: रसोइया क्या करता है?
+EN_Q: What does a cook do?
+HI_A: खाना बनाता है
+EN_A: Cooks food
+
+Q16
+HI_Q: माली क्या करता है?
+EN_Q: What does a gardener do?
+HI_A: पौधे लगाता और उनकी देखभाल करता है
+EN_A: Plants and takes care of plants
+
+Q17
+HI_Q: पायलट क्या उड़ाता है?
+EN_Q: What does a pilot fly?
+HI_A: हवाई जहाज
+EN_A: Airplane
+
+Q18
+HI_Q: बस कंडक्टर क्या करता है?
+EN_Q: What does a bus conductor do?
+HI_A: टिकट देता है
+EN_A: Gives tickets
+
+Q19
+HI_Q: दुकानदार क्या करता है?
+EN_Q: What does a shopkeeper do?
+HI_A: सामान बेचता है
+EN_A: Sells goods
+
+Q20
+HI_Q: डॉक्टर कहाँ काम करता है?
+EN_Q: Where does a doctor work?
+HI_A: अस्पताल या क्लिनिक में
+EN_A: In a hospital or clinic
+
+Q21
+HI_Q: शिक्षक कहाँ पढ़ाते हैं?
+EN_Q: Where do teachers teach?
+HI_A: स्कूल में
+EN_A: In a school
+
+Q22
+HI_Q: पुलिस कहाँ काम करती है?
+EN_Q: Where do police officers work?
+HI_A: पुलिस स्टेशन में
+EN_A: At a police station
+
+Q23
+HI_Q: फायर स्टेशन में कौन काम करता है?
+EN_Q: Who works at a fire station?
+HI_A: फायरमैन
+EN_A: Firefighters
+
+Q24
+HI_Q: अस्पताल में मरीजों की देखभाल कौन करता है?
+EN_Q: Who takes care of patients in a hospital?
+HI_A: नर्स
+EN_A: Nurse
+
+Q25
+HI_Q: हमें इन सामुदायिक सहायकों का सम्मान क्यों करना चाहिए?
+EN_Q: Why should we respect community helpers?
+HI_A: क्योंकि वे हमारी मदद करते हैं
+EN_A: Because they help us
+
+[BILINGUAL_GK_TOPIC_SCHOOL_LIFE]
+
+Q1
+HI_Q: हम स्कूल क्यों जाते हैं?
+EN_Q: Why do we go to school?
+HI_A: पढ़ने और सीखने के लिए
+EN_A: To study and learn
+
+Q2
+HI_Q: स्कूल में पढ़ाने वाले को क्या कहते हैं?
+EN_Q: What do we call a person who teaches in school?
+HI_A: शिक्षक / अध्यापक
+EN_A: Teacher
+
+Q3
+HI_Q: स्कूल में पढ़ने वाले बच्चों को क्या कहते हैं?
+EN_Q: What do we call children who study in school?
+HI_A: विद्यार्थी / छात्र
+EN_A: Students
+
+Q4
+HI_Q: स्कूल में पढ़ाई कहाँ होती है?
+EN_Q: Where does learning take place in school?
+HI_A: कक्षा में
+EN_A: In the classroom
+
+Q5
+HI_Q: किताबों को रखने के लिए क्या उपयोग करते हैं?
+EN_Q: What do we use to keep our books?
+HI_A: स्कूल बैग
+EN_A: School bag
+
+Q6
+HI_Q: लिखने के लिए हम क्या उपयोग करते हैं?
+EN_Q: What do we use for writing?
+HI_A: पेन या पेंसिल
+EN_A: Pen or pencil
+
+Q7
+HI_Q: ब्लैकबोर्ड/व्हाइटबोर्ड पर कौन लिखता है?
+EN_Q: Who writes on the blackboard/whiteboard?
+HI_A: शिक्षक
+EN_A: Teacher
+
+[BILINGUAL_GK_TOPIC_FOOD_NUTRITION]
+
+Q1
+HI_Q: हमें भोजन क्यों करना चाहिए?
+EN_Q: Why do we need to eat food?
+HI_A: ऊर्जा पाने के लिए
+EN_A: To get energy
+
+Q2
+HI_Q: स्वस्थ रहने के लिए हमें कैसा भोजन करना चाहिए?
+EN_Q: What kind of food should we eat to stay healthy?
+HI_A: संतुलित आहार
+EN_A: Balanced diet
+
+Q3
+HI_Q: चावल और रोटी हमें क्या देते हैं?
+EN_Q: What do rice and chapati give us?
+HI_A: ऊर्जा
+EN_A: Energy
+
+Q4
+HI_Q: दाल और बीन्स किसके अच्छे स्रोत हैं?
+EN_Q: Pulses and beans are good sources of what?
+HI_A: प्रोटीन
+EN_A: Protein
+
+Q5
+HI_Q: दूध में कौन सा पोषक तत्व अधिक होता है?
+EN_Q: Which nutrient is rich in milk?
+HI_A: कैल्शियम
+EN_A: Calcium
+
+Q6
+HI_Q: फल और सब्जियाँ हमें क्या देती हैं?
+EN_Q: What do fruits and vegetables give us?
+HI_A: विटामिन और खनिज
+EN_A: Vitamins and minerals
+
+Q7
+HI_Q: गाजर किस विटामिन के लिए जानी जाती है?
+EN_Q: Carrot is rich in which vitamin?
+HI_A: विटामिन A
+EN_A: Vitamin A
+
+Q8
+HI_Q: नींबू किस विटामिन का अच्छा स्रोत है?
+EN_Q: Lemon is a good source of which vitamin?
+HI_A: विटामिन C
+EN_A: Vitamin C
+
+Q9
+HI_Q: पानी पीना क्यों जरूरी है?
+EN_Q: Why is drinking water important?
+HI_A: शरीर को हाइड्रेट रखने के लिए
+EN_A: To keep the body hydrated
+
+Q10
+HI_Q: हमें रोज कितने समय पर खाना खाना चाहिए?
+EN_Q: How often should we eat meals daily?
+HI_A: नियमित समय पर
+EN_A: At regular times
+
+Q11
+HI_Q: सुबह का नाश्ता क्यों जरूरी है?
+EN_Q: Why is breakfast important?
+HI_A: दिन की शुरुआत के लिए ऊर्जा देता है
+EN_A: Gives energy to start the day
+
+Q12
+HI_Q: जंक फूड ज्यादा खाने से क्या होता है?
+EN_Q: What happens if we eat too much junk food?
+HI_A: स्वास्थ्य खराब हो सकता है
+EN_A: It can harm our health
+
+Q13
+HI_Q: हरी पत्तेदार सब्जियाँ क्यों खानी चाहिए?
+EN_Q: Why should we eat green leafy vegetables?
+HI_A: शरीर को ताकत और खून बढ़ाने के लिए
+EN_A: To build strength and improve blood
+
+Q14
+HI_Q: अंडा किसका अच्छा स्रोत है?
+EN_Q: Egg is a good source of what?
+HI_A: प्रोटीन
+EN_A: Protein
+
+Q15
+HI_Q: दही खाने से क्या फायदा होता है?
+EN_Q: What is the benefit of eating curd?
+HI_A: पाचन अच्छा रहता है
+EN_A: Helps in digestion
+
+Q16
+HI_Q: मेवे (Dry fruits) हमें क्या देते हैं?
+EN_Q: What do dry fruits give us?
+HI_A: ऊर्जा और पोषक तत्व
+EN_A: Energy and nutrients
+
+Q17
+HI_Q: ज्यादा मीठा खाने से क्या हो सकता है?
+EN_Q: What can happen if we eat too many sweets?
+HI_A: दाँत खराब हो सकते हैं
+EN_A: Teeth can get damaged
+
+Q18
+HI_Q: साफ भोजन क्यों जरूरी है?
+EN_Q: Why is clean food important?
+HI_A: बीमारियों से बचने के लिए
+EN_A: To avoid diseases
+
+Q19
+HI_Q: खाने से पहले हाथ क्यों धोने चाहिए?
+EN_Q: Why should we wash hands before eating?
+HI_A: कीटाणुओं से बचने के लिए
+EN_A: To avoid germs
+
+Q20
+HI_Q: फल खाने का सबसे अच्छा समय कौन सा है?
+EN_Q: What is the best time to eat fruits?
+HI_A: सुबह या दिन में
+EN_A: Morning or daytime
+
+Q21
+HI_Q: शरीर को बढ़ने के लिए किसकी जरूरत होती है?
+EN_Q: What does the body need for growth?
+HI_A: प्रोटीन
+EN_A: Protein
+
+Q22
+HI_Q: कौन सा पेय हमें ताजगी देता है और शरीर के लिए जरूरी है?
+EN_Q: Which drink refreshes us and is essential for the body?
+HI_A: पानी
+EN_A: Water
+
+Q23
+HI_Q: ज्यादा तला हुआ भोजन क्यों नहीं खाना चाहिए?
+EN_Q: Why should we avoid eating too much fried food?
+HI_A: स्वास्थ्य के लिए हानिकारक है
+EN_A: It is harmful to health
+
+Q24
+HI_Q: हमें रोज कितनी बार फल और सब्जियाँ खानी चाहिए?
+EN_Q: How often should we eat fruits and vegetables?
+HI_A: रोजाना
+EN_A: Every day
+
+Q25
+HI_Q: स्वस्थ भोजन करने से क्या फायदा होता है?
+EN_Q: What is the benefit of eating healthy food?
+HI_A: शरीर मजबूत और स्वस्थ रहता है
+EN_A: The body stays strong and healthy
