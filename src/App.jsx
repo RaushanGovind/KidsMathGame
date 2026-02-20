@@ -5,6 +5,7 @@ import Menu from './components/Menu';
 import EnglishMenu from './components/EnglishMenu';
 import ReasoningMenu from './components/ReasoningMenu';
 import HindiMenu from './components/HindiMenu';
+import GamesMenu from './components/GamesMenu';
 import BilingualGKGame from './components/BilingualGKGame';
 import { GameProvider, useGame } from './context/GameContext';
 
@@ -23,6 +24,13 @@ const UnitaryMethodGame = lazy(() => import('./components/UnitaryMethodGame'));
 const DecimalArithmeticGame = lazy(() => import('./components/DecimalArithmeticGame'));
 const Leaderboard = lazy(() => import('./components/Leaderboard'));
 const LevelMap = lazy(() => import('./components/LevelMap'));
+const BubbleMultiplicationGame = lazy(() => import('./components/BubbleMultiplicationGame'));
+const DirectionAdventureGame = lazy(() => import('./components/DirectionAdventureGame'));
+const TrafficLightHero = lazy(() => import('./components/TrafficLightHero'));
+const NightSafetyGame = lazy(() => import('./components/NightSafetyGame'));
+const ForceMotionGame = lazy(() => import('./components/ForceMotionGame'));
+const GravityDropLab = lazy(() => import('./components/GravityDropLab'));
+const LightBeamAdventure = lazy(() => import('./components/LightBeamAdventure'));
 
 // Reasoning Games
 const ReasoningBasicsGame = lazy(() => import('./components/ReasoningBasicsGame'));
@@ -195,6 +203,8 @@ function AppContent() {
         return <ReasoningMenu onSelectMode={navigate} onBack={() => navigate('home')} />;
       case 'hindi-menu':
         return <HindiMenu onSelectMode={navigate} onBack={() => navigate('home')} />;
+      case 'games':
+        return <GamesMenu onSelectMode={navigate} onBack={() => navigate('home')} />;
       case 'bilingual_gk': return <BilingualGKGame onBack={() => navigate('home')} subject="gk" />;
       case 'physics': return <BilingualGKGame onBack={() => navigate('home')} subject="physics" />;
       case 'chemistry': return <BilingualGKGame onBack={() => navigate('home')} subject="chemistry" />;
@@ -215,6 +225,13 @@ function AppContent() {
       case 'decimals': return <DecimalArithmeticGame onBack={() => navigate('menu')} />;
       case 'leaderboard': return <Leaderboard onBack={() => navigate('menu')} />;
       case 'levelmap': return <LevelMap onBack={() => navigate('menu')} />;
+      case 'bubble-multi': return <BubbleMultiplicationGame onBack={() => navigate('menu')} />;
+      case 'direction-adventure': return <DirectionAdventureGame onBack={() => navigate('games')} />;
+      case 'traffic-hero': return <TrafficLightHero onBack={() => navigate('games')} />;
+      case 'night-safety': return <NightSafetyGame onBack={() => navigate('games')} />;
+      case 'force-motion': return <ForceMotionGame onBack={() => navigate('games')} />;
+      case 'gravity-drop': return <GravityDropLab onBack={() => navigate('games')} />;
+      case 'light-beam': return <LightBeamAdventure onBack={() => navigate('games')} />;
 
       // Reasoning Games
       case 'reasoning-basics': return <ReasoningBasicsGame onBack={() => navigate('reasoning-menu')} />;

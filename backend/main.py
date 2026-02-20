@@ -137,4 +137,4 @@ async def get_game_content(game_id: str):
 if __name__ == "__main__":
     import uvicorn
     # Clean up port usage if necessary or just run
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=8001)

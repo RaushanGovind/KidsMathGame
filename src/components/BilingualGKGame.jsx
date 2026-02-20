@@ -232,16 +232,47 @@ const BilingualGKGame = ({ onBack, subject = 'gk' }) => {
 
     const activeTheme = activeCategory ? getTheme(activeCategory) : null;
 
-    const getOccupationImage = () => {
-        if (activeCategory !== 'occupations' || !activeQuestions[currentQuestionIndex]) return null;
+    const getQuestionImage = () => {
+        if (!activeQuestions[currentQuestionIndex]) return null;
         const q = activeQuestions[currentQuestionIndex];
-        const text = (String(q.en_q || '') + " " + String(q.en_a || '')).toLowerCase();
+        const category = activeCategory;
+        const answer = String(q.en_a || q.answer || '').toLowerCase().trim().replace(/[^a-z0-9]/g, '_');
 
-        if (text.includes('doctor')) return <img src="/images/occupations/doctor.png?v=3" alt="Doctor" style={{ height: '100%', borderRadius: '20px', objectFit: 'contain' }} />;
-        if (text.includes('teacher')) return <img src="/images/occupations/teacher.png?v=3" alt="Teacher" style={{ height: '100%', borderRadius: '20px', objectFit: 'contain' }} />;
-        if (text.includes('farmer')) return <img src="/images/occupations/farmer.png?v=3" alt="Farmer" style={{ height: '100%', borderRadius: '20px', objectFit: 'contain' }} />;
-        if (text.includes('police')) return <img src="/images/occupations/police.png?v=3" alt="Police" style={{ height: '100%', borderRadius: '20px', objectFit: 'contain' }} />;
-        return null;
+        // Strategy: Search in multiple folders since sets mix topics
+        const foldersToSearch = [category];
+        if (category.startsWith('set_') || category.includes('general')) {
+            foldersToSearch.push('wild_animals', 'animals', 'birds', 'time', 'fruits', 'vegetables', 'solar_system', 'traffic_rules');
+        }
+
+        return (
+            <div style={{ height: '100%', width: '100%', position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                {foldersToSearch.map((folder, idx) => (
+                    <img
+                        key={`${folder}-${answer}`}
+                        src={`/images/${folder}/${answer}.png`}
+                        alt=""
+                        style={{
+                            position: 'absolute',
+                            maxHeight: '100%',
+                            maxWidth: '100%',
+                            borderRadius: '20px',
+                            objectFit: 'contain',
+                            display: 'none',
+                            filter: 'drop-shadow(0 10px 15px rgba(0,0,0,0.1))'
+                        }}
+                        onLoad={(e) => {
+                            // If this one loads, hide others and show this
+                            const allImgs = e.target.parentElement.querySelectorAll('img');
+                            allImgs.forEach(img => img.style.display = 'none');
+                            e.target.style.display = 'block';
+                        }}
+                        onError={(e) => {
+                            e.target.style.display = 'none';
+                        }}
+                    />
+                ))}
+            </div>
+        );
     };
 
     return (
@@ -456,12 +487,10 @@ const BilingualGKGame = ({ onBack, subject = 'gk' }) => {
                             }}
                         >
                             <div style={{ marginBottom: '30px', position: 'relative' }}>
-                                {/* Image Logic for Occupations */}
-                                {activeCategory === 'occupations' && (
-                                    <div style={{ marginBottom: '20px', height: '200px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                        {getOccupationImage()}
-                                    </div>
-                                )}
+                                {/* Image Logic for All Categories */}
+                                <div style={{ marginBottom: '20px', height: '240px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                    {getQuestionImage()}
+                                </div>
 
                                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
                                     <h2

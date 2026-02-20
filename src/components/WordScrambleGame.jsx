@@ -14,7 +14,7 @@ function WordScrambleGame({ onBack }) {
     const [availableLetters, setAvailableLetters] = useState([]); // Array of {id, letter}
 
     useEffect(() => {
-        const API_URL = import.meta.env.VITE_API_URL || \'http://localhost:8000\';
+        const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
         fetch(`${API_URL}/api/content/word_scramble`)
             .then(res => res.json())
             .then(data => {

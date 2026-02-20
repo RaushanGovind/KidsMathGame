@@ -14,7 +14,7 @@ function GuestMannersGame({ onBack }) {
     const [feedback, setFeedback] = useState(null);
 
     useEffect(() => {
-        const API_URL = import.meta.env.VITE_API_URL || \'http://localhost:8000\';
+        const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
         fetch(`${API_URL}/api/content/guest_manners`)
             .then(res => res.json())
             .then(data => {

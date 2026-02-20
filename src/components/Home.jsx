@@ -123,7 +123,7 @@ function Home({ onNavigate }) {
                     title="GAMES"
                     icon="🎮"
                     color="#95A5A6"
-                    onClick={() => onNavigate('settings')}
+                    onClick={() => onNavigate('games')}
                 />
             </div>
         </div>

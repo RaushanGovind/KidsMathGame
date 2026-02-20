@@ -15,7 +15,7 @@ function TwoWordSentencesGame({ onBack }) {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const API_URL = import.meta.env.VITE_API_URL || \'http://localhost:8000\';
+        const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
         fetch(`${API_URL}/api/content/two_word_sentences`)
             .then(res => res.json())
             .then(data => {
