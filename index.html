@@ -3,14 +3,76 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ═══════════════════════════════════════════
+       PWA / MOBILE FULLSCREEN
+  ════════════════════════════════════════════ -->
+  <!-- Viewport: no zooming, fills entire screen -->
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+
+  <!-- PWA manifest (enables "Add to Home Screen" + standalone launch) -->
+  <link rel="manifest" href="/manifest.json" />
+
+  <!-- Android / Chrome: fullscreen PWA -->
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="theme-color" content="#0F172A" />
+
+  <!-- iOS Safari: fullscreen when launched from Home Screen -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Kids Hero" />
+
+  <!-- Icons for iOS home screen -->
+  <link rel="apple-touch-icon" href="/logo.png" />
+  <link rel="apple-touch-icon" sizes="152x152" href="/logo.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/logo.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/logo.png" />
+
+  <!-- App title -->
   <title>Kids Hero</title>
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700;900&family=Jolly+Lodger&family=Slackey&family=Boogaloo&family=Bubblegum+Sans&family=Chewy&family=Comic+Neue:wght@700&family=Patrick+Hand&family=Schoolbell&family=Balsamiq+Sans:wght@700&family=Hind:wght@400;700&family=Kalam:wght@400;700&family=Amita:wght@400;700&family=Rajdhani:wght@500;700&family=Khand:wght@500;700&family=Rozha+One&family=Martel:wght@700&family=Karma:wght@500;700&family=Gotu&family=Modak&display=swap"
     rel="stylesheet">
+
+  <style>
+    /* Prevent tap highlight and text selection globally — feels more "app-like" */
+    * {
+      -webkit-tap-highlight-color: transparent;
+      -webkit-touch-callout: none;
+    }
+
+    html,
+    body,
+    #root {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overscroll-behavior: none;
+      /* Prevents pull-to-refresh ruining the game */
+      overflow: hidden;
+      background: #0F172A;
+    }
+
+    /* Safe area insets for iPhone notch / Dynamic Island */
+    #root {
+      padding-top: env(safe-area-inset-top);
+      padding-bottom: env(safe-area-inset-bottom);
+      padding-left: env(safe-area-inset-left);
+      padding-right: env(safe-area-inset-right);
+      height: 100dvh;
+      /* dynamic viewport height = true fullscreen */
+      overflow-y: auto;
+      overflow-x: hidden;
+      box-sizing: border-box;
+    }
+  </style>
 </head>
 
 <body>

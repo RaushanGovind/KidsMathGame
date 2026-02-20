@@ -65,19 +65,23 @@ body {
   font-family: var(--active-english-font);
   background: var(--bg-gradient);
   color: var(--color-text-dark);
-  min-height: 100vh;
+  min-height: 100dvh;
+  /* true fullscreen on mobile */
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
-  /* background-attachment: fixed; removed for performance */
   scroll-behavior: auto;
-  transform: translateZ(0);
-  /* Hardware acceleration for faster scrolling */
-  will-change: transform;
+  /* Stop pull-to-refresh from interfering with games */
+  overscroll-behavior: none;
+  /* NOTE: transform/will-change REMOVED — they break position:fixed headers */
 }
 
-/* Optimization for scrolling */
+/* Optimization for scrolling + safe area on notch devices */
 html {
-  scroll-padding-top: 100px;
+  scroll-padding-top: 68px;
+  /* matches GlobalHeader fixed height */
+  height: 100%;
+  /* Ensures address bar collapse on scroll counts as viewport */
+  overflow-y: scroll;
 }
 
 /* Glass Panel Optimizations */

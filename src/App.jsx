@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useCallback, useMemo, lazy, Suspense } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Menu, X, Home as HomeIcon, Book, LayoutGrid, Brain, Globe, Settings as SettingsIcon } from 'lucide-react';
 import Home from './components/Home';
-import Menu from './components/Menu';
+import MenuScreen from './components/Menu';
 import EnglishMenu from './components/EnglishMenu';
 import ReasoningMenu from './components/ReasoningMenu';
 import HindiMenu from './components/HindiMenu';
@@ -77,97 +78,217 @@ const YesNoQuestionsGame = lazy(() => import('./components/YesNoQuestionsGame'))
 const ConversationGame = lazy(() => import('./components/ConversationGame'));
 const Settings = lazy(() => import('./components/Settings'));
 
-// Basic Header
-// Premium Header
-// Premium Header
-const GlobalHeader = ({ stars, level, onShowSettings }) => (
+// Sidebar Component
+const Sidebar = ({ isOpen, onClose, onNavigate, currentMode }) => (
+  <AnimatePresence>
+    {isOpen && (
+      <>
+        {/* Backdrop */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={onClose}
+          style={{
+            position: 'fixed', top: 0, left: 0, right: 0, bottom: 0,
+            background: 'rgba(0,0,0,0.3)', backdropFilter: 'blur(4px)',
+            zIndex: 3500
+          }}
+        />
+        {/* Sidebar Panel */}
+        <motion.div
+          initial={{ x: '-100%' }}
+          animate={{ x: 0 }}
+          exit={{ x: '-100%' }}
+          transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+          style={{
+            position: 'fixed', top: 0, left: 0, bottom: 0,
+            width: '280px', background: 'white',
+            boxShadow: '20px 0 50px rgba(0,0,0,0.1)',
+            zIndex: 3600, display: 'flex', flexDirection: 'column',
+            padding: '20px'
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '30px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <div style={{ width: '35px', height: '35px', background: '#F1F5F9', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
+                <img src="/logo.png" alt="logo" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+              </div>
+              <span style={{ fontWeight: 900, fontSize: '1.2rem', color: '#1E293B' }}>KIDS HERO</span>
+            </div>
+            <motion.button
+              whileTap={{ scale: 0.9 }}
+              onClick={onClose}
+              style={{
+                background: '#F1F5F9', border: 'none', borderRadius: '12px',
+                width: '40px', height: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                cursor: 'pointer'
+              }}
+            >
+              <X size={20} color="#64748B" />
+            </motion.button>
+          </div>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            <SidebarLink
+              icon={<HomeIcon size={20} />}
+              label="Home"
+              active={currentMode === 'home'}
+              onClick={() => { onNavigate('home'); onClose(); }}
+            />
+            <SidebarLink
+              icon={<LayoutGrid size={20} />}
+              label="Math Games"
+              active={currentMode === 'menu'}
+              onClick={() => { onNavigate('menu'); onClose(); }}
+            />
+            <SidebarLink
+              icon={<Book size={20} />}
+              label="English"
+              active={currentMode === 'english-menu'}
+              onClick={() => { onNavigate('english-menu'); onClose(); }}
+            />
+            <SidebarLink
+              icon={<Brain size={20} />}
+              label="Reasoning"
+              active={currentMode === 'reasoning-menu'}
+              onClick={() => { onNavigate('reasoning-menu'); onClose(); }}
+            />
+            <SidebarLink
+              icon={<Globe size={20} />}
+              label="GK (Hindi/Eng)"
+              active={currentMode === 'bilingual_gk'}
+              onClick={() => { onNavigate('bilingual_gk'); onClose(); }}
+            />
+          </div>
+
+          <div style={{ marginTop: 'auto', paddingTop: '20px', borderTop: '1px solid #F1F5F9' }}>
+            <SidebarLink
+              icon={<SettingsIcon size={20} />}
+              label="Settings"
+              onClick={() => { onNavigate('settings'); onClose(); }}
+            />
+          </div>
+        </motion.div>
+      </>
+    )}
+  </AnimatePresence>
+);
+
+const SidebarLink = ({ icon, label, active, onClick }) => (
+  <motion.button
+    whileHover={{ x: 5, background: active ? '#3498DB' : '#F8FAFC' }}
+    whileTap={{ scale: 0.98 }}
+    onClick={onClick}
+    style={{
+      display: 'flex', alignItems: 'center', gap: '15px',
+      padding: '12px 15px', borderRadius: '15px',
+      background: active ? '#3498DB' : 'transparent',
+      color: active ? 'white' : '#64748B',
+      width: '100%', textAlign: 'left',
+      fontSize: '0.95rem', fontWeight: 800,
+      border: 'none', cursor: 'pointer',
+      transition: '0.2s',
+      fontFamily: 'inherit'
+    }}
+  >
+    {icon}
+    {label}
+  </motion.button>
+);
+
+// Premium Header — Logo LEFT, controls RIGHT
+const GlobalHeader = ({ onShowSettings, onMenuClick, onHomeClick }) => (
   <div style={{
     position: 'fixed', top: 0, left: 0, right: 0,
-    height: '70px',
+    height: '68px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
-    padding: '0 20px',
+    padding: '0 16px',
     zIndex: 2000,
-    background: 'rgba(255, 255, 255, 0.7)',
-    backdropFilter: 'blur(15px)',
-    borderBottom: '1px solid rgba(255, 255, 255, 0.3)',
-    boxShadow: '0 4px 15px rgba(0,0,0,0.03)'
+    background: 'linear-gradient(90deg, #1E293B 0%, #0F172A 100%)',
+    boxShadow: '0 4px 20px rgba(0,0,0,0.25)'
   }}>
-    {/* App Name / Logo */}
-    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-      <div style={{
-        width: '40px', height: '40px', background: 'linear-gradient(45deg, #3498DB, #2ECC71)',
-        borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center',
-        fontSize: '1.5rem', boxShadow: '0 4px 10px rgba(52, 152, 219, 0.3)'
-      }}>
-        🚀
-      </div>
-      <div>
-        <h1 style={{
-          fontSize: '1.2rem', margin: 0, color: '#2C3E50',
-          letterSpacing: '1px', textTransform: 'uppercase',
-          background: 'linear-gradient(45deg, #2C3E50, #3498DB)',
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
-          fontWeight: 900
-        }}>
-          Kids Hero
-        </h1>
-        <div style={{ fontSize: '0.65rem', fontWeight: 800, color: '#94A3B8', marginTop: '-4px' }}>
-          LEARN & PLAY
-        </div>
-      </div>
-    </div>
 
-    {/* Right Side Controls */}
-    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-      <div style={{
-        background: 'white',
-        padding: '6px 15px',
-        borderRadius: '20px',
-        boxShadow: '0 4px 15px rgba(0,0,0,0.05)',
-        display: 'flex',
-        alignItems: 'center',
-        gap: '12px',
-        border: '1px solid #F1F5F9'
-      }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-          <span style={{ fontSize: '1rem' }}>⭐</span>
-          <span style={{ fontWeight: '900', color: '#1E293B' }}>{stars}</span>
-        </div>
-        <div style={{ width: '1px', height: '20px', background: '#E2E8F0' }}></div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-          <span style={{ fontSize: '0.7rem', fontWeight: '900', color: '#64748B' }}>LVL</span>
-          <span style={{ fontWeight: '900', color: '#3498DB' }}>{level}</span>
-        </div>
-      </div>
+    {/* ——— LEFT: Logo ——— */}
+    <img
+      src="/logo.png"
+      alt="Kids Hero"
+      style={{ height: '54px', objectFit: 'contain', filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.4))' }}
+      onError={(e) => {
+        if (!e.target.src.endsWith('.svg')) {
+          e.target.src = '/logo.svg';
+        } else {
+          e.target.outerHTML = '<span style="font-size:1.4rem;font-weight:900;color:white">⚡ Kids Hero</span>';
+        }
+      }}
+    />
 
-      <motion.div
-        whileHover={{ scale: 1.1, rotate: 15 }}
-        whileTap={{ scale: 0.9 }}
-        onClick={onShowSettings}
+    {/* ——— RIGHT: Home + Menu + Settings ——— */}
+    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+
+      {/* Home button */}
+      <motion.button
+        whileHover={{ scale: 1.08 }}
+        whileTap={{ scale: 0.92 }}
+        onClick={onHomeClick}
+        title="Home"
         style={{
-          background: 'white',
-          padding: '10px',
-          borderRadius: '15px',
-          boxShadow: '0 4px 15px rgba(0,0,0,0.08)',
-          cursor: 'pointer',
-          border: '1px solid #F1F5F9',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          color: '#64748B'
+          background: 'linear-gradient(135deg, #3498DB, #2980B9)',
+          border: 'none', borderRadius: '12px',
+          width: '42px', height: '42px',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          boxShadow: '0 4px 14px rgba(52,152,219,0.55)', cursor: 'pointer',
+          fontSize: '1.25rem', lineHeight: 1
         }}
       >
-        <span style={{ fontSize: '1.2rem' }}>⚙️</span>
-      </motion.div>
+        🏠
+      </motion.button>
+
+      {/* Menu button */}
+      <motion.button
+        whileHover={{ scale: 1.08 }}
+        whileTap={{ scale: 0.92 }}
+        onClick={onMenuClick}
+        title="Menu"
+        style={{
+          background: 'linear-gradient(135deg, #F39C12, #E67E22)',
+          border: 'none', borderRadius: '12px',
+          width: '42px', height: '42px',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          boxShadow: '0 4px 14px rgba(243,156,18,0.55)', cursor: 'pointer',
+          fontSize: '1.25rem', lineHeight: 1
+        }}
+      >
+        ☰
+      </motion.button>
+
+      {/* Settings */}
+      <motion.button
+        whileHover={{ scale: 1.08, rotate: 20 }}
+        whileTap={{ scale: 0.92 }}
+        onClick={onShowSettings}
+        title="Settings"
+        style={{
+          background: 'rgba(255,255,255,0.1)',
+          border: '1px solid rgba(255,255,255,0.25)',
+          borderRadius: '12px',
+          width: '42px', height: '42px',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          cursor: 'pointer', fontSize: '1.2rem', lineHeight: 1
+        }}
+      >
+        ⚙️
+      </motion.button>
     </div>
   </div>
 );
 
+
 function AppContent() {
   const [currentMode, setCurrentMode] = useState('home');
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
   const context = useGame();
   const userData = context?.userData;
@@ -196,7 +317,7 @@ function AppContent() {
       case 'home':
         return <Home onNavigate={navigate} />;
       case 'menu':
-        return <Menu onSelectMode={navigate} onBack={() => navigate('home')} />;
+        return <MenuScreen onSelectMode={navigate} onBack={() => navigate('home')} />;
       case 'english-menu':
         return <EnglishMenu onSelectMode={navigate} onBack={() => navigate('home')} />;
       case 'reasoning-menu':
@@ -321,10 +442,17 @@ function AppContent() {
       overflowX: 'hidden',
       position: 'relative'
     }}>
+      <Sidebar
+        isOpen={isSidebarOpen}
+        onClose={() => setIsSidebarOpen(false)}
+        onNavigate={navigate}
+        currentMode={currentMode}
+      />
+
       <GlobalHeader
-        stars={userData.stars}
-        level={userData.currentLevel}
         onShowSettings={() => setShowSettings(true)}
+        onMenuClick={() => setIsSidebarOpen(true)}
+        onHomeClick={() => navigate('home')}
       />
 
       <div style={{

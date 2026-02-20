@@ -184,6 +184,92 @@ function HindiStoriesGame({ onBack }) {
                                 🔊 पूरी कहानी सुनें (Listen All)
                             </button>
                         </div>
+
+                        {/* Navigation Buttons */}
+                        <div style={{
+                            display: 'flex',
+                            justifyContent: 'space-between',
+                            marginTop: '20px',
+                            borderTop: '2px dashed #F1F5F9',
+                            paddingTop: '30px'
+                        }}>
+                            <motion.button
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                disabled={stories.findIndex(s => s.id === selectedStory.id) === 0}
+                                onClick={() => {
+                                    const currentIndex = stories.findIndex(s => s.id === selectedStory.id);
+                                    if (currentIndex > 0) {
+                                        const prevStory = stories[currentIndex - 1];
+                                        setSelectedStory(prevStory);
+                                        window.speechSynthesis?.cancel();
+                                        handleSpeak(prevStory.title);
+                                        playSound('click');
+                                    }
+                                }}
+                                style={{
+                                    padding: '12px 25px',
+                                    background: stories.findIndex(s => s.id === selectedStory.id) === 0 ? '#F1F5F9' : '#334155',
+                                    color: stories.findIndex(s => s.id === selectedStory.id) === 0 ? '#CBD5E1' : 'white',
+                                    border: 'none',
+                                    borderRadius: '15px',
+                                    fontWeight: '1000',
+                                    cursor: stories.findIndex(s => s.id === selectedStory.id) === 0 ? 'default' : 'pointer',
+                                    boxShadow: stories.findIndex(s => s.id === selectedStory.id) === 0 ? 'none' : '0 6px 0 #1E293B',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    gap: '8px'
+                                }}
+                            >
+                                ⬅ PREV
+                            </motion.button>
+
+                            <div style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                background: '#F8FAFC',
+                                padding: '10px 25px',
+                                borderRadius: '15px',
+                                border: '2px solid #F1F5F9',
+                                fontWeight: '1000',
+                                fontSize: '1.1rem',
+                                color: '#64748B'
+                            }}>
+                                {stories.findIndex(s => s.id === selectedStory.id) + 1} / {stories.length}
+                            </div>
+
+                            <motion.button
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                disabled={stories.findIndex(s => s.id === selectedStory.id) === stories.length - 1}
+                                onClick={() => {
+                                    const currentIndex = stories.findIndex(s => s.id === selectedStory.id);
+                                    if (currentIndex < stories.length - 1) {
+                                        const nextStory = stories[currentIndex + 1];
+                                        setSelectedStory(nextStory);
+                                        window.speechSynthesis?.cancel();
+                                        handleSpeak(nextStory.title);
+                                        playSound('click');
+                                    }
+                                }}
+                                style={{
+                                    padding: '12px 25px',
+                                    background: stories.findIndex(s => s.id === selectedStory.id) === stories.length - 1 ? '#F1F5F9' : '#334155',
+                                    color: stories.findIndex(s => s.id === selectedStory.id) === stories.length - 1 ? '#CBD5E1' : 'white',
+                                    border: 'none',
+                                    borderRadius: '15px',
+                                    fontWeight: '1000',
+                                    cursor: stories.findIndex(s => s.id === selectedStory.id) === stories.length - 1 ? 'default' : 'pointer',
+                                    boxShadow: stories.findIndex(s => s.id === selectedStory.id) === stories.length - 1 ? 'none' : '0 6px 0 #1E293B',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    gap: '8px'
+                                }}
+                            >
+                                NEXT ➡
+                            </motion.button>
+                        </div>
                     </motion.div>
                 )}
             </AnimatePresence>

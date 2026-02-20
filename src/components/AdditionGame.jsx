@@ -166,139 +166,122 @@ function AdditionGame({ onBack }) {
     };
 
     return (
-        <div className="game-container" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', padding: '20px', minHeight: '100vh', background: '#F8FAFC' }}>
+        <div className="game-container" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', padding: '8px', background: '#F8FAFC' }}>
 
-            {/* Header */}
-            <div style={{ width: '100%', maxWidth: '1000px', display: 'flex', justifyContent: 'space-between', marginBottom: '30px', alignItems: 'center', gap: '20px', flexWrap: 'wrap' }}>
-                <button onClick={onBack} style={{
-                    padding: '12px 24px',
-                    background: 'white',
-                    color: '#2C3E50',
-                    fontWeight: '900',
-                    fontSize: '1.1rem',
-                    borderRadius: '15px',
-                    boxShadow: '0 4px 0 #bdc3c7',
-                    border: '2px solid #ecf0f1',
-                    cursor: 'pointer'
-                }}>
-                    ⬅ MENU
-                </button>
 
-                <div style={{ display: 'flex', gap: '10px' }}>
+            {/* ══ HEADER: 3-row compact layout ══ */}
+            <div style={{
+                width: '100%', maxWidth: '420px',
+                display: 'flex', flexDirection: 'column',
+                gap: '6px', marginBottom: '8px', marginTop: '8px'
+            }}>
+                {/* Row 1: MENU + Game Title */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    <button onClick={onBack} style={{
+                        padding: '6px 12px', background: 'white', color: '#2C3E50',
+                        fontWeight: '900', fontSize: '0.78rem', borderRadius: '10px',
+                        boxShadow: '0 3px 0 #bdc3c7', border: '1px solid #ecf0f1',
+                        cursor: 'pointer', whiteSpace: 'nowrap', flexShrink: 0
+                    }}>⬅ MENU</button>
+                    <div style={{ flex: 1, textAlign: 'center' }}>
+                        <span style={{
+                            fontSize: '1rem', fontWeight: '900', color: '#27AE60',
+                            textTransform: 'uppercase', letterSpacing: '1px'
+                        }}>➕ ADDITION</span>
+                    </div>
+                </div>
+
+                {/* Row 2: LEARN / TEST */}
+                <div style={{ display: 'flex', gap: '6px' }}>
                     <button
                         onClick={() => handleModeChange('learn')}
                         style={{
-                            padding: '12px 24px',
+                            flex: 1, padding: '8px 0',
                             background: mode === 'learn' ? '#27AE60' : 'white',
                             color: mode === 'learn' ? 'white' : '#2C3E50',
-                            fontWeight: '1000', borderRadius: '15px', border: 'none',
-                            boxShadow: mode === 'learn' ? '0 4px 0 #1E8449' : '0 4px 0 #CBD5E1',
-                            cursor: 'pointer'
+                            fontWeight: '900', borderRadius: '10px', border: 'none',
+                            boxShadow: mode === 'learn' ? '0 3px 0 #1E8449' : '0 3px 0 #CBD5E1',
+                            cursor: 'pointer', fontSize: '0.85rem'
                         }}
-                    >
-                        LEARN
-                    </button>
+                    >📖 LEARN</button>
                     <button
                         onClick={() => handleModeChange('test')}
                         style={{
-                            padding: '12px 24px',
+                            flex: 1, padding: '8px 0',
                             background: mode === 'test' ? '#E67E22' : 'white',
                             color: mode === 'test' ? 'white' : '#2C3E50',
-                            fontWeight: '1000', borderRadius: '15px', border: 'none',
-                            boxShadow: mode === 'test' ? '0 4px 0 #D35400' : '0 4px 0 #CBD5E1',
-                            cursor: 'pointer'
+                            fontWeight: '900', borderRadius: '10px', border: 'none',
+                            boxShadow: mode === 'test' ? '0 3px 0 #D35400' : '0 3px 0 #CBD5E1',
+                            cursor: 'pointer', fontSize: '0.85rem'
                         }}
-                    >
-                        TEST
-                    </button>
-                </div>
-            </div>
-
-            <motion.div
-                layout
-                className="glass-panel"
-                style={{
-                    padding: '40px',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    position: 'relative',
-                    background: 'rgba(255, 255, 255, 0.95)',
-                    boxShadow: '0 20px 40px rgba(0,0,0,0.1)',
-                    borderRadius: '40px',
-                    width: '100%',
-                    maxWidth: '800px'
-                }}
-            >
-                <div style={{ marginBottom: '30px', textAlign: 'center' }}>
-                    <h2 style={{ fontSize: '2rem', fontWeight: '1000', color: '#2C3E50', margin: 0, textTransform: 'uppercase', letterSpacing: '1px' }}>
-                        {mode === 'learn' ? '➕ Learn Addition' : '➕ Addition Practice'}
-                    </h2>
-                    <p style={{ fontSize: '1rem', fontWeight: '800', color: '#64748B', marginTop: '5px' }}>
-                        {mode === 'learn' ? 'Conventional Column Method!' : 'Solve the problem!'}
-                    </p>
+                    >✏️ TEST</button>
                 </div>
 
-                {/* Settings Panel */}
+                {/* Row 3: DIGITS + ROWS + CARRY */}
                 <div style={{
-                    width: '100%',
-                    display: 'flex',
+                    display: 'flex', gap: '8px', alignItems: 'center',
                     justifyContent: 'center',
-                    gap: '20px',
-                    marginBottom: '35px',
-                    padding: '15px 25px',
-                    background: '#F1F5F9',
-                    borderRadius: '20px',
-                    border: '2px solid #E2E8F0',
-                    flexWrap: 'wrap'
+                    background: '#F1F5F9', borderRadius: '12px',
+                    padding: '6px 10px', flexWrap: 'wrap'
                 }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                        <span style={{ fontWeight: '800', color: '#475569', fontSize: '0.9rem' }}>DIGITS:</span>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+                        <span style={{ fontWeight: '800', color: '#475569', fontSize: '0.75rem' }}>DIGITS</span>
                         <select
                             value={settings.digits}
                             onChange={e => setSettings({ ...settings, digits: Number(e.target.value) })}
-                            style={{ padding: '6px 12px', borderRadius: '10px', border: '2px solid #CBD5E1', fontWeight: '900', color: '#1E293B', cursor: 'pointer', outline: 'none' }}
+                            style={{ padding: '3px 6px', borderRadius: '7px', border: '1px solid #CBD5E1', fontWeight: '900', color: '#1E293B', cursor: 'pointer', outline: 'none', fontSize: '0.85rem', background: 'white' }}
                         >
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                         </select>
                     </div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                        <span style={{ fontWeight: '800', color: '#475569', fontSize: '0.9rem' }}>ROWS:</span>
+                    <div style={{ width: '1px', height: '18px', background: '#CBD5E1' }}></div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+                        <span style={{ fontWeight: '800', color: '#475569', fontSize: '0.75rem' }}>ROWS</span>
                         <select
                             value={settings.rows}
                             onChange={e => setSettings({ ...settings, rows: Number(e.target.value) })}
-                            style={{ padding: '6px 12px', borderRadius: '10px', border: '2px solid #CBD5E1', fontWeight: '900', color: '#1E293B', cursor: 'pointer', outline: 'none' }}
+                            style={{ padding: '3px 6px', borderRadius: '7px', border: '1px solid #CBD5E1', fontWeight: '900', color: '#1E293B', cursor: 'pointer', outline: 'none', fontSize: '0.85rem', background: 'white' }}
                         >
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
                         </select>
                     </div>
-                    {mode === 'test' && (
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                            <span style={{ fontWeight: '800', color: '#475569', fontSize: '0.9rem' }}>CARRY BOX:</span>
+                    {mode === 'test' && (<>
+                        <div style={{ width: '1px', height: '18px', background: '#CBD5E1' }}></div>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+                            <span style={{ fontWeight: '800', color: '#475569', fontSize: '0.75rem' }}>CARRY</span>
                             <button
                                 onClick={() => setSettings(s => ({ ...s, carry: !s.carry }))}
                                 style={{
-                                    padding: '8px 20px',
-                                    borderRadius: '12px',
+                                    padding: '3px 10px', borderRadius: '7px',
                                     background: settings.carry ? '#10B981' : '#94A3B8',
-                                    color: 'white',
-                                    border: 'none',
-                                    fontWeight: '900',
+                                    color: 'white', border: 'none', fontWeight: '900',
                                     cursor: 'pointer',
-                                    boxShadow: `0 4px 0 ${settings.carry ? '#059669' : '#64748B'}`,
-                                    transition: 'all 0.2s',
-                                    fontSize: '0.85rem'
+                                    boxShadow: `0 2px 0 ${settings.carry ? '#059669' : '#64748B'}`,
+                                    fontSize: '0.75rem'
                                 }}
-                            >
-                                {settings.carry ? 'VISIBLE' : 'HIDDEN'}
-                            </button>
+                            >{settings.carry ? 'ON' : 'OFF'}</button>
                         </div>
-                    )}
+                    </>)}
                 </div>
+            </div>
+
+            <motion.div layout className="glass-panel" style={{
+                padding: '12px 10px', display: 'flex', flexDirection: 'column',
+                alignItems: 'center', position: 'relative',
+                background: 'rgba(255, 255, 255, 0.95)',
+                boxShadow: '0 10px 24px rgba(0,0,0,0.08)',
+                borderRadius: '20px', width: '100%', maxWidth: '420px'
+            }}>
+                <p style={{ fontSize: '0.75rem', fontWeight: '700', color: '#64748B', margin: '0 0 8px' }}>
+                    {mode === 'learn' ? '✨ Column-by-column method' : '🎯 Solve the problem!'}
+                </p>
+
+                {/* Settings now in header row 3 — nothing here */}
+
 
                 {mode === 'learn' ? (
                     // LEARN MODE: Modern Step-by-Step Visualization

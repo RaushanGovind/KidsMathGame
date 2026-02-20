@@ -2,109 +2,93 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const menuItems = [
-    { id: 'addition', title: 'Addition', icon: '➕', color: '#87CEEB', shadow: '#5F9EA0' },
-    { id: 'subtraction', title: 'Subtract', icon: '➖', color: '#FFB6C1', shadow: '#DB7093' },
-    { id: 'multiplication', title: 'Multiply', icon: '✖️', color: '#98FB98', shadow: '#3CB371' },
-    { id: 'division', title: 'Division', icon: '➗', color: '#FFD700', shadow: '#DAA520' },
-    { id: 'time', title: 'Time', icon: '⏰', color: '#C8A2C8', shadow: '#800080' },
-    { id: 'fractions', title: 'Fractions', icon: '🍰', color: '#FFA07A', shadow: '#FF4500' },
-    { id: 'tables', title: 'Table Practice', icon: '🔢', color: '#6A5ACD', shadow: '#483D8B' },
-    { id: 'mentalmath', title: 'Mental Math', icon: '⚡', color: '#F1C40F', shadow: '#D4AC0D' },
+    { id: 'addition', title: 'Addition', icon: '➕', color: '#3498DB', shadow: '#2980B9' },
+    { id: 'subtraction', title: 'Subtract', icon: '➖', color: '#E74C3C', shadow: '#C0392B' },
+    { id: 'multiplication', title: 'Multiply', icon: '✖️', color: '#27AE60', shadow: '#1E8449' },
+    { id: 'division', title: 'Division', icon: '➗', color: '#F39C12', shadow: '#D68910' },
+    { id: 'time', title: 'Time', icon: '⏰', color: '#9B59B6', shadow: '#7D3C98' },
+    { id: 'fractions', title: 'Fractions', icon: '🍰', color: '#E67E22', shadow: '#CA6F1E' },
+    { id: 'tables', title: 'Tables', icon: '🔢', color: '#6A5ACD', shadow: '#483D8B' },
+    { id: 'mentalmath', title: 'Mental', icon: '⚡', color: '#D4AC0D', shadow: '#B7950B' },
     { id: 'lcm', title: 'LCM & HCF', icon: '🧮', color: '#8E44AD', shadow: '#71368A' },
-    { id: 'unitary', title: 'Unitary Method', icon: '💰', color: '#16A085', shadow: '#138D75' },
+    { id: 'unitary', title: 'Unitary', icon: '💰', color: '#16A085', shadow: '#138D75' },
     { id: 'timearithmetic', title: 'Time Math', icon: '⏱️', color: '#9B59B6', shadow: '#7D3C98' },
-    { id: 'decimals', title: 'Decimals', icon: '🔢', color: '#1ABC9C', shadow: '#16A085' },
+    { id: 'decimals', title: 'Decimals', icon: '🔣', color: '#1ABC9C', shadow: '#16A085' },
     { id: 'leaderboard', title: 'Leaderboard', icon: '🏆', color: '#F1C40F', shadow: '#D4AC0D' },
-    { id: 'levelmap', title: 'Adventure Map', icon: '🗺️', color: '#E67E22', shadow: '#D35400' },
+    { id: 'levelmap', title: 'Adv. Map', icon: '🗺️', color: '#E67E22', shadow: '#D35400' },
 ];
 
 function Menu({ onSelectMode, onBack }) {
     return (
-        <div style={{ width: '100%', maxWidth: '1200px', margin: '0 auto', padding: '40px 20px' }}>
+        <div style={{ width: '100%', padding: '16px' }}>
 
-            {/* Header: Back & Title */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '30px', marginBottom: '50px' }}>
+            {/* Header */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
                 <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={onBack}
                     style={{
-                        padding: '15px 30px',
+                        padding: '8px 14px',
                         background: 'white',
                         color: '#2C3E50',
-                        fontWeight: '900',
-                        fontSize: '1.2rem',
-                        borderRadius: '20px',
-                        boxShadow: '0 4px 0 #bdc3c7',
-                        border: '3px solid #f1f2f6',
-                        cursor: 'pointer'
+                        fontWeight: 900,
+                        fontSize: '0.8rem',
+                        borderRadius: '12px',
+                        boxShadow: '0 3px 0 #bdc3c7',
+                        border: '2px solid #f1f2f6',
+                        cursor: 'pointer',
+                        whiteSpace: 'nowrap'
                     }}>
-                    ⬅ HOME
+                    ⬅ Home
                 </motion.button>
-                <div style={{
-                    background: 'rgba(255,255,255,0.95)',
-                    padding: '20px 40px',
-                    borderRadius: '30px',
-                    boxShadow: '0 15px 35px rgba(0,0,0,0.05)',
-                    flex: 1,
-                    textAlign: 'center',
-                    border: '3px solid white'
+                <h1 style={{
+                    color: '#2C3E50', fontSize: '1.3rem', fontWeight: 900,
+                    margin: 0, textTransform: 'uppercase', letterSpacing: '1px'
                 }}>
-                    <h1 style={{ color: '#2C3E50', fontSize: '3rem', fontWeight: '900', margin: 0, textTransform: 'uppercase', letterSpacing: '1px' }}>
-                        Math Modes
-                    </h1>
-                </div>
+                    🔢 Math Modes
+                </h1>
             </div>
 
-            {/* Game Grid */}
+            {/* Compact 3-column icon grid */}
             <div style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-                gap: '25px'
+                gridTemplateColumns: 'repeat(3, 1fr)',
+                gap: '10px'
             }}>
-                {menuItems.map((item) => (
-                    <motion.div
+                {menuItems.map((item, i) => (
+                    <motion.button
                         key={item.id}
-                        whileHover={{ scale: 1.02, y: -5 }}
-                        whileTap={{ scale: 0.98 }}
+                        initial={{ opacity: 0, scale: 0.85 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: i * 0.04 }}
+                        whileHover={{ scale: 1.06, y: -3 }}
+                        whileTap={{ scale: 0.94 }}
                         onClick={() => onSelectMode(item.id)}
                         style={{
-                            height: '240px',
+                            background: `linear-gradient(135deg, ${item.color}, ${item.shadow})`,
+                            border: 'none',
+                            borderRadius: '16px',
+                            padding: '14px 6px 10px',
                             display: 'flex',
                             flexDirection: 'column',
                             alignItems: 'center',
-                            justifyContent: 'center',
+                            gap: '6px',
                             cursor: 'pointer',
-                            padding: '30px',
-                            background: 'white',
-                            borderRadius: '40px',
-                            boxShadow: '0 10px 25px rgba(0,0,0,0.03)',
-                            border: '4px solid white',
-                            position: 'relative'
+                            boxShadow: `0 5px 12px -2px ${item.color}66`,
                         }}
                     >
+                        <span style={{ fontSize: '1.8rem', lineHeight: 1 }}>{item.icon}</span>
                         <span style={{
-                            fontSize: '4.5rem', marginBottom: '15px'
-                        }}>
-                            {item.icon}
-                        </span>
-                        <h2 style={{
-                            fontSize: '2rem',
-                            fontWeight: '900',
-                            color: '#2C3E50',
-                            margin: 0,
-                            textAlign: 'center'
+                            fontSize: '0.68rem', fontWeight: 900,
+                            color: 'rgba(255,255,255,0.95)',
+                            letterSpacing: '0.5px', textTransform: 'uppercase',
+                            textAlign: 'center', lineHeight: 1.2,
+                            fontFamily: 'inherit'
                         }}>
                             {item.title}
-                        </h2>
-                        <div style={{
-                            marginTop: '15px',
-                            height: '6px',
-                            width: '40px',
-                            background: item.color,
-                            borderRadius: '3px'
-                        }} />
-                    </motion.div>
+                        </span>
+                    </motion.button>
                 ))}
             </div>
         </div>

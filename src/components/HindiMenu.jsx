@@ -1,14 +1,12 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft } from 'lucide-react';
 
-// Menu Configuration
 const MENU_STRUCTURE = {
     root: [
-        { id: 'hindi-varnamala', title: 'वर्णमाला (Varnamala)', icon: '🕉️', color: '#E74C3C', shadow: '#C0392B', type: 'game' },
-        { id: 'hindi-2-letter', title: 'दो अक्षर वाले शब्द', icon: '📝', color: '#F1C40F', shadow: '#D35400', type: 'game' },
-        { id: 'hindi-3-letter', title: 'तीन अक्षर वाले शब्द', icon: '📝', color: '#2ECC71', shadow: '#27AE60', type: 'game' },
-        { id: 'hindi-stories', title: 'कहानियाँ (Stories)', icon: '📖', color: '#3498DB', shadow: '#2980B9', type: 'game' }
+        { id: 'hindi-varnamala', title: 'वर्णमाला', icon: '🕉️', color: '#E74C3C', shadow: '#C0392B', type: 'game' },
+        { id: 'hindi-2-letter', title: 'दो अक्षर', icon: '✌️', color: '#F39C12', shadow: '#D68910', type: 'game' },
+        { id: 'hindi-3-letter', title: 'तीन अक्षर', icon: '👌', color: '#27AE60', shadow: '#1E8449', type: 'game' },
+        { id: 'hindi-stories', title: 'कहानियाँ', icon: '📖', color: '#3498DB', shadow: '#2980B9', type: 'game' },
     ]
 };
 
@@ -20,164 +18,84 @@ function HindiMenu({ onSelectMode, onBack }) {
         if (item.type === 'folder') {
             setHistory([...history, currentFolder]);
             setCurrentFolder(item.target);
-        } else if (item.type === 'game') {
+        } else {
             onSelectMode(item.id);
         }
     };
 
     const handleFolderBack = () => {
         if (history.length > 0) {
-            const previousFolder = history[history.length - 1];
+            const prev = history[history.length - 1];
             setHistory(history.slice(0, -1));
-            setCurrentFolder(previousFolder);
+            setCurrentFolder(prev);
         } else {
             onBack();
         }
     };
 
-    const currentItems = currentFolder === 'root' ? MENU_STRUCTURE.root : MENU_STRUCTURE.folders[currentFolder];
+    const currentItems = currentFolder === 'root' ? MENU_STRUCTURE.root : [];
 
     return (
-        <div className="menu-container mobile-padding-md" style={{
-            display: 'flex', flexDirection: 'column', alignItems: 'center',
-            minHeight: '100vh', padding: '20px',
-            background: 'linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 100%)'
-        }}>
-            {/* Header */}
-            <div
-                className="mobile-header-stack"
-                style={{
-                    width: '100%',
-                    maxWidth: '1200px',
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    marginBottom: '30px',
-                    alignItems: 'center',
-                    position: 'relative'
-                }}
-            >
+        <div style={{ width: '100%', padding: '16px' }}>
+
+            {/* Compact Header */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '14px' }}>
                 <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="back-btn"
+                    whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
                     onClick={handleFolderBack}
                     style={{
-                        padding: '10px 20px',
-                        background: 'white',
-                        color: '#9A3412',
-                        fontWeight: '800',
-                        fontSize: '0.9rem',
-                        borderRadius: '12px',
-                        boxShadow: '0 4px 6px -1px rgba(0,0,0,0.1)',
-                        border: '1px solid #FFEDD5',
-                        cursor: 'pointer',
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '8px',
-                        zIndex: 10,
-                        textTransform: 'uppercase',
-                        letterSpacing: '0.5px'
+                        padding: '8px 14px', background: 'white', color: '#9A3412',
+                        fontWeight: 900, fontSize: '0.8rem', borderRadius: '12px',
+                        boxShadow: '0 3px 6px rgba(0,0,0,0.08)', border: '1px solid #FFEDD5',
+                        cursor: 'pointer', whiteSpace: 'nowrap'
                     }}
                 >
-                    <ChevronLeft size={18} /> {history.length > 0 ? 'Back' : 'Menu'}
+                    ⬅ {history.length > 0 ? 'Back' : 'Home'}
                 </motion.button>
-
-                <div className="title-container" style={{
-                    position: 'absolute',
-                    width: '100%',
-                    textAlign: 'center',
-                    pointerEvents: 'none',
-                    left: 0
-                }}>
-                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                        <span style={{
-                            fontSize: '0.75rem',
-                            fontWeight: '900',
-                            color: '#C2410C',
-                            letterSpacing: '2px',
-                            textTransform: 'uppercase',
-                            marginBottom: '2px'
-                        }}>
-                            Hindi Zone
-                        </span>
-                        <h1
-                            className="mobile-text-lg"
-                            style={{
-                                margin: 0,
-                                fontSize: '1.8rem',
-                                color: '#7C2D12',
-                                fontWeight: '900',
-                                lineHeight: 1
-                            }}
-                        >
-                            हिन्दी (HINDI)
-                        </h1>
-                    </div>
+                <div>
+                    <p style={{ margin: 0, fontSize: '0.6rem', fontWeight: 900, color: '#C2410C', letterSpacing: '2px', textTransform: 'uppercase' }}>Hindi Zone</p>
+                    <h1 style={{ margin: 0, fontSize: '1.2rem', color: '#7C2D12', fontWeight: 900, lineHeight: 1 }}>🇮🇳 हिन्दी</h1>
                 </div>
-                <div style={{ width: '100px' }} className="mobile-hide"></div>
             </div>
 
-            {/* Grid */}
-            <div
-                className="mobile-grid-1"
-                style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-                    gap: '20px',
-                    width: '100%',
-                    maxWidth: '1000px',
-                    paddingBottom: '40px'
-                }}
-            >
-                <AnimatePresence mode="popLayout">
+            {/* Compact 3-column grid */}
+            <AnimatePresence mode="popLayout">
+                <motion.div
+                    key={currentFolder}
+                    initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }} transition={{ duration: 0.2 }}
+                    style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '10px' }}
+                >
                     {currentItems.map((item, index) => (
                         <motion.button
                             key={item.id}
-                            initial={{ y: 20, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            exit={{ scale: 0.95, opacity: 0 }}
-                            transition={{ delay: index * 0.05 }}
-                            whileHover={{ scale: 1.02, y: -5 }}
-                            whileTap={{ scale: 0.98 }}
+                            initial={{ opacity: 0, scale: 0.85 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: index * 0.04 }}
+                            whileHover={{ scale: 1.06, y: -3 }}
+                            whileTap={{ scale: 0.94 }}
                             onClick={() => handleItemClick(item)}
                             style={{
-                                background: 'white',
-                                border: '1px solid #FFEDD5',
-                                borderRadius: '24px',
-                                padding: '24px',
-                                display: 'flex',
-                                alignItems: 'center',
-                                gap: '20px',
-                                boxShadow: '0 4px 15px rgba(0,0,0,0.03)',
+                                background: `linear-gradient(135deg, ${item.color}, ${item.shadow})`,
+                                border: 'none', borderRadius: '16px',
+                                padding: '14px 6px 10px',
+                                display: 'flex', flexDirection: 'column',
+                                alignItems: 'center', gap: '6px',
                                 cursor: 'pointer',
-                                textAlign: 'left'
+                                boxShadow: `0 5px 12px -2px ${item.color}66`
                             }}
                         >
-                            <div style={{
-                                fontSize: '2.5rem',
-                                background: `${item.color}10`,
-                                width: '70px',
-                                height: '70px',
-                                borderRadius: '18px',
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                flexShrink: 0
-                            }}>
-                                {item.icon}
-                            </div>
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                                <span className="hindi-text" style={{ fontSize: '1.4rem', fontWeight: '900', color: '#7C2D12', lineHeight: 1.2 }}>
-                                    {item.title}
-                                </span>
-                                <span style={{ fontSize: '0.8rem', fontWeight: '800', color: '#9A3412', opacity: 0.5, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-                                    Tap to Start
-                                </span>
-                            </div>
+                            <span style={{ fontSize: '1.8rem', lineHeight: 1 }}>{item.icon}</span>
+                            <span style={{
+                                fontSize: '0.65rem', fontWeight: 900,
+                                color: 'rgba(255,255,255,0.95)',
+                                letterSpacing: '0.3px', textTransform: 'uppercase',
+                                textAlign: 'center', lineHeight: 1.2, fontFamily: 'inherit'
+                            }}>{item.title}</span>
                         </motion.button>
                     ))}
-                </AnimatePresence>
-            </div>
+                </motion.div>
+            </AnimatePresence>
         </div>
     );
 }

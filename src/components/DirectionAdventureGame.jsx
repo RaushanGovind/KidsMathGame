@@ -126,6 +126,22 @@ const DirectionAdventureGame = ({ onBack }) => {
             minHeight: '100vh', background: 'linear-gradient(135deg, #FF9A9E 0%, #FAD0C4 100%)', padding: '20px',
             fontFamily: '"Comic Sans MS", cursive'
         }}>
+            {/* Back Button */}
+            <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                onClick={onBack}
+                style={{
+                    position: 'absolute', top: '90px', left: '20px',
+                    width: '60px', height: '60px', borderRadius: '20px',
+                    background: 'white', border: '5px solid #FF5252',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    cursor: 'pointer', boxShadow: '0 8px 0 #FFCDD2'
+                }}
+            >
+                <ChevronLeft size={35} color="#FF5252" />
+            </motion.button>
+
             <motion.h1
                 animate={{ scale: [1, 1.05, 1], rotate: [-2, 2, -2] }}
                 transition={{ repeat: Infinity, duration: 3 }}

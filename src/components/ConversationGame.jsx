@@ -85,8 +85,27 @@ function ConversationGame({ scenarioId, onBack }) {
                 gap: '20px',
                 overflowY: 'auto',
                 marginBottom: '20px',
-                boxShadow: '0 10px 30px rgba(0,0,0,0.1)'
+                boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
+                position: 'relative'
             }}>
+                {/* Speaker Legend */}
+                <div style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    padding: '10px 15px',
+                    background: 'rgba(241, 245, 249, 0.8)',
+                    borderRadius: '15px',
+                    marginBottom: '10px',
+                    border: '1px solid #E2E8F0'
+                }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.8rem', fontWeight: '800', color: '#64748B' }}>
+                        <span style={{ fontSize: '1.2rem' }}>👩‍🏫</span> TEACHER / OTHER
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.8rem', fontWeight: '800', color: scenario.theme }}>
+                        STUDENT (YOU) <span style={{ fontSize: '1.2rem' }}>👦</span>
+                    </div>
+                </div>
+
                 {scenario.dialogue.slice(0, step + 1).map((msg, index) => (
                     <motion.div
                         key={index}
@@ -121,8 +140,16 @@ function ConversationGame({ scenarioId, onBack }) {
                             }}
                         >
                             {msg.text}
-                            <div style={{ fontSize: '0.8rem', opacity: 0.7, marginTop: '5px', textAlign: msg.side === 'right' ? 'right' : 'left' }}>
-                                {msg.side === 'right' ? '🔊 Tap to hear' : msg.speaker}
+                            <div style={{
+                                fontSize: '0.75rem',
+                                opacity: 0.9,
+                                marginTop: '6px',
+                                textAlign: msg.side === 'right' ? 'right' : 'left',
+                                fontWeight: '900',
+                                textTransform: 'uppercase',
+                                letterSpacing: '0.5px'
+                            }}>
+                                {msg.side === 'right' ? `Student (You) • 🔊 Play` : `${msg.speaker}'s Turn`}
                             </div>
                         </div>
                     </motion.div>

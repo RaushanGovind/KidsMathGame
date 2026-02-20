@@ -88,85 +88,30 @@ function EnglishMenu({ onSelectMode, onBack }) {
     };
 
     return (
-        <div className="mobile-padding-md" style={{ width: '100%', maxWidth: '1200px', margin: '0 auto', padding: '40px 20px' }}>
+        <div style={{ width: '100%', padding: '16px' }}>
 
-            {/* Header */}
-            <div
-                className="mobile-header-stack"
-                style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    marginBottom: '30px',
-                    position: 'relative',
-                    justifyContent: 'space-between'
-                }}
-            >
+            {/* Compact Header */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '14px' }}>
                 <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="back-btn"
                     onClick={handleBack}
                     style={{
-                        padding: '10px 20px',
-                        background: 'white',
-                        color: '#475569',
-                        fontWeight: '800',
-                        fontSize: '0.9rem',
-                        borderRadius: '12px',
-                        boxShadow: '0 4px 6px -1px rgba(0,0,0,0.1)',
-                        border: '1px solid #E2E8F0',
-                        cursor: 'pointer',
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '8px',
-                        zIndex: 10,
-                        textTransform: 'uppercase',
-                        letterSpacing: '0.5px'
+                        padding: '8px 14px', background: 'white', color: '#475569',
+                        fontWeight: 900, fontSize: '0.8rem', borderRadius: '12px',
+                        boxShadow: '0 3px 6px rgba(0,0,0,0.08)', border: '1px solid #E2E8F0',
+                        cursor: 'pointer', whiteSpace: 'nowrap'
                     }}
                 >
-                    <ChevronLeft size={18} /> {currentView === 'root' ? 'Menu' : 'Back'}
+                    ⬅ {currentView === 'root' ? 'Home' : 'Back'}
                 </motion.button>
-
-                <div
-                    className="title-container"
-                    style={{
-                        position: 'absolute',
-                        width: '100%',
-                        textAlign: 'center',
-                        pointerEvents: 'none',
-                        left: 0
-                    }}
-                >
-                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                        <span style={{
-                            fontSize: '0.75rem',
-                            fontWeight: '900',
-                            color: '#94A3B8',
-                            letterSpacing: '2px',
-                            textTransform: 'uppercase',
-                            marginBottom: '2px'
-                        }}>
-                            English Zone
-                        </span>
-                        <h1
-                            className="mobile-text-lg"
-                            style={{
-                                margin: 0,
-                                fontSize: '1.8rem',
-                                color: '#1E293B',
-                                fontWeight: '900',
-                                lineHeight: 1
-                            }}
-                        >
-                            {getTitle()}
-                        </h1>
-                    </div>
+                <div>
+                    <p style={{ margin: 0, fontSize: '0.6rem', fontWeight: 900, color: '#94A3B8', letterSpacing: '2px', textTransform: 'uppercase' }}>English Zone</p>
+                    <h1 style={{ margin: 0, fontSize: '1.2rem', color: '#1E293B', fontWeight: 900, lineHeight: 1 }}>{getTitle()}</h1>
                 </div>
-
-                <div style={{ width: '100px' }} className="mobile-hide"></div>
             </div>
 
-            {/* Grid */}
+            {/* Compact 3-column grid */}
             <AnimatePresence mode='wait'>
                 <motion.div
                     key={currentView}
@@ -174,65 +119,45 @@ function EnglishMenu({ onSelectMode, onBack }) {
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -20 }}
                     transition={{ duration: 0.2 }}
-                    className="mobile-grid-1"
                     style={{
                         display: 'grid',
-                        gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-                        gap: '20px'
+                        gridTemplateColumns: 'repeat(3, 1fr)',
+                        gap: '10px'
                     }}
                 >
                     {MENU_STRUCTURE[currentView].map((item, index) => (
                         <motion.button
                             key={item.id}
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: index * 0.05 }}
-                            whileHover={{ scale: 1.02, y: -5 }}
-                            whileTap={{ scale: 0.98 }}
+                            initial={{ opacity: 0, scale: 0.85 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: index * 0.04 }}
+                            whileHover={{ scale: 1.06, y: -3 }}
+                            whileTap={{ scale: 0.94 }}
                             onClick={() => handleItemClick(item)}
                             style={{
-                                background: item.color,
+                                background: `linear-gradient(135deg, ${item.color}, ${item.shadow})`,
                                 border: 'none',
-                                borderRadius: '30px',
-                                padding: '30px',
-                                position: 'relative',
-                                overflow: 'hidden',
-                                boxShadow: `0 10px 0 ${item.shadow}`,
-                                cursor: 'pointer',
+                                borderRadius: '16px',
+                                padding: '14px 6px 10px',
                                 display: 'flex',
                                 flexDirection: 'column',
                                 alignItems: 'center',
-                                textAlign: 'center',
-                                height: '220px',
-                                justifyContent: 'center'
+                                gap: '6px',
+                                cursor: 'pointer',
+                                boxShadow: `0 5px 12px -2px ${item.color}66`,
+                                position: 'relative',
+                                overflow: 'hidden'
                             }}
                         >
-                            {/* Shine Effect */}
-                            <div style={{
-                                position: 'absolute',
-                                top: '-50%',
-                                left: '-50%',
-                                width: '200%',
-                                height: '200%',
-                                background: 'linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent)',
-                                transform: 'rotate(45deg)',
-                                pointerEvents: 'none'
-                            }} />
-
+                            {item.type === 'folder' && (
+                                <span style={{ position: 'absolute', top: 6, right: 8, fontSize: '0.6rem', background: 'rgba(255,255,255,0.3)', borderRadius: '6px', padding: '1px 5px', color: 'white', fontWeight: 900 }}>▶</span>
+                            )}
+                            <span style={{ fontSize: '1.8rem', lineHeight: 1 }}>{item.icon}</span>
                             <span style={{
-                                fontSize: '5rem',
-                                marginBottom: '15px',
-                                filter: 'drop-shadow(0 4px 0 rgba(0,0,0,0.1))'
-                            }}>
-                                {item.icon}
-                            </span>
-
-                            <span style={{
-                                fontSize: '1.8rem',
-                                fontWeight: '900',
-                                color: 'white',
-                                lineHeight: '1.2',
-                                textShadow: '0 2px 0 rgba(0,0,0,0.1)'
+                                fontSize: '0.65rem', fontWeight: 900,
+                                color: 'rgba(255,255,255,0.95)',
+                                letterSpacing: '0.5px', textTransform: 'uppercase',
+                                textAlign: 'center', lineHeight: 1.2, fontFamily: 'inherit'
                             }}>
                                 {item.title}
                             </span>
@@ -245,3 +170,4 @@ function EnglishMenu({ onSelectMode, onBack }) {
 }
 
 export default EnglishMenu;
+

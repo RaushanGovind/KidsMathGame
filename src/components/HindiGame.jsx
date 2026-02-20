@@ -158,33 +158,44 @@ function HindiGame({ gameType, onBack }) {
                     >
                         {/* Word Display */}
                         <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px', width: '100%' }}>
-                            <span className="hindi-text" style={{
-                                fontSize: 'clamp(5rem, 15vw, 10rem)',
-                                fontWeight: '1000',
-                                color: isVarnamala ? '#2E7D32' : '#D35400',
-                                lineHeight: 1.1,
-                                filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.1))',
-                                wordBreak: 'break-word'
-                            }}>
+                            <motion.span
+                                whileTap={{ scale: 0.9 }}
+                                onClick={() => speak(currentItem.text || currentItem.letter, 'hi-IN', 0.65)}
+                                className="hindi-text"
+                                style={{
+                                    fontSize: 'clamp(5rem, 15vw, 10rem)',
+                                    fontWeight: '1000',
+                                    color: isVarnamala ? '#2E7D32' : '#D35400',
+                                    lineHeight: 1.1,
+                                    filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.1))',
+                                    wordBreak: 'break-word',
+                                    cursor: 'pointer'
+                                }}
+                            >
                                 {currentItem.text || currentItem.letter}
-                            </span>
+                            </motion.span>
 
                             {/* English Word/Translation (Visual Only) */}
                             {currentItem.word && (
-                                <span style={{
-                                    fontSize: (currentItem.word.length > 8) ? '2rem' : '3.5rem',
-                                    fontWeight: '900',
-                                    color: '#475569',
-                                    background: '#F1F5F9',
-                                    padding: '10px 30px',
-                                    borderRadius: '20px',
-                                    marginTop: '10px',
-                                    maxWidth: '90%',
-                                    textAlign: 'center',
-                                    wordBreak: 'break-word'
-                                }}>
+                                <motion.span
+                                    whileTap={{ scale: 0.95 }}
+                                    onClick={() => speak(currentItem.word.replace(/[()]/g, ''), 'en-IN', 0.65)}
+                                    style={{
+                                        fontSize: (currentItem.word.length > 8) ? '2rem' : '3.5rem',
+                                        fontWeight: '900',
+                                        color: '#475569',
+                                        background: '#F1F5F9',
+                                        padding: '10px 30px',
+                                        borderRadius: '20px',
+                                        marginTop: '10px',
+                                        maxWidth: '90%',
+                                        textAlign: 'center',
+                                        wordBreak: 'break-word',
+                                        cursor: 'pointer'
+                                    }}
+                                >
                                     {currentItem.word.replace(/[()]/g, '')}
-                                </span>
+                                </motion.span>
                             )}
 
                             {/* Icon */}
@@ -199,26 +210,6 @@ function HindiGame({ gameType, onBack }) {
                             )}
                         </div>
 
-                        <button
-                            onClick={() => handleSpeak(currentItem)}
-                            style={{
-                                marginTop: '40px',
-                                padding: '15px 40px',
-                                background: isVarnamala ? '#27AE60' : '#E67E22',
-                                color: 'white',
-                                border: 'none',
-                                borderRadius: '25px',
-                                fontWeight: '1000',
-                                fontSize: '1.4rem',
-                                boxShadow: `0 8px 0 ${isVarnamala ? '#1E8449' : '#C2410C'}`,
-                                cursor: 'pointer',
-                                display: 'flex',
-                                alignItems: 'center',
-                                gap: '10px'
-                            }}
-                        >
-                            🔊 LISTEN
-                        </button>
                     </motion.div>
                 </AnimatePresence>
 

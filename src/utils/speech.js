@@ -68,41 +68,59 @@ export const speak = (text, lang = 'en-US', rate = 0.8) => {
     let selectedVoice = null;
 
     if (isEnglish) {
-        // For Indian kids, always prefer en-IN (Indian English) voices first
-        const enInVoices = voices.filter(v => v.lang.includes('IN') && (v.lang.toLowerCase().includes('en') || v.name.toLowerCase().includes('india')));
+        // High-quality Indian English voices
+        const enInVoices = voices.filter(v =>
+            v.lang.replace('_', '-').includes('en-IN') ||
+            (v.lang.toLowerCase().startsWith('en') && v.name.toLowerCase().includes('india'))
+        );
 
         if (voiceGender === 'male') {
-            selectedVoice = enInVoices.find(v => v.name.includes('Ravi')) ||
+            selectedVoice = enInVoices.find(v => v.name.includes('Neural') && v.name.includes('Male')) ||
+                enInVoices.find(v => v.name.includes('Ravi')) ||
                 enInVoices.find(v => v.name.includes('Male')) ||
                 enInVoices[0];
         } else {
-            selectedVoice = enInVoices.find(v => v.name.includes('Heera')) ||
+            selectedVoice = enInVoices.find(v => v.name.includes('Neural') && v.name.includes('Female')) ||
+                enInVoices.find(v => v.name.includes('Heera')) ||
                 enInVoices.find(v => v.name.includes('Google')) ||
                 enInVoices.find(v => v.name.includes('Female')) ||
                 enInVoices[0];
         }
 
-        // Fallback to general English if no Indian English
+        // Fallback to general English if no Indian English found
         if (!selectedVoice) {
             const generalEnVoices = voices.filter(v => v.lang.toLowerCase().startsWith('en'));
-            if (voiceGender === 'male') {
-                selectedVoice = generalEnVoices.find(v => v.name.includes('David')) ||
-                    generalEnVoices.find(v => v.name.includes('Male')) ||
-                    generalEnVoices[0];
-            } else {
-                selectedVoice = generalEnVoices.find(v => v.name.includes('Google')) ||
-                    generalEnVoices.find(v => v.name.includes('Samantha')) ||
-                    generalEnVoices[0];
-            }
+            selectedVoice = generalEnVoices.find(v => v.name.includes('Google')) || generalEnVoices[0];
+        }
+
+        if (selectedVoice) {
+            utterance.lang = 'en-IN'; // Encourage Indian pronunciation even on fallback voices
         }
     } else if (isHindi) {
-        const hiVoices = voices.filter(v => v.lang.toLowerCase().includes('hi'));
+        // High-quality Indian Hindi voices
+        const hiInVoices = voices.filter(v =>
+            v.lang.replace('_', '-').includes('hi-IN') ||
+            (v.lang.toLowerCase().startsWith('hi') && v.name.toLowerCase().includes('india'))
+        );
+
         if (voiceGender === 'male') {
-            selectedVoice = hiVoices.find(v => v.name.includes('Hemant')) || hiVoices[0];
+            selectedVoice = hiInVoices.find(v => v.name.includes('Neural') && v.name.includes('Male')) ||
+                hiInVoices.find(v => v.name.includes('Hemant')) ||
+                hiInVoices.find(v => v.name.includes('Male')) ||
+                hiInVoices[0];
         } else {
-            selectedVoice = hiVoices.find(v => v.name.includes('Google')) ||
-                hiVoices.find(v => v.name.includes('Kalpana')) ||
-                hiVoices[0];
+            selectedVoice = hiInVoices.find(v => v.name.includes('Neural') && v.name.includes('Female')) ||
+                hiInVoices.find(v => v.name.includes('Google')) ||
+                hiInVoices.find(v => v.name.includes('Kalpana')) ||
+                hiInVoices.find(v => v.name.includes('Female')) ||
+                hiInVoices[0];
+        }
+
+        // Final fallback to any Hindi
+        if (!selectedVoice) selectedVoice = voices.find(v => v.lang.toLowerCase().startsWith('hi'));
+
+        if (selectedVoice) {
+            utterance.lang = 'hi-IN';
         }
     }
 
