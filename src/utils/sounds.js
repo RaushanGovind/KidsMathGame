@@ -64,15 +64,16 @@ export function playSound(soundName) {
             wrong: 200,
             star: 800,
             levelUp: 1000,
-            badge: 1200
+            badge: 1200,
+            pop: 440
         };
 
         oscillator.frequency.value = frequencies[soundName] || 400;
         gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
-        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
+        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.05);
 
         oscillator.start(audioContext.currentTime);
-        oscillator.stop(audioContext.currentTime + 0.1);
+        oscillator.stop(audioContext.currentTime + 0.05);
     }
 }
 

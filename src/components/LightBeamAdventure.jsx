@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { RotateCcw, Sparkles, Wand2 } from 'lucide-react';
+import { RotateCcw, Sparkles, Wand2, ChevronLeft, Trophy, Star, Lightbulb, Play } from 'lucide-react';
 import { speak } from '../utils/speech';
 import { playSound } from '../utils/sounds';
 
@@ -8,18 +8,18 @@ const LEVELS = [
     {
         id: 1,
         title: "Straight Path",
-        instruction: "Turn on the lantern to find the chest!",
-        flashlight: { x: 10, y: 50, angle: 0 },
-        target: { x: 80, y: 50, size: 60 },
+        instruction: "Point the light at the treasure box!",
+        flashlight: { x: 15, y: 50, angle: 0 },
+        target: { x: 80, y: 50, size: 70 },
         mirrors: [],
         blocks: []
     },
     {
         id: 2,
         title: "Bouncing Light",
-        instruction: "Rotate the magic mirror to bounce the light!",
-        flashlight: { x: 10, y: 20, angle: 0 },
-        target: { x: 80, y: 80, size: 60 },
+        instruction: "Use the magic mirror to reach the chest!",
+        flashlight: { x: 15, y: 20, angle: 0 },
+        target: { x: 80, y: 80, size: 70 },
         mirrors: [
             { id: 'm1', x: 50, y: 20, angle: 45 }
         ],
@@ -27,41 +27,46 @@ const LEVELS = [
     },
     {
         id: 3,
-        title: "Zig Zag",
-        instruction: "Use two mirrors to reach the hidden treasure!",
-        flashlight: { x: 10, y: 10, angle: 0 },
-        target: { x: 15, y: 85, size: 60 },
+        title: "The Zig Zag",
+        instruction: "Rotate two mirrors! Avoid the wall!",
+        flashlight: { x: 15, y: 15, angle: 0 },
+        target: { x: 20, y: 85, size: 70 },
         mirrors: [
-            { id: 'm1', x: 80, y: 10, angle: 45 },
+            { id: 'm1', x: 80, y: 15, angle: 45 },
             { id: 'm2', x: 80, y: 85, angle: -45 }
         ],
         blocks: [
-            { x: 40, y: 40, w: 20, h: 20 }
+            { x: 40, y: 35, w: 20, h: 30 }
         ]
     }
 ];
 
 const LightBeamAdventure = ({ onBack }) => {
     const [levelIdx, setLevelIdx] = useState(0);
-    const [gameState, setGameState] = useState('playing'); // 'playing', 'win'
-    const [mirrors, setMirrors] = useState(LEVELS[0].mirrors);
+    const [gameState, setGameState] = useState('intro'); // 'intro', 'playing', 'win', 'complete'
+    const [mirrors, setMirrors] = useState([]);
+    const [flashlightAngle, setFlashlightAngle] = useState(0);
     const [beamPath, setBeamPath] = useState([]);
     const [isHit, setIsHit] = useState(false);
-    const [flashlightAngle, setFlashlightAngle] = useState(LEVELS[0].flashlight.angle);
+    const [stars, setStars] = useState(0);
 
     const currentLevel = LEVELS[levelIdx];
 
     // Load Level
     useEffect(() => {
-        setMirrors(currentLevel.mirrors);
-        setFlashlightAngle(currentLevel.flashlight.angle);
-        setGameState('playing');
-        setIsHit(false);
-        speak(currentLevel.instruction);
-    }, [levelIdx]);
+        if (gameState === 'playing' || gameState === 'win') {
+            setMirrors(currentLevel.mirrors);
+            setFlashlightAngle(currentLevel.flashlight.angle);
+            setIsHit(false);
+            if (gameState !== 'win') {
+                speak(currentLevel.instruction, 'en-US', 1.0);
+            }
+        }
+    }, [levelIdx, gameState, currentLevel]);
 
-    // Physics Engine: Calculate Beam Path
     const calculateBeam = useCallback(() => {
+        if (!currentLevel) return;
+
         let path = [{ x: currentLevel.flashlight.x, y: currentLevel.flashlight.y }];
         let currentPos = { x: currentLevel.flashlight.x, y: currentLevel.flashlight.y };
         let currentAngle = flashlightAngle;
@@ -69,31 +74,31 @@ const LightBeamAdventure = ({ onBack }) => {
         let hitTarget = false;
         let bounces = 0;
 
-        while (active && bounces < 5) {
+        while (active && bounces < 6) {
             const rad = (currentAngle * Math.PI) / 180;
             const dx = Math.cos(rad);
             const dy = Math.sin(rad);
 
             let closestHit = null;
-            let minDistance = 1000;
+            let minDistance = 200; // Max distance in %
             let hitType = null;
             let hitId = null;
 
-            // Check Wall Intersections
+            // 1. Wall Intersections
             const wallDist = findWallIntersection(currentPos, dx, dy);
             if (wallDist < minDistance) {
                 minDistance = wallDist;
                 hitType = 'wall';
             }
 
-            // Check Target Interaction
-            const targetDist = findCircleIntersection(currentPos, dx, dy, currentLevel.target, currentLevel.target.size / 2);
+            // 2. Target Interaction
+            const targetDist = findCircleIntersection(currentPos, dx, dy, currentLevel.target, currentLevel.target.size / 5);
             if (targetDist !== null && targetDist < minDistance) {
                 minDistance = targetDist;
                 hitType = 'target';
             }
 
-            // Check Mirror Intersections
+            // 3. Mirror Intersections
             mirrors.forEach(m => {
                 const dist = findMirrorIntersection(currentPos, dx, dy, m);
                 if (dist !== null && dist < minDistance) {
@@ -103,7 +108,7 @@ const LightBeamAdventure = ({ onBack }) => {
                 }
             });
 
-            // Check Block Intersections
+            // 4. Block Intersections
             currentLevel.blocks.forEach(b => {
                 const dist = findRectIntersection(currentPos, dx, dy, b);
                 if (dist !== null && dist < minDistance) {
@@ -112,21 +117,20 @@ const LightBeamAdventure = ({ onBack }) => {
                 }
             });
 
-            // Update Position with small offset to avoid re-hitting same surface
-            const nextX = currentPos.x + dx * (minDistance + 0.01);
-            const nextY = currentPos.y + dy * (minDistance + 0.01);
-            currentPos = { x: nextX, y: nextY };
+            // Move to hit point
+            const nextX = currentPos.x + dx * minDistance;
+            const nextY = currentPos.y + dy * minDistance;
+
             path.push({ x: nextX, y: nextY });
+            currentPos = { x: nextX, y: nextY };
 
             if (hitType === 'target') {
                 hitTarget = true;
                 active = false;
             } else if (hitType === 'mirror') {
                 const mirror = mirrors.find(m => m.id === hitId);
-                // Simple reflection: 2 * mirrorAngle - currentAngle (this is a simplified 2D approximation)
-                // More accurate: currentAngle should reflect based on mirror normal
-                // For this game, let's assume vertical/horizontal mirrors or diagonal
-                currentAngle = 2 * mirror.angle - currentAngle;
+                // Math reflection
+                currentAngle = (2 * mirror.angle - currentAngle);
                 bounces++;
             } else {
                 active = false;
@@ -134,47 +138,53 @@ const LightBeamAdventure = ({ onBack }) => {
         }
 
         setBeamPath(path);
-        if (hitTarget && !isHit) {
+
+        if (hitTarget && !isHit && gameState === 'playing') {
             setIsHit(true);
-            handleWin();
-        } else if (!hitTarget) {
-            setIsHit(false);
+            playSound('correct');
+            setGameState('win');
+            setStars(s => s + 1);
+            speak("Brilliant! You mastered the light beam!", 'en-US', 1.1);
         }
-    }, [mirrors, flashlightAngle, currentLevel]);
+    }, [mirrors, flashlightAngle, currentLevel, isHit, gameState]);
 
     useEffect(() => {
-        calculateBeam();
-    }, [calculateBeam]);
+        if (gameState === 'playing' || gameState === 'win') {
+            calculateBeam();
+        }
+    }, [calculateBeam, gameState]);
 
-    const handleWin = () => {
-        playSound('correct');
-        setGameState('win');
-        speak("Yay! You found the treasure! Light travels in straight lines and bounces off mirrors!");
-    };
-
-    const nextLevel = () => {
+    const handleNextLevel = () => {
         if (levelIdx < LEVELS.length - 1) {
             setLevelIdx(l => l + 1);
+            setGameState('playing');
         } else {
-            onBack();
+            setGameState('complete');
         }
     };
 
     const rotateMirror = (id) => {
+        if (gameState !== 'playing') return;
         playSound('click');
         setMirrors(prev => prev.map(m =>
             m.id === id ? { ...m, angle: (m.angle + 15) % 360 } : m
         ));
     };
 
-    // --- MATH UTILS ---
+    const rotateFlashlight = () => {
+        if (gameState !== 'playing') return;
+        playSound('click');
+        setFlashlightAngle(a => (a + 15) % 360);
+    };
+
+    // --- Math Utils ---
     function findWallIntersection(p, dx, dy) {
-        let dist = 1000;
-        if (dx > 0) dist = Math.min(dist, (100 - p.x) / dx);
-        if (dx < 0) dist = Math.min(dist, -p.x / dx);
-        if (dy > 0) dist = Math.min(dist, (100 - p.y) / dy);
-        if (dy < 0) dist = Math.min(dist, -p.y / dy);
-        return dist;
+        let t = 200;
+        if (dx > 0) t = Math.min(t, (100 - p.x) / dx);
+        if (dx < 0) t = Math.min(t, -p.x / dx);
+        if (dy > 0) t = Math.min(t, (100 - p.y) / dy);
+        if (dy < 0) t = Math.min(t, -p.y / dy);
+        return t;
     }
 
     function findCircleIntersection(p, dx, dy, center, radius) {
@@ -186,183 +196,168 @@ const LightBeamAdventure = ({ onBack }) => {
         const disc = b * b - 4 * a * c;
         if (disc < 0) return null;
         const t = (-b - Math.sqrt(disc)) / (2 * a);
-        return t > 0 ? t : null;
+        return t > 0.1 ? t : null;
     }
 
     function findMirrorIntersection(p, dx, dy, m) {
-        // Treat mirror as a small line segment
-        const length = 10;
-        const mAngleRad = (m.angle * Math.PI) / 180;
-        // Normal vector of mirror
-        const nx = Math.cos(mAngleRad + Math.PI / 2);
-        const ny = Math.sin(mAngleRad + Math.PI / 2);
-
-        // Plane intersection
+        const mirrorHeight = 12;
+        const mRad = (m.angle * Math.PI) / 180;
+        const nx = Math.cos(mRad + Math.PI / 2);
+        const ny = Math.sin(mRad + Math.PI / 2);
         const denom = dx * nx + dy * ny;
         if (Math.abs(denom) < 0.0001) return null;
-
         const t = ((m.x - p.x) * nx + (m.y - p.y) * ny) / denom;
-        if (t <= 0) return null;
-
-        // Check if intersection is within mirror length
-        const ix = p.x + dx * t;
-        const iy = p.y + dy * t;
-        const distToCenter = Math.sqrt(Math.pow(ix - m.x, 2) + Math.pow(iy - m.y, 2));
-
-        return distToCenter < length / 2 ? t : null;
+        if (t <= 0.1) return null;
+        const ix = p.x + dx * t, iy = p.y + dy * t;
+        const dist = Math.sqrt(Math.pow(ix - m.x, 2) + Math.pow(iy - m.y, 2));
+        return dist < mirrorHeight / 2 ? t : null;
     }
 
     function findRectIntersection(p, dx, dy, r) {
-        const t1 = (r.x - p.x) / dx;
-        const t2 = (r.x + r.w - p.x) / dx;
-        const t3 = (r.y - p.y) / dy;
-        const t4 = (r.y + r.h - p.y) / dy;
-
+        const t1 = (r.x - p.x) / dx, t2 = (r.x + r.w - p.x) / dx;
+        const t3 = (r.y - p.y) / dy, t4 = (r.y + r.h - p.y) / dy;
         const tmin = Math.max(Math.min(t1, t2), Math.min(t3, t4));
         const tmax = Math.min(Math.max(t1, t2), Math.max(t3, t4));
-
         if (tmax < 0 || tmin > tmax) return null;
-        return tmin > 0 ? tmin : null;
+        return tmin > 0.1 ? tmin : null;
     }
 
-    return (
-        <div style={{
-            width: '100%', height: '100vh',
-            background: 'radial-gradient(circle at center, #1A1A2E 0%, #0F0F1A 100%)',
-            fontFamily: '"Comic Sans MS", cursive', overflow: 'hidden', position: 'relative'
-        }}>
-            {/* Header */}
-            <div style={{ padding: '20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', zIndex: 100 }}>
-                <button onClick={onBack} style={{ padding: '10px 25px', background: 'rgba(255,255,255,0.1)', border: '2px solid rgba(255,255,255,0.2)', borderRadius: '15px', color: 'white', fontWeight: 900, cursor: 'pointer' }}>BACK</button>
-                <div style={{ background: 'rgba(255,255,255,0.1)', padding: '10px 30px', borderRadius: '30px', color: 'white', fontWeight: 900, border: '2px solid #64B5F6' }}> Level {levelIdx + 1}: {currentLevel.title} </div>
-                <div style={{ width: '80px' }} />
+    // --- Renders ---
+
+    const renderIntro = () => (
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '100dvh', background: 'radial-gradient(circle, #0F172A 0%, #020617 100%)', color: 'white', textAlign: 'center', padding: '20px' }}>
+            <motion.div animate={{ scale: [1, 1.1, 1], filter: ['drop-shadow(0 0 10px #FFEB3B)', 'drop-shadow(0 0 30px #FFEB3B)', 'drop-shadow(0 0 10px #FFEB3B)'] }} transition={{ repeat: Infinity, duration: 4 }}>
+                <Lightbulb size={120} color="#FFEB3B" fill="#FFEB3B" />
+            </motion.div>
+            <h1 style={{ fontSize: '3.5rem', fontWeight: 900, marginBottom: '10px' }}>Light <span style={{ color: '#FFEB3B' }}>Magic</span></h1>
+            <p style={{ fontSize: '1.4rem', opacity: 0.8, marginBottom: '40px' }}>Solve puzzles with the power of light! 🔦</p>
+            <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} onClick={() => { playSound('click'); setGameState('playing'); }}
+                style={{ padding: '20px 60px', borderRadius: '40px', background: '#FFEB3B', color: '#000', fontSize: '1.8rem', fontWeight: 900, border: 'none', boxShadow: '0 8px 0 #FBC02D', cursor: 'pointer' }}>
+                PLAY NOW! <Play fill="#000" size={24} style={{ marginLeft: '10px', verticalAlign: 'middle' }} />
+            </motion.button>
+
+            {/* Back Icon */}
+            <motion.button onClick={onBack} style={{ position: 'absolute', top: '90px', left: '20px', padding: '15px', background: 'white', borderRadius: '15px', border: 'none', cursor: 'pointer' }}>
+                <ChevronLeft color="#0F172A" size={30} />
+            </motion.button>
+        </div>
+    );
+
+    const renderPlaying = () => (
+        <div style={{ position: 'relative', width: '100%', height: '100dvh', background: '#020617', overflow: 'hidden' }}>
+            {/* Background Dust */}
+            <div style={{ position: 'absolute', inset: 0, opacity: 0.1, pointerEvents: 'none' }}>
+                {[...Array(30)].map((_, i) => <div key={i} style={{ position: 'absolute', top: `${Math.random() * 100}%`, left: `${Math.random() * 100}%`, width: '2px', height: '2px', background: 'white' }} />)}
             </div>
 
-            {/* Game Canvas */}
-            <div style={{ position: 'relative', width: '100%', height: '70%', margin: '0 auto', maxWidth: '1000px' }}>
+            {/* Header */}
+            <div style={{ padding: '15px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', zIndex: 100 }}>
+                <button onClick={() => setGameState('intro')} style={{ padding: '10px 20px', background: '#FFF', borderRadius: '15px', border: 'none', fontWeight: 900 }}>⬅ EXIT</button>
+                <div style={{ background: 'rgba(255,255,255,0.1)', padding: '10px 25px', borderRadius: '20px', color: 'white', fontWeight: 900, border: '1px solid #FFEB3B' }}>Level {levelIdx + 1}</div>
+                <div style={{ background: '#FFD700', padding: '10px 20px', borderRadius: '20px', fontWeight: 900 }}>⭐ {stars}</div>
+            </div>
 
-                {/* Dust Particles Overlay */}
-                <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', opacity: 0.3 }}>
-                    {[...Array(20)].map((_, i) => (
-                        <motion.div
-                            key={i}
-                            animate={{ x: [0, 50, -20, 0], y: [0, 20, -10, 0], opacity: [0, 1, 0] }}
-                            transition={{ repeat: Infinity, duration: 5 + Math.random() * 5, delay: i }}
-                            style={{ position: 'absolute', top: `${Math.random() * 100}%`, left: `${Math.random() * 100}%`, width: '4px', height: '4px', background: 'white', borderRadius: '50%' }}
-                        />
-                    ))}
-                </div>
+            {/* Instruction Banner */}
+            <div style={{ textAlign: 'center', padding: '10px' }}>
+                <motion.div key={currentLevel.instruction} initial={{ y: -20, opacity: 0 }} animate={{ y: 0, opacity: 1 }}
+                    style={{ background: 'rgba(255,255,255,0.1)', padding: '12px 30px', borderRadius: '30px', color: 'white', border: '1px solid rgba(255,255,255,0.2)', display: 'inline-block' }}>
+                    <h2 style={{ margin: 0, fontSize: '1.2rem', fontWeight: 800 }}>{currentLevel.instruction}</h2>
+                </motion.div>
+            </div>
+
+            {/* The Lab Area */}
+            <div style={{ position: 'relative', width: '100%', height: 'calc(100% - 200px)', maxWidth: '900px', margin: '0 auto' }}>
 
                 {/* SVG for Beam */}
-                <svg style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', pointerEvents: 'none' }} viewBox="0 0 100 100">
+                <svg style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', pointerEvents: 'none', zIndex: 10 }} viewBox="0 0 100 100">
                     <defs>
-                        <filter id="glow">
-                            <feGaussianBlur stdDeviation="0.5" result="coloredBlur" />
-                            <feMerge>
-                                <feMergeNode in="coloredBlur" /><feMergeNode in="SourceGraphic" />
-                            </feMerge>
+                        <filter id="beam-glow">
+                            <feGaussianBlur stdDeviation="0.4" />
+                            <feComposite in="SourceGraphic" operator="over" />
                         </filter>
                     </defs>
                     <motion.polyline
                         points={beamPath.map(p => `${p.x},${p.y}`).join(' ')}
-                        fill="none"
-                        stroke="#FFEB3B"
-                        strokeWidth="1"
-                        filter="url(#glow)"
-                        initial={{ pathLength: 0 }}
-                        animate={{ pathLength: 1 }}
-                        transition={{ duration: 0.2 }}
+                        fill="none" stroke="#FFEB3B" strokeWidth="0.8"
+                        filter="url(#beam-glow)"
                     />
-                    {isHit && (
-                        <motion.circle
-                            cx={currentLevel.target.x} cy={currentLevel.target.y} r="2"
-                            fill="#FFEB3B" animate={{ r: [2, 4, 2], opacity: [1, 0.5, 1] }}
-                            transition={{ repeat: Infinity, duration: 0.8 }}
-                        />
-                    )}
+                    <motion.polyline
+                        points={beamPath.map(p => `${p.x},${p.y}`).join(' ')}
+                        fill="none" stroke="#FFF" strokeWidth="0.2"
+                    />
                 </svg>
 
-                {/* Objects */}
-                {/* Robot/Flashlight */}
-                <motion.div
-                    style={{ position: 'absolute', left: `${currentLevel.flashlight.x}%`, top: `${currentLevel.flashlight.y}%`, transform: `translate(-50%, -50%) rotate(${flashlightAngle}deg)` }}
-                >
-                    <div style={{ fontSize: '4rem', filter: 'drop-shadow(0 0 10px #FFEB3B)' }}>🤖🔦</div>
+                {/* Explorer 🤖 */}
+                <motion.div onClick={rotateFlashlight} whileTap={{ scale: 0.9 }}
+                    style={{ position: 'absolute', left: `${currentLevel.flashlight.x}%`, top: `${currentLevel.flashlight.y}%`, transform: `translate(-50%, -50%) rotate(${flashlightAngle}deg)`, cursor: 'pointer', zIndex: 20 }}>
+                    <div style={{ fontSize: '4.5rem', filter: isHit ? 'drop-shadow(0 0 15px #FFEB3B)' : 'none' }}>🤖</div>
+                    <div style={{ position: 'absolute', bottom: -20, left: '50%', transform: 'translateX(-50%)', background: 'white', padding: '2px 8px', borderRadius: '10px', fontSize: '0.6rem', fontWeight: 900 }}>ROTATE</div>
                 </motion.div>
 
-                {/* Target Chest */}
-                <motion.div
-                    animate={isHit ? { scale: [1, 1.2, 1], rotate: [0, 5, -5, 0] } : {}}
-                    transition={{ repeat: Infinity, duration: 0.5 }}
-                    style={{ position: 'absolute', left: `${currentLevel.target.x}%`, top: `${currentLevel.target.y}%`, transform: 'translate(-50%, -50%)', fontSize: '5rem' }}
-                >
+                {/* Target Chest 💎 */}
+                <motion.div animate={isHit ? { scale: [1, 1.2, 1], rotate: [0, 5, -5, 0] } : {}}
+                    style={{ position: 'absolute', left: `${currentLevel.target.x}%`, top: `${currentLevel.target.y}%`, transform: 'translate(-50%, -50%)', fontSize: '5rem', zIndex: 5 }}>
                     {isHit ? '💎' : '📦'}
                 </motion.div>
 
                 {/* Mirrors */}
                 {mirrors.map(m => (
-                    <motion.div
-                        key={m.id}
-                        onClick={() => rotateMirror(m.id)}
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                        style={{
-                            position: 'absolute', left: `${m.x}%`, top: `${m.y}%`,
-                            transform: `translate(-50%, -50%) rotate(${m.angle}deg)`,
-                            width: '10px', height: '60px', borderRadius: '5px',
-                            background: 'linear-gradient(90deg, #90CAF9, #E3F2FD)',
-                            border: '2px solid white', cursor: 'pointer',
-                            boxShadow: '0 0 15px rgba(100, 181, 246, 0.5)',
-                            display: 'flex', alignItems: 'center', justifyContent: 'center'
-                        }}
-                    >
-                        <Sparkles size={20} color="white" style={{ opacity: 0.5 }} />
+                    <motion.div key={m.id} onClick={() => rotateMirror(m.id)} whileTap={{ rotate: m.angle + 30 }}
+                        style={{ position: 'absolute', left: `${m.x}%`, top: `${m.y}%`, transform: `translate(-50%, -50%) rotate(${m.angle}deg)`, cursor: 'pointer', zIndex: 30, padding: '20px' /* bigger hit area */ }}>
+                        <div style={{ width: '8px', height: '60px', background: 'linear-gradient(90deg, #64B5F6, #FFF)', border: '2px solid white', borderRadius: '4px', boxShadow: '0 0 10px rgba(100,181,246,0.6)' }} />
                     </motion.div>
                 ))}
 
-                {/* Obstacles */}
+                {/* Walls 🧱 */}
                 {currentLevel.blocks.map((b, i) => (
-                    <div
-                        key={i}
-                        style={{
-                            position: 'absolute', left: `${b.x}%`, top: `${b.y}%`,
-                            width: `${b.w}%`, height: `${b.h}%`,
-                            background: '#5D4037', border: '4px solid #3E2723',
-                            borderRadius: '10px', boxShadow: '0 5px 15px rgba(0,0,0,0.5)',
-                            display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'rgba(255,255,255,0.1)'
-                        }}
-                    >
+                    <div key={i} style={{ position: 'absolute', left: `${b.x}%`, top: `${b.y}%`, width: `${b.w}%`, height: `${b.h}%`, background: '#2C1810', border: '3px solid #1A0F0A', borderRadius: '8px', boxShadow: '0 4px 10px #000', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                         🧱
                     </div>
                 ))}
             </div>
 
-            {/* Controls */}
-            <div style={{ position: 'absolute', bottom: '5%', width: '100%', textAlign: 'center' }}>
-                <AnimatePresence>
-                    {gameState === 'win' ? (
-                        <motion.div initial={{ y: 50, opacity: 0 }} animate={{ y: 0, opacity: 1 }}>
-                            <h2 style={{ color: '#FFEB3B', fontSize: '2rem', marginBottom: '20px' }}>GREAT JOB! ⭐️</h2>
-                            <button
-                                onClick={nextLevel}
-                                style={{ padding: '20px 60px', background: '#4CAF50', color: 'white', borderRadius: '40px', border: 'none', fontSize: '1.8rem', fontWeight: 900, boxShadow: '0 10px 0 #2E7D32', cursor: 'pointer' }}
-                            >
-                                NEXT LEVEL 🚀
-                            </button>
-                        </motion.div>
-                    ) : (
-                        <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', alignItems: 'center' }}>
-                            <div style={{ background: 'rgba(255,255,255,0.1)', padding: '15px 30px', borderRadius: '30px', border: '2px solid rgba(255,255,255,0.2)', color: 'white', display: 'flex', alignItems: 'center', gap: '15px' }}>
-                                <Wand2 color="#64B5F6" />
-                                <span>Tap mirrors to rotate them!</span>
-                            </div>
-                            <button onClick={() => setLevelIdx(levelIdx)} style={{ padding: '15px 30px', background: '#FF5252', color: 'white', borderRadius: '25px', border: 'none', fontWeight: 900, cursor: 'pointer', boxShadow: '0 8px 0 #D32F2F', display: 'flex', alignItems: 'center', gap: '10px' }}>
-                                <RotateCcw size={20} /> RESET
-                            </button>
-                        </div>
-                    )}
-                </AnimatePresence>
+            {/* Prompt Footer */}
+            <div style={{ position: 'absolute', bottom: 0, width: '100%', background: 'rgba(255,255,255,0.05)', padding: '20px', paddingBottom: 'calc(20px + env(safe-area-inset-bottom))', textAlign: 'center', borderTop: '1px solid rgba(255,255,255,0.1)' }}>
+                <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', alignItems: 'center' }}>
+                    <div style={{ color: 'white', display: 'flex', alignItems: 'center', gap: '10px', fontSize: '1rem', fontWeight: 800 }}>
+                        <Wand2 color="#FFEB3B" size={24} />
+                        TAP MIRRORS OR ROBOT TO ROTATE!
+                    </div>
+                    <button onClick={() => setLevelIdx(levelIdx)} style={{ padding: '12px 25px', background: '#F44336', color: 'white', borderRadius: '20px', border: 'none', fontWeight: 900, cursor: 'pointer' }}>RESET</button>
+                </div>
             </div>
+
+            {/* Success Overlay */}
+            <AnimatePresence>
+                {gameState === 'win' && (
+                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+                        style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.9)', zIndex: 1000, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                        <motion.div animate={{ scale: [1, 1.2, 1] }} transition={{ repeat: Infinity, duration: 2 }}>
+                            <Trophy size={120} color="#FFD700" />
+                        </motion.div>
+                        <h1 style={{ color: '#FFEB3B', fontSize: '3rem', fontWeight: 900, margin: '20px 0' }}>MISSION CLEAR!</h1>
+                        <p style={{ color: 'white', fontSize: '1.4rem' }}>Magic light secured the treasure!</p>
+                        <button onClick={handleNextLevel} style={{ marginTop: '30px', padding: '20px 60px', borderRadius: '35px', background: '#FFEB3B', color: '#000', fontSize: '1.8rem', fontWeight: 900, border: 'none', boxShadow: '0 8px 0 #FBC02D', cursor: 'pointer' }}>
+                            NEXT LEVEL ➡️
+                        </button>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </div>
+    );
+
+    return (
+        <div style={{ width: '100%', height: '100dvh', fontFamily: '"Comic Sans MS", cursive' }}>
+            {gameState === 'intro' && renderIntro()}
+            {(gameState === 'playing' || gameState === 'win') && renderPlaying()}
+            {gameState === 'complete' && (
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '100dvh', background: '#020617', textAlign: 'center' }}>
+                    <div style={{ fontSize: '8rem' }}>💎✨</div>
+                    <h1 style={{ fontSize: '3.5rem', color: '#FFEB3B', fontWeight: 900 }}>LIGHT MASTER!</h1>
+                    <p style={{ fontSize: '1.5rem', color: 'white' }}>You solved all optical puzzles!</p>
+                    <button onClick={onBack} style={{ marginTop: '40px', padding: '20px 60px', borderRadius: '35px', background: '#FFEB3B', color: '#000', fontSize: '1.8rem', fontWeight: 900, cursor: 'pointer' }}>BACK TO HUB</button>
+                </div>
+            )}
         </div>
     );
 };

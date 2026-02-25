@@ -434,10 +434,16 @@ function AppContent() {
     }
   };
 
+  const IMMERSIVE_MODESCount = [
+    'bubble-multi', 'direction-adventure', 'traffic-hero',
+    'night-safety', 'force-motion', 'gravity-drop', 'light-beam'
+  ];
+  const isImmersiveMode = IMMERSIVE_MODESCount.includes(currentMode);
+
   return (
     <div style={{
       minHeight: '100vh',
-      background: '#f8fafc',
+      background: isImmersiveMode ? '#000' : '#f8fafc', // Darker background for immersive games
       fontFamily: 'sans-serif',
       overflowX: 'hidden',
       position: 'relative'
@@ -449,20 +455,23 @@ function AppContent() {
         currentMode={currentMode}
       />
 
-      <GlobalHeader
-        onShowSettings={() => setShowSettings(true)}
-        onMenuClick={() => setIsSidebarOpen(true)}
-        onHomeClick={() => navigate('home')}
-      />
+      {!isImmersiveMode && (
+        <GlobalHeader
+          onShowSettings={() => setShowSettings(true)}
+          onMenuClick={() => setIsSidebarOpen(true)}
+          onHomeClick={() => navigate('home')}
+        />
+      )}
 
       <div style={{
-        paddingTop: '90px',
-        paddingBottom: '40px',
-        WebkitOverflowScrolling: 'touch' // Smooth scroll on iOS
+        paddingTop: isImmersiveMode ? '0' : '90px',
+        paddingBottom: isImmersiveMode ? '0' : '40px',
+        WebkitOverflowScrolling: 'touch'
       }}>
         <Suspense fallback={
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '50vh' }}>
-            <div className="loader">Loading Game...</div>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh', background: '#0F172A', color: 'white' }}>
+            <motion.div animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 1 }}>⏳</motion.div>
+            <div style={{ marginLeft: '10px', fontWeight: 900 }}>Loading Game...</div>
           </div>
         }>
           {renderContent()}
